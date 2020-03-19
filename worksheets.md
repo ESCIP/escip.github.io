@@ -12,6 +12,9 @@ Below is a collection of Jupyter Notebook worksheets.
     [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tluchko/notebook-test/blob/master/simple-test.ipynb)
   * [Linear Variational Method](https://github.com/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Linear%20Variational%20Method.ipynb)
     [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Linear%20Variational%20Method.ipynb)
+  * [Gaussian Wavepacket Dynamics](https://github.com/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Wavepacket_animations.ipynb)
+  [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Wavepacket_animations.ipynb)
+  
    
     
     
