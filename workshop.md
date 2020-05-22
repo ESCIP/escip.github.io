@@ -1,7 +1,7 @@
 ---
 layout: page
 title:  ESCIP Workshops
-permalink: /workshop-2020/
+permalink: /workshops/
 ---
 
 Contact person: Grace Stokes, Santa Clara University, (<gstokes@scu.edu>)
@@ -9,9 +9,9 @@ Contact person: Grace Stokes, Santa Clara University, (<gstokes@scu.edu>)
 The goal for the ESCIP workshops is to bring together chemistry, physics, and astronomy faculty to share existing resources and develop new Python coding exercises using Jupyter Notebooks to teach undergraduate science courses that are not computationally-focused (targeting novice programmers).
 
 Due to the COVID19 pandemic, the in-person ESCIP Workshop has been delayed until July 2021. It will be held immediately before the Cottrell Scholars Meeting in Tuscon, AZ (exact dates TBA). 
-During summer 2020, we will hold a "mini ESCIP Workshop" virtually on June 19 and June 30. The goals of this workshop are to develop programming modules that enhance existing learning objectives and to discuss more broadly the ways in which programming can be integrated into the physical sciences curricula.
+During summer 2020, we will hold [mini ESCIP Workshops](/workshops/2020) virtually on June 19 and June 30. The goals of this workshop are to develop programming modules that enhance existing learning objectives and to discuss more broadly the ways in which programming can be integrated into the physical sciences curricula.
 
-Thanks to support from the Cottrell Scholar Collaborative, all costs (including housing and meals) associated with the in-person workshop are covered. If travel costs will be participation-limiting, a limited number of scholarships are available. We also anticipate being able to offer a modest honorarium upon publication of a Python exercise in the ESCIP repository. 
+Thanks to support from the Cottrell Scholar Collaborative, all costs (including housing and meals) associated with the in-person workshop will be covered. If travel costs will be participation-limiting, a limited number of scholarships are available. We also anticipate being able to offer a modest honorarium upon publication of a Python exercise in the ESCIP repository. 
 
 If you are interested in attending either workshop and did not complete the interest form in March 2020, please contact the workshop organizer Grace Stokes.
 
