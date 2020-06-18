@@ -5,8 +5,8 @@
   colab: github/tluchko/notebook-test/blob/master/simple-test.ipynb
   
 - name: Linear Variational Method
-  url: https://github.com/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Linear_Variational_Method.ipynb
-  colab: github/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Linear%20Variational%20Method.ipynb
+  url: https://github.com/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Linear_Variational_Method_Demo.ipynb
+  colab: github/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Linear_Variational_Method_Demo.ipynb
 
 - name: Gaussian Wavepacket Dynamics
   url: https://github.com/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Wavepacket_animations.ipynb
