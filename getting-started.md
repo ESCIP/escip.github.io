@@ -19,3 +19,10 @@ In particular, for a "quick start", we recommend
 - [Plotting data with MatPlotLib](https://education.molssi.org/python_scripting_cms/05-plotting/index.html)
 
 - [Writing custom functions](https://education.molssi.org/python_scripting_cms/06-functions/index.html)
+
+Note that some of the example notebooks on the [Worksheets](https://escip.github.io/Worksheets/) require several more advanced features of python, numpy, and matplotlib.  Some additional resources beyond the MolSSI lessons above include
+
+- [Animation with MatPlotLib](https://towardsdatascience.com/animations-with-matplotlib-d96375c5442c)
+
+- [Linear Algebra with NumPy](https://numpy.org/doc/stable/reference/routines.linalg.html)
+
