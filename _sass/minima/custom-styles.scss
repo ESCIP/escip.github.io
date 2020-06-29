@@ -1,6 +1,64 @@
 .banner {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    margin:0;
+    // border: 1px;
+    // border-style: solid;
+    padding:0;
     .feature-img {
-	max-width: 100%;
-	padding-bottom: 5ex;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+	display: none;
     }
+    .select-left {left:0; border-radius: 0 3px 3px 0;}
+    .select-right {right:0; border-radius: 3px 0 0 3px;}
+    .select-left, .select-right {
+	width:auto;
+	top:50%;
+	padding: 16px;
+	margin-top: -22px;
+	position:absolute;
+	cursor:pointer;
+	vertical-align:top;
+	user-select: none;
+	color: black;
+	font-weight: bold;
+	font-size: 18px;
+	background-color: rgba(0,0,0,0.1);
+    }
+    .select-left:hover, .select-right:hover {
+	background-color: rgba(0,0,0,0.5);
+	text-decoration: none;
+    }
+
 }
+.nav {
+    height: 2ex;
+    width: 100%;
+    bottom: -1ex;
+    position:relative;
+    text-align:center;
+    // border: 1px solid;
+    padding-bottom:5ex;
+    margin:0;
+    vertical-align: top;
+    .dot {
+	height:2ex;
+	width:2ex;
+	background-color: #bbb;
+	border-radius: 50%;
+	vertical-align: top;
+	display: inline-block;
+	cursor: pointer;
+	margin: 0 2px;
+    }
+    .active, .dot:hover {
+	background-color: #717171;
+    }
+
+}
+
