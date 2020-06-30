@@ -28,11 +28,19 @@
 	color: black;
 	font-weight: bold;
 	font-size: 18px;
-	background-color: rgba(0,0,0,0.1);
+	background-color: rgba(220,220,220,.5);
     }
+
+    // only invert colors on devices that support hovering
+    @media (hover:hover) {
+	.select-left:hover, .select-right:hover {
+	    color: white;
+	    background-color: rgba(0,0,0,0.5);
+	}
+    }
+    
     .select-left:hover, .select-right:hover {
-	background-color: rgba(0,0,0,0.5);
-	text-decoration: none;
+	    text-decoration: none;
     }
 
 }
@@ -62,3 +70,8 @@
 
 }
 
+@media (hover:hover) {
+   button:hover {
+      background: green;
+   }
+}
