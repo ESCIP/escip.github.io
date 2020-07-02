@@ -56,7 +56,7 @@ plugins:
 header_pages:
   - why-jupyter.md
   - getting-started.md
-  - worksheets.md
+  - notebooks.md
   - workshop.md
 
 # Exclude from processing.

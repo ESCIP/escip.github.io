@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Worksheets
-permalink: /Worksheets/
+title: Notebooks
+permalink: /Notebooks/
 ---
 
 <style type="text/css">
