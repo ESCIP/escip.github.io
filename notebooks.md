@@ -44,7 +44,7 @@ button {
 
 </style>
 
-Below is a collection of Jupyter Notebook worksheets.
+Below is a collection of contributed Jupyter Notebooks.
 
 <div id="tableID">
 <div class="row" style="margin-bottom:10px;">
