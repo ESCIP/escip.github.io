@@ -6,7 +6,7 @@ layout: default
 <div class="banner">
   <!-- add each image -->
   {%- for image in page.header.overlay_images -%}
-  <img class="feature-img" src={{ image }}/>
+  <img class="feature-img" src="{{ image }}">
   {%- endfor -%}
   <!-- selector buttons -->
   <a class="select-left" onclick="plusDivs(-1)">&#10094;</a>
