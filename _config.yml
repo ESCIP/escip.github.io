@@ -19,14 +19,33 @@
 # in the templates via {{ site.myvariable }}.
 
 title: ESCIP
+
 author: Enhancing Science Courses by Integrating Python
+
 email: gstokes@scu.edu
-description: >- # this means to ignore newlines until "baseurl:"
-  Enhancing Science Courses by Integrating Python (ESCIP) is a
-  collaborative dedicated to providing easy access to Jupyter
-  Notebooks for chemistry, physics and astronomy education.
+
+description: >- # this means to ignore newlines until "description_full:"
+  Enhancing Science Courses by Integrating Python (ESCIP) is funded by
+  the Research Corporation for Scientific Advancement
+  through the Cottrell Scholars Collaborative program.
+
+# The standard description can't have any HTML tags, so we re-write it here. This is picked up in our custom `_includes/footer.html`
+description_html: >- # this means to ignore newlines until "logos:"
+  Enhancing Science Courses by Integrating Python (ESCIP) is funded by
+  the <a href="https://rescorp.org">Research Corporation for Scientific Advancement</a>
+  through the <a href="https://rescorp.org/cottrell-scholars/cottrell-scholars-collaborative">Cottrell Scholars Collaborative</a> program.
+
+# logos to follow the description.  Each should have `src` for the
+# image location, `href` for where it links to and `alt` for alt text.
+logos:
+  - src: https://rescorp.org/imgs/rcsa_logo.png
+    href: https://rescorp.org
+    alt: RCSA Logo
+
 baseurl: "" # the subpath of your site, e.g. /blog
+
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
 # github_username:  jekyll
 
 # Build settings
