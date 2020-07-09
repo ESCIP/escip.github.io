@@ -6,6 +6,10 @@ layout: home
 header:
   overlay_images:
     - /assets/images/example_ESCIP_logo.jpeg
+    - /assets/images/1-2s-mpl.png
+    - /assets/images/2_2p-orbitals.png
+    - /assets/images/3_code.png
+    - /assets/images/4_3p.png
 ---
 Welcome to Enhancing Science Courses by Integrating Python (ESCIP).
 
