@@ -6,8 +6,9 @@ layout: home
 header:
   overlay_images:
     - /assets/images/example_ESCIP_logo.jpeg
-    - /assets/images/junk.png
-    - /assets/images/DSCF0506_(1).jpg
+    - /assets/images/1_2-orbitals-plotly.png
+    - /assets/images/2_p-orbitals-plotly.png
+    - /assets/images/3_3p.png
 ---
 Welcome to Enhancing Science Courses by Integrating Python (ESCIP).
 
