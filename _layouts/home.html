@@ -27,23 +27,26 @@ https://stackoverflow.com/a/43961489
 <script>
   var slideIndex = 1;
   var slides, dots;
+  var timer;
+  var delay = 4000; // Change image every 4 seconds
   showSlides();
   
   function plusDivs(n) {
+      clearTimeout(timer); //stop updating the image
       slideIndex += n;
-      setSlide(slideIndex);
+      showSlides()
   }
   
   function currentDiv(n) {
+      clearTimeout(timer); //stop updating the image
       slideIndex = n;
-      setSlide(slideIndex);
+      showSlides()
   }
   
   function showSlides() {
       
       setSlide(slideIndex);
-      slideIndex++;
-      setTimeout(showSlides, 4000); // Change image every 2 seconds
+      timer = setTimeout(function(){slideIndex++; showSlides();}, delay); 
       
   }
 

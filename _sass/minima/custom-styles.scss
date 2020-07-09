@@ -6,6 +6,15 @@
     border-radius: 30px;
 }
 
+.site-nav {
+    @include media-query($on-palm) {
+	// ensure that the mobile navigation menu always appears on top
+	z-index: 9999;
+    }
+
+}
+
+
 .banner {
     width: 100%;
     height: 200px;
