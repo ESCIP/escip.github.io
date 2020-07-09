@@ -3,5 +3,19 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
+header:
+  overlay_images:
+    - /assets/images/example_ESCIP_logo.jpeg
+    - /assets/images/1_2-orbitals-plotly.png
+    - /assets/images/2_p-orbitals-plotly.png
+    - /assets/images/3_3p.png
 ---
-Welcome to Enhancing Science Courses by Integrating Python.
+Welcome to Enhancing Science Courses by Integrating Python (ESCIP).
+
+ESCIP is a collaborative dedicated to providing easy access to
+[Jupyter Notebooks](https://jupyter.org) for chemistry, physics and
+astronomy education. We aim to build faculty networks and facilitate
+the sharing of instructional modules through virtual and in-person
+workshops, as well as a [repository](/Worksheets/) of Jupyter
+Notebooks for educators and students.
+

@@ -2,6 +2,69 @@
 layout: default
 ---
 
+{%- if page.header.overlay_images -%}
+<div class="banner">
+  <!-- add each image -->
+  {%- for image in page.header.overlay_images -%}
+  <img class="feature-img" src={{ image }}/>
+  {%- endfor -%}
+  <!-- selector buttons -->
+  <a class="select-left" onclick="plusDivs(-1)">&#10094;</a>
+  <a class="select-right" onclick="plusDivs(1)">&#10095;</a>
+</div>
+<!-- add a navigation dot for each image -->
+<div class="nav">
+  {%- for image in page.header.overlay_images -%}
+  <span class="dot demo" onclick="currentDiv({{ forloop.index }})"></span>
+  {%- endfor -%}
+</div>
+
+<!-- 
+JavaScript adapted from 
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_slideshow 
+https://stackoverflow.com/a/43961489
+-->
+<script>
+  var slideIndex = 1;
+  var slides, dots;
+  showSlides();
+  
+  function plusDivs(n) {
+      slideIndex += n;
+      setSlide(slideIndex);
+  }
+  
+  function currentDiv(n) {
+      slideIndex = n;
+      setSlide(slideIndex);
+  }
+  
+  function showSlides() {
+      
+      setSlide(slideIndex);
+      slideIndex++;
+      setTimeout(showSlides, 4000); // Change image every 2 seconds
+      
+  }
+
+  function setSlide(n) {
+      var i;
+      slides = document.getElementsByClassName("feature-img");
+      dots = document.getElementsByClassName("dot");
+      if (slideIndex > slides.length) {slideIndex = 1}
+      if (slideIndex < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+	  slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+	  dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+  }
+</script>
+{%- endif -%}
+
 <div class="home">
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
