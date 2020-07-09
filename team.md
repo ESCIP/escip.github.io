@@ -6,33 +6,44 @@ permalink: /Team/
 
 # ESCIP Founders
 
-
-![Image alt](/assets/images/person.png "Grace Stokes"){:.feature_image}
-
-**Grace Stokes**  
+<img src="/assets/images/person.png"
+	 alt="Grace Stokes"
+	 class="personal_photo">
+[**Grace Stokes**](https://blogs.scu.edu/stokeslab/)  
 Santa Clara University  
 
 <div style="clear:both;"></div>
 
-![Image alt](/assets/images/person.png "Jonathan Foley"){:.feature_image}
+<img src="/assets/images/person.png"
+	 alt="Jonathan Foley"
+	 class="personal_photo">
 **Jonathan Foley**  
 William Paterson  
 
 <div style="clear:both;"></div>
 
-![Image alt](/assets/images/person.png "Tyler Luchko"){:.feature_image}
+<img srcset="/assets/images/Tyler_luchko_1x.jpg 1x,
+             /assets/images/Tyler_luchko_2x.jpg 2x,
+             /assets/images/Tyler_luchko_3x.jpg 3x"
+     src="/assets/images/Tyler_luchko_3x.jpg"
+	 alt="Tyler Luchko"
+	 class="personal_photo">
 [**Tyler Luchko**](https://luchkolab.org)  
 California State University, Northridge  
 
 <div style="clear:both;"></div>
 
-![Image alt](/assets/images/person.png "Chad Risko"){:.feature_image}
+<img src="/assets/images/person.png"
+	 alt="Chad Risko"
+	 class="personal_photo">
 **Chad Risko**  
-Kentuky  
+University of Kentuky  
 
 <div style="clear:both;"></div>
 
-![Image alt](/assets/images/person.png "Christina Vizcarra"){:.feature_image}
+<img src="/assets/images/person.png"
+	 alt="Christina Vizcarra"
+	 class="personal_photo">
 **Christina Vizcarra**  
 Barnard College  
 
