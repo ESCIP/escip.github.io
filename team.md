@@ -22,10 +22,10 @@ William Paterson
 
 <div style="clear:both;"></div>
 
-<img srcset="/assets/images/Tyler_luchko_1x.jpg 1x,
-             /assets/images/Tyler_luchko_2x.jpg 2x,
-             /assets/images/Tyler_luchko_3x.jpg 3x"
-     src="/assets/images/Tyler_luchko_3x.jpg"
+<img srcset="/assets/images/Tyler_Luchko_1x.jpg 1x,
+             /assets/images/Tyler_Luchko_2x.jpg 2x,
+             /assets/images/Tyler_Luchko_3x.jpg 3x"
+     src="/assets/images/Tyler_Luchko_3x.jpg"
 	 alt="Tyler Luchko"
 	 class="personal_photo">
 [**Tyler Luchko**](https://luchkolab.org)  
@@ -41,7 +41,10 @@ University of Kentuky
 
 <div style="clear:both;"></div>
 
-<img src="/assets/images/person.png"
+<img srcset="/assets/images/Christina_Vizcarra_1x.jpg 1x,
+             /assets/images/Christina_Vizcarra_2x.jpg 2x,
+             /assets/images/Christina_Vizcarra_3x.jpg 3x"
+     src="/assets/images/person.png"
 	 alt="Christina Vizcarra"
 	 class="personal_photo">
 **Christina Vizcarra**  
