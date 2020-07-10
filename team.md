@@ -50,6 +50,6 @@ University of Kentuky
      src="/assets/images/person.png"
 	 alt="Christina Vizcarra"
 	 class="personal_photo">
-**Christina Vizcarra**  
+[**Christina Vizcarra**](https://chemistry.barnard.edu/profiles/christina-vizcarra)  
 Barnard College  
 
