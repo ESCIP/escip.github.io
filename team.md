@@ -17,11 +17,14 @@ Santa Clara University
 
 <div style="clear:both;"></div>
 
-<img src="/assets/images/person.png"
+<img srcset="/assets/images/Jonathan_Foley_1x.jpg 1x,
+             /assets/images/Jonathan_Foley_2x.jpg 2x,
+			 /assets/images/Jonathan_Foley_3x.jpg 3x"
+     src="/assets/images/Jonathan_Foley_1x.jpg"
 	 alt="Jonathan Foley"
 	 class="personal_photo">
-**Jonathan Foley**  
-William Paterson  
+[**Jonathan Foley**](https://foleylab.github.io/)  
+William Paterson University  
 
 <div style="clear:both;"></div>
 
@@ -47,7 +50,7 @@ University of Kentuky
 <img srcset="/assets/images/Christina_Vizcarra_1x.jpg 1x,
              /assets/images/Christina_Vizcarra_2x.jpg 2x,
              /assets/images/Christina_Vizcarra_3x.jpg 3x"
-     src="/assets/images/person.png"
+     src="/assets/images/Christina_Vizcarra_3x.jpg"
 	 alt="Christina Vizcarra"
 	 class="personal_photo">
 [**Christina Vizcarra**](https://chemistry.barnard.edu/profiles/christina-vizcarra)  
