@@ -6,7 +6,10 @@ permalink: /Team/
 
 # ESCIP Founders
 
-<img src="/assets/images/person.png"
+<img srcset="/assets/images/Grace_Stokes_1x.jpg 1x,
+             /assets/images/Grace_Stokes_2x.jpg 2x,
+             /assets/images/Grace_Stokes_3x.jpg 3x"
+     src="/assets/images/person.png"
 	 alt="Grace Stokes"
 	 class="personal_photo">
 [**Grace Stokes**](https://blogs.scu.edu/stokeslab/)  
