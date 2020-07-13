@@ -1,0 +1,5 @@
+name,url,binder,azure_notebook,colab
+Notebook-test,https://github.com/tluchko/notebook-test,v2/gh/tluchko/notebook-test/master?filepath=simple-test.ipynb,tluchko/projects/notebook-test,github/tluchko/notebook-test/blob/master/simple-test.ipynb
+Linear Variational Method,https://github.com/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Linear_Variational_Method_Demo.ipynb,,,github/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Linear_Variational_Method_Demo.ipynb
+Gaussian Wavepacket Dynamics,https://github.com/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Wavepacket_animations.ipynb,,,github/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Wavepacket_animations.ipynb
+Right-Hand-Rules,https://github.com/tluchko/right-hand-rules,v2/gh/tluchko/right-hand-rules/master?filepath=right-hand-rules.ipynb,,github/tluchko/right-hand-rules/blob/master/right-hand-rules.ipynb

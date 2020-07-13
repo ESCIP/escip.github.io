@@ -59,7 +59,7 @@ Below is a collection of contributed Jupyter Notebooks.
 	</thead>
     <!-- IMPORTANT, class="list" must be on tbody -->
     <tbody class="list">
-{% for worksheet in site.data.worksheets %}
+{% for worksheet in site.data.notebooks %}
 	<tr>
 		<td class="sortName">
 			<a href="{{ worksheet.url }}">
