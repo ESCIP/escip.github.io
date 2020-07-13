@@ -3,19 +3,14 @@ layout: page
 title: Notebooks
 permalink: /Notebooks/
 ---
-
-<style type="text/css">
-
-</style>
-
 Below is a collection of contributed Jupyter Notebooks.
 
 <div id="tableID">
 <div class="row" style="margin-bottom:10px;">
-		<input type="text" class="search form-control" placeholder="Search" />
+	<input type="text" class="search form-control" placeholder="Search" />
 </div>
-<table class="table">
-	<thead>
+<table class="notebook-table">
+<thead>
 		<th><button type="button" class="sort" data-sort="sortName">Name<i class="caret"></i></button></th>
 		<th><button type="button" class="sort" data-sort="sortBinder">Binder</button></th>
 		<th><button type="button" class="sort textright" data-sort="sortAzure">Azure Notebook</button></th>
