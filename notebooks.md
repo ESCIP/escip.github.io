@@ -12,9 +12,11 @@ Below is a collection of contributed Jupyter Notebooks.
 <table class="notebook-table">
 <thead>
 		<th><button type="button" class="sort" data-sort="sortName">Name<i class="caret"></i></button></th>
-		<th><button type="button" class="sort" data-sort="sortBinder">Binder</button></th>
-		<th><button type="button" class="sort textright" data-sort="sortAzure">Azure Notebook</button></th>
-		<th><button type="button" class="sort textright" data-sort="sortColab">Google CoLab</button></th>
+		<th><button type="button" class="sort" data-sort="sortKeywords">Keywords<i class="caret"></i></button></th>
+		<th><button type="button" class="sort" data-sort="sortLevel">Level<i class="caret"></i></button></th>
+		<th><button type="button" class="sort" data-sort="sortBinder">Binder<i class="caret"></i></button></th>
+		<!-- <th><button type="button" class="sort textright" data-sort="sortAzure">Azure Notebook</button></th> -->
+		<th><button type="button" class="sort textright" data-sort="sortColab">Google CoLab<i class="caret"></i></button></th>
 	</thead>
     <!-- IMPORTANT, class="list" must be on tbody -->
     <tbody class="list">
@@ -25,6 +27,12 @@ Below is a collection of contributed Jupyter Notebooks.
 				{{ worksheet.name }}
 			</a>
 		</td>
+		<td class="sortKeywords">
+			{{ worksheet.keywords }}
+		</td>
+		<td class="sortLevel">
+			{{ worksheet.level }}
+		</td>
         <td class="sortBinder">
 	{% if worksheet.binder %}
 			<a href="https://mybinder.org/{{ worksheet.binder }}">
@@ -32,13 +40,13 @@ Below is a collection of contributed Jupyter Notebooks.
 			</a>
 	{% endif %}
 		</td>
-        <td class="sortAzure">
-	{% if worksheet.azure_notebook %}
-			<a href="https://notebooks.azure.com/{{ worksheet.azure_notebook }}">
-				<img src="https://notebooks.azure.com/launch.svg">
-			</a>
-	{% endif %}
-		</td>
+    <!--     <td class="sortAzure"> -->
+	<!-- {% if worksheet.azure_notebook %} -->
+	<!-- 		<a href="https://notebooks.azure.com/{{ worksheet.azure_notebook }}"> -->
+	<!-- 			<img src="https://notebooks.azure.com/launch.svg"> -->
+	<!-- 		</a> -->
+	<!-- {% endif %} -->
+	<!-- 	</td> -->
         <td class="sortColab">
 	{% if worksheet.colab %}
 			<a href="https://colab.research.google.com/{{ worksheet.colab }}">
@@ -56,7 +64,7 @@ Below is a collection of contributed Jupyter Notebooks.
 <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <script type="text/javascript">
     var options = {
-        valueNames: [ 'sortName']
+        valueNames: [ 'sortName', 'sortKeywords', 'sortLevel', 'sortBinder', 'sortColab']
     };
     var contactList = new List('tableID', options);
 </script>
