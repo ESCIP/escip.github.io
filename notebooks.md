@@ -5,42 +5,6 @@ permalink: /Notebooks/
 ---
 
 <style type="text/css">
-button {
-  background:none;
-  background-color:transparent;
-  box-shadow:none; border:none;
-  font-family:inherit; color:inherit;
-  border-radius:0;
-  cursor:pointer; }
-
-.caret { line-height:0; }
-.caret:after { content:""; }
-.asc .caret:after {
-  width: 0;
-  height: 0;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-top: 3px solid #808080;
-  content: "";
-  position: relative;
-  top: -3px;
-  right: -4px;
-  font-size:0; }
-.desc .caret:after {
-  width: 0;
-  height: 0;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-bottom: 3px solid #808080;
-  content: "";
-  position: relative;
-  top: -7px;
-  right: -4px;
-  font-size:0; }
-.sort .caret { display:none; }
-.sort.asc .caret { display:inline-block; }
-.sort.desc .caret { display:inline-block; }
-.sortUnitPrice, .sortQty, .sortTotal { min-width:90px; }
 
 </style>
 
