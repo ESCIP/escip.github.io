@@ -8,7 +8,7 @@ Use the search box below to find contributed Jupyter Notebooks to use
 in your course.  If you have a Jupyter Notebook to contribute, please
 fill out this [form](/notebook-submission-google-form.html) (Google Forms) or this [form](/notebook-submission-typeform.html) (Typeform).
 
-<div id="tableID">
+<div id="tableID" style="overflow-x:auto;">
 <div class="row" style="margin-bottom:10px;">
     <!-- 'fuzzy-search' combines multiple search terms with AND and
     searches across all columns.  'search' uses an exact text
@@ -17,12 +17,32 @@ fill out this [form](/notebook-submission-google-form.html) (Google Forms) or th
 </div>
 <table class="notebook-table">
 <thead>
-		<th><button type="button" class="sort" data-sort="sortName">Name<i class="caret"></i></button></th>
-		<th><button type="button" class="sort" data-sort="sortKeywords">Keywords<i class="caret"></i></button></th>
-		<th><button type="button" class="sort" data-sort="sortLevel">Level<i class="caret"></i></button></th>
-		<th><button type="button" class="sort" data-sort="sortBinder">Binder<i class="caret"></i></button></th>
+		<th>
+			<button type="button" class="sort" data-sort="sortName">
+				<div class="text">Name</div><i class="unsorted_caret"></i><i class="sorted_caret"></i>
+			</button>
+		</th>
+		<th>
+			<button type="button" class="sort" data-sort="sortKeywords">
+				<div class="text">Keywords</div><i class="unsorted_caret"></i><i class="sorted_caret"></i>
+			</button>
+		</th>
+		<th>
+			<button type="button" class="sort" data-sort="sortLevel">
+				<div class="text">Level</div><i class="unsorted_caret"></i><i class="sorted_caret"></i>
+			</button>
+		</th>
+		<th>
+			<button type="button" class="sort" data-sort="sortBinder">
+				<div class="text">Binder</div><i class="unsorted_caret"></i><i class="sorted_caret"></i>
+			</button>
+		</th>
 		<!-- <th><button type="button" class="sort textright" data-sort="sortAzure">Azure Notebook</button></th> -->
-		<th><button type="button" class="sort textright" data-sort="sortColab">Google CoLab<i class="caret"></i></button></th>
+		<th>
+			<button type="button" class="sort" data-sort="sortColab">
+				<div class="text">Google CoLab</div><i class="unsorted_caret"></i><i class="sorted_caret"></i>
+			</button>
+		</th>
 	</thead>
     <!-- IMPORTANT, class="list" must be on tbody -->
     <tbody class="list">

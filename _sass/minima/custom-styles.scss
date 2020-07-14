@@ -116,15 +116,24 @@
 	color:inherit;
 	border-radius:0;
 	cursor:pointer;
+	white-space: nowrap;
+	margin: 0px;
+	padding: 0px;
 	font: {
 	    size: inherit;
 	    weight: bold;
 	}
+	vertical-align:middle;
+	.text {
+	    vertical-align:middle;
+	    display: inline-block;
+	    white-space: normal;
+	}
     }
 
-    .caret { line-height:0; }
-    .caret:after { content:""; }
-    .asc .caret:after {
+    // unsorted_caret are a stacked up/down triangles. These are shown
+    // when the asc and desc attributes do not apply
+    .unsorted_caret {
 	width: 0;
 	height: 0;
 	// sets caret size
@@ -133,10 +142,12 @@
 	border-top: 6px solid #808080;
 	content: "";
 	position: relative;
-	top: -3px;
+	top: 3px;
 	right: -4px;
-	font-size:0px; }
-    .desc .caret:after {
+	font-size:0px;
+	vertical-align:middle;
+    }
+    .unsorted_caret:after {
 	width: 0;
 	height: 0;
 	// sets caret size
@@ -144,12 +155,57 @@
 	border-right: 6px solid transparent;
 	border-bottom: 6px solid #808080;
 	content: "";
+	position: absolute;
+	top: -13px;
+	left: -6px;
+	font-size:0px;
+    }
+
+    // sorted_caret shows just one of the up/down triangles, depending
+    // on the asc and desc attributes.  These overlap with the
+    // unsorted triangles.
+    .sorted_caret { line-height:0; }
+    .sorted_caret:after { content:""; }
+    .asc .sorted_caret {
+	width: 0;
+	height: 0;
+	// sets caret size
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #808080;
+	content: "";
 	position: relative;
-	top: -7px;
+	top: 3px;
 	right: -4px;
+	font-size:0px; }
+    .desc .sorted_caret {
+	width: 0;
+	height: 0;
+	// sets caret size
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid transparent;
+	content: "";
+	position: relative;
+	top: 3px;
+	right: -4px;
+	font-size:0px; }
+    .desc .sorted_caret:after {
+	width: 0;
+	height: 0;
+	// sets caret size
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid #808080;
+	content: "";
+	position: absolute;
+	top: -13px;
+	left: -6px;
 	font-size:0; }
-    .sort .caret { display:none; }
-    .sort.asc .caret { display:inline-block; }
-    .sort.desc .caret { display:inline-block; }
-    .sortUnitPrice, .sortQty, .sortTotal { min-width:90px; }
+    .sort .unsorted_caret { display:inline-block; }
+    .sort.asc .unsorted_caret { display:none; }
+    .sort.desc .unsorted_caret { display:none; }
+    .sort .sorted_caret { display:none; }
+    .sort.asc .sorted_caret { display:inline-block; }
+    .sort.desc .sorted_caret { display:inline-block; }
 }
