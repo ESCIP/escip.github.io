@@ -7,7 +7,10 @@ Below is a collection of contributed Jupyter Notebooks.
 
 <div id="tableID">
 <div class="row" style="margin-bottom:10px;">
-	<input type="text" class="search form-control" placeholder="Search" />
+    <!-- 'fuzzy-search' combines multiple search terms with AND and
+    searches across all columns.  'search' uses an exact text
+    search. -->
+	<input type="text" class="fuzzy-search form-control" placeholder="Search" />
 </div>
 <table class="notebook-table">
 <thead>
@@ -63,8 +66,8 @@ Below is a collection of contributed Jupyter Notebooks.
     
 <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <script type="text/javascript">
-    var options = {
-        valueNames: [ 'sortName', 'sortKeywords', 'sortLevel', 'sortBinder', 'sortColab']
+	var options = {
+        valueNames: [ 'sortName', 'sortKeywords', 'sortLevel', 'sortBinder', 'sortColab'],
     };
     var contactList = new List('tableID', options);
 </script>
