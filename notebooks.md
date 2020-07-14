@@ -3,7 +3,10 @@ layout: page
 title: Notebooks
 permalink: /Notebooks/
 ---
-Below is a collection of contributed Jupyter Notebooks.
+
+Use the search box below to find contributed Jupyter Notebooks to use
+in your course.  If you have a Jupyter Notebook to contribute, please
+fill out this [form](/notebook-submission-google-form.html) (Google Forms) or this [form](/notebook-submission-typeform.html) (Typeform).
 
 <div id="tableID">
 <div class="row" style="margin-bottom:10px;">
