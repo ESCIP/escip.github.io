@@ -4,8 +4,6 @@ title:  ESCIP Workshops
 permalink: /workshops/
 ---
 
-Contact person: Grace Stokes, Santa Clara University, (<gstokes@scu.edu>)
- 
 The goal for the ESCIP workshops is to bring together chemistry, physics, and astronomy faculty to share existing resources and develop new Python coding exercises using Jupyter Notebooks to teach undergraduate science courses that are not computationally-focused (targeting novice programmers).
 
 ## Summer 2020 Virtual Workshops
