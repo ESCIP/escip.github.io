@@ -6,7 +6,7 @@ permalink: /Notebooks/
 
 Use the search box below to find contributed Jupyter Notebooks to use
 in your course.  If you have a Jupyter Notebook to contribute, please
-fill out this [form](/notebook-submission-google-form.html).
+fill out this [form](/notebook-submission-form.html).
 
 <div id="tableID" style="overflow-x:auto;">
 <div class="row" style="margin-bottom:10px;">
