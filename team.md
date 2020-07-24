@@ -39,7 +39,10 @@ California State University, Northridge
 
 <div style="clear:both;"></div>
 
-<img src="/assets/images/person.png"
+<img srcset="/assets/images/Chad_Risko_1x.jpg 1x,
+             /assets/images/Chad_Risko_2x.jpg 2x,
+             /assets/images/Chad_Risko_3x.jpg 3x"
+	 src="/assets/images/person.png"
 	 alt="Chad Risko"
 	 class="personal_photo">
 **Chad Risko**  
