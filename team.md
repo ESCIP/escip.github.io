@@ -45,7 +45,7 @@ California State University, Northridge
 	 src="/assets/images/person.png"
 	 alt="Chad Risko"
 	 class="personal_photo">
-**Chad Risko**  
+[**Chad Risko**](https://risko.as.uky.edu/)  
 University of Kentuky  
 
 <div style="clear:both;"></div>
