@@ -61,7 +61,7 @@ fill out this [form](/notebook-submission-form.html).
 		</td>
         <td class="sortBinder">
 	{% if worksheet.binder %}
-			<a href="https://mybinder.org/{{ worksheet.binder }}">
+			<a href="{{ worksheet.binder }}">
 				<img src="https://mybinder.org/badge_logo.svg">
 			</a>
 	{% endif %}
@@ -75,7 +75,7 @@ fill out this [form](/notebook-submission-form.html).
 	<!-- 	</td> -->
         <td class="sortColab">
 	{% if worksheet.colab %}
-			<a href="https://colab.research.google.com/{{ worksheet.colab }}">
+			<a href="{{ worksheet.colab }}">
 				<img src="https://colab.research.google.com/assets/colab-badge.svg">
 			</a>
 	{% endif %}
