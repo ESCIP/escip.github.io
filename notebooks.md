@@ -46,7 +46,8 @@ fill out this [form](/notebook-submission-form.html).
 	</thead>
     <!-- IMPORTANT, class="list" must be on tbody -->
     <tbody class="list">
-{% for worksheet in site.data.notebooks %}
+<!-- Go through each row in the CSV file in reverse order. Newest entries (bottom) row will appear at the top of the table.-->
+{% for worksheet in site.data.notebooks reversed %}
 	<tr>
 		<td class="sortName">
 			<a href="{{ worksheet.url }}">
