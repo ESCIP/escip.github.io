@@ -6,13 +6,13 @@ permalink: /workshops/
 
 The goal for the ESCIP workshops is to bring together chemistry, physics, and astronomy faculty to share existing resources and develop new Python coding exercises using Jupyter Notebooks to teach undergraduate science courses that are not computationally-focused (targeting novice programmers).
 
-## Summer 2021 In-Person Workshop
+## Summer 2022 In-Person Workshop
 
-Due to the COVID19 pandemic, the in-person ESCIP Workshop has been delayed until July 2021. It will be held immediately before the Cottrell Scholars Meeting in Tuscon, AZ (exact dates TBA). 
+Due to the COVID19 pandemic, the in-person ESCIP Workshop has been delayed until July 2022. It will be held immediately before the Cottrell Scholars Meeting in Tuscon, AZ (exact dates TBA). 
 
 Thanks to support from the Cottrell Scholar Collaborative, all costs (including housing and meals) associated with the in-person workshop will be covered. If travel costs will be participation-limiting, a limited number of scholarships are available. We also anticipate being able to offer a modest honorarium upon publication of a Python exercise in the ESCIP repository. 
 
-If you are interested in attending this workshop and did not complete the interest form in March 2020, please contact the workshop organizer Grace Stokes (escip@scu.edu).
+If you are interested in attending this workshop, please contact the workshop organizer Grace Stokes (escip@scu.edu).
 
 *Information about past workshops can be found [here](/workshops/2020).*
 
