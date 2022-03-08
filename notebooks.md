@@ -8,8 +8,14 @@ Use the search box below to find contributed Jupyter Notebooks to use
 in your course.  If you have a Jupyter Notebook to contribute, please
 fill out this [form](/notebook-submission-form.html).
 
-<div id="tableID" style="overflow-x:auto;">
-<div class="row" style="margin-bottom:10px;">
+
+<!-- Make the table wider than the column (150%) but not wider than
+the 90% of the view port (90vw) and keep the table centered. Once the
+table becomes too narrow, turn on a scroll bar.  adapted from
+https://stackoverflow.com/a/24895631 -->
+<div id="tableID" style="overflow-x:scroll;
+width: min(100vw, 110%); position: relative; left: calc( max(-55%,
+-50vw) + 50%);"> <div class="row" style="margin-bottom:10px;">
     <!-- 'fuzzy-search' combines multiple search terms with AND and
     searches across all columns.  'search' uses an exact text
     search. -->
@@ -20,6 +26,11 @@ fill out this [form](/notebook-submission-form.html).
 		<th>
 			<button type="button" class="sort" data-sort="sortName">
 				<div class="text">Name</div><i class="unsorted_caret"></i><i class="sorted_caret"></i>
+			</button>
+		</th>
+		<th>
+			<button type="button" class="sort" data-sort="sortAuthor">
+				<div class="text">Author</div><i class="unsorted_caret"></i><i class="sorted_caret"></i>
 			</button>
 		</th>
 		<th>
@@ -52,6 +63,11 @@ fill out this [form](/notebook-submission-form.html).
 		<td class="sortName">
 			<a href="{{ worksheet.url }}">
 				{{ worksheet.name }}
+			</a>
+		</td>
+		<td class="sortAuthor">
+			<a href="mailto:{{ worksheet.email }}">
+				{{ worksheet.author }}
 			</a>
 		</td>
 		<td class="sortKeywords">
@@ -91,7 +107,7 @@ fill out this [form](/notebook-submission-form.html).
 <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <script type="text/javascript">
 	var options = {
-        valueNames: [ 'sortName', 'sortKeywords', 'sortLevel', 'sortBinder', 'sortColab'],
+        valueNames: [ 'sortName', 'sortAuthor', 'sortKeywords', 'sortLevel', 'sortBinder', 'sortColab'],
     };
     var contactList = new List('tableID', options);
 </script>
