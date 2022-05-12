@@ -8,18 +8,12 @@ The goal for the ESCIP workshops is to bring together chemistry, physics, and as
 
 ## Summer 2022 In-Person Workshop
 
-Due to the COVID19 pandemic, the in-person ESCIP Workshop has been delayed until July 2022. It will be held immediately before the Cottrell Scholars Meeting in Tuscon, AZ (exact dates TBA). 
+Due to the COVID19 pandemic, the in-person ESCIP Workshop has been delayed until July 4-6, 2022. It will be held immediately before the Cottrell Scholars Meeting, which is scheduled for July 6-8, 2022 in Tuscon, AZ.
 
-Thanks to support from the Cottrell Scholar Collaborative, all costs (including housing and meals) associated with the in-person workshop will be covered. If travel costs will be participation-limiting, a limited number of scholarships are available. We also anticipate being able to offer a modest honorarium upon publication of a Python exercise in the ESCIP repository. 
+Thanks to support from the [Cottrell Scholar Collaborative](https://rescorp.org/cottrell-scholars/cottrell-scholars-collaborative), all costs (including housing and meals) associated with the in-person workshop will be covered. The goal for the two-day workshop is to bring together faculty who have used Python coding exercises to teach undergraduate chemistry, physics or astronomy courses. The majority of time will be devoted to working individually or collaboratively to actively write or adopt Python-based exercises that can be incorporated directly into existing or revamped courses. We will also budget time to share resources, discuss pedagogy, best practices and technical tools. Our goal is to produce a number of new or improved Jupyter Notebooks by the end of the workshop that we can share with the ESCIP community.
 
-If you are interested in attending this workshop, please contact the workshop organizer Grace Stokes (escip@scu.edu).
+The attendees for the 2022 workshop have already been selected, but if you are interested in learning more about the outcomes of this workshop, please contact the workshop organizer [Grace Stokes](mailto:escip@scu.edu).
 
 *Information about past workshops can be found [here](/workshops/2020).*
-
-
-<!--  At this workshop, we will share lived experiences (successes/pitfalls) of instructors who have incorporated coding exercises into science courses. Newer users will work together with experienced faculty to develop new modules for use in the classroom. As a work product of the conference, the attendees will help design and contribute to a web-based repository of Jupyter Notebooks and resources for implementing them most effectively.
-During summer 2020, we will held [mini ESCIP Workshops](/workshops/2020) virtually. The goals of this workshop were to develop programming modules that enhance existing learning objectives and to discuss more broadly the ways in which programming can be integrated into the physical sciences curricula.
-
-If you are interested in participating, please complete this [survey](https://docs.google.com/forms/d/e/1FAIpQLScM1ce7vc0OhwI-_IQBAItNDtgbHVqhDL_HoqosBjTugwKU2g/viewform) by Monday, March 5, 2020. --->
 
 
