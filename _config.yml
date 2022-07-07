@@ -41,6 +41,9 @@ logos:
   - src: https://rescorp.org/imgs/rcsa_logo.png
     href: https://rescorp.org
     alt: RCSA Logo
+  - src: /assets/logos/ESCIP\ Logo\ horizontal.png
+    href: https://escip.github.io
+    alt: ESCIP logo
 
 baseurl: "" # the subpath of your site, e.g. /blog
 
