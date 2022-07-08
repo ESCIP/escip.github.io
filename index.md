@@ -5,7 +5,7 @@
 layout: home
 header:
   overlay_images:
-    - /assets/logos/ESCIP\ Logo.png
+    - /assets/logos/ESCIP_Logo.png
     - /assets/images/1-2s-mpl.png
     - /assets/images/2_2p-orbitals.png
     - /assets/images/3_code.png
