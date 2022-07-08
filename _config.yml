@@ -29,6 +29,13 @@ description: >- # this means to ignore newlines until "description_full:"
   the Research Corporation for Scientific Advancement
   through the Cottrell Scholars Collaborative program.
 
+# logos for our organization
+logos:
+  - src: /assets/logos/ESCIP_Logo_horizontal.png
+    href: https://escip.github.io
+    alt: ESCIP logo
+
+
 # The standard description can't have any HTML tags, so we re-write it here. This is picked up in our custom `_includes/footer.html`
 description_html: >- # this means to ignore newlines until "logos:"
   Enhancing Science Courses by Integrating Python (ESCIP) is funded by
@@ -37,13 +44,10 @@ description_html: >- # this means to ignore newlines until "logos:"
 
 # logos to follow the description.  Each should have `src` for the
 # image location, `href` for where it links to and `alt` for alt text.
-logos:
+logos_funding:
   - src: https://rescorp.org/imgs/rcsa_logo.png
     href: https://rescorp.org
     alt: RCSA Logo
-  - src: /assets/logos/ESCIP_Logo_horizontal.png
-    href: https://escip.github.io
-    alt: ESCIP logo
 
 baseurl: "" # the subpath of your site, e.g. /blog
 
