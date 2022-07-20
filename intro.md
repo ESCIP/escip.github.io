@@ -21,7 +21,7 @@ workshops, as well as a repository of Jupyter Notebooks for educators and studen
 
 Meat the team ✏️
 ^^^
-
+ESCIP contributors and network
 :::
 
 :::{grid-item-card}
@@ -29,10 +29,10 @@ Meat the team ✏️
 :link-type: doc
 :class-header: bg-light
 
-MyST Markdown ✨
+Join us ✨
 ^^^
 
-Write MyST Markdown to create enriched documents with publication-quality features.
+Interested in contributing? We have a Slack chanel with 70+ faculty
 
 :::
 
