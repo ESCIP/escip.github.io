@@ -10,32 +10,30 @@ the sharing of instructional modules through virtual and in-person
 workshops, as well as a repository of Jupyter Notebooks for educators and students.
 ```
 
-(cards-clickable)=
-## Cards Clickable
+::::{grid}
+:gutter: 3
 
-:::{card} Clickable Card (external)
-:link: https://example.com
-
-The entire card can be clicked to navigate to <https://example.com>.
+:::{grid-item-card} One!
+Here's the first card.
 :::
 
-:::{card} Clickable Card (internal)
-:link: cards-clickable
-:link-type: ref
-
-The entire card can be clicked to navigate to the `cards` reference target.
+:::{grid-item-card} Two!
+Here's the second card.
 :::
 
+:::{grid-item-card} Three!
+Here's the third card.
+:::
+::::
 
-**Citaton and credits**
 
-All content is open source. Explore, share, contribute and collaborate!
+**Citing of ESCIP**
 
-We do apprecite credit to ESCIP whenever possible in order to increase visibility.
-
-If you enjoy using ESCIP notebooks please acknowledge our effort by placing the following in your notebook/website:
-
+- All content is open source. Explore, share, contribute and collaborate!
+ We do highly apprecite credit to ESCIP which helps us to increase the visibility.
+- If you enjoy using ESCIP notebooks please acknowledge our effort by placing the following in your notebook/website:
 > Adapted from [ESCIP](https://escip.github.io/)
+
 
 
 ::::{grid} 2 2 2 2
