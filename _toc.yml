@@ -9,4 +9,5 @@ parts:
   - file: guidelines
   - file: team
 - caption: Notebooks
+  chapters:
   - file: fourier_transform  
