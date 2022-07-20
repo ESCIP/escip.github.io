@@ -186,6 +186,71 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/fourier_transform.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/fourier_transform.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -208,7 +273,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://escip.github.io"
+        <a href="https://github.com/ESCIP/escip.github.io"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -225,7 +290,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://escip.github.io/issues/new?title=Issue%20on%20page%20%2Ffourier_transform.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Ffourier_transform.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -755,7 +820,7 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
     {
         requestKernel: true,
         binderOptions: {
-            repo: "None/None",
+            repo: "ESCIP/escip.github.io",
             ref: "jbook",
         },
         codeMirrorConfig: {
