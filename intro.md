@@ -1,4 +1,4 @@
-# Enhancing Science Courses by Integrating Python (ESCIP)
+### Enhancing Science Courses by Integrating Python (ESCIP)
 
 ```{admonition} What is ESCIP about?
 
