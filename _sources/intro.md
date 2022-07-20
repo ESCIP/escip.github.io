@@ -1,12 +1,12 @@
 # ESCIP
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+Welcome to Enhancing Science Courses by Integrating Python (ESCIP).
 
-Check out the content pages bundled with this sample book to see more.
-
+ESCIP is a collaborative dedicated to providing easy access to
+[Jupyter Notebooks](https://jupyter.org) for chemistry, physics and
+astronomy education. We aim to build faculty networks and facilitate
+the sharing of instructional modules through virtual and in-person
+workshops, as well as a repository of Jupyter Notebooks for educators and students.
 
 ::::{grid} 2 2 2 2
 
