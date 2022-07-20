@@ -47,7 +47,7 @@ Explore the notebooks 🚀
 Use search window to find notebooks on various topics in Chemistry, Physics and Biology
 
 :::
-
+::::
 
 
 ```{admonition} Citing ESCIP
