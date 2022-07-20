@@ -51,7 +51,7 @@ Use search window to find notebooks on various topics in Chemistry, Physics and 
 
 
 ```{admonition} Citing ESCIP
-
+:class: tip
 - All content is open source. Explore, share, contribute and collaborate!
  We do highly apprecite credit to ESCIP which helps us to increase the visibility.
 - If you enjoy using ESCIP notebooks please acknowledge our effort by placing the following in your notebook/website:
