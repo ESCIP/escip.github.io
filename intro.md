@@ -2,7 +2,7 @@
 
 ```{admonition} What is ESCIP about?
 
-- ESCIP is a collaborative dedicated to providing easy access to
+- ESCIP is a collaborative initiative dedicated to providing easy access to
 [Jupyter Notebooks](https://jupyter.org) for chemistry, physics and
 astronomy education. 
 - We aim to build faculty networks and facilitate
