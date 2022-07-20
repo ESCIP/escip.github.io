@@ -8,3 +8,5 @@ parts:
   chapters:
   - file: guidelines
   - file: team
+- caption: Notebooks
+  - file: fourier_transform  
