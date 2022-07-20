@@ -27,13 +27,13 @@ Here's the third card.
 ::::
 
 
-**Citing of ESCIP**
+```{admonition} Citing ESCIP
 
 - All content is open source. Explore, share, contribute and collaborate!
  We do highly apprecite credit to ESCIP which helps us to increase the visibility.
 - If you enjoy using ESCIP notebooks please acknowledge our effort by placing the following in your notebook/website:
 > Adapted from [ESCIP](https://escip.github.io/)
-
+```
 
 
 ::::{grid} 2 2 2 2
