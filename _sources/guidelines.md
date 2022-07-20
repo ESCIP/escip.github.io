@@ -6,7 +6,7 @@ There are no rigid guidelines on how notebooks should be crafted but it is impor
 ```{admonition} Design guidelines
 :class: tip
 - Use well established and stable libraries in scientific python3 ecosystem;
-  - numpy, scipy, pandas, ipywdigets, matplotlib, seaborn, plotly and pyviz 
+  - **numpy, scipy, pandas, ipywdigets, matplotlib, seaborn, plotly and pyviz.** 
 - Avoid rapidly evolving specialized packages. 
 - Build the interactive content from scratch using basic building blokcs of numpy, scipy and matplotlib.
 - All the code should be self-contained and sotred inside jupyter notebook.
@@ -16,6 +16,7 @@ There are no rigid guidelines on how notebooks should be crafted but it is impor
 ```
 
 ```{admonition} Main sections of the notebook
+:class: tip
 1. Objectives: List what are the objective of the notebook. What concepts will students learn.
 
 2. Background: have a succinct summary of prerequisite theory with links to wikipedia or other preferably free resource. 
