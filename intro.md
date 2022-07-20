@@ -19,7 +19,7 @@ workshops, as well as a repository of Jupyter Notebooks for educators and studen
 :link-type: doc
 :class-header: bg-light
 
-Meat the team ✏️
+Meet the team ✏️
 ^^^
 ESCIP contributors and network
 :::
