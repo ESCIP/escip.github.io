@@ -1,88 +1,32 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
 
 title: ESCIP
+author: ESCIP Community
+logo: logo.png
 
-author: Enhancing Science Courses by Integrating Python
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
 
-email: escip@scu.edu
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
 
-description: >- # this means to ignore newlines until "description_full:"
-  Enhancing Science Courses by Integrating Python (ESCIP) is funded by
-  the Research Corporation for Scientific Advancement
-  through the Cottrell Scholars Collaborative program.
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
 
-# logos for our organization
-logos:
-  - src: /assets/logos/ESCIP_Logo_horizontal.png
-    href: https://escip.github.io
-    alt: ESCIP logo
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/ESCIP/escip.github.io   # Online location of your book
+  path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: main  # Which branch of the repository should be used when creating links (optional)
 
-
-# The standard description can't have any HTML tags, so we re-write it here. This is picked up in our custom `_includes/footer.html`
-description_html: >- # this means to ignore newlines until "logos:"
-  Enhancing Science Courses by Integrating Python (ESCIP) is funded by
-  the <a href="https://rescorp.org">Research Corporation for Scientific Advancement</a>
-  through the <a href="https://rescorp.org/cottrell-scholars/cottrell-scholars-collaborative">Cottrell Scholars Collaborative</a> program.
-
-# logos to follow the description.  Each should have `src` for the
-# image location, `href` for where it links to and `alt` for alt text.
-logos_funding:
-  - src: https://rescorp.org/imgs/rcsa_logo.png
-    href: https://rescorp.org
-    alt: RCSA Logo
-
-baseurl: "" # the subpath of your site, e.g. /blog
-
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-
-# github_username:  jekyll
-
-# Build settings
-theme: minima
-plugins:
-  - jekyll-feed
-
-header_pages:
-  - why-jupyter.md
-  - getting-started.md
-  - notebooks.md
-  - workshop.md
-  - team.md
-  
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
