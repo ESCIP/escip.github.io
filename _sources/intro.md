@@ -2,16 +2,13 @@
 
 ```{admonition} What is ESCIP about?
 
-- ESCIP is a collaborative dedicated to providing easy access to
+- ESCIP is a collaborative initiative dedicated to providing easy access to
 [Jupyter Notebooks](https://jupyter.org) for chemistry, physics and
 astronomy education. 
 - We aim to build faculty networks and facilitate
 the sharing of instructional modules through virtual and in-person
 workshops, as well as a repository of Jupyter Notebooks for educators and students.
 ```
-
-:::
-::::
 
 ::::{grid} 1 1 2 3
 :class-container: text-center
@@ -22,10 +19,9 @@ workshops, as well as a repository of Jupyter Notebooks for educators and studen
 :link-type: doc
 :class-header: bg-light
 
-Text content ✏️
+Meat the team ✏️
 ^^^
-
-Structure books with text files and Jupyter Notebooks with minimal configuration.
+ESCIP contributors and network
 :::
 
 :::{grid-item-card}
@@ -33,10 +29,10 @@ Structure books with text files and Jupyter Notebooks with minimal configuration
 :link-type: doc
 :class-header: bg-light
 
-MyST Markdown ✨
+Join us ✨
 ^^^
 
-Write MyST Markdown to create enriched documents with publication-quality features.
+Interested in contributing? We have a Slack chanel with 70+ faculty
 
 :::
 
@@ -84,6 +80,7 @@ UI components ⚡
 
 Create interactive and web-native components and services.
 :::
+
 ::::
 
 
