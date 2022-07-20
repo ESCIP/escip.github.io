@@ -1,0 +1,79 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+%config InlineBackend.figure_format = 'retina'
+plt.style.use('./chem1000.mplstyle')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/matplotlib/style/core.py:127[0m, in [0;36muse[0;34m(style)[0m
+[1;32m    126[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 127[0m     rc [38;5;241m=[39m [43mrc_params_from_file[49m[43m([49m[43mstyle[49m[43m,[49m[43m [49m[43muse_default_template[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m
+[1;32m    128[0m     _apply_style(rc)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/matplotlib/__init__.py:852[0m, in [0;36mrc_params_from_file[0;34m(fname, fail_on_error, use_default_template)[0m
+[1;32m    838[0m [38;5;124;03m"""[39;00m
+[1;32m    839[0m [38;5;124;03mConstruct a `RcParams` from file *fname*.[39;00m
+[1;32m    840[0m 
+[0;32m   (...)[0m
+[1;32m    850[0m [38;5;124;03m    parameters specified in the file. (Useful for updating dicts.)[39;00m
+[1;32m    851[0m [38;5;124;03m"""[39;00m
+[0;32m--> 852[0m config_from_file [38;5;241m=[39m [43m_rc_params_in_file[49m[43m([49m[43mfname[49m[43m,[49m[43m [49m[43mfail_on_error[49m[38;5;241;43m=[39;49m[43mfail_on_error[49m[43m)[49m
+[1;32m    854[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m use_default_template:
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/matplotlib/__init__.py:778[0m, in [0;36m_rc_params_in_file[0;34m(fname, transform, fail_on_error)[0m
+[1;32m    777[0m rc_temp [38;5;241m=[39m {}
+[0;32m--> 778[0m [38;5;28;01mwith[39;00m _open_file_or_url(fname) [38;5;28;01mas[39;00m fd:
+[1;32m    779[0m     [38;5;28;01mtry[39;00m:
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/contextlib.py:113[0m, in [0;36m_GeneratorContextManager.__enter__[0;34m(self)[0m
+[1;32m    112[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 113[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mnext[39;49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mgen[49m[43m)[49m
+[1;32m    114[0m [38;5;28;01mexcept[39;00m [38;5;167;01mStopIteration[39;00m:
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/matplotlib/__init__.py:755[0m, in [0;36m_open_file_or_url[0;34m(fname)[0m
+[1;32m    754[0m     encoding [38;5;241m=[39m [38;5;124m"[39m[38;5;124mutf-8[39m[38;5;124m"[39m
+[0;32m--> 755[0m [38;5;28;01mwith[39;00m [38;5;28;43mopen[39;49m[43m([49m[43mfname[49m[43m,[49m[43m [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m)[49m [38;5;28;01mas[39;00m f:
+[1;32m    756[0m     [38;5;28;01myield[39;00m f
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: './chem1000.mplstyle'
+
+The above exception was the direct cause of the following exception:
+
+[0;31mOSError[0m                                   Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<cell line: 5>[0;34m()[0m
+[1;32m      3[0m get_ipython()[38;5;241m.[39mrun_line_magic([38;5;124m'[39m[38;5;124mmatplotlib[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124minline[39m[38;5;124m'[39m)
+[1;32m      4[0m get_ipython()[38;5;241m.[39mrun_line_magic([38;5;124m'[39m[38;5;124mconfig[39m[38;5;124m'[39m, [38;5;124m"[39m[38;5;124mInlineBackend.figure_format = [39m[38;5;124m'[39m[38;5;124mretina[39m[38;5;124m'[39m[38;5;124m"[39m)
+[0;32m----> 5[0m [43mplt[49m[38;5;241;43m.[39;49m[43mstyle[49m[38;5;241;43m.[39;49m[43muse[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43m./chem1000.mplstyle[39;49m[38;5;124;43m'[39;49m[43m)[49m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/matplotlib/style/core.py:130[0m, in [0;36muse[0;34m(style)[0m
+[1;32m    128[0m     _apply_style(rc)
+[1;32m    129[0m [38;5;28;01mexcept[39;00m [38;5;167;01mIOError[39;00m [38;5;28;01mas[39;00m err:
+[0;32m--> 130[0m     [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(
+[1;32m    131[0m         [38;5;124m"[39m[38;5;132;01m{!r}[39;00m[38;5;124m not found in the style library and input is not a [39m[38;5;124m"[39m
+[1;32m    132[0m         [38;5;124m"[39m[38;5;124mvalid URL or path; see `style.available` for list of [39m[38;5;124m"[39m
+[1;32m    133[0m         [38;5;124m"[39m[38;5;124mavailable styles[39m[38;5;124m"[39m[38;5;241m.[39mformat(style)) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
+
+[0;31mOSError[0m: './chem1000.mplstyle' not found in the style library and input is not a valid URL or path; see `style.available` for list of available styles
+OSError: './chem1000.mplstyle' not found in the style library and input is not a valid URL or path; see `style.available` for list of available styles
+
