@@ -15,7 +15,7 @@ workshops, as well as a repository of Jupyter Notebooks for educators and studen
 :gutter: 3
 
 :::{grid-item-card}
-:link: basics/organize
+:link: team
 :link-type: doc
 :class-header: bg-light
 
@@ -25,7 +25,7 @@ ESCIP contributors and network
 :::
 
 :::{grid-item-card}
-:link: content/myst
+:link: team
 :link-type: doc
 :class-header: bg-light
 
@@ -37,11 +37,11 @@ Interested in contributing? We have a Slack chanel with 70+ faculty
 :::
 
 :::{grid-item-card}
-:link: content/executable/index
+:link: team
 :link-type: doc
 :class-header: bg-light
 
-Explore the notebooks 🚀
+Browse the notebooks 🚀
 ^^^
 
 Use search window to find notebooks on various topics in Chemistry, Physics and Biology

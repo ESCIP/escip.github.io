@@ -6,6 +6,5 @@ root: intro
 parts:
 - caption: About  
   chapters:
-  - file: about
-  - file: team
   - file: guidelines
+  - file: team
