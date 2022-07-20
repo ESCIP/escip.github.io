@@ -10,21 +10,32 @@ the sharing of instructional modules through virtual and in-person
 workshops, as well as a repository of Jupyter Notebooks for educators and students.
 ```
 
-::::{grid}
+::::{grid} 1 1 2 3
+:class-container: text-center
 :gutter: 3
 
-:::{grid-item-card} One!
-Here's the first card.
+:::{grid-item-card}
+:link: basics/organize
+:link-type: doc
+:class-header: bg-light
+
+Text content ✏️
+^^^
+
+Structure books with text files and Jupyter Notebooks with minimal configuration.
 :::
 
-:::{grid-item-card} Two!
-Here's the second card.
-:::
+:::{grid-item-card}
+:link: content/myst
+:link-type: doc
+:class-header: bg-light
 
-:::{grid-item-card} Three!
-Here's the third card.
+MyST Markdown ✨
+^^^
+
+Write MyST Markdown to create enriched documents with publication-quality features.
+
 :::
-::::
 
 
 ```{admonition} Citing ESCIP
