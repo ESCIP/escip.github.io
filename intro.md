@@ -2,12 +2,30 @@
 
 ```{admonition} Welcome to Enhancing Science Courses by Integrating Python (ESCIP).
 
-ESCIP is a collaborative dedicated to providing easy access to
+- ESCIP is a collaborative dedicated to providing easy access to
 [Jupyter Notebooks](https://jupyter.org) for chemistry, physics and
-astronomy education. We aim to build faculty networks and facilitate
+astronomy education. 
+- We aim to build faculty networks and facilitate
 the sharing of instructional modules through virtual and in-person
 workshops, as well as a repository of Jupyter Notebooks for educators and students.
 ```
+
+(cards-clickable)=
+## Cards Clickable
+
+:::{card} Clickable Card (external)
+:link: https://example.com
+
+The entire card can be clicked to navigate to <https://example.com>.
+:::
+
+:::{card} Clickable Card (internal)
+:link: cards-clickable
+:link-type: ref
+
+The entire card can be clicked to navigate to the `cards` reference target.
+:::
+
 
 **Citaton and credits**
 
