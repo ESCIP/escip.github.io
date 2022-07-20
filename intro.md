@@ -7,7 +7,22 @@ It does not go in-depth into any particular topic - check out [the Jupyter Book 
 
 Check out the content pages bundled with this sample book to see more.
 
-----
 
-```{tableofcontents}
+::::{grid} 2 2 2 2
+
+:::{grid-item}
+:columns: 4
+
+```{image} https://rescorp.org/imgs/rcsa_logo.png
+:class: m-auto
+:width: 200px
 ```
+
+:::
+
+:::{grid-item}
+:columns: 7
+Many thanks to the Research Corporation for Science Advancement (RCSA), which [provides support for the ESCIP Project](https://rescorp.org/).
+:::
+
+::::
