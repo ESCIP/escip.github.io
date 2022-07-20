@@ -8,3 +8,5 @@ parts:
   chapters:
   - file: about
   - file: team
+  
+- caption: Notebooks 

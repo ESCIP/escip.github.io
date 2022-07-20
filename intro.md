@@ -10,9 +10,6 @@ the sharing of instructional modules through virtual and in-person
 workshops, as well as a repository of Jupyter Notebooks for educators and students.
 ```
 
-:::
-::::
-
 ::::{grid} 1 1 2 3
 :class-container: text-center
 :gutter: 3
@@ -84,6 +81,7 @@ UI components ⚡
 
 Create interactive and web-native components and services.
 :::
+
 ::::
 
 
