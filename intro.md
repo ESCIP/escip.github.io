@@ -41,47 +41,13 @@ Interested in contributing? We have a Slack chanel with 70+ faculty
 :link-type: doc
 :class-header: bg-light
 
-Executable content 🔁
+Explore the notebooks 🚀
 ^^^
 
-Execute notebook cells, store results, and insert outputs across pages.
+Use search window to find notebooks on various topics in Chemistry, Physics and Biology
 
 :::
 
-:::{grid-item-card}
-:link: interactive/launchbuttons
-:link-type: doc
-:class-header: bg-light
-
-Live environments 🚀
-^^^
-
-Connect your book with Binder, JupyterHub, and other live environments
-:::
-
-:::{grid-item-card}
-:link: publish/web
-:link-type: doc
-:class-header: bg-light
-
-Build and publish 🎁
-^^^
-
-Share your built books via web services and hosted websites.
-:::
-
-:::{grid-item-card}
-:link: content/components
-:link-type: doc
-:class-header: bg-light
-
-UI components ⚡
-^^^
-
-Create interactive and web-native components and services.
-:::
-
-::::
 
 
 ```{admonition} Citing ESCIP
