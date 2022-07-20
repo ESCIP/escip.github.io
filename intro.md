@@ -19,10 +19,9 @@ workshops, as well as a repository of Jupyter Notebooks for educators and studen
 :link-type: doc
 :class-header: bg-light
 
-Text content ✏️
+Meat the team ✏️
 ^^^
 
-Structure books with text files and Jupyter Notebooks with minimal configuration.
 :::
 
 :::{grid-item-card}
