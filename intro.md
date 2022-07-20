@@ -1,6 +1,6 @@
-# ESCIP
+# Enhancing Science Courses by Integrating Python (ESCIP)
 
-```{admonition} Welcome to Enhancing Science Courses by Integrating Python (ESCIP).
+```{admonition} What is ESCIP about?
 
 - ESCIP is a collaborative dedicated to providing easy access to
 [Jupyter Notebooks](https://jupyter.org) for chemistry, physics and
