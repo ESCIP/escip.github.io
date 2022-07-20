@@ -8,3 +8,4 @@ parts:
   chapters:
   - file: about
   - file: team
+  - file: guidelines
