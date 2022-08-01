@@ -8,9 +8,10 @@ parts:
   chapters:
   - file: guidelines
   - file: team
-  - file: workshops/workshops
+  - file: workshops/intro
     sections:
     - file: workshops/workshop2023
+    - file: workshops/workshop2022
 - caption: Notebooks
   chapters:
   - file: fourier_transform  
