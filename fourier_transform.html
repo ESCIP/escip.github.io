@@ -460,11 +460,8 @@ title="Print to PDF"
                 
   <section id="fourier-transforms">
 <h1>Fourier Transforms<a class="headerlink" href="#fourier-transforms" title="Permalink to this headline">#</a></h1>
-<p>Prof. Geoffrey Hutchison, University of Pittsburgh</p>
-<p>Chapter 13 in <a class="reference external" href="http://sites.bu.edu/straub/mathematical-methods-for-molecular-science/"><em>Mathematical Methods for Chemists</em></a></p>
-<p>This notebook contains additional material on Fourier transforms. Thanks to example code by <a class="reference external" href="https://calebmadrigal.com/fourier-transform-notes/">Caleb Madrigal</a> -
-Code online at <a class="reference external" href="https://github.com/calebmadrigal/FourierTalkOSCON">GitHub</a></p>
-<p>By the end of this session, you should be able to:</p>
+<p><strong>Prof. Geoffrey Hutchison, University of Pittsburgh</strong></p>
+<p>By the end of this notebook, you should be able to:</p>
 <ul class="simple">
 <li><p>Understand how to use Fourier transform to shift from time-domain data to frequency domain signals</p>
 <ul>
@@ -473,6 +470,15 @@ Code online at <a class="reference external" href="https://github.com/calebmadri
 </li>
 <li><p>Understand other related transforms (e.g. Wavelet)</p></li>
 </ul>
+<p>Keywords: #FourierTransforms, #Math #Scipy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="fourier-transform">
 <h2>Fourier Transform<a class="headerlink" href="#fourier-transform" title="Permalink to this headline">#</a></h2>
 <p>We’ve talked about using the Fourier series as a sum of sine and cosine functions - we find the coefficients using overlap integrals.</p>
@@ -516,14 +522,6 @@ f(x)=\frac{1}{2 \pi} \int_{-\infty}^{\infty} F(k) \mathrm{e}^{i k x} d k
 \]</div>
 </div>
 <p>Let’s see a few examples…</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>We’re going to construct an array of time points.</p>
 <p>Then we’ll set up a function with two sine waves:</p>
 <div class="math notranslate nohighlight">
