@@ -19,9 +19,9 @@ astronomy education.
 :link-type: doc
 :class-header: bg-light
 
-Meet the team ✏️
+Meet the team 🤠
 ^^^
-ESCIP contributors and network
+Learn about the ESCIP contributors and co-PIs. 
 :::
 
 :::{grid-item-card}
@@ -32,7 +32,7 @@ ESCIP contributors and network
 Join us ✨
 ^^^
 
-Interested in contributing? We have a Slack chanel with 70+ faculty
+Interested in contributing? Join our Slack chanel with a network of over 70+ faculty.
 
 :::
 
@@ -44,7 +44,7 @@ Interested in contributing? We have a Slack chanel with 70+ faculty
 Browse the notebooks 🚀
 ^^^
 
-Use search window to find notebooks on various topics in Chemistry, Physics and Biology
+Use the right panel or search window to find notebooks on various topics in Chemistry, Physics and Biology.
 
 :::
 ::::
