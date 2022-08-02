@@ -1,1 +1,1 @@
-# 2023 In-Person Workshop
+# Summer 2023 In-Person Workshop
