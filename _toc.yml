@@ -6,9 +6,11 @@ root: intro
 parts:
 - caption: About  
   chapters:
-  - file: guidelines
   - file: team
+  - file: guidelines
+  - file: notebooks/template
   - file: workshops/intro
+
     sections:
     - file: workshops/workshop2023
     - file: workshops/workshop2022
