@@ -14,4 +14,4 @@ parts:
     - file: workshops/workshop2022
 - caption: Notebooks
   chapters:
-  - file: fourier_transform  
+  - file: notebooks/fourier_transform  
