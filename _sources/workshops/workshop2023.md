@@ -1,8 +1,9 @@
 # January 2023 In-Person Workshop
 
-### Enhancing Science Courses by Integrating Python (ESCIP) at Santa Clara University
-
+```{admonition} ESCIP worksop at Santa Clara University
 Please mark your calendars for an upcoming in-person **"Enhancing Science Courses by Integrating Python (ESCIP)"** workshop that will be held at Santa Clara University (located 4 miles from SJC airport) on **Jan. 19-21, 2023.** This event will be a combination writing retreat (instructors work on course materials) plus training program (faculty learn new skills and discuss best practices for teaching Python in undergraduate science courses). 
+See below for the schedule. 
+```
 
 Research Corporation for Science Advancement and MolSSI will be co-sponsoring the workshop and providing meals for all attendees. Registration is free but you must RSVP to reserve a spot! Workshop organizers (listed below) may be able to help offset hotel lodging costs for faculty who will be coming from outside the Bay Area, but we need to know if you will need this scholarship. If these activities interest you and fit into your schedule, please fill out the registration form by September 1, 2023 to receive more information: https://forms.gle/45p7TcGHGd74yzu77
 
