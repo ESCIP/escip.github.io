@@ -1,6 +1,6 @@
 # Summer 2023 In-Person Workshop
 
-## Enhancing Science Courses by Integrating Python (ESCIP) at Santa Clara University, 2023
+### Enhancing Science Courses by Integrating Python (ESCIP) at Santa Clara University, 2023
 
 Dear [colleague]
 
@@ -18,8 +18,7 @@ Justin Caram (UCLA)
 Davit Potoyan (Iowa State University)
 Ashley Ringer McDonald (Cal Poly San Luis Obispo)
 
-==
-## Tentative schedule:
+### Tentative schedule
 
 - Where? Santa Clara University (near SJC airport)
 - When? January 19-21, 2023
