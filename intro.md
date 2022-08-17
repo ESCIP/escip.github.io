@@ -5,7 +5,7 @@
 - ESCIP is a collaborative initiative dedicated to providing easy access to
 [Jupyter Notebooks](https://jupyter.org) for chemistry, physics and
 astronomy education. 
-- All content is open source. We do apprecite credit to ESCIP whenever possible. If you enjoy using ESCIP notebooks please cite us by placing the following link:
+- All content is open source but we do highly apprecite credit to ESCIP. Please place this in your notebook if you use outside of this website:
 > Adapted from [ESCIP](https://escip.github.io/)
 ```
 
