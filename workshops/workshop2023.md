@@ -29,30 +29,29 @@ Ashley Ringer McDonald (Cal Poly San Luis Obispo)
 | :------------   | -------------: |
 | 5 pm - 6 pm     |        Dinner and General Introductions       |
 | 6 pm - 7 pm     |      Keynote Talk by Prof. Tom Markland (Stanford University)       |
-| 7 pm - 8 pm | Lightning talks, sharing by attendees
-|8 pm – end   | informal discussions
+| 7 pm - 8 pm     | Lightning talks, sharing by attendees |
+|8 pm – end       | informal discussions |
 
 ### Friday Jan 20, 2023:
 
 |    Time         |   Activity   |
 | :------------   | -------------: |
-|8 am - 9 am | Breakfast and Tour of MolSSI resources (https://molssi.org/education/)
-|9 am - 10 am | Discussion of Python resources for undergraduate science education
-|10 am - 12 pm | Work on Python teaching materials in small groups (or attend MolSSI workshop)
-|12 pm - 1 pm | Lunch and informal discussions
-|1 pm - 4 pm | Work on Python teaching materials individually or in small groups
-|4 pm - 5 pm | Keynote Talk by Prof. Sharon Neufeldt (Montana State Univ) 
-|5 pm - 6 pm | Dinner and lightning talks, sharing by attendees
-|6 pm - 7 pm | Education talk by Prof. Ashley Ringer McDonald (Cal Poly San Luis Obispo)
-|7 pm –  | informal discussions
+|8 am - 9 am | Breakfast and Tour of MolSSI resources (https://molssi.org/education/) |
+|9 am - 10 am | Discussion of Python resources for undergraduate science education |
+|10 am - 12 pm | Work on Python teaching materials in small groups (or attend MolSSI workshop) |
+|12 pm - 1 pm | Lunch and informal discussions |
+|1 pm - 4 pm | Work on Python teaching materials individually or in small groups |
+|4 pm - 5 pm | Keynote Talk by Prof. Sharon Neufeldt (Montana State Univ)  |
+|5 pm - 6 pm | Dinner and lightning talks, sharing by attendees |
+|6 pm - 7 pm | Education talk by Prof. Ashley Ringer McDonald (Cal Poly San Luis Obispo) |
+|7 pm –  | informal discussions |
 
 ### Saturday Jan 21, 2023:
 
 |    Time         |   Activity   |
 | :------------   | -------------: |
-
-| 8 am - 9 am | Breakfast and Tour of ESCIP repository (escip.github.io)
-| 9 am - 11 am | Work on Python teaching materials in small groups (or attend MolSSI workshop)
-| 11 am - 12 pm | Attendees report out and complete end-of-workshop survey
-| 12 pm - 1 pm | Lunch and informal discussions
+| 8 am - 9 am | Breakfast and Tour of ESCIP repository (escip.github.io) |
+| 9 am - 11 am | Work on Python teaching materials in small groups (or attend MolSSI workshop) |
+| 11 am - 12 pm | Attendees report out and complete end-of-workshop survey |
+| 12 pm - 1 pm | Lunch and informal discussions |
 
