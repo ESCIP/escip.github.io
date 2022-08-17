@@ -7,18 +7,9 @@ See below for the schedule.
 
 Research Corporation for Science Advancement and MolSSI will be co-sponsoring the workshop and providing meals for all attendees. Registration is free but you must RSVP to reserve a spot! Workshop organizers (listed below) may be able to help offset hotel lodging costs for faculty who will be coming from outside the Bay Area, but we need to know if you will need this scholarship. If these activities interest you and fit into your schedule, **please fill out the registration form by September 1, 2022** to receive more information: https://forms.gle/45p7TcGHGd74yzu77
 
-Below, you will find a tentative schedule and more information about the location of the workshop. More details will be sent out to folks who fill out the registration form listed above. Please let me know if you have any questions.
-
-Best wishes,
-Grace Stokes (Santa Clara University),
-Tom Markland (Stanford University),
-Tyler Luchko (Cal State Northridge),
-Justin Caram (UCLA),
-Davit Potoyan (Iowa State University,
-Ashley Ringer McDonald (Cal Poly San Luis Obispo)
+>Grace Stokes (Santa Clara University), Tom Markland (Stanford University), Tyler Luchko (Cal State Northridge), Justin Caram (UCLA), Davit Potoyan (Iowa State University, Ashley Ringer McDonald (Cal Poly San Luis Obispo)
 
 ## Tentative schedule
-
 
 ### Thursday Jan 19, 2023:
 
