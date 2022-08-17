@@ -1,8 +1,6 @@
-# Summer 2023 In-Person Workshop
+# January 2023 In-Person Workshop
 
-### Enhancing Science Courses by Integrating Python (ESCIP) at Santa Clara University, 2023
-
-Dear [colleague]
+### Enhancing Science Courses by Integrating Python (ESCIP) at Santa Clara University
 
 Please mark your calendars for an upcoming in-person **"Enhancing Science Courses by Integrating Python (ESCIP)"** workshop that will be held at Santa Clara University (located 4 miles from SJC airport) on **Jan. 19-21, 2023.** This event will be a combination writing retreat (instructors work on course materials) plus training program (faculty learn new skills and discuss best practices for teaching Python in undergraduate science courses). 
 
