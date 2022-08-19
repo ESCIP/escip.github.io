@@ -7,10 +7,11 @@ parts:
 - caption: About  
   chapters:
   - file: team
-  - file: guidelines
-  - file: notebooks/template
+  - file: guidelines/intro
+    sections:
+    - file: guidelines/guidelines
+    - file: guidelines/template
   - file: workshops/intro
-
     sections:
     - file: workshops/workshop2023
     - file: workshops/workshop2022
