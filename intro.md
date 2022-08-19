@@ -63,9 +63,12 @@ Use the right panel or search window to find notebooks on various topics in Chem
 
 :::
 
+
+---
+
 :::{grid-item}
 :columns: 7
-Many thanks to the Research Corporation for Science Advancement (RCSA), which [provides support for the ESCIP Project](https://rescorp.org/).
+Many thanks to the Research Corporation for Science Advancement (RCSA), which [provides continued support for the ESCIP Project](https://rescorp.org/).
 :::
 
 ::::
