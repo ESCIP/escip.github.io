@@ -4,10 +4,12 @@
 
 - ESCIP is a collaborative initiative dedicated to providing easy access to
 [Jupyter Notebooks](https://jupyter.org) for chemistry, physics and
-astronomy education. 
-- All content is open source but we do highly apprecite credit to ESCIP. Please place this in your notebook if you use outside of this website:
-> Adapted from [ESCIP](https://escip.github.io/)
+astronomy education. All content is open source but we still do highly apprecite any credit to ESCIP.
 ```
+
+> Mark your calendars for [upcoming workshop @ Santa Clara, Jan. 19-21, 2023](https://escip.github.io/workshops/workshop2023.html) 
+
+
 
 ::::{grid} 1 1 2 3
 :class-container: text-center
