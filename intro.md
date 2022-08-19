@@ -5,10 +5,9 @@
 - ESCIP is a collaborative initiative dedicated to providing easy access to
 [Jupyter Notebooks](https://jupyter.org) for chemistry, physics and
 astronomy education. All content is open source but we still do highly apprecite any credit to ESCIP.
-```
-
+- We provide trainings for instructors new to python and hold regular workshops at universities across the nation. 
 > Mark your calendars for [upcoming workshop @ Santa Clara, Jan. 19-21, 2023](https://escip.github.io/workshops/workshop2023.html) 
-
+```
 
 
 ::::{grid} 1 1 2 3
@@ -38,7 +37,7 @@ Interested in contributing? Join our Slack chanel with a network of over 70+ fac
 :::
 
 :::{grid-item-card}
-:link: team
+:link: notebooks
 :link-type: doc
 :class-header: bg-light
 
