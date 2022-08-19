@@ -1,7 +1,6 @@
-### Guidelines
+# Format of notebooks
 
 There are no rigid guidelines on how notebooks should be crafted but it is important to outline a philosphy to try to follow as much as possible in orde to create coherent content.
-
 
 ```{admonition} Design guidelines
 :class: tip
