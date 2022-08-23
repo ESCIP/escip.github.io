@@ -2,7 +2,7 @@
 
 ESCIP is a growing community with over 70 faculty many of whom are Cottrell Scholars. Below are the names of board members/co-PIs who reivew and edit contributions listed in alphabetical order:
 
-- [**Brenda Rubinstein**]()
+- [**Brenda Rubenstein**]()
 - [**Brian Shuve**]()
 - [**Britt Lundgren**]()
 - [**Casey Londergan**]()
