@@ -667,15 +667,15 @@ except for the presence of this peculiar spikey potential right in the middle of
 <section id="form-of-the-trial-wavefunction">
 <h2>Form of the trial wavefunction<a class="headerlink" href="#form-of-the-trial-wavefunction" title="Permalink to this headline">#</a></h2>
 <p>In particular, we will optimize the trial wavefunction given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e72bfa49-3fcf-4be3-a716-1f82d5afcbc9">
-<span class="eqno">(1)<a class="headerlink" href="#equation-e72bfa49-3fcf-4be3-a716-1f82d5afcbc9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5e3a57eb-b188-4ae6-98c9-174c0d001e0f">
+<span class="eqno">(1)<a class="headerlink" href="#equation-5e3a57eb-b188-4ae6-98c9-174c0d001e0f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Phi(x) = \sum_{n=1}^N c_n \psi_n(x)
 \end{equation}\]</div>
 <p>where the expansion coefficients <span class="math notranslate nohighlight">\(c_n\)</span> are real numbers
 and <span class="math notranslate nohighlight">\(\psi_n(x)\)</span> are the energy eigenfunctions of the ordinary particle in a box that has no potential
 between <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(x=L\)</span>.  In particular, these eigenfunctions have the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eddfd4cb-b453-448b-b7ac-16b1907e54ae">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eddfd4cb-b453-448b-b7ac-16b1907e54ae" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c67246be-99f4-49a8-afeb-c7e46b0a7c05">
+<span class="eqno">(2)<a class="headerlink" href="#equation-c67246be-99f4-49a8-afeb-c7e46b0a7c05" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \psi_n(x) = \sqrt{\frac{2}{10} } {\rm sin}\left(\frac{n \pi x}{10} \right).
 \end{equation}\]</div>
 </section>
@@ -683,8 +683,8 @@ between <span class="math notranslate nohighlight">\(x=0\)</span> and <span clas
 <h2>Form of the energy functional<a class="headerlink" href="#form-of-the-energy-functional" title="Permalink to this headline">#</a></h2>
 <p>We will seek to minimize the energy functional through the expansion coefficients, where the
 energy functional can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0dbaec3-ded3-4057-bedf-6ff0b65d92e7">
-<span class="eqno">(3)<a class="headerlink" href="#equation-b0dbaec3-ded3-4057-bedf-6ff0b65d92e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ac43e31f-c0d3-4ed1-b2bc-26f89ab6a370">
+<span class="eqno">(3)<a class="headerlink" href="#equation-ac43e31f-c0d3-4ed1-b2bc-26f89ab6a370" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E[\Phi(x)] = \frac{\int_0^{10} \Phi^* (x) \: \hat{H} \: \Phi(x) dx }{\int_0^{10} \Phi^* (x) \: \Phi(x) dx },
 \end{equation}\]</div>
 <p>where we have recognized that the boundaries of the box are at <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(x=10\)</span>, so our range of integration
@@ -694,23 +694,23 @@ goes between these boundaries.</p>
 <h2>Atomic Units<a class="headerlink" href="#atomic-units" title="Permalink to this headline">#</a></h2>
 <p>We will express our Hamiltonian in atomic units where <span class="math notranslate nohighlight">\(\hbar = 1\)</span> and <span class="math notranslate nohighlight">\(m = 1\)</span>, so we can write the Hamiltonian in
 this unit system as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1d315d3c-d946-458c-9c6d-0c67b603b743">
-<span class="eqno">(4)<a class="headerlink" href="#equation-1d315d3c-d946-458c-9c6d-0c67b603b743" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-25807178-ae32-4db2-88da-5ca8645db625">
+<span class="eqno">(4)<a class="headerlink" href="#equation-25807178-ae32-4db2-88da-5ca8645db625" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hat{H} = -\frac{1}{2} \frac{d^2}{dx^2} + \delta(x-5).
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(E[\Phi(x)]\)</span> can be expanded as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de59efc9-d864-48ed-b17c-dee280b1bf40">
-<span class="eqno">(5)<a class="headerlink" href="#equation-de59efc9-d864-48ed-b17c-dee280b1bf40" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-850a1b44-bb0a-4a22-a771-c0ab5686ede1">
+<span class="eqno">(5)<a class="headerlink" href="#equation-850a1b44-bb0a-4a22-a771-c0ab5686ede1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E[\Phi(x)] \sum_{n=1}^N \sum_{m=1}^N c^*_n c_m S_{nm} = \sum_{n=1}^N \sum_{m=1}^N c^*_n c_m H_{nm}
 \end{equation}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7c638b64-1267-4536-aac2-240f484693c8">
-<span class="eqno">(6)<a class="headerlink" href="#equation-7c638b64-1267-4536-aac2-240f484693c8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-31936cec-548c-4672-9090-402266f3b0ef">
+<span class="eqno">(6)<a class="headerlink" href="#equation-31936cec-548c-4672-9090-402266f3b0ef" title="Permalink to this equation">#</a></span>\[\begin{equation}
 S_{nm} = \int_0^L \psi^*_n(x) \psi_m(x) dx = \delta_{nm}
 \end{equation}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2b2f7832-d15b-48b0-b95e-67fb2e3320c9">
-<span class="eqno">(7)<a class="headerlink" href="#equation-2b2f7832-d15b-48b0-b95e-67fb2e3320c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-49084cb3-e864-4710-99d9-5852c8ba6c19">
+<span class="eqno">(7)<a class="headerlink" href="#equation-49084cb3-e864-4710-99d9-5852c8ba6c19" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H_{nm} = \int_0^L \psi^*_n(x) \hat{H} \psi_m(x) dx. 
 \end{equation}\]</div>
 <p>In the equation for <span class="math notranslate nohighlight">\(S_{nm}\)</span>, <span class="math notranslate nohighlight">\(\delta_{nm}\)</span> is called the Kronecker delta function, and it is equal to 1 if <span class="math notranslate nohighlight">\(n = m\)</span> and 0 if <span class="math notranslate nohighlight">\(n \neq m\)</span>.
@@ -731,13 +731,13 @@ the value of the integral <span class="math notranslate nohighlight">\(H_{nm}\)<
 </li>
 <li><p><strong>(Bonus)</strong> Show that differentiating the energy functional with respect to all coefficients and setting the derivative to zero results in the following set of equations:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-37dd4169-a5c1-45e0-a820-ed3f51ddb14d">
-<span class="eqno">(8)<a class="headerlink" href="#equation-37dd4169-a5c1-45e0-a820-ed3f51ddb14d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-efc6a425-2c6c-44c5-8fd0-240e57a1e1d3">
+<span class="eqno">(8)<a class="headerlink" href="#equation-efc6a425-2c6c-44c5-8fd0-240e57a1e1d3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_n^N H_{nm} c_n = E[\Phi(x)] c_m
 \end{equation}\]</div>
 <p>This can be written as an eigenvalue equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d172fea6-46d1-4c8e-a43d-2cba35710983">
-<span class="eqno">(9)<a class="headerlink" href="#equation-d172fea6-46d1-4c8e-a43d-2cba35710983" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-87d6cbeb-ebd8-48f7-b5c6-a26b9abafce8">
+<span class="eqno">(9)<a class="headerlink" href="#equation-87d6cbeb-ebd8-48f7-b5c6-a26b9abafce8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 {\bf H} {\bf c} = E {\bf c},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\({\bf H}\)</span> is the matrix whose elements are given by <span class="math notranslate nohighlight">\(H_{nm}\)</span> and <span class="math notranslate nohighlight">\({\bf c}\)</span> is the vector of coefficients.</p>
@@ -824,7 +824,7 @@ the value of the integral <span class="math notranslate nohighlight">\(H_{nm}\)<
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the number of basis functions - start with 3, can add more later!</span>
-<span class="n">n_basis</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">n_basis</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="c1"># initialize Hamiltonian_matrix as (n_basis x n_basis) array of zeros</span>
 <span class="n">Hamiltonian_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_basis</span><span class="p">,</span> <span class="n">n_basis</span><span class="p">))</span>
 
@@ -843,17 +843,17 @@ the value of the integral <span class="math notranslate nohighlight">\(H_{nm}\)<
 </div>
 </div>
 <p>Before systematically identifying the optimal coefficients, it is instructive to try a few “trial” wavefunctions “by hand”.  A few suggestions include:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40e86862-2dd3-4c1a-93b9-4cef9cb14037">
-<span class="eqno">(10)<a class="headerlink" href="#equation-40e86862-2dd3-4c1a-93b9-4cef9cb14037" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e7351578-f5b4-4d7b-9739-1ecb6ec654e6">
+<span class="eqno">(10)<a class="headerlink" href="#equation-e7351578-f5b4-4d7b-9739-1ecb6ec654e6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 {\bf c} = \left(1, 0, 0 \right) \;  {\bf c} = \left(0, 1, 0 \right) \: {\bf c} = \left(0, 0, 1 \right)
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-9caa27b3-9a7a-477d-bcd4-c0cee5978a57">
-<span class="eqno">(11)<a class="headerlink" href="#equation-9caa27b3-9a7a-477d-bcd4-c0cee5978a57" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-172344ba-00ee-4fd2-a68f-0594f73f1117">
+<span class="eqno">(11)<a class="headerlink" href="#equation-172344ba-00ee-4fd2-a68f-0594f73f1117" title="Permalink to this equation">#</a></span>\[\begin{equation}
 {\bf c} = \left(\sqrt{1/2}, \sqrt{1/2}, 0 \right) \;  {\bf c} = \left(0, \sqrt{1/2}, \sqrt{1/2} \right) \: {\bf c} = \left(\sqrt{1/2}, 0, \sqrt{1/2} \right)
 \end{equation}\]</div>
 <p>In Matrix form, the energy functional can be computed as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-66530f4c-2733-4462-a371-ff598b7b2787">
-<span class="eqno">(12)<a class="headerlink" href="#equation-66530f4c-2733-4462-a371-ff598b7b2787" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-668b980c-0f64-406b-a576-161da300b85f">
+<span class="eqno">(12)<a class="headerlink" href="#equation-668b980c-0f64-406b-a576-161da300b85f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E = {\bf c}^t {\bf H} {\bf c}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\({\bf c}^t\)</span> is just the transpose of <span class="math notranslate nohighlight">\({\bf c}\)</span>.  Using numpy, this can be done with the Hamiltonian matrix defined abouve and a vector <span class="math notranslate nohighlight">\({\bf c} = \left(1, 0, 0 \right)\)</span> as follows:</p>
@@ -914,8 +914,8 @@ we can find the Variational ground-state energy and wavefunction through the fol
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The variational ground state energy with 500 basis functions is 0.140993 atomic units
-This result is 0.108355 atomic units lower than if we used \psi_1 as a trial wavefunction.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The variational ground state energy with 3 basis functions is 0.165735 atomic units
+This result is 0.083613 atomic units lower than if we used \psi_1 as a trial wavefunction.
 </pre></div>
 </div>
 </div>
@@ -950,7 +950,7 @@ The ground-state eigenvector can be accessed as a slice of <code class="docutils
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe105ed8be0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fcdbfbe7eb0&gt;
 </pre></div>
 </div>
 <img alt="../_images/linear_variational_method_12_1.png" src="../_images/linear_variational_method_12_1.png" />
