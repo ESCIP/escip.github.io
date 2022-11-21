@@ -19,3 +19,4 @@ parts:
   chapters:
   - file: notebooks/fourier_transform
   - file: notebooks/linear_variational_method
+  - file: notebooks/gaussian_wavepacket
