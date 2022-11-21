@@ -1,0 +1,1000 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Time evolution of a Gaussian wavepacket &#8212; ESCIP</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Linear Variational Method" href="linear_variational_method.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ESCIP</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../team.html">
+   Team
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../guidelines/intro.html">
+   Guidelines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../guidelines/guidelines.html">
+     Format of notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../guidelines/template.html">
+     Template notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../workshops/intro.html">
+   Workshops
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../workshops/workshop2023.html">
+     January 2023 In-Person Workshop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../workshops/workshop2022.html">
+     Summer 2022 In-Person Workshop
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="fourier_transform.html">
+   Fourier Transforms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linear_variational_method.html">
+   Linear Variational Method
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Time evolution of a Gaussian wavepacket
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/gaussian_wavepacket.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/gaussian_wavepacket.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ESCIP/escip.github.io"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/gaussian_wavepacket.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/gaussian_wavepacket.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Time evolution of a Gaussian wavepacket
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objectives">
+     Objectives
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-outcomes">
+     Learning Outcomes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary">
+     Summary
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-0-import-libraries-and-initialize-a-plot-object-for-the-animation">
+     Step 0:  Import libraries and initialize a plot object for the animation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-1-define-helper-functions-that-will-compute-the-pib-basis-functions-and-energy-eigenvalues">
+       Step 1: Define helper functions that will compute the PIB basis functions and energy eigenvalues
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-2-define-a-helper-function-that-will-compute-values-of-the-gaussian-wavepacket">
+       Step 2: Define a helper function that will compute values of the Gaussian wavepacket
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-3-set-up-plot-and-function-parameters-and-form-the-gaussian-wavepacket-at-time-t-t0">
+       Step 3: Set up plot and function parameters and form the Gaussian Wavepacket at time t=t0
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-2-write-helper-functions-so-that-the-wavepacket-can-be-expanded-in-the-pib-basis">
+       Step 2: Write helper functions so that the wavepacket can be expanded in the PIB basis
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-3-determine-the-expansion-coefficients-for-the-gaussian-wavepacket-in-the-pib-basis">
+         Step 3:  Determine the expansion coefficients for the Gaussian Wavepacket in the PIB basis
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-4-put-it-all-together-and-animate">
+       Step 4: Put it all together and animate!
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference-link">
+   Reference Link
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Time evolution of a Gaussian wavepacket</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Time evolution of a Gaussian wavepacket
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objectives">
+     Objectives
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-outcomes">
+     Learning Outcomes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary">
+     Summary
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-0-import-libraries-and-initialize-a-plot-object-for-the-animation">
+     Step 0:  Import libraries and initialize a plot object for the animation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-1-define-helper-functions-that-will-compute-the-pib-basis-functions-and-energy-eigenvalues">
+       Step 1: Define helper functions that will compute the PIB basis functions and energy eigenvalues
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-2-define-a-helper-function-that-will-compute-values-of-the-gaussian-wavepacket">
+       Step 2: Define a helper function that will compute values of the Gaussian wavepacket
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-3-set-up-plot-and-function-parameters-and-form-the-gaussian-wavepacket-at-time-t-t0">
+       Step 3: Set up plot and function parameters and form the Gaussian Wavepacket at time t=t0
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-2-write-helper-functions-so-that-the-wavepacket-can-be-expanded-in-the-pib-basis">
+       Step 2: Write helper functions so that the wavepacket can be expanded in the PIB basis
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-3-determine-the-expansion-coefficients-for-the-gaussian-wavepacket-in-the-pib-basis">
+         Step 3:  Determine the expansion coefficients for the Gaussian Wavepacket in the PIB basis
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#step-4-put-it-all-together-and-animate">
+       Step 4: Put it all together and animate!
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference-link">
+   Reference Link
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/FoleyLab/FoleyLab.github.io/blob/master/notebooks/Wavepacket_animations.ipynb" target="_parent"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="time-evolution-of-a-gaussian-wavepacket">
+<h1>Time evolution of a Gaussian wavepacket<a class="headerlink" href="#time-evolution-of-a-gaussian-wavepacket" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://foleylab.github.io/">Prof. Jay Foley, University of North Carolina Charlotte</a></p>
+<section id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>To demonstrate the expansion of a Gaussian wavepacket as a superposition of particle-in-a-box energy eigenstates</p></li>
+<li><p>To demonstrate the time-dependence of a Gaussian wavepacket traveling between two infinitely tall potential walls</p></li>
+<li><p>To calculate the momentum uncertainty of the Gaussian wavepacket as a function of time</p></li>
+</ul>
+</section>
+<section id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">#</a></h2>
+<p>By the end of this workbook, students should be able to</p>
+<ul class="simple">
+<li><p>Expand an arbitrary wavefunction in the energy eigenstate basis, and specifically apply this to the expansion of a Gaussian wavepacket in the basis of the particle-in-a-box energy eigenstates</p></li>
+<li><p>Utilize the <code class="docutils literal notranslate"><span class="pre">trapz</span></code> function of <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to perform numeric integration</p></li>
+<li><p>Use the known time dependence of energy eigenstates of the particle-in-a-box to simulate the time evolution of the Gaussian wavepacket travelling between two infinitely tall ptential walls</p></li>
+<li><p>Use the capabilities of <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to animate the motion of the Gaussian wavepacket</p></li>
+<li><p>Compute time-dependent expectation values of the Gaussian wavepacket, and specifically track the momentum uncertainty of this state as a function of time.</p></li>
+</ul>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<p>We will demonstrate the time-dependence of an electron initially described by a Gaussian wavepacket that is travelling between two infinitely tall potential walls located at <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(x = L\)</span>.  The initial state of this wavepacket will be given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-afe5e045-5d61-40c7-985f-f31253aad291">
+<span class="eqno">(15)<a class="headerlink" href="#equation-afe5e045-5d61-40c7-985f-f31253aad291" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\Psi(x,t_0) = \frac{1}{\sigma \sqrt(2\pi)} {\rm exp}\left(\frac{-1}{2}\left(\frac{x-x_0}{\sigma}\right)^2\right) {\rm exp}(i k_0 x). \tag{1}
+\end{equation}\]</div>
+<p>Such a wavefunction describes a particle initially with a mean momentum and position of <span class="math notranslate nohighlight">\(\hbar k_0\)</span> and <span class="math notranslate nohighlight">\(x_0\)</span>, respectively, and <span class="math notranslate nohighlight">\(\sigma\)</span> relates to the spread (or position uncertainty)
+of the particle.  In the code that follows, we will have <span class="math notranslate nohighlight">\(x_0 = 200\)</span>, <span class="math notranslate nohighlight">\(k_0 = 0.4\)</span>, and <span class="math notranslate nohighlight">\(\sigma = 15\)</span> atomic units.  We will specify that the location of the left-most infinite potential is at <span class="math notranslate nohighlight">\(L = 500\)</span> atomic units.  We will use the fact that we can we can expand this wavefunction in any complete basis, and we will use the basis of the energy eigenfunctions of the particle in a box with <span class="math notranslate nohighlight">\(L = 500\)</span> atomic units.</p>
+<p>Hence, we will expand the wavefunction as follows:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d87fe359-b807-4e12-a9c1-e405d23bd4ab">
+<span class="eqno">(16)<a class="headerlink" href="#equation-d87fe359-b807-4e12-a9c1-e405d23bd4ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\Psi(x,t) = \sum_{n=1}^N c_n \sqrt{\frac{2}{L}} {\rm sin}\left( \frac{n \pi x}{L} \right)
+{\rm exp}\left(-\frac{i E_n t}{\hbar}\right), \tag{2}
+\end{equation}\]</div>
+<p>where we have used the known time-dependence of each energy eigenstate.  The energy eigenvalues have the form</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ade79e7b-398a-4663-b46d-687f45af6924">
+<span class="eqno">(17)<a class="headerlink" href="#equation-ade79e7b-398a-4663-b46d-687f45af6924" title="Permalink to this equation">#</a></span>\[\begin{equation}
+E_n = \frac{n^2 \pi^2 \hbar^2}{2 m L^2}. \tag{3}
+\end{equation}\]</div>
+<p>Since we are working in atomic units, <span class="math notranslate nohighlight">\(\hbar\)</span> and <span class="math notranslate nohighlight">\(m\)</span> will have the value of 1.</p>
+<p>The coefficients for the above expansion can be determined simply by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-007f3fed-e748-4644-90f8-210a8849be9b">
+<span class="eqno">(18)<a class="headerlink" href="#equation-007f3fed-e748-4644-90f8-210a8849be9b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+c_n = \sqrt{\frac{2}{500}} \int_0^{500} {\rm sin}\left(\frac{n \pi x}{500}\right) \cdot \Psi(x,t_0) \: dx \tag{4}
+\end{equation}\]</div>
+<p>where we have set <span class="math notranslate nohighlight">\(L = 500\)</span>.  We will use the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function <code class="docutils literal notranslate"><span class="pre">trapz(fx,</span> <span class="pre">x)</span></code> to perform a trapezoid rule approximation to
+this integral.</p>
+</section>
+<section id="step-0-import-libraries-and-initialize-a-plot-object-for-the-animation">
+<h2>Step 0:  Import libraries and initialize a plot object for the animation<a class="headerlink" href="#step-0-import-libraries-and-initialize-a-plot-object-for-the-animation" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span><span class="p">,</span> <span class="n">rc</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+
+<span class="c1"># First set up the figure, the axis, and the plot element we want to animate</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1">### parameters for the gaussian wavepacket and the PIB functions</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">k0</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="c1">### grid of x values for the functions</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1">### parameters for plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">))</span>
+
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># initialization function: plot the background of each frame</span>
+<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="step-1-define-helper-functions-that-will-compute-the-pib-basis-functions-and-energy-eigenvalues">
+<h3>Step 1: Define helper functions that will compute the PIB basis functions and energy eigenvalues<a class="headerlink" href="#step-1-define-helper-functions-that-will-compute-the-pib-basis-functions-and-energy-eigenvalues" title="Permalink to this headline">#</a></h3>
+<p>It will be helpful to have helper functions that will evaluate the energy eigenfunctions and eigenvalues of the
+particle in a box given the quantum number <span class="math notranslate nohighlight">\(n\)</span>, the length of the box <span class="math notranslate nohighlight">\(L\)</span>, and the grid of <span class="math notranslate nohighlight">\(x\)</span> values for the eigenfunction.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">energy_eigenvalue</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Helper function to take the quantum number n of the particle in a box and the length </span>
+<span class="sd">        of the box L and return the energy eigenvalue in atomic units.  This assumes the mass of the particle</span>
+<span class="sd">        is 1 in atomic units (i.e. it assumes the particle is an electron).</span>
+<span class="sd">        The length should be in atomic units.</span>
+<span class="sd">        </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    n : int</span>
+<span class="sd">        the quantum state of the particle in a box</span>
+<span class="sd">        </span>
+<span class="sd">    L : float</span>
+<span class="sd">        the length of the box in atomic units</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+        
+    <span class="k">return</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">L</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">energy_eigenfunction</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Helper function to take the quantum number n of the particle in a box, the length </span>
+<span class="sd">        of the box L, and x-coordinate value(s) (single value or list) and return the corresponding</span>
+<span class="sd">        energy eigenstate value(s) of the ordinary particle in a box.  L and x should be in atomic units,</span>
+<span class="sd">        and the maximum value of x should be L.</span>
+<span class="sd">        </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    n : int</span>
+<span class="sd">        the quantum state of the particle in a box      </span>
+<span class="sd">    L : float</span>
+<span class="sd">        the length of the box in atomic units</span>
+<span class="sd">    x : float (or numpy array of floats)</span>
+<span class="sd">        the position variable for the energy eigenstate in atomic units</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-define-a-helper-function-that-will-compute-values-of-the-gaussian-wavepacket">
+<h3>Step 2: Define a helper function that will compute values of the Gaussian wavepacket<a class="headerlink" href="#step-2-define-a-helper-function-that-will-compute-values-of-the-gaussian-wavepacket" title="Permalink to this headline">#</a></h3>
+<p>We will define a function to take the <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(x_0\)</span>, and <span class="math notranslate nohighlight">\(k_0\)</span> parameters and <span class="math notranslate nohighlight">\(x\)</span> value(s) that define Eq. (1) and return <span class="math notranslate nohighlight">\(\Psi(x,t_0)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussian_wavepacket</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">k0</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Helper function to take the the spread (sig), mean wavenumber (k0), mean position value (x0) </span>
+<span class="sd">        and grid of x-values (x) and return the corresponding Gaussian wavepacket values evaluated on that grid</span>
+<span class="sd">        </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    x0 : float</span>
+<span class="sd">        mean position of the wavepacket in atomic units    </span>
+<span class="sd">    sig : float</span>
+<span class="sd">        spread of the wavepacket in atomic units</span>
+<span class="sd">    k0  : float</span>
+<span class="sd">        the mean wavenumber in atomic units of the wavepacket, related to</span>
+<span class="sd">        mean momentum by \hbar k0</span>
+<span class="sd">    x : float (or numpy array of floats)</span>
+<span class="sd">        the position variable for the energy eigenstate in atomic units</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ci</span> <span class="o">=</span> <span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span> <span class="c1"># &lt;== the imaginary unit</span>
+    <span class="n">pre</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">sig</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="c1"># &lt;== prefactor</span>
+    <span class="n">gauss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="n">sig</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># &lt;== gaussian envelope</span>
+    <span class="n">plane</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">ci</span> <span class="o">*</span> <span class="n">k0</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># &lt;== plane-wave component</span>
+    <span class="k">return</span> <span class="n">pre</span> <span class="o">*</span> <span class="n">gauss</span> <span class="o">*</span> <span class="n">plane</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-set-up-plot-and-function-parameters-and-form-the-gaussian-wavepacket-at-time-t-t0">
+<h3>Step 3: Set up plot and function parameters and form the Gaussian Wavepacket at time t=t0<a class="headerlink" href="#step-3-set-up-plot-and-function-parameters-and-form-the-gaussian-wavepacket-at-time-t-t0" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Compute the Gaussian wavepacket</span>
+<span class="n">psi_gp</span> <span class="o">=</span> <span class="n">gaussian_wavepacket</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">k0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-write-helper-functions-so-that-the-wavepacket-can-be-expanded-in-the-pib-basis">
+<h3>Step 2: Write helper functions so that the wavepacket can be expanded in the PIB basis<a class="headerlink" href="#step-2-write-helper-functions-so-that-the-wavepacket-can-be-expanded-in-the-pib-basis" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function PIB that takes the length-of-box L, the quantum number n, and array of x values x</span>
+<span class="c1"># and returns the corresponding PIB energy eigenfunction</span>
+<span class="k">def</span> <span class="nf">PIB</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">L</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="o">/</span><span class="n">L</span><span class="p">)</span>
+
+<span class="c1">### return energy in atomic units</span>
+<span class="k">def</span> <span class="nf">PIB_En</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">### return time-dependent part of energy eigenfunction in atomic units</span>
+<span class="k">def</span> <span class="nf">PIB_Time</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="n">ci</span> <span class="o">=</span> <span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span>
+    <span class="n">En</span> <span class="o">=</span> <span class="n">PIB_En</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">ci</span><span class="o">*</span><span class="n">En</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> 
+
+<span class="k">def</span> <span class="nf">dfdx</span><span class="p">(</span><span class="n">fx</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">fxp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">fxp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fx</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">fx</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>
+    <span class="k">return</span> <span class="n">fxp</span>
+
+
+<span class="c1">### use rectangle rule to integrate a function!</span>
+<span class="k">def</span> <span class="nf">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f_of_x</span><span class="p">):</span>
+    <span class="c1">### get the width of each rectangle!</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">f_of_x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">h</span>
+        <span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">+</span> <span class="n">A</span>
+        
+    <span class="k">return</span> <span class="n">integral</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="step-3-determine-the-expansion-coefficients-for-the-gaussian-wavepacket-in-the-pib-basis">
+<h4>Step 3:  Determine the expansion coefficients for the Gaussian Wavepacket in the PIB basis<a class="headerlink" href="#step-3-determine-the-expansion-coefficients-for-the-gaussian-wavepacket-in-the-pib-basis" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Create an array of quantum numbers for the PIB states... 1 to 100 should be adequate</span>
+<span class="n">n_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1">### Each quantum number n has a corresponding (complex) coefficient c_n </span>
+<span class="n">cn_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n_array</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
+    <span class="c1">### get energy eigenstate n</span>
+    <span class="n">psi</span> <span class="o">=</span> <span class="n">PIB</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">n_array</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1">### multiply psi_n by gaussian wavepacket</span>
+    <span class="n">integrand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">*</span><span class="n">Psi_gp</span>
+    <span class="c1">### get coefficient c_n from the integral of psi_n * Psi_gp</span>
+    <span class="n">cn_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">integrand</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">psi</span> <span class="o">=</span> <span class="n">PIB</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">n_array</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">### multiply psi_n by gaussian wavepacket</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">integrand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">*</span><span class="n">Psi_gp</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">### get coefficient c_n from the integral of psi_n * Psi_gp</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">cn_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">integrand</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Psi_gp&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="step-4-put-it-all-together-and-animate">
+<h3>Step 4: Put it all together and animate!<a class="headerlink" href="#step-4-put-it-all-together-and-animate" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_time</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">p_of_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_time</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="n">p2_of_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_time</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="n">p_sig_of_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_time</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_time</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">ft</span> <span class="o">=</span> <span class="n">PIB_Time</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n_array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">i</span><span class="o">*</span><span class="mf">10.</span><span class="p">)</span>
+    <span class="n">fx</span> <span class="o">=</span> <span class="n">PIB</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n_array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">cn_array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">fx</span> <span class="o">*</span> <span class="n">ft</span>
+
+<span class="n">p</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">sig_p</span> <span class="o">=</span> <span class="n">Momentum_Uncertainty</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">p_of_t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span>
+<span class="n">p2_of_t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p2</span> 
+<span class="n">p_sig_of_t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">sig_p</span> 
+
+<span class="c1"># animation function. This is called sequentially  </span>
+<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">ft</span> <span class="o">=</span> <span class="n">PIB_Time</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n_array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">i</span><span class="o">*</span><span class="mf">10.</span><span class="p">)</span>
+        <span class="n">fx</span> <span class="o">=</span> <span class="n">PIB</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n_array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">cn_array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">fx</span> <span class="o">*</span> <span class="n">ft</span>
+    <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="mi">10</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">sig_p</span> <span class="o">=</span> <span class="n">Momentum_Uncertainty</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">p_of_t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span> 
+    <span class="n">p2_of_t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p2</span>  
+    <span class="n">p_sig_of_t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sig_p</span> 
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">,)</span>
+  
+
+<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+                             <span class="n">frames</span><span class="o">=</span><span class="n">N_time</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Note: below is the part which makes it work on Colab</span>
+<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;animation&#39;</span><span class="p">,</span> <span class="n">html</span><span class="o">=</span><span class="s1">&#39;jshtml&#39;</span><span class="p">)</span>
+<span class="n">anim</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">p2_of_t</span><span class="p">)</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="n">p2_of_t</span><span class="p">),</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&lt;p^2&gt;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">p_of_t</span><span class="p">)</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">p_of_t</span><span class="p">)),</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&lt;p&gt;&#39;</span><span class="p">)</span>
+<span class="c1">#plt.plot(t, np.real(p_sig_of_t), &#39;green&#39;, label=&#39;sigma_p&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Momentum_Expectation</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">ci</span><span class="o">=</span><span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span>
+    <span class="n">Psi_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">Psi</span><span class="p">)</span>
+    <span class="n">Psi_p</span> <span class="o">=</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">num_integrand</span> <span class="o">=</span> <span class="o">-</span><span class="n">ci</span><span class="o">*</span><span class="n">Psi_star</span> <span class="o">*</span> <span class="n">Psi_p</span>
+    <span class="n">den_integrand</span> <span class="o">=</span> <span class="n">Psi_star</span> <span class="o">*</span> <span class="n">Psi</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num_integrand</span><span class="p">)</span>
+    <span class="n">den</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">den_integrand</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">num</span><span class="o">/</span><span class="n">den</span>
+
+<span class="k">def</span> <span class="nf">Momentum_Squared_Expectation</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">ci</span><span class="o">=</span><span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span>
+    <span class="n">Psi_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">Psi</span><span class="p">)</span>
+    <span class="n">Psi_p</span> <span class="o">=</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">Psi_pp</span> <span class="o">=</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">Psi_p</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">num_integrand</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">Psi_star</span> <span class="o">*</span> <span class="n">Psi_pp</span>
+    <span class="n">den_integrand</span> <span class="o">=</span> <span class="n">Psi_star</span> <span class="o">*</span> <span class="n">Psi</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num_integrand</span><span class="p">)</span>
+    <span class="n">den</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">den_integrand</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">num</span><span class="o">/</span><span class="n">den</span>
+
+<span class="k">def</span> <span class="nf">Momentum_Uncertainty</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Momentum_Expectation</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">Momentum_Squared_Expectation</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p2</span> <span class="o">-</span> <span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="reference-link">
+<h1>Reference Link<a class="headerlink" href="#reference-link" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="http://tiao.io/posts/notebooks/embedding-matplotlib-animations-in-jupyter-as-interactive-javascript-widgets/">http://tiao.io/posts/notebooks/embedding-matplotlib-animations-in-jupyter-as-interactive-javascript-widgets/</a></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ESCIP/escip.github.io",
+            ref: "jbook",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="linear_variational_method.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Linear Variational Method</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By ESCIP Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
