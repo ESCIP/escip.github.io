@@ -613,27 +613,27 @@ title="Print to PDF"
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>We will demonstrate the time-dependence of an electron initially described by a Gaussian wavepacket that is travelling between two infinitely tall potential walls located at <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(x = L\)</span>.  The initial state of this wavepacket will be given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c352ae4-1907-4da8-911b-54603b581d2e">
-<span class="eqno">(15)<a class="headerlink" href="#equation-4c352ae4-1907-4da8-911b-54603b581d2e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2cbd6d7c-edb3-413d-81a7-5d21e7ab843a">
+<span class="eqno">(15)<a class="headerlink" href="#equation-2cbd6d7c-edb3-413d-81a7-5d21e7ab843a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Psi(x,t_0) = \frac{1}{\sigma \sqrt(2\pi)} {\rm exp}\left(\frac{-1}{2}\left(\frac{x-x_0}{\sigma}\right)^2\right) {\rm exp}(i k_0 x). \tag{1}
 \end{equation}\]</div>
 <p>Such a wavefunction describes a particle initially with a mean momentum and position of <span class="math notranslate nohighlight">\(\hbar k_0\)</span> and <span class="math notranslate nohighlight">\(x_0\)</span>, respectively, and <span class="math notranslate nohighlight">\(\sigma\)</span> relates to the spread (or position uncertainty)
 of the particle.  In the code that follows, we will have <span class="math notranslate nohighlight">\(x_0 = 200\)</span>, <span class="math notranslate nohighlight">\(k_0 = 0.4\)</span>, and <span class="math notranslate nohighlight">\(\sigma = 15\)</span> atomic units.  We will specify that the location of the left-most infinite potential is at <span class="math notranslate nohighlight">\(L = 500\)</span> atomic units.  We will use the fact that we can we can expand this wavefunction in any complete basis, and we will use the basis of the energy eigenfunctions of the particle in a box with <span class="math notranslate nohighlight">\(L = 500\)</span> atomic units.</p>
 <p>Hence, we will expand the wavefunction as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3a31b113-9d09-41cd-a39a-3dbac3f30538">
-<span class="eqno">(16)<a class="headerlink" href="#equation-3a31b113-9d09-41cd-a39a-3dbac3f30538" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4fe4077c-209a-4e43-afe8-dbf7345fe53a">
+<span class="eqno">(16)<a class="headerlink" href="#equation-4fe4077c-209a-4e43-afe8-dbf7345fe53a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Psi(x,t) = \sum_{n=1}^N c_n \sqrt{\frac{2}{L}} {\rm sin}\left( \frac{n \pi x}{L} \right)
 {\rm exp}\left(-\frac{i E_n t}{\hbar}\right), \tag{2}
 \end{equation}\]</div>
 <p>where we have used the known time-dependence of each energy eigenstate.  The energy eigenvalues have the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9ccbc70-5e08-47f7-a61b-4d18ba5c8617">
-<span class="eqno">(17)<a class="headerlink" href="#equation-c9ccbc70-5e08-47f7-a61b-4d18ba5c8617" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d386f5a0-8099-4ed4-846d-d52c9743c4fb">
+<span class="eqno">(17)<a class="headerlink" href="#equation-d386f5a0-8099-4ed4-846d-d52c9743c4fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E_n = \frac{n^2 \pi^2 \hbar^2}{2 m L^2}. \tag{3}
 \end{equation}\]</div>
 <p>Since we are working in atomic units, <span class="math notranslate nohighlight">\(\hbar\)</span> and <span class="math notranslate nohighlight">\(m\)</span> will have the value of 1.</p>
 <p>The coefficients for the above expansion can be determined simply by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3ba3d2f6-071b-4e15-bca8-798469462140">
-<span class="eqno">(18)<a class="headerlink" href="#equation-3ba3d2f6-071b-4e15-bca8-798469462140" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-46a85797-febc-4f3e-af4e-13d33c419476">
+<span class="eqno">(18)<a class="headerlink" href="#equation-46a85797-febc-4f3e-af4e-13d33c419476" title="Permalink to this equation">#</a></span>\[\begin{equation}
 c_n = \sqrt{\frac{2}{500}} \int_0^{500} {\rm sin}\left(\frac{n \pi x}{500}\right) \cdot \Psi(x,t_0) \: dx \tag{4}
 \end{equation}\]</div>
 <p>where we have set <span class="math notranslate nohighlight">\(L = 500\)</span>.  We will use the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function <code class="docutils literal notranslate"><span class="pre">trapz(fx,</span> <span class="pre">x)</span></code> to perform a trapezoid rule approximation to
