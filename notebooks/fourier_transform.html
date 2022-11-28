@@ -513,8 +513,8 @@ title="Print to PDF"
 <p>Keywords: #FourierTransforms, #Math #Scipy</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import matplotlib.pyplot as plt
 </pre></div>
 </div>
 </div>
@@ -571,18 +571,18 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of sample points</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="c1"># sample spacing</span>
-<span class="n">delta</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">1000.0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Number of sample points
+N = 1000
+# sample spacing
+delta = 1.0 / 1000.0
 
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">delta</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">30.0</span> <span class="o">*</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">50.0</span> <span class="o">*</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+t = np.linspace(0.0, delta*N, N)
+y = np.sin(30.0 * 2.0*np.pi*t) + 0.5*np.sin(50.0 * 2.0*np.pi*t)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+plt.plot(t, y)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.xlabel(&quot;Time&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -594,14 +594,14 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 <p>We can use <code class="docutils literal notranslate"><span class="pre">scipy.fftpack</span></code> to perform the “fast Fourier transform” (FFT). The resulting “x” variable will be in frequency - so the limit is defined by the <span class="math notranslate nohighlight">\(dt\)</span> we had. We cannot find a higher frequency than that time resolution. (In short, if we expected to have GHz signals, we’d need short time resolution.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.fftpack</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import scipy.fftpack
 
-<span class="n">xf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">delta</span><span class="p">),</span> <span class="p">(</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">yf</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fftpack</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+xf = np.linspace(0.0, 1.0/(2.0*delta), (N//2))
+yf = scipy.fftpack.fft(y)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span> <span class="mf">2.0</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">[:</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">]))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.plot(xf, 2.0/N * np.abs(yf[:N//2]))
+plt.xlabel(&quot;Frequency&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -613,13 +613,13 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 <p>The time-domain signal can be as complicated as we want. Here’s an example with 4 frequencies - note that it doesn’t matter the <em>phase</em> indicated by sine or cosine functions - they’re both periodic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">30.0</span> <span class="o">*</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">50.0</span> <span class="o">*</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">165.0</span> <span class="o">*</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">104</span> <span class="o">*</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y = np.sin(30.0 *2.0*np.pi*t) + 0.5*np.cos(50.0 *2.0*np.pi*t)
+y = y + 1.5*np.sin(165.0 *2.0*np.pi*t) + np.cos(104 * 2*np.pi*t)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+plt.plot(t, y)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.xlabel(&quot;Time&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -629,11 +629,11 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yf</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fftpack</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>yf = scipy.fftpack.fft(y)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span> <span class="mf">2.0</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">[:</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">]))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.plot(xf, 2.0/N * np.abs(yf[:N//2]))
+plt.xlabel(&quot;Frequency&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -645,12 +645,12 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 <p>Also, the time signal doesn’t need to be completely periodic… a “chirp” can also work where the signal intensity drops over time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y = y * np.exp(-2*t)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+plt.plot(t, y)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.xlabel(&quot;Time&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -660,11 +660,11 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yf</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fftpack</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>yf = scipy.fftpack.fft(y)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span> <span class="mf">2.0</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">[:</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">]))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.plot(xf, 2.0/N * np.abs(yf[:N//2]))
+plt.xlabel(&quot;Frequency&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -676,12 +676,12 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 <p>Let’s try the FFT on our square wave from last time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import scipy.signal
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+y = scipy.signal.square(4 * np.pi * 2 * t)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.plot(t, y)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -691,11 +691,11 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yf</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fftpack</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>yf = scipy.fftpack.fft(y)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xf</span><span class="p">,</span> <span class="mf">2.0</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">[:</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">]))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.plot(xf, 2.0/N * np.abs(yf[:N//2]))
+plt.xlabel(&quot;Frequency&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -707,10 +707,10 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 <p>We can also use the inverse FFT <code class="docutils literal notranslate"><span class="pre">scipy.fft.ifft()</span></code> to go back to the time domain. In this case, the differences are minor.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inverse</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">yf</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>inverse = scipy.fft.ifft(yf)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">inverse</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+plt.plot(t, inverse)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -729,18 +729,18 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 <p>So we’ll look at some slightly more complicated examples using audio files.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
-<span class="kn">import</span> <span class="nn">scipy.io.wavfile</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import scipy
+import scipy.io.wavfile
 
-<span class="c1"># Graphing helper function</span>
-<span class="k">def</span> <span class="nf">setup_graph</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">fig_size</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="n">fig_size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fig_size</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">x_label</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">y_label</span><span class="p">)</span>
+# Graphing helper function
+def setup_graph(title=&#39;&#39;, x_label=&#39;&#39;, y_label=&#39;&#39;, fig_size=None):
+    fig = plt.figure()
+    if fig_size != None:
+        fig.set_size_inches(fig_size[0], fig_size[1])
+    ax = fig.add_subplot(111)
+    ax.set_title(title)
+    ax.set_xlabel(x_label)
+    ax.set_ylabel(y_label)
 </pre></div>
 </div>
 </div>
@@ -748,17 +748,17 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 <p>Here’s a recording of me saying the “ah” sound.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOTE: This is only works with 1 channel (mono).  To record a mono audio sample,</span>
-<span class="c1"># you can use this command: rec -r 44100 -c 1 -b 16 test.wav</span>
-<span class="p">(</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">input_signal</span><span class="p">)</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;audio/ah.wav&quot;</span><span class="p">)</span>
-<span class="n">time_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_signal</span><span class="p">)</span><span class="o">/</span><span class="n">sample_rate</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sample_rate</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># NOTE: This is only works with 1 channel (mono).  To record a mono audio sample,
+# you can use this command: rec -r 44100 -c 1 -b 16 test.wav
+(sample_rate, input_signal) = scipy.io.wavfile.read(&quot;audio/ah.wav&quot;)
+time_array = np.arange(0, len(input_signal)/sample_rate, 1/sample_rate)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># NOTE: This is only works with 1 channel (mono).  To record a mono audio sample,</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># you can use this command: rec -r 44100 -c 1 -b 16 test.wav</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="p">(</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">input_signal</span><span class="p">)</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;audio/ah.wav&quot;</span><span class="p">)</span>
@@ -778,8 +778,8 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">setup_graph</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Ah vowel sound&#39;</span><span class="p">,</span> <span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;time (in seconds)&#39;</span><span class="p">,</span> <span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;amplitude&#39;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_array</span><span class="p">[</span><span class="mi">800</span><span class="p">:</span><span class="mi">5000</span><span class="p">],</span> <span class="n">input_signal</span><span class="p">[</span><span class="mi">800</span><span class="p">:</span><span class="mi">5000</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>setup_graph(title=&#39;Ah vowel sound&#39;, x_label=&#39;time (in seconds)&#39;, y_label=&#39;amplitude&#39;, fig_size=(14,7))
+_ = plt.plot(time_array[800:5000], input_signal[800:5000])
 </pre></div>
 </div>
 </div>
@@ -789,13 +789,13 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fft_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">input_signal</span><span class="p">)</span>
-<span class="n">fft_mag</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">real</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">i</span><span class="o">.</span><span class="n">imag</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">fft_out</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fft_out</span><span class="p">]</span>
-<span class="n">num_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_signal</span><span class="p">)</span>
-<span class="n">rfreqs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="o">*</span><span class="mf">1.0</span><span class="o">/</span><span class="n">num_samples</span><span class="p">)</span><span class="o">*</span><span class="n">sample_rate</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_samples</span><span class="o">//</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fft_out = np.fft.rfft(input_signal)
+fft_mag = [np.sqrt(i.real**2 + i.imag**2)/len(fft_out) for i in fft_out]
+num_samples = len(input_signal)
+rfreqs = [(i*1.0/num_samples)*sample_rate for i in range(num_samples//2+1)]
 
-<span class="n">setup_graph</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;FFT of Ah Vowel (first 1500)&#39;</span><span class="p">,</span> <span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;FFT Bins&#39;</span><span class="p">,</span> <span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;magnitude&#39;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rfreqs</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1500</span><span class="p">],</span> <span class="n">fft_mag</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1500</span><span class="p">])</span>
+setup_graph(title=&#39;FFT of Ah Vowel (first 1500)&#39;, x_label=&#39;FFT Bins&#39;, y_label=&#39;magnitude&#39;, fig_size=(14,7))
+_ = plt.plot(rfreqs[0:1500], fft_mag[0:1500])
 </pre></div>
 </div>
 </div>
@@ -809,15 +809,15 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 <p>Here’s a short scale “do re mi fa sol …”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">doremi_sample_rate</span><span class="p">,</span> <span class="n">doremi</span><span class="p">)</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;audio/do-re-mi.wav&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(doremi_sample_rate, doremi) = scipy.io.wavfile.read(&quot;audio/do-re-mi.wav&quot;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">setup_graph</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Spectrogram of diatonic scale (44100Hz sample rate)&#39;</span><span class="p">,</span> <span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;time (in seconds)&#39;</span><span class="p">,</span> <span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;frequency&#39;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">specgram</span><span class="p">(</span><span class="n">doremi</span><span class="p">,</span> <span class="n">Fs</span><span class="o">=</span><span class="n">doremi_sample_rate</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>setup_graph(title=&#39;Spectrogram of diatonic scale (44100Hz sample rate)&#39;, x_label=&#39;time (in seconds)&#39;, y_label=&#39;frequency&#39;, fig_size=(14,8))
+_ = plt.specgram(doremi, Fs=doremi_sample_rate, cmap=&#39;plasma&#39;)
 </pre></div>
 </div>
 </div>
@@ -833,11 +833,11 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 <p>Let’s look at the lower frequency data - zero to 4000 Hz…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">downscale</span> <span class="o">=</span> <span class="mi">8000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>downscale = 8000
 
-<span class="n">doremi_downscale</span> <span class="o">=</span> <span class="p">[</span><span class="n">doremi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">doremi</span><span class="p">),</span> <span class="mi">44100</span><span class="o">//</span><span class="n">downscale</span><span class="p">)]</span>
-<span class="n">setup_graph</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Spectrogram (downscale sample rate)&#39;</span><span class="p">,</span> <span class="n">x_label</span><span class="o">=</span><span class="s1">&#39;time (in seconds)&#39;</span><span class="p">,</span> <span class="n">y_label</span><span class="o">=</span><span class="s1">&#39;frequency&#39;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">specgram</span><span class="p">(</span><span class="n">doremi_downscale</span><span class="p">,</span> <span class="n">Fs</span><span class="o">=</span><span class="n">downscale</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
+doremi_downscale = [doremi[i] for i in range(0, len(doremi), 44100//downscale)]
+setup_graph(title=&#39;Spectrogram (downscale sample rate)&#39;, x_label=&#39;time (in seconds)&#39;, y_label=&#39;frequency&#39;, fig_size=(14,7))
+_ = plt.specgram(doremi_downscale, Fs=downscale, cmap=&#39;plasma&#39;)
 </pre></div>
 </div>
 </div>
@@ -848,8 +848,8 @@ y = \sin(30 \cdot 2\pi t) + \frac{1}{2} \sin(50 \cdot 2 \pi t)
 <p>Not only can we see the increasing frequency in the scale, but it’s possible to see overtones at <span class="math notranslate nohighlight">\(2\times\)</span>, <span class="math notranslate nohighlight">\(3\times\)</span>, and higher frequencies. This is one thing that separates natural sounds from some artificial sounds (buzzers and the like).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we should delete the data to free up some memory on the server</span>
-<span class="k">del</span><span class="p">(</span><span class="n">doremi</span><span class="p">,</span> <span class="n">doremi_downscale</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># we should delete the data to free up some memory on the server
+del(doremi, doremi_downscale)
 </pre></div>
 </div>
 </div>

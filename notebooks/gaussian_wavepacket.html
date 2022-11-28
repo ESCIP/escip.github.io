@@ -613,27 +613,27 @@ title="Print to PDF"
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>We will demonstrate the time-dependence of an electron initially described by a Gaussian wavepacket that is travelling between two infinitely tall potential walls located at <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(x = L\)</span>.  The initial state of this wavepacket will be given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-afe5e045-5d61-40c7-985f-f31253aad291">
-<span class="eqno">(15)<a class="headerlink" href="#equation-afe5e045-5d61-40c7-985f-f31253aad291" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ecb861dd-0202-4eba-8de6-b5c91c17ac5f">
+<span class="eqno">(15)<a class="headerlink" href="#equation-ecb861dd-0202-4eba-8de6-b5c91c17ac5f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Psi(x,t_0) = \frac{1}{\sigma \sqrt(2\pi)} {\rm exp}\left(\frac{-1}{2}\left(\frac{x-x_0}{\sigma}\right)^2\right) {\rm exp}(i k_0 x). \tag{1}
 \end{equation}\]</div>
 <p>Such a wavefunction describes a particle initially with a mean momentum and position of <span class="math notranslate nohighlight">\(\hbar k_0\)</span> and <span class="math notranslate nohighlight">\(x_0\)</span>, respectively, and <span class="math notranslate nohighlight">\(\sigma\)</span> relates to the spread (or position uncertainty)
 of the particle.  In the code that follows, we will have <span class="math notranslate nohighlight">\(x_0 = 200\)</span>, <span class="math notranslate nohighlight">\(k_0 = 0.4\)</span>, and <span class="math notranslate nohighlight">\(\sigma = 15\)</span> atomic units.  We will specify that the location of the left-most infinite potential is at <span class="math notranslate nohighlight">\(L = 500\)</span> atomic units.  We will use the fact that we can we can expand this wavefunction in any complete basis, and we will use the basis of the energy eigenfunctions of the particle in a box with <span class="math notranslate nohighlight">\(L = 500\)</span> atomic units.</p>
 <p>Hence, we will expand the wavefunction as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d87fe359-b807-4e12-a9c1-e405d23bd4ab">
-<span class="eqno">(16)<a class="headerlink" href="#equation-d87fe359-b807-4e12-a9c1-e405d23bd4ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e227a598-06fa-4a19-aff8-bd0443aa7401">
+<span class="eqno">(16)<a class="headerlink" href="#equation-e227a598-06fa-4a19-aff8-bd0443aa7401" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Psi(x,t) = \sum_{n=1}^N c_n \sqrt{\frac{2}{L}} {\rm sin}\left( \frac{n \pi x}{L} \right)
 {\rm exp}\left(-\frac{i E_n t}{\hbar}\right), \tag{2}
 \end{equation}\]</div>
 <p>where we have used the known time-dependence of each energy eigenstate.  The energy eigenvalues have the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ade79e7b-398a-4663-b46d-687f45af6924">
-<span class="eqno">(17)<a class="headerlink" href="#equation-ade79e7b-398a-4663-b46d-687f45af6924" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-01731c7d-e1f4-4338-9900-a553c06cdaa6">
+<span class="eqno">(17)<a class="headerlink" href="#equation-01731c7d-e1f4-4338-9900-a553c06cdaa6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E_n = \frac{n^2 \pi^2 \hbar^2}{2 m L^2}. \tag{3}
 \end{equation}\]</div>
 <p>Since we are working in atomic units, <span class="math notranslate nohighlight">\(\hbar\)</span> and <span class="math notranslate nohighlight">\(m\)</span> will have the value of 1.</p>
 <p>The coefficients for the above expansion can be determined simply by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-007f3fed-e748-4644-90f8-210a8849be9b">
-<span class="eqno">(18)<a class="headerlink" href="#equation-007f3fed-e748-4644-90f8-210a8849be9b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-432e6be3-93ca-49a8-8848-75555068994e">
+<span class="eqno">(18)<a class="headerlink" href="#equation-432e6be3-93ca-49a8-8848-75555068994e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 c_n = \sqrt{\frac{2}{500}} \int_0^{500} {\rm sin}\left(\frac{n \pi x}{500}\right) \cdot \Psi(x,t_0) \: dx \tag{4}
 \end{equation}\]</div>
 <p>where we have set <span class="math notranslate nohighlight">\(L = 500\)</span>.  We will use the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function <code class="docutils literal notranslate"><span class="pre">trapz(fx,</span> <span class="pre">x)</span></code> to perform a trapezoid rule approximation to
@@ -643,36 +643,36 @@ this integral.</p>
 <h2>Step 0:  Import libraries and initialize a plot object for the animation<a class="headerlink" href="#step-0-import-libraries-and-initialize-a-plot-object-for-the-animation" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import matplotlib.pyplot as plt
 
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span><span class="p">,</span> <span class="n">rc</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+from matplotlib import animation, rc
+from IPython.display import HTML
 
 
-<span class="c1"># First set up the figure, the axis, and the plot element we want to animate</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+# First set up the figure, the axis, and the plot element we want to animate
+fig, ax = plt.subplots()
+plt.close()
 
-<span class="c1">### parameters for the gaussian wavepacket and the PIB functions</span>
-<span class="n">x0</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="n">sig</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="n">k0</span> <span class="o">=</span> <span class="mf">0.4</span>
-<span class="n">L</span> <span class="o">=</span> <span class="mi">500</span>
+### parameters for the gaussian wavepacket and the PIB functions
+x0 = 200
+sig = 15
+k0 = 0.4
+L = 500
 
-<span class="c1">### grid of x values for the functions</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+### grid of x values for the functions
+x = np.linspace(0,500,500)
 
-<span class="c1">### parameters for plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">))</span>
+### parameters for plot
+ax.set_xlim((0, L))
+ax.set_ylim((-0.03, 0.03))
 
-<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+line, = ax.plot([], [], lw=2)
 
-<span class="c1"># initialization function: plot the background of each frame</span>
-<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
-    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">,)</span>
+# initialization function: plot the background of each frame
+def init():
+    line.set_data([], [])
+    return (line,)
 </pre></div>
 </div>
 </div>
@@ -683,39 +683,39 @@ this integral.</p>
 particle in a box given the quantum number <span class="math notranslate nohighlight">\(n\)</span>, the length of the box <span class="math notranslate nohighlight">\(L\)</span>, and the grid of <span class="math notranslate nohighlight">\(x\)</span> values for the eigenfunction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">energy_eigenvalue</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Helper function to take the quantum number n of the particle in a box and the length </span>
-<span class="sd">        of the box L and return the energy eigenvalue in atomic units.  This assumes the mass of the particle</span>
-<span class="sd">        is 1 in atomic units (i.e. it assumes the particle is an electron).</span>
-<span class="sd">        The length should be in atomic units.</span>
-<span class="sd">        </span>
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
-<span class="sd">    n : int</span>
-<span class="sd">        the quantum state of the particle in a box</span>
-<span class="sd">        </span>
-<span class="sd">    L : float</span>
-<span class="sd">        the length of the box in atomic units</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def energy_eigenvalue(n, L):
+    &quot;&quot;&quot; Helper function to take the quantum number n of the particle in a box and the length 
+        of the box L and return the energy eigenvalue in atomic units.  This assumes the mass of the particle
+        is 1 in atomic units (i.e. it assumes the particle is an electron).
+        The length should be in atomic units.
         
-    <span class="k">return</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">L</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    Arguments
+    ---------
+    n : int
+        the quantum state of the particle in a box
+        
+    L : float
+        the length of the box in atomic units
+    &quot;&quot;&quot;
+        
+    return n ** 2 * np.pi ** 2 / ( 2 * m * L ** 2)
 
-<span class="k">def</span> <span class="nf">energy_eigenfunction</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Helper function to take the quantum number n of the particle in a box, the length </span>
-<span class="sd">        of the box L, and x-coordinate value(s) (single value or list) and return the corresponding</span>
-<span class="sd">        energy eigenstate value(s) of the ordinary particle in a box.  L and x should be in atomic units,</span>
-<span class="sd">        and the maximum value of x should be L.</span>
-<span class="sd">        </span>
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
-<span class="sd">    n : int</span>
-<span class="sd">        the quantum state of the particle in a box      </span>
-<span class="sd">    L : float</span>
-<span class="sd">        the length of the box in atomic units</span>
-<span class="sd">    x : float (or numpy array of floats)</span>
-<span class="sd">        the position variable for the energy eigenstate in atomic units</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span>
+def energy_eigenfunction(n, L, x):
+    &quot;&quot;&quot; Helper function to take the quantum number n of the particle in a box, the length 
+        of the box L, and x-coordinate value(s) (single value or list) and return the corresponding
+        energy eigenstate value(s) of the ordinary particle in a box.  L and x should be in atomic units,
+        and the maximum value of x should be L.
+        
+    Arguments
+    ---------
+    n : int
+        the quantum state of the particle in a box      
+    L : float
+        the length of the box in atomic units
+    x : float (or numpy array of floats)
+        the position variable for the energy eigenstate in atomic units
+    &quot;&quot;&quot;
+    return np.sqrt(2 / L) * np.sin(n * np.pi * x / L)
 </pre></div>
 </div>
 </div>
@@ -726,27 +726,27 @@ particle in a box given the quantum number <span class="math notranslate nohighl
 <p>We will define a function to take the <span class="math notranslate nohighlight">\(\sigma\)</span>, <span class="math notranslate nohighlight">\(x_0\)</span>, and <span class="math notranslate nohighlight">\(k_0\)</span> parameters and <span class="math notranslate nohighlight">\(x\)</span> value(s) that define Eq. (1) and return <span class="math notranslate nohighlight">\(\Psi(x,t_0)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussian_wavepacket</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">k0</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Helper function to take the the spread (sig), mean wavenumber (k0), mean position value (x0) </span>
-<span class="sd">        and grid of x-values (x) and return the corresponding Gaussian wavepacket values evaluated on that grid</span>
-<span class="sd">        </span>
-<span class="sd">    Arguments</span>
-<span class="sd">    ---------</span>
-<span class="sd">    x0 : float</span>
-<span class="sd">        mean position of the wavepacket in atomic units    </span>
-<span class="sd">    sig : float</span>
-<span class="sd">        spread of the wavepacket in atomic units</span>
-<span class="sd">    k0  : float</span>
-<span class="sd">        the mean wavenumber in atomic units of the wavepacket, related to</span>
-<span class="sd">        mean momentum by \hbar k0</span>
-<span class="sd">    x : float (or numpy array of floats)</span>
-<span class="sd">        the position variable for the energy eigenstate in atomic units</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">ci</span> <span class="o">=</span> <span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span> <span class="c1"># &lt;== the imaginary unit</span>
-    <span class="n">pre</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">sig</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="c1"># &lt;== prefactor</span>
-    <span class="n">gauss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="n">sig</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># &lt;== gaussian envelope</span>
-    <span class="n">plane</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">ci</span> <span class="o">*</span> <span class="n">k0</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># &lt;== plane-wave component</span>
-    <span class="k">return</span> <span class="n">pre</span> <span class="o">*</span> <span class="n">gauss</span> <span class="o">*</span> <span class="n">plane</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def gaussian_wavepacket(x0, sig, k0, x):
+    &quot;&quot;&quot; Helper function to take the the spread (sig), mean wavenumber (k0), mean position value (x0) 
+        and grid of x-values (x) and return the corresponding Gaussian wavepacket values evaluated on that grid
+        
+    Arguments
+    ---------
+    x0 : float
+        mean position of the wavepacket in atomic units    
+    sig : float
+        spread of the wavepacket in atomic units
+    k0  : float
+        the mean wavenumber in atomic units of the wavepacket, related to
+        mean momentum by \hbar k0
+    x : float (or numpy array of floats)
+        the position variable for the energy eigenstate in atomic units
+    &quot;&quot;&quot;
+    ci = 0+1j # &lt;== the imaginary unit
+    pre = 1 / (sig * np.sqrt(2 * np.pi)) # &lt;== prefactor
+    gauss = np.exp(-0.5 * ((x - x0) / sig) ** 2) # &lt;== gaussian envelope
+    plane = np.exp(ci * k0 * x) # &lt;== plane-wave component
+    return pre * gauss * plane
     
 </pre></div>
 </div>
@@ -757,8 +757,8 @@ particle in a box given the quantum number <span class="math notranslate nohighl
 <h3>Step 3: Set up plot and function parameters and form the Gaussian Wavepacket at time t=t0<a class="headerlink" href="#step-3-set-up-plot-and-function-parameters-and-form-the-gaussian-wavepacket-at-time-t-t0" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Compute the Gaussian wavepacket</span>
-<span class="n">psi_gp</span> <span class="o">=</span> <span class="n">gaussian_wavepacket</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">k0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>### Compute the Gaussian wavepacket
+psi_gp = gaussian_wavepacket(x, x0, sig, k0)
 </pre></div>
 </div>
 </div>
@@ -768,40 +768,41 @@ particle in a box given the quantum number <span class="math notranslate nohighl
 <h3>Step 2: Write helper functions so that the wavepacket can be expanded in the PIB basis<a class="headerlink" href="#step-2-write-helper-functions-so-that-the-wavepacket-can-be-expanded-in-the-pib-basis" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function PIB that takes the length-of-box L, the quantum number n, and array of x values x</span>
-<span class="c1"># and returns the corresponding PIB energy eigenfunction</span>
-<span class="k">def</span> <span class="nf">PIB</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">L</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="o">/</span><span class="n">L</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># function PIB that takes the length-of-box L, the quantum number n, and array of x values x
+# and returns the corresponding PIB energy eigenfunction
+def PIB(L, n, x):
+    return np.sqrt(2/L) * np.sin(n * np.pi * x/L)
 
-<span class="c1">### return energy in atomic units</span>
-<span class="k">def</span> <span class="nf">PIB_En</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">L</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+### return energy in atomic units
+def PIB_En(L, n):
+    return n**2 * np.pi**2 /(2 * L**2)
 
-<span class="c1">### return time-dependent part of energy eigenfunction in atomic units</span>
-<span class="k">def</span> <span class="nf">PIB_Time</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-    <span class="n">ci</span> <span class="o">=</span> <span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span>
-    <span class="n">En</span> <span class="o">=</span> <span class="n">PIB_En</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">ci</span><span class="o">*</span><span class="n">En</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> 
+### return time-dependent part of energy eigenfunction in atomic units
+def PIB_Time(L, n, t):
+    ci = 0+1j
+    En = PIB_En(L, n)
+    return np.exp(-ci*En*t) 
 
-<span class="k">def</span> <span class="nf">dfdx</span><span class="p">(</span><span class="n">fx</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">fxp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">fxp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">fx</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">fx</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">dx</span>
-    <span class="k">return</span> <span class="n">fxp</span>
+def dfdx(fx, x):
+    dx = x[1]-x[0]
+    fxp = np.zeros_like(fx)
+    for i in range(0,len(fx)-1):
+        fxp[i] = (fx[i+1]-fx[i])/dx
+    return fxp
 
 
-<span class="c1">### use rectangle rule to integrate a function!</span>
-<span class="k">def</span> <span class="nf">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f_of_x</span><span class="p">):</span>
-    <span class="c1">### get the width of each rectangle!</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">f_of_x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">A</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">h</span>
-        <span class="n">integral</span> <span class="o">=</span> <span class="n">integral</span> <span class="o">+</span> <span class="n">A</span>
+### use rectangle rule to integrate a function!
+def integrate(x, f_of_x):
+    ### get the width of each rectangle!
+    w = x[1]-x[0]
+    integral = 0
+    for i in range(1,len(x)):
+        h = f_of_x[i]
+        A = w * h
+        integral = integral + A
         
-    <span class="k">return</span> <span class="n">integral</span>
+    return integral
+
 </pre></div>
 </div>
 </div>
@@ -810,25 +811,27 @@ particle in a box given the quantum number <span class="math notranslate nohighl
 <h4>Step 3:  Determine the expansion coefficients for the Gaussian Wavepacket in the PIB basis<a class="headerlink" href="#step-3-determine-the-expansion-coefficients-for-the-gaussian-wavepacket-in-the-pib-basis" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Create an array of quantum numbers for the PIB states... 1 to 100 should be adequate</span>
-<span class="n">n_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="c1">### Each quantum number n has a corresponding (complex) coefficient c_n </span>
-<span class="n">cn_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n_array</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>### Create an array of quantum numbers for the PIB states... 1 to 100 should be adequate
+n_array = np.linspace(1,100,100)
+### Each quantum number n has a corresponding (complex) coefficient c_n 
+cn_array = np.zeros(len(n_array),dtype=complex)
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
-    <span class="c1">### get energy eigenstate n</span>
-    <span class="n">psi</span> <span class="o">=</span> <span class="n">PIB</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">n_array</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
-    <span class="c1">### multiply psi_n by gaussian wavepacket</span>
-    <span class="n">integrand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">*</span><span class="n">Psi_gp</span>
-    <span class="c1">### get coefficient c_n from the integral of psi_n * Psi_gp</span>
-    <span class="n">cn_array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">integrand</span><span class="p">)</span>
+for i in range(0,100):
+    ### get energy eigenstate n
+    psi = PIB(L,n_array[i],x)
+    ### multiply psi_n by gaussian wavepacket
+    integrand = np.conj(psi)*Psi_gp
+    ### get coefficient c_n from the integral of psi_n * Psi_gp
+    cn_array[i] = integrate(x, integrand)
+
+
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">psi</span> <span class="o">=</span> <span class="n">PIB</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">n_array</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">x</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">### multiply psi_n by gaussian wavepacket</span>
 <span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">integrand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">*</span><span class="n">Psi_gp</span>
@@ -846,86 +849,90 @@ particle in a box given the quantum number <span class="math notranslate nohighl
 <h3>Step 4: Put it all together and animate!<a class="headerlink" href="#step-4-put-it-all-together-and-animate" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_time</span> <span class="o">=</span> <span class="mi">300</span>
-<span class="n">p_of_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_time</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-<span class="n">p2_of_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_time</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-<span class="n">p_sig_of_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_time</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_time</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
-    <span class="n">ft</span> <span class="o">=</span> <span class="n">PIB_Time</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n_array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">i</span><span class="o">*</span><span class="mf">10.</span><span class="p">)</span>
-    <span class="n">fx</span> <span class="o">=</span> <span class="n">PIB</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n_array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">cn_array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">fx</span> <span class="o">*</span> <span class="n">ft</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>N_time = 300
+p_of_t = np.zeros(N_time,dtype=complex)
+p2_of_t = np.zeros(N_time, dtype=complex)
+p_sig_of_t = np.zeros(N_time,dtype=complex)
+y = np.zeros(len(x),dtype=complex)
+t = np.zeros(N_time)
+for j in range(0,100):
+    ft = PIB_Time(L, n_array[j], i*10.)
+    fx = PIB(L, n_array[j], x)
+    y = y + cn_array[j] * fx * ft
 
-<span class="n">p</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">sig_p</span> <span class="o">=</span> <span class="n">Momentum_Uncertainty</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="n">p_of_t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span>
-<span class="n">p2_of_t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p2</span> 
-<span class="n">p_sig_of_t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">sig_p</span> 
+p, p2, sig_p = Momentum_Uncertainty(y, x)
+p_of_t[0] = p
+p2_of_t[0] = p2 
+p_sig_of_t[0] = sig_p 
 
-<span class="c1"># animation function. This is called sequentially  </span>
-<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
-        <span class="n">ft</span> <span class="o">=</span> <span class="n">PIB_Time</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n_array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">i</span><span class="o">*</span><span class="mf">10.</span><span class="p">)</span>
-        <span class="n">fx</span> <span class="o">=</span> <span class="n">PIB</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">n_array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">x</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">cn_array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">fx</span> <span class="o">*</span> <span class="n">ft</span>
-    <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="mi">10</span>
-    <span class="n">p</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">sig_p</span> <span class="o">=</span> <span class="n">Momentum_Uncertainty</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">p_of_t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span> 
-    <span class="n">p2_of_t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">p2</span>  
-    <span class="n">p_sig_of_t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sig_p</span> 
-    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">,)</span>
+# animation function. This is called sequentially  
+def animate(i):
+    y = np.zeros(len(x),dtype=complex)
+    for j in range(0,100):
+        ft = PIB_Time(L, n_array[j], i*10.)
+        fx = PIB(L, n_array[j], x)
+        y = y + cn_array[j] * fx * ft
+    t[i] = i*10
+    p, p2, sig_p = Momentum_Uncertainty(y, x)
+    p_of_t[i] = p 
+    p2_of_t[i] = p2  
+    p_sig_of_t[i] = sig_p 
+    line.set_data(x, np.real(y))
+    return (line,)
   
 
-<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
-                             <span class="n">frames</span><span class="o">=</span><span class="n">N_time</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+anim = animation.FuncAnimation(fig, animate, init_func=init,
+                             frames=N_time, interval=100, blit=True)
 
-<span class="c1"># Note: below is the part which makes it work on Colab</span>
-<span class="n">rc</span><span class="p">(</span><span class="s1">&#39;animation&#39;</span><span class="p">,</span> <span class="n">html</span><span class="o">=</span><span class="s1">&#39;jshtml&#39;</span><span class="p">)</span>
-<span class="n">anim</span>
+# Note: below is the part which makes it work on Colab
+rc(&#39;animation&#39;, html=&#39;jshtml&#39;)
+anim
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">p2_of_t</span><span class="p">)</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="n">p2_of_t</span><span class="p">),</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&lt;p^2&gt;&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">p_of_t</span><span class="p">)</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">p_of_t</span><span class="p">)),</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&lt;p&gt;&#39;</span><span class="p">)</span>
-<span class="c1">#plt.plot(t, np.real(p_sig_of_t), &#39;green&#39;, label=&#39;sigma_p&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.plot(t, np.real(p2_of_t)/max(p2_of_t), &#39;red&#39;, label=&#39;&lt;p^2&gt;&#39;)
+plt.plot(t, np.real(p_of_t)/max(np.real(p_of_t)), &#39;blue&#39;, label=&#39;&lt;p&gt;&#39;)
+#plt.plot(t, np.real(p_sig_of_t), &#39;green&#39;, label=&#39;sigma_p&#39;)
+plt.legend()
+plt.show()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Momentum_Expectation</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="n">ci</span><span class="o">=</span><span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span>
-    <span class="n">Psi_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">Psi</span><span class="p">)</span>
-    <span class="n">Psi_p</span> <span class="o">=</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">num_integrand</span> <span class="o">=</span> <span class="o">-</span><span class="n">ci</span><span class="o">*</span><span class="n">Psi_star</span> <span class="o">*</span> <span class="n">Psi_p</span>
-    <span class="n">den_integrand</span> <span class="o">=</span> <span class="n">Psi_star</span> <span class="o">*</span> <span class="n">Psi</span>
-    <span class="n">num</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num_integrand</span><span class="p">)</span>
-    <span class="n">den</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">den_integrand</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">num</span><span class="o">/</span><span class="n">den</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def Momentum_Expectation(Psi, x):
+    ci=0+1j
+    Psi_star = np.conj(Psi)
+    Psi_p = dfdx(Psi, x)
+    num_integrand = -ci*Psi_star * Psi_p
+    den_integrand = Psi_star * Psi
+    num = integrate(x, num_integrand)
+    den = integrate(x, den_integrand)
+    return num/den
 
-<span class="k">def</span> <span class="nf">Momentum_Squared_Expectation</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="n">ci</span><span class="o">=</span><span class="mi">0</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span>
-    <span class="n">Psi_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">Psi</span><span class="p">)</span>
-    <span class="n">Psi_p</span> <span class="o">=</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">Psi_pp</span> <span class="o">=</span> <span class="n">dfdx</span><span class="p">(</span><span class="n">Psi_p</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">num_integrand</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">Psi_star</span> <span class="o">*</span> <span class="n">Psi_pp</span>
-    <span class="n">den_integrand</span> <span class="o">=</span> <span class="n">Psi_star</span> <span class="o">*</span> <span class="n">Psi</span>
-    <span class="n">num</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num_integrand</span><span class="p">)</span>
-    <span class="n">den</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">den_integrand</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">num</span><span class="o">/</span><span class="n">den</span>
+def Momentum_Squared_Expectation(Psi, x):
+    ci=0+1j
+    Psi_star = np.conj(Psi)
+    Psi_p = dfdx(Psi, x)
+    Psi_pp = dfdx(Psi_p,x)
+    num_integrand = -1*Psi_star * Psi_pp
+    den_integrand = Psi_star * Psi
+    num = integrate(x, num_integrand)
+    den = integrate(x, den_integrand)
+    return num/den
 
-<span class="k">def</span> <span class="nf">Momentum_Uncertainty</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">Momentum_Expectation</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="n">p2</span> <span class="o">=</span> <span class="n">Momentum_Squared_Expectation</span><span class="p">(</span><span class="n">Psi</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p2</span> <span class="o">-</span> <span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+def Momentum_Uncertainty(Psi, x):
+    p = Momentum_Expectation(Psi, x)
+    p2 = Momentum_Squared_Expectation(Psi,x)
+    return p, p2, np.sqrt(p2 - p**2)
+
+
+
+
 </pre></div>
 </div>
 </div>

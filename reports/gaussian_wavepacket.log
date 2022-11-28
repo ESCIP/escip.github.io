@@ -36,7 +36,7 @@ for i in range(0,100):
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn [6], line 10[0m
+Cell [0;32mIn[6], line 10[0m
 [1;32m      8[0m psi [38;5;241m=[39m PIB(L,n_array[i],x)
 [1;32m      9[0m [38;5;66;03m### multiply psi_n by gaussian wavepacket[39;00m
 [0;32m---> 10[0m integrand [38;5;241m=[39m np[38;5;241m.[39mconj(psi)[38;5;241m*[39m[43mPsi_gp[49m
