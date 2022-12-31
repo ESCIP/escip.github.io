@@ -1,0 +1,1223 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Fitting Models to Data (Part 1) &#8212; ESCIP</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Time evolution of a Gaussian wavepacket" href="gaussian_wavepacket.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ESCIP</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../team.html">
+   Team
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../guidelines/intro.html">
+   Guidelines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../guidelines/guidelines.html">
+     Format of notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../guidelines/template.html">
+     Template notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../workshops/intro.html">
+   Workshops
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../workshops/workshop2023.html">
+     January 2023 In-Person Workshop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../workshops/workshop2022.html">
+     Summer 2022 In-Person Workshop
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="fourier_transform.html">
+   Fourier Transforms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linear_variational_method.html">
+   Linear Variational Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gaussian_wavepacket.html">
+   Time evolution of a Gaussian wavepacket
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Fitting Models to Data (Part 1)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/modelfit_part1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/modelfit_part1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ESCIP/escip.github.io"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/modelfit_part1.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/modelfit_part1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-outcomes">
+   Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#masses-and-luminosities-of-stars">
+   Masses and Luminosities of Stars
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-the-data">
+   Plotting the data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notes">
+     Notes:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-1">
+     CHECKPOINT 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-model">
+   Creating a model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-2">
+     CHECKPOINT 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluating-the-model">
+   Evaluating the model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Notes:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-residuals">
+     Calculating residuals
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Notes:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#residual-sum-of-squares">
+     Residual Sum of Squares
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Notes:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-3">
+     CHECKPOINT 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-the-model-automatically">
+   Fitting the model automatically
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Notes:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-4">
+     CHECKPOINT 4
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-complex-models">
+   Fitting complex models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-5">
+     CHECKPOINT 5:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#power-law-models">
+   Power-law models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-checkpoint">
+     FINAL CHECKPOINT
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Fitting Models to Data (Part 1)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-outcomes">
+   Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#masses-and-luminosities-of-stars">
+   Masses and Luminosities of Stars
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-the-data">
+   Plotting the data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notes">
+     Notes:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-1">
+     CHECKPOINT 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-model">
+   Creating a model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-2">
+     CHECKPOINT 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluating-the-model">
+   Evaluating the model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Notes:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-residuals">
+     Calculating residuals
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Notes:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#residual-sum-of-squares">
+     Residual Sum of Squares
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Notes:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-3">
+     CHECKPOINT 3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-the-model-automatically">
+   Fitting the model automatically
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Notes:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-4">
+     CHECKPOINT 4
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-complex-models">
+   Fitting complex models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-5">
+     CHECKPOINT 5:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#power-law-models">
+   Power-law models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-checkpoint">
+     FINAL CHECKPOINT
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="fitting-models-to-data-part-1">
+<h1>Fitting Models to Data (Part 1)<a class="headerlink" href="#fitting-models-to-data-part-1" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://ryantrainor.github.io/">Prof. Ryan Trainor, Franklin &amp; Marshall College</a></p>
+<section id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>To introduce how mathematical models describe relationships within a dataset</p></li>
+<li><p>To introduce model-fitting techniques and the meaning of a “best fit” model</p></li>
+<li><p>To practice defining and using functions</p></li>
+</ul>
+</section>
+<section id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">#</a></h2>
+<p>By the end of this workbook, students should be able to</p>
+<ul class="simple">
+<li><p>Use plotting techniques from <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to visually evaluate relationships within a dataset and the utility of a mathematical model for describing those relationships</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> to fit custom models to data</p></li>
+<li><p>Explain how the “residual sum of squares” between a model and data relates to the best-fit model parameters</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h2>
+<p>This notebook assumes that the student has already learned</p>
+<ul class="simple">
+<li><p>Basic Python skills related to variable types, loops, and functions</p></li>
+<li><p>Tools for creating and performing mathematical operations on <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays</p></li>
+<li><p>How to read in data from an ASCII file into an Astropy <code class="docutils literal notranslate"><span class="pre">Table</span></code> object</p></li>
+<li><p>How to make basic plots using the the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function from <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code></p></li>
+</ul>
+<p><em>Note for instructors: this notebook has been written as an activity to be completed by a group of students in a lab or classroom setting. A solution with filled-in answers is available upon <a class="reference external" href="mailto:ryan&#46;trainor&#37;&#52;&#48;fandm&#46;edu">email request</a>.</em></p>
+</section>
+<section id="masses-and-luminosities-of-stars">
+<h2>Masses and Luminosities of Stars<a class="headerlink" href="#masses-and-luminosities-of-stars" title="Permalink to this headline">#</a></h2>
+<p>In many areas of astronomy, we find that two properties of objects are <strong>correlated</strong>: an increase in one parameter typically corresponds to an increase or decrease in a second parameter.</p>
+<p>In this activity, we will explore the relationship between two important properties of stars: their masses and their luminosities. In particular, we will try to figure out how to predict the luminosity of a star from its mass by finding a mathematical relationship between mass and luminosity.</p>
+</section>
+<section id="plotting-the-data">
+<h2>Plotting the data<a class="headerlink" href="#plotting-the-data" title="Permalink to this headline">#</a></h2>
+<p>Our first step is to read in a file that contains the measured masses and luminosities of a large number of stars, and then we will plot the luminosities of these stars against their masses in order to visually determine whether there is a relationship between them. <em>Note: this activity uses simulated (fake) data to explore techniques that can be applied to real data—the true relationship between stellar mass and luminosity is more complicated that the mathematical relationships we will use here.</em></p>
+<p>We’ll need to use <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>, and the <code class="docutils literal notranslate"><span class="pre">ascii</span></code> package from <code class="docutils literal notranslate"><span class="pre">astropy.io</span></code>, so we will import those libraries below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Import necessary libraries
+
+import numpy as np
+import matplotlib.pyplot as plt
+from astropy.io import ascii
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">ascii</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;astropy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we need to download the file we will be using for this lab:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Download the file
+!wget --no-check-certificate &#39;https://drive.google.com/uc?export=download&amp;id=1UWYnyDIVAKmizNVT02HAj5E2Pe9o_MTm&#39; -O star-mass-lum.dat
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will read in the file we just downloaded (“star-mass-lum.dat”) using the <code class="docutils literal notranslate"><span class="pre">ascii.read</span></code> function and then print it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data=ascii.read(&#39;star-mass-lum.dat&#39;)
+print(data)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should have an Astropy <code class="docutils literal notranslate"><span class="pre">Table</span></code> object with column of masses (in units of solar masses) and a column of luminosities (in units of solar luminosities). We can access either column of the table using the name of the column(as a string):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(data[&#39;Mass_Msun&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell below, make a plot of the masses vs. the luminosities. <em>Note that when you plot “A vs. B”, quantity A should always go on the vertical axis, and quantity B should go on the horizontal axis.</em></p>
+<p>Fill in the question marks below to plot <strong>luminosity vs. mass</strong> using <strong>green pentagons</strong> as your markers and with appropriate axis labels.</p>
+<section id="notes">
+<h3>Notes:<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">plt.xlabel</span></code> and <code class="docutils literal notranslate"><span class="pre">plt.ylabel</span></code> commands produce the axis labels. The first argument of those functions should be a <strong>string</strong> containing the text you want plotted on that axis. Give them a descriptive name as well as the appropriate units in parentheses.</p></li>
+<li><p>Remember that the <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> command takes in two arrays for the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> parameters, and then the third argument of the function is a “format string” that specifies how the plotted points will look.</p></li>
+<li><p>You can find information about how to use formatting strings to make green pentagons (or any other color/shape combination) by going to <a class="reference external" href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.plot.html">this website</a> and scrolling down to the section on “Format Strings”.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Fill in the question marks below to make your plot
+
+plt.rcParams[&#39;figure.figsize&#39;] = (20.0, 10.0)
+
+plt.plot(?,?,?) # plot the mass on the x axis and luminosity on the y axis
+
+plt.xlabel(?,size=20)
+plt.ylabel(?,size=20)
+plt.xticks(size=18)
+plt.yticks(size=18)
+plt.show()
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should have a scatterplot that shows a positive correlation between mass and luminosity.</p>
+</section>
+<section id="checkpoint-1">
+<h3>CHECKPOINT 1<a class="headerlink" href="#checkpoint-1" title="Permalink to this headline">#</a></h3>
+<p>If you are completing this activity in class, stop here and check your plot with your instructor or TA before you continue. You may want to think about the following questions in advance:</p>
+<ul class="simple">
+<li><p>Are the mass and luminosity on the correct axes and labeled correctly?</p></li>
+<li><p>Are the points plotted with the correct shape and color?</p></li>
+</ul>
+</section>
+</section>
+<section id="creating-a-model">
+<h2>Creating a model<a class="headerlink" href="#creating-a-model" title="Permalink to this headline">#</a></h2>
+<p>Based on these measurements of mass and luminosity for a sample of stars, we might want find a <strong>model</strong> for our data: an equation that would allow us to predict the luminosity of another star (one not in our current sample) for which we have measured a mass. For example, based on our data, what do you think the luminosity would be of a star that had a mass of 30 <span class="math notranslate nohighlight">\(M_\odot\)</span>, given the measurements you have for other stars? <em>Look at your graph above as a group and decide on a value of the luminosity that you think would be realistic for this mass.</em></p>
+<p>We’ll start with a simple <strong>linear</strong> model of the data: we’ll assume that mass and luminosity are related by an equation of the following form:</p>
+<div class="math notranslate nohighlight">
+\[
+y=ax+b
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(y\)</span> will represent our luminosity and <span class="math notranslate nohighlight">\(x\)</span> will represent our mass. In order to do this, let’s start by defining a <strong>function</strong> that takes in an array of <span class="math notranslate nohighlight">\(x\)</span> values, a value of <span class="math notranslate nohighlight">\(a\)</span>, and a value of <span class="math notranslate nohighlight">\(b\)</span>, and then returns an array of <span class="math notranslate nohighlight">\(y\)</span> values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def linear_func(x,a,b):
+    &#39;&#39;&#39;Function that &#39;&#39;&#39;
+    y = ? # write an expression for y in terms of x, a, and b
+    return y
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok, now we have a generic function for describing a linear relationship. In order to apply it to our data, we need to figure out what the best values of <span class="math notranslate nohighlight">\(a\)</span> (the slope) and <span class="math notranslate nohighlight">\(b\)</span> (the y intercept) would be to describe our data. <strong>As a group look at your plotted data above and try to estimate what might be a reasonable slope and y-intercept.</strong></p>
+<p>Next, we will test our your line to see how it looks compared to your data. In order to plot a line, we’ll need to make an array of <span class="math notranslate nohighlight">\(x\)</span> values (i.e., an array of “fake” mass values) at which to plot our model. We will then use our function to calculate the <span class="math notranslate nohighlight">\(y\)</span> values we’d expect at those positions.</p>
+<p>Below, use the <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> command to create an array of <span class="math notranslate nohighlight">\(x\)</span> values, and then use the <code class="docutils literal notranslate"><span class="pre">linear_func</span></code> function and your guessed slope and intercept to create a list of <span class="math notranslate nohighlight">\(y\)</span> values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>xmodel = np.linspace(?,?,100) # remember the syntax: np.linspace(start, stop, number of points)
+ymodel = linear_func(?,?,?) # remember the syntax: linear_func(x values, a, b)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the box below, copy and paste your code that you used to make your first plot above in order to plot your data again. This time, add a second plot command immediately after the first one that plots <code class="docutils literal notranslate"><span class="pre">ymodel</span></code> vs. <code class="docutils literal notranslate"><span class="pre">xmodel</span></code> using a magenta line (you may need to look again at the website that lists formatting options for <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># copy your code to make the plot from above with the additional line added
+</pre></div>
+</div>
+</div>
+</div>
+<p>How does it look? Since the data doesn’t make a straight line, it probably doesn’t look great, but if you think you can improve your guesses, choose a new intercept and/or slope and re-run the last two cells above to see how well you can make your line fit the data.</p>
+<section id="checkpoint-2">
+<h3>CHECKPOINT 2<a class="headerlink" href="#checkpoint-2" title="Permalink to this headline">#</a></h3>
+<p>Once you feel your line fits about as well as it can, <em>check your plot with your TA or instructor before going further</em>. You may want to think about the following questions in advance:</p>
+<ul class="simple">
+<li><p>Does your plot include axis labels, points, and the linear function you created?</p></li>
+<li><p>How does changing the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> affect the agreement between your data and the model? Is the model more sensitive to one of them than the other?</p></li>
+<li><p>You should have two <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> commands that each plot some y values vs. some x values. Which one represents the actual data? Which one represents the predictions of your model?</p></li>
+<li><p>We used <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to generate your <code class="docutils literal notranslate"><span class="pre">xmodel</span></code> array, while we used <code class="docutils literal notranslate"><span class="pre">linear_func</span></code> to generate the <code class="docutils literal notranslate"><span class="pre">ymodel</span></code> array. Why couldn’t we use <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to generate your <code class="docutils literal notranslate"><span class="pre">ymodel</span></code> array? Why couldn’t we use <code class="docutils literal notranslate"><span class="pre">linear_func</span></code> to generate the <code class="docutils literal notranslate"><span class="pre">xmodel</span></code> array?</p></li>
+<li><p>Once we had decided to use the <code class="docutils literal notranslate"><span class="pre">xmodel</span></code> array for our plot of the linear model, why did we use <code class="docutils literal notranslate"><span class="pre">xmodel</span></code> as an input to <code class="docutils literal notranslate"><span class="pre">linear_func</span></code> in order to generate <code class="docutils literal notranslate"><span class="pre">ymodel</span></code>? Since <code class="docutils literal notranslate"><span class="pre">xmodel</span></code> represents values of the mass, could we have used the array of actual masses instead?</p></li>
+</ul>
+</section>
+</section>
+<section id="evaluating-the-model">
+<h2>Evaluating the model<a class="headerlink" href="#evaluating-the-model" title="Permalink to this headline">#</a></h2>
+<p>Obviously, estimating the best-fit line by trial and error can be a time-consuming process. Instead of doing it by hand, we can allow Python to fit it for us. In order to do this, we must have an objective standard of what we mean by a “best-fit”, since a visual inspection is obviously a subjective measure of fit.</p>
+<p>The usual method of calculating a best-fit line is called <strong>least-squares fitting</strong>. This method of fitting chooses the line (or other equation) that <em>minimizes the square of the differences between the predictions of your equation and the real points</em>.</p>
+<p>Another way of saying this is that least-square fitting minimizes the sum of the square of the <strong>residuals</strong> to the fit. The residuals of a fit are the differences between the real values and the fit values (i.e., the real values and the values your equation predicts).</p>
+<p>Let’s calculate the residuals and the sum of the squared residuals by hand to start. In the cell below, use <code class="docutils literal notranslate"><span class="pre">linear_func</span></code> and your chosen values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> to generate an array containing the luminosity values that your equation would predict for each of the masses in your data set.(you should be able to do this in one line).</p>
+<section id="id1">
+<h3>Notes:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>You are calculating a predicted luminosity for each of the masses in our dataset—you could do this with a loop, but see if you can calculate all the predicted luminosities in a single line using the power of <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays!</p></li>
+<li><p>Remember how we generated y values (i.e., predicted luminosities, based on our linear model) for each of the “fake” masses in our <code class="docutils literal notranslate"><span class="pre">xmodel</span></code> array. How can we use <code class="docutils literal notranslate"><span class="pre">linear_func</span></code> to generate predicted luminosities for each of the “real” masses in our dataset?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Replace the question mark with an expression to calculate the luminosities predicted by our model for each of the masses in our data
+predicted_lum = ?
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-residuals">
+<h3>Calculating residuals<a class="headerlink" href="#calculating-residuals" title="Permalink to this headline">#</a></h3>
+<p>Now let’s calculate an array of residuals for each star in our dataset, recalling that the residual array is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+    \textrm{residuals} = \textrm{real values} - \textrm{predicted (model) values}
+\]</div>
+<p>or equivalently:</p>
+<div class="math notranslate nohighlight">
+\[
+    \Delta y_i = y_i - f(x_i)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(y_i\)</span> is the observed y value (i.e., the luminosity) for star <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(x_i\)</span> is the observed x value (i.e., the mass) for star <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(f(x)\)</span> is the mathematical function that describes our predictive model, and <span class="math notranslate nohighlight">\(\Delta y_i\)</span> is the residual for star <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>As in the previous cell, try creating your residual array in a single line below using the arrays you’ve already defined:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>residuals = ?
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will plot our residuals to see if they make sense.</p>
+<ol class="simple">
+<li><p><strong>Make a plot</strong> similar to your luminosity vs. mass plot, but this time plot the <em>residuals of the luminosities</em> on the y axis instead of the luminosities themselves. You will want to change the y-axis label of your plot accordingly.</p></li>
+<li><p>On your plot, <strong>add a horizontal line at <span class="math notranslate nohighlight">\(y=0\)</span></strong> so that we can easily tell which residuals are positive and which are negative.</p></li>
+</ol>
+<section id="id2">
+<h4>Notes:<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>You can use the command <code class="docutils literal notranslate"><span class="pre">plt.axhline(yval,ls=?,color=?)</span></code> to make a horizontal line at <span class="math notranslate nohighlight">\(y=\)</span> <code class="docutils literal notranslate"><span class="pre">yval</span></code> that spans the entire axis. There is an analogous command <code class="docutils literal notranslate"><span class="pre">plt.axvline(xval)</span></code> to make a vertical line at <span class="math notranslate nohighlight">\(x=\)</span> <code class="docutils literal notranslate"><span class="pre">xval</span></code>.</p></li>
+<li><p>Both <code class="docutils literal notranslate"><span class="pre">plt.axhline</span></code> and <code class="docutils literal notranslate"><span class="pre">plt.axvline</span></code> accept optional <em>keyword arguments</em> to let you change the properties of the line drawn. For example, you can <code class="docutils literal notranslate"><span class="pre">plt.axhline(yval,ls='--',color='brown')</span></code> to make the a dashed line (<code class="docutils literal notranslate"><span class="pre">ls</span></code> = “linestyle”) that is brown. Google “matplotlib colors” or “python linestyles” and then pick a color and linestyle you like.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># copy your code to make the plot from above and then make your changes and additions to plot
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look at your plot of residuals and compare it to your plot of luminosity vs. mass with the line for the model you calculated. Hopefully you can see that the residuals are positive when the observed luminosities were above the model line, and the residuals are negative when the observed luminosities were below the line.</p>
+</section>
+</section>
+<section id="residual-sum-of-squares">
+<h3>Residual Sum of Squares<a class="headerlink" href="#residual-sum-of-squares" title="Permalink to this headline">#</a></h3>
+<p>At the end of the day, it’s nice to have a single number we can use to evaluate how well our model describes the relationship in our data. The value we will use is the <strong>residual sum of squares (RSS)</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+    \textrm{RSS} = \sum_{i=1}^N \Delta y_i = \sum_{i=1}^N (y_i - f(x_i))^2
+\]</div>
+<p>where the variables above are the same as in our definition of the residuals.</p>
+<p>In the cell below, <strong>calculate the RSS value</strong> using the residual array you already have and some mathematical operations.</p>
+<section id="id3">
+<h4>Notes:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">np.sum()</span></code> function will be useful, but be careful with your order of operations!</p></li>
+<li><p>The residual sum of squares should be <em>small</em> for a good fit.</p></li>
+<li><p>In the cell below, the <code class="docutils literal notranslate"><span class="pre">print</span></code> command uses some special string formatting to print the result in scientific notation, which may be useful if your RSS is very large.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>RSS = ?
+print(&quot;{:e}&quot;.format(RSS))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="checkpoint-3">
+<h3>CHECKPOINT 3<a class="headerlink" href="#checkpoint-3" title="Permalink to this headline">#</a></h3>
+<p>Before going on, <em>check your plot with your TA or instructor</em>. You may want to think about the following questions in advance:</p>
+<ul class="simple">
+<li><p>Conceptually, how does the RSS relate to the residual plot and data + model plot you made previously? Why should the RSS be <em>small</em> for a good fit?</p></li>
+<li><p>In calculating the RSS, did you square the residuals before or after you sum them? Why?</p></li>
+<li><p>What do you think the sum of the <em>unsquared</em> residuals would be if your best-fit line was just flat line at <span class="math notranslate nohighlight">\(y=y_\textrm{avg}\)</span>, where <span class="math notranslate nohighlight">\(y_\textrm{avg}\)</span> is the average luminosity?</p></li>
+<li><p>In the case of a model that was a constant <span class="math notranslate nohighlight">\(y=y_\textrm{avg}\)</span>, would the sum of the unsquared residuals be small? Would it be a “good” fit, subjectively speaking?</p></li>
+</ul>
+</section>
+</section>
+<section id="fitting-the-model-automatically">
+<h2>Fitting the model automatically<a class="headerlink" href="#fitting-the-model-automatically" title="Permalink to this headline">#</a></h2>
+<p>Now that we have a quantitative definition of a “best-fit” line, we can tell python to figure out the slope and y-intercept that will produce the best-fit line (i.e., the values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> that <strong>minimize</strong> RSS).</p>
+<p>For this, we’ll need to use the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> package, so we will import that function below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from scipy.optimize import curve_fit
+</pre></div>
+</div>
+</div>
+</div>
+<p>The syntax for <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> is <code class="docutils literal notranslate"><span class="pre">curve_fit(func,x,y)</span></code>, where ‘func’ is the name of the function for which we are estimating the best parameter values (i.e., <code class="docutils literal notranslate"><span class="pre">linear_func</span></code> in our case), ‘x’ is our array of observed x values (the masses), and ‘y’ is our array of observe y values (the luminosities).</p>
+<p>Fill in the correct variables in the code below and then run it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>popt,pcov=curve_fit(?,?,?) # fill in these variables
+a_best,b_best=popt
+print(a_best,b_best)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output of <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> has two parts: an array of optimal best-fit parameters (which we’ve stored in <code class="docutils literal notranslate"><span class="pre">popt</span></code>) and a covariance matrix (which we’ve stored in <code class="docutils literal notranslate"><span class="pre">pcov</span></code>). We won’t worry about the covariance matrix for now, but it is useful for calculating the uncertainties on our fit parameters.</p>
+<p>Note that in the cell above we have done a funny thing multiple times: we have set <em>two variables</em> (separated by a comma) equal to a <em>single variable or a function</em>. What’s going on here?</p>
+<p>In the first line above, <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> returns an object with length 2, so <code class="docutils literal notranslate"><span class="pre">popt,pcov=curve_fit(func,x,y)</span></code> sets <code class="docutils literal notranslate"><span class="pre">popt</span></code> equal to the first element returned by <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> and <code class="docutils literal notranslate"><span class="pre">pcov</span></code> equal to the second element.</p>
+<p>It turns out that <code class="docutils literal notranslate"><span class="pre">popt</span></code> is itself an array with two elements (a slope and an intercept). Thus, the second line (<code class="docutils literal notranslate"><span class="pre">a_best,b_best=popt</span></code>) assigns the first element of <code class="docutils literal notranslate"><span class="pre">popt</span></code> (the best-fit slope)  to the variable <code class="docutils literal notranslate"><span class="pre">a_best</span></code> and assigns the second element of <code class="docutils literal notranslate"><span class="pre">popt</span></code> (the best-fit y-intercept) to the variable <code class="docutils literal notranslate"><span class="pre">b_best</span></code>. This syntax is a handy way to define multiple variables at the same time.</p>
+<p>Ok, now let’s <strong>create another plot of our mass and luminosity data</strong> just like we did before, but this time we will include two lines:</p>
+<ol class="simple">
+<li><p>the best-fit line we made already by adjusting the parameters by eye</p></li>
+<li><p>a new best-fit line that uses <code class="docutils literal notranslate"><span class="pre">a_best</span></code> and <code class="docutils literal notranslate"><span class="pre">b_best</span></code> as our slope and y-intercept</p></li>
+</ol>
+<section id="id4">
+<h3>Notes:<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Make sure to make the lines different colors and/or linestyles so you know which is which.</p></li>
+<li><p>You will need to make a new version of <code class="docutils literal notranslate"><span class="pre">ymodel</span></code> to hold the y-values of your new best-fit line. Perhaps you can call this <code class="docutils literal notranslate"><span class="pre">ymodel_best</span></code> or something similar. Do you need to make a new version of <code class="docutils literal notranslate"><span class="pre">xmodel</span></code>?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># copy your code to make the plot from above and then make your changes and additions to plot
+</pre></div>
+</div>
+</div>
+</div>
+<p>Maybe the two lines look similar, or perhaps they do not. To compare them quantitatively, *<em>calculate the RSS again using your new best-fit parameters.</em></p>
+<p>Note that your new best-fit values of the slope and y intercept mean that the predicted values and residuals are different for the updated model! You can calculate the new RSS value step-by-step as we did before, or you can calculate the new RSS in a single line if you prefer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Calculate the residual sum of squares for the data and your best-fit linear model
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="checkpoint-4">
+<h3>CHECKPOINT 4<a class="headerlink" href="#checkpoint-4" title="Permalink to this headline">#</a></h3>
+<p>Before going on, <em>check your new and old RSS value with your TA or instructor</em>. You may want to think about the following questions in advance:</p>
+<ul class="simple">
+<li><p>How do the model parameters generated by <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> compare to the values you selected yourself?</p></li>
+<li><p>Is the model generated by <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> better or worse than the one you generated by hand? How do you know?</p></li>
+<li><p>Looking at the plotted lines, you will likely see that each model fits some of the data better and some of the data worse than the other model. Why does the best-fit model seem to “prioritize” fitting certain parts of your plot?</p></li>
+</ul>
+</section>
+</section>
+<section id="fitting-complex-models">
+<h2>Fitting complex models<a class="headerlink" href="#fitting-complex-models" title="Permalink to this headline">#</a></h2>
+<p>So far we have done a lot of work to find the best-fit linear model to our data, but there’s an elephant in the room: our data doesn’t really look like a straight line! We need to consider some other types of equations that might be a better fit to our data.</p>
+<p>If we want to try a model that a little more complicated than a linear model, a <strong>quadratic</strong> model might be a logical next step. A quadratic model takes the following form:
+$<span class="math notranslate nohighlight">\(
+y=ax^2+bx+c
+\)</span>$</p>
+<p>Below, let’s define <code class="docutils literal notranslate"><span class="pre">quadratic_func</span></code> to be a function that takes in an array of <span class="math notranslate nohighlight">\(x\)</span> values and parameters for <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> and then returns an array of y values:</p>
+<p><em>Note: you may want to look back at your definition for <code class="docutils literal notranslate"><span class="pre">linear_func</span></code> to remind yourself how we defined it and why.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def quadratic_func(?):
+    return ?
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can find the best-fit values of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> for this expression. Let’s not bother doing it by hand this time—in the cell below, use <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> to find the best-fit values of these parameters in a similar way as we found the best values for our best-fit linear parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>popt,pcov = ?
+a_quad,b_quad,c_quad = ?
+</pre></div>
+</div>
+</div>
+</div>
+<p>As before, let’s make a plot of our data and include our best-fit linear and quadratic curves. Again, use different colors and/or linestyles for the two lines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># copy your code to make the plot from above and then make your changes and additions to plot
+</pre></div>
+</div>
+</div>
+</div>
+<p>Which curve appears to have a better fit? Let’s check quantitatively as well. <strong>Calculate the RSS for the quadratic fit</strong>, and compare the number you found to the sum of squared residuals from the best-fit linear relationship:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Calculate the sum of the squared residuals to the best-fit equation
+</pre></div>
+</div>
+</div>
+</div>
+<section id="checkpoint-5">
+<h3>CHECKPOINT 5:<a class="headerlink" href="#checkpoint-5" title="Permalink to this headline">#</a></h3>
+<p>Before going on, <em>check in with your TA or instructor</em>. You may want to think about the following questions in advance:</p>
+<ul class="simple">
+<li><p>Is the linear model or the quadratic model a better fit to your data? How do you know? Do you think that would always be the case when comparing a linear model to a quadratic model?</p></li>
+<li><p>Is the “best” slope and y-intercept the same for both models? Why or why not?</p></li>
+<li><p>Are there any areas of your plot where neither model seems to fit particularly well?</p></li>
+</ul>
+</section>
+</section>
+<section id="power-law-models">
+<h2>Power-law models<a class="headerlink" href="#power-law-models" title="Permalink to this headline">#</a></h2>
+<p>Let’s try one more type of equation: a <strong>power-law model</strong>. Power-law equations show up a lot in astronomy, and they take the following form:
+$<span class="math notranslate nohighlight">\(
+y=Ax^\alpha
+\)</span>$</p>
+<p><strong>Define a new function</strong> called <code class="docutils literal notranslate"><span class="pre">powerlaw_func</span></code> that takes in an array of <span class="math notranslate nohighlight">\(x\)</span> values and parameter values for <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span> and returns an array of y values. <em>Note: you can just call the second variable “alpha” instead of “<span class="math notranslate nohighlight">\(\alpha\)</span>”.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># fill in the ? as needed to define your function
+def powerlaw_func(?):
+    return ?
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now use <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> to calculate the best-fit values of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># your curve_fit code here
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot the data (again) along with <strong>all three lines</strong> using different colors and/or linestyles:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># your copied, pasted, and edited plotting code here
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, calculate the residual sum of squares for the power-law fit:</p>
+<p>Which fit is best by our quantitative metric? Does this agree with what your eyes tell you based on your plot?</p>
+<section id="final-checkpoint">
+<h3>FINAL CHECKPOINT<a class="headerlink" href="#final-checkpoint" title="Permalink to this headline">#</a></h3>
+<p>Congratulations! You have completed this activity. Call at TA or your instructor to check you off. You may want to think about the following questions in advance:</p>
+<ul class="simple">
+<li><p>Which model is the best fit according to our quantitative metric, the RSS?</p></li>
+<li><p>Does the best model according to the RSS match what looks best visually as you look at the plot?</p></li>
+<li><p>Can you explain in words why the RSS is useful for defining the “best” model parameters for a given model, as well as for deciding between two different models?</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ESCIP/escip.github.io",
+            ref: "jbook",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="gaussian_wavepacket.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Time evolution of a Gaussian wavepacket</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By ESCIP Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
