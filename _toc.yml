@@ -20,3 +20,4 @@ parts:
   - file: notebooks/fourier_transform
   - file: notebooks/linear_variational_method
   - file: notebooks/gaussian_wavepacket
+  - file: notebooks/modelfit_part1
