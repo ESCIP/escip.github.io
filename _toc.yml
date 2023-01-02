@@ -22,3 +22,4 @@ parts:
   - file: notebooks/gaussian_wavepacket
   - file: notebooks/pib_delta_potential_dynamics
   - file: notebooks/modelfit_part1
+  - file: notebooks/sdss_tutorial_1
