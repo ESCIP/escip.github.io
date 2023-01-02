@@ -20,4 +20,5 @@ parts:
   - file: notebooks/fourier_transform
   - file: notebooks/linear_variational_method
   - file: notebooks/gaussian_wavepacket
+  - file: notebooks/pib_delta_potential_dynamics
   - file: notebooks/modelfit_part1
