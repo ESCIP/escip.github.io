@@ -1,0 +1,1281 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>SDSS Tutorial #1: Data Querying and Visualization &#8212; ESCIP</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Fitting Models to Data (Part 1)" href="modelfit_part1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ESCIP</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../team.html">
+   Team
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../guidelines/intro.html">
+   Guidelines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../guidelines/guidelines.html">
+     Format of notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../guidelines/template.html">
+     Template notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../workshops/intro.html">
+   Workshops
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../workshops/workshop2023.html">
+     January 2023 In-Person Workshop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../workshops/workshop2022.html">
+     Summer 2022 In-Person Workshop
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="fourier_transform.html">
+   Fourier Transforms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linear_variational_method.html">
+   Linear Variational Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gaussian_wavepacket.html">
+   Time evolution of a Gaussian wavepacket
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pib_delta_potential_dynamics.html">
+   Dyanmics of particle in a box with a delta potential
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modelfit_part1.html">
+   Fitting Models to Data (Part 1)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   SDSS Tutorial #1:  Data Querying and Visualization
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/sdss_tutorial_1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/sdss_tutorial_1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ESCIP/escip.github.io"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/sdss_tutorial_1.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/sdss_tutorial_1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-outcomes">
+   Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-what-is-sciserver">
+     I. What is SciServer?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ii-getting-started-with-sciserver">
+     II. Getting Started with SciServer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-data">
+   Visualizing Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-turn-what-happens-if-you-change-the-style-of-the-plot">
+     YOUR TURN:  What happens if you change the style of the plot?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-sciserver-and-other-important-libraries">
+   Importing SciServer and other important libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#querying-the-sdss-database">
+   Querying the SDSS database
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-returned-data">
+   Visualizing Returned Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-turn-applying-what-youve-learned">
+     YOUR TURN: Applying what you’ve learned
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#producing-a-galaxy-color-magnitude-diagram">
+   Producing a Galaxy Color-Magnitude Diagram
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpreting-your-plot">
+     Interpreting your plot:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SDSS Tutorial #1:  Data Querying and Visualization</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-outcomes">
+   Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#i-what-is-sciserver">
+     I. What is SciServer?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ii-getting-started-with-sciserver">
+     II. Getting Started with SciServer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-data">
+   Visualizing Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-turn-what-happens-if-you-change-the-style-of-the-plot">
+     YOUR TURN:  What happens if you change the style of the plot?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-sciserver-and-other-important-libraries">
+   Importing SciServer and other important libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#querying-the-sdss-database">
+   Querying the SDSS database
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-returned-data">
+   Visualizing Returned Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-turn-applying-what-youve-learned">
+     YOUR TURN: Applying what you’ve learned
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#producing-a-galaxy-color-magnitude-diagram">
+   Producing a Galaxy Color-Magnitude Diagram
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpreting-your-plot">
+     Interpreting your plot:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="sdss-tutorial-1-data-querying-and-visualization">
+<h1>SDSS Tutorial #1:  Data Querying and Visualization<a class="headerlink" href="#sdss-tutorial-1-data-querying-and-visualization" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://astrophysics.wp.unca.edu/britt-lundgren/">Prof. Britt Lundgren (University of North Carolina Asheville)</a></p>
+<section id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>To introduce the <a class="reference external" href="https://www.sciserver.org/">SciServer</a> cloud computing platform and the <a class="reference external" href="https://sdss4.org/">Sloan Digital Sky Survey (SDSS)</a> astronomical database</p></li>
+<li><p>To demonstrate ways of querying and visualizing data from the SDSS, using Python and SQL on the SciServer platform</p></li>
+</ul>
+</section>
+<section id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">#</a></h2>
+<p>By the end of this notebook, you should be able to use the SciServer cloud computing platform to:</p>
+<ul class="simple">
+<li><p>visualize data in scatter plots, histograms, and heatmaps using the Python library matplotlib</p></li>
+<li><p>wrap SQL queries in Python to fetch astronomical data from the Sloan Digital Sky Survey (SDSS) database</p></li>
+<li><p>create a color-mangitude diagram with SDSS galaxy data</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>This notebook assumes that the user has basic proficiency in the <strong>Python</strong> programming language. For an excellent introduction, we recommend the two-part <a class="reference external" href="https://prappleizer.github.io/#tutorials">Python Bootcamp tutorials</a> and accompanying free eText <a class="reference external" href="https://prappleizer.github.io/textbook.pdf">“Python for Astronomers”</a> by Imad Pascha and Chris Agostino. A more extensive tutorial and complete documentation for Python 3 can be accessed <a class="reference external" href="https://docs.python.org/3/tutorial/">here</a>.</p></li>
+<li><p>This notebook uses <strong>SQL queries</strong> to select data from the SDSS database. If the SQL language and/or the SDSS database is new to you, we recommend this <a class="reference external" href="http://cas.sdss.org/dr16/en/help/howto/search/searchhowtohome.aspx">brief tutorial</a>.</p></li>
+<li><p>This notebook is intended to be run in the <a class="reference external" href="http://www.sciserver.org/tools/compute/">SciServer Compute</a> platform. If you have not used SciServer before, please review the following:</p></li>
+</ul>
+<section id="i-what-is-sciserver">
+<h3>I. What is SciServer?<a class="headerlink" href="#i-what-is-sciserver" title="Permalink to this headline">#</a></h3>
+<p>The SciServer is a cloud-based computing platform that enables users to easily interact with the vast astronomical imaging and spectroscopy data from the <a class="reference external" href="https://sdss4.org/">Sloan Digital Sky Survey</a>. The following notebook provides a tutorial for using <a class="reference external" href="http://www.sciserver.org/tools/compute/">SciServer Compute</a> for your own SDSS research from anywhere with access to the internet. All of the computing is done in the cloud, so there’s no need to download anything to a local computer. The only thing required to get started exploring the universe is a web browser. For this tutorial we will be using the programming language Python 3 to interface with the SciServer, although you can also write scripts using R.</p>
+</section>
+<section id="ii-getting-started-with-sciserver">
+<h3>II. Getting Started with SciServer<a class="headerlink" href="#ii-getting-started-with-sciserver" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>The first thing you need to do is to set up an account with <a class="reference external" href="http://compute.sciserver.org/">SciServer Compute</a>, following the instructions provided <a class="reference external" href="https://github.com/brittlundgren/ASTR420/blob/main/SciServer_registration_instructions_ASTR420.pdf">here</a>.</p></li>
+<li><p>Once you are logged in to your account and have created a container for your work, navigate to your <em>persistent</em> directory. This is where you can write and run your code. You can upload existing notebooks or create your own.</p></li>
+<li><p>Load this notebook into the <em>persistent</em> directory in your SciServer container to edit and run it.</p></li>
+<li><p>Remember to click the “play” button (alternatively, “Shift+Return”) through each code block as you go.</p></li>
+</ol>
+</section>
+</section>
+<section id="visualizing-data">
+<h2>Visualizing Data<a class="headerlink" href="#visualizing-data" title="Permalink to this headline">#</a></h2>
+<p>The standard Python library for plotting and visualization is called <strong>matplotlib</strong>.  Below are a few examples showing what it can do.  An excellent longer tutorial by Nicolas P. Rougier can be found <a class="reference external" href="https://www.labri.fr/perso/nrougier/teaching/matplotlib/">here</a>.</p>
+<p>For your reference, here is a list of matplotlib codes for <a class="reference external" href="https://matplotlib.org/2.0.2/api/colors_api.html">different plot colors</a>, and here is a full list of the <a class="reference external" href="https://matplotlib.org/api/markers_api.html">different shapes</a> you can use as markers in scatter plots.</p>
+<p>We’ll start off by importing the <em>matplotlib</em> library and some of its modules:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.rc = {}
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pylab</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># If everything imports without a problem, the next line should print...</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;OK&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OK
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>In the cell below we’ll make an example of a simple <strong>scatter plot</strong>.
+(For an example with full documentation, see <a class="reference external" href="https://matplotlib.org/stable/gallery/shapes_and_collections/scatter.html">here</a>.)</p>
+<p>Note: This code below plots new randomly generated data every time you run it. You might notice how it changes each time you play it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll need to import the numerical Python (Numpy) library if we want to generate random data</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Here we&#39;ll use a function in the Numpy library to generate some random numbers between zero and one, in arrays 50 elements long...</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># We can also generate an array of numbers (the same length as the others) to represent random colors for our points</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># We can generate another array of the same length that makes circles of various random sizes</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="mi">15</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># 0 to 15 point radii</span>
+
+<span class="c1"># Here we&#39;ll make our scatter plot of x vs. y, with circles described by those random colors and sizes</span>
+<span class="c1"># The &#39;alpha&#39; keyword is used to make the markers semi-transparent. 0 = totally transparent; 1 = fully opaque</span>
+<span class="c1">#</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">area</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># display the plot to the screen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sdss_tutorial_1_5_0.png" src="../_images/sdss_tutorial_1_5_0.png" />
+</div>
+</div>
+<p>In the case where you have two sets of data that you want to show on the same plot, you can also do that easily with the <strong>scatter</strong> function.  To help make it understandable, you’ll want to add a <strong>labels</strong> and a <strong>legend</strong>.  An example of how to do that is shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We don&#39;t need to import the numpy library again, since we already did it once in this notebook.</span>
+
+<span class="c1"># Let&#39;s make two samples of simulated data, which represent the locations of dogs and cats in a neighborhood</span>
+
+<span class="c1"># Here are the locations of 15 dogs </span>
+<span class="n">N_dogs</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">x_dogs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N_dogs</span><span class="p">)</span>
+<span class="n">y_dogs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N_dogs</span><span class="p">)</span>
+
+<span class="c1"># Here are the locations of 30 cats</span>
+<span class="n">N_cats</span><span class="o">=</span><span class="mi">30</span>
+<span class="n">x_cats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N_cats</span><span class="p">)</span>
+<span class="n">y_cats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N_cats</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s plot their locations in the same figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_dogs</span><span class="p">,</span> <span class="n">y_dogs</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dogs&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_cats</span><span class="p">,</span> <span class="n">y_cats</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cats&#39;</span><span class="p">)</span>
+
+<span class="c1"># label the axes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X coordinate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y coordinate&#39;</span><span class="p">)</span>
+
+<span class="c1"># add a legend and a title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Dogs and cats, living together!&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+
+<span class="c1"># display it</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sdss_tutorial_1_7_0.png" src="../_images/sdss_tutorial_1_7_0.png" />
+</div>
+</div>
+<p>If you wanted to compare the distribution of cats and dogs along the x-axis, a <strong>histogram</strong> is probably the easiest way to do that…</p>
+<p>(More documentation on histograms can be found <a class="reference external" href="https://matplotlib.org/stable/gallery/statistics/hist.html">here</a>.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s make the histogram have 10 equally spaced bins, spanning the range of 0-1:</span>
+<span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_dogs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dogs&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_cats</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cats&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X coordinate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sdss_tutorial_1_9_0.png" src="../_images/sdss_tutorial_1_9_0.png" />
+</div>
+</div>
+<p>If the overlap in the samples is too confusing, you can change the format of the histogram (<strong>histtype</strong>) so that it’s not filled in.  Different line styles (<strong>ls</strong>) will make sure the plot is readable even if it’s printed in black and white.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s make the histogram have 10 equally spaced bins, spanning the range of 0-1:</span>
+<span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_dogs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dogs&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_cats</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cats&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X coordinate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sdss_tutorial_1_11_0.png" src="../_images/sdss_tutorial_1_11_0.png" />
+</div>
+</div>
+<p>Normalizing the histograms (using the keyword: <strong>density=‘True’</strong>) makes it easier to compare the shapes of distributions even when one sample is much more numerous than the other.  This is calculated by dividing each bin by the total area of the histogram.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s make the histogram have 10 equally spaced bins, spanning the range of 0-1:</span>
+<span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_dogs</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;dogs&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x_cats</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cats&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X coordinate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Normalized Number&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sdss_tutorial_1_13_0.png" src="../_images/sdss_tutorial_1_13_0.png" />
+</div>
+</div>
+<section id="your-turn-what-happens-if-you-change-the-style-of-the-plot">
+<h3>YOUR TURN:  What happens if you change the style of the plot?<a class="headerlink" href="#your-turn-what-happens-if-you-change-the-style-of-the-plot" title="Permalink to this headline">#</a></h3>
+<p>Try <strong>dramatically</strong> changing the formatting of one of the example plots from above in the code block below.  <strong>Extra points for creativity and bling will be awarded!</strong></p>
+<p>I have provided only a few examples of figures that can be made using Matplotlib.  This <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">thumbnail gallery</a> is useful for finding example code for making just about any kind of plot or visualization you can think of. If you’re a fan of <a class="reference external" href="http://xkcd.com/">XKCD</a>, you can also XKCD-ify your plots with the code found <a class="reference external" href="https://matplotlib.org/2.0.2/users/screenshots.html#xkcd-style-sketch-plots">here</a> :)
+You can find examples for inspiration <a class="reference external" href="http://matplotlib.org/users/screenshots.html">here</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="importing-sciserver-and-other-important-libraries">
+<h2>Importing SciServer and other important libraries<a class="headerlink" href="#importing-sciserver-and-other-important-libraries" title="Permalink to this headline">#</a></h2>
+<p>Now let’s get our hands on some real astronomy data to plot.</p>
+<p>The SciServer team has written a number of libraries, generally prefixed with “SciServer”, that assist in various functions like connecting to and querying the SDSS database. As with all Python libraries, they must be actively imported before being used.</p>
+<p>The next code block imports those, together with some standard Python libraries helpful for scientific analysis. The code block below applies some settings you may find helpful.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Python libraries to work with SciServer (see http://www.sciserver.org/docs/sciscript-python/)</span>
+
+<span class="kn">import</span> <span class="nn">SciServer.CasJobs</span> <span class="k">as</span> <span class="nn">CasJobs</span> <span class="c1"># query with CasJobs, the primary database for the SDSS</span>
+<span class="kn">import</span> <span class="nn">SciServer.SkyServer</span> <span class="k">as</span> <span class="nn">SkyServer</span> <span class="c1"># show individual objects through SkyServer</span>
+<span class="kn">import</span> <span class="nn">SciServer.SciDrive</span>           <span class="c1"># read/write to/from SciDrive, cloud-based storage for your work</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                  <span class="c1"># standard Python library for math operations</span>
+<span class="kn">import</span> <span class="nn">pandas</span>                       <span class="c1"># package for structuring and visualizing data</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>     <span class="c1"># package for graphing and visualization </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SciServer libraries imported&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Import Python libraries to work with SciServer (see http://www.sciserver.org/docs/sciscript-python/)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">SciServer.CasJobs</span> <span class="k">as</span> <span class="nn">CasJobs</span> <span class="c1"># query with CasJobs, the primary database for the SDSS</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">SciServer.SkyServer</span> <span class="k">as</span> <span class="nn">SkyServer</span> <span class="c1"># show individual objects through SkyServer</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">SciServer.SciDrive</span>           <span class="c1"># read/write to/from SciDrive, cloud-based storage for your work</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;SciServer&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply some recommended settings to the imported libraries</span>
+
+<span class="c1"># ensures columns get written completely in notebook</span>
+<span class="n">pandas</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># do *not* show python warnings </span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Settings applied&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Settings applied
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you don’t receive any errors after running the blocks of code above, the libraries will be successfully loaded.  More information about the libraries, which may be useful for the unusually curious or expert user, can be found on the <a class="reference external" href="http://www.sciserver.org/docs/sciscript-python/">SciServer Python documentation site</a>.</p>
+</section>
+<section id="querying-the-sdss-database">
+<h2>Querying the SDSS database<a class="headerlink" href="#querying-the-sdss-database" title="Permalink to this headline">#</a></h2>
+<p>The next code block searches the SDSS Data Release 16 database with lightning speed, using the CasJobs REST API.</p>
+<p>A very helpful tutorial on how to use SQL to query the SDSS database can be found <a class="reference external" href="http://cas.sdss.org/dr16/en/help/howto/search/searchhowtohome.aspx">here</a>.  <strong>Please take 15 minutes at this time to review the tutorial if SQL is new to you.</strong></p>
+<p>A description of the SDSS database structure and the specific information available in different defined Tables and Views, can be found <a class="reference external" href="http://skyserver.sdss.org/dr16/en/help/browser/browser.aspx">here</a>.</p>
+<p>The simple search coded below returns data for the first 16 galaxies with spectroscopic information in the SDSS “galaxy” table that meet some specific criteria.</p>
+<p>If you don’t recognize the names for the data types listed in the “galaxy” table (e.g., “p.ra”, “p.g”), you can look them up <a class="reference external" href="http://skyserver.sdss.org/dr16/en/help/browser/browser.aspx#&amp;&amp;history=description+Galaxy+V">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find objects in the Sloan Digital Sky Survey&#39;s Data Release 16.</span>
+<span class="c1">#</span>
+<span class="c1"># Query the Sloan Digital Sky Servey&#39;s Data Release 16.</span>
+<span class="c1">#</span>
+<span class="c1"># This query finds &quot;nice-looking galaxies&quot;: </span>
+<span class="c1">#   galaxies in the SDSS database that have a spectrum </span>
+<span class="c1">#   and have a size (petror90_r) larger than 10 arcsec.</span>
+<span class="c1">#   We are also requiring that the galaxies have apparent</span>
+<span class="c1">#   model magnitudes (u,g,r,i,z) in the u-band filter between 0 and 19.6</span>
+<span class="c1">#   and in the g-band filter between 0 and 17</span>
+<span class="c1">#</span>
+<span class="c1"># The query is stored in an object called &quot;query&quot;</span>
+<span class="c1">#   and then executed with a function in the CasJobs library</span>
+<span class="c1">#</span>
+<span class="c1"># The returned data is stored in a table called &quot;gals&quot;</span>
+<span class="c1">#</span>
+<span class="n">query</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT TOP 16 p.objId,p.ra,p.dec,p.petror90_r, p.g, p.r</span>
+<span class="s2">  FROM galaxy AS p</span>
+<span class="s2">   JOIN SpecObj AS s ON s.bestobjid = p.objid</span>
+<span class="s2">WHERE p.u BETWEEN 0 AND 19.6</span>
+<span class="s2">  AND p.g BETWEEN 0 AND 17  AND p.petror90_r &gt; 10</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">gals</span> <span class="o">=</span> <span class="n">CasJobs</span><span class="o">.</span><span class="n">executeQuery</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="s2">&quot;dr16&quot;</span><span class="p">)</span>
+
+<span class="c1"># this line requires that the unique object name &#39;objId&#39; is the first column in the returned data table &quot;gals&quot;</span>
+<span class="n">gals</span> <span class="o">=</span> <span class="n">gals</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;objId&#39;</span><span class="p">)</span>
+<span class="n">gals</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ra</th>
+      <th>dec</th>
+      <th>petror90_r</th>
+      <th>g</th>
+      <th>r</th>
+    </tr>
+    <tr>
+      <th>objId</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1237667781775327268</th>
+      <td>219.594953</td>
+      <td>18.111218</td>
+      <td>12.58201</td>
+      <td>15.60288</td>
+      <td>14.90701</td>
+    </tr>
+    <tr>
+      <th>1237662264855625834</th>
+      <td>219.588623</td>
+      <td>9.227637</td>
+      <td>14.91277</td>
+      <td>15.31813</td>
+      <td>14.61456</td>
+    </tr>
+    <tr>
+      <th>1237662264855625968</th>
+      <td>219.580353</td>
+      <td>9.291655</td>
+      <td>10.88518</td>
+      <td>16.84558</td>
+      <td>15.97781</td>
+    </tr>
+    <tr>
+      <th>1237665351318503492</th>
+      <td>219.591756</td>
+      <td>27.336304</td>
+      <td>17.26094</td>
+      <td>15.94505</td>
+      <td>15.18246</td>
+    </tr>
+    <tr>
+      <th>1237661850943947119</th>
+      <td>219.585008</td>
+      <td>39.393224</td>
+      <td>14.90473</td>
+      <td>16.72122</td>
+      <td>16.38783</td>
+    </tr>
+    <tr>
+      <th>1237654879665324133</th>
+      <td>219.578818</td>
+      <td>3.639681</td>
+      <td>10.83427</td>
+      <td>15.93781</td>
+      <td>15.30992</td>
+    </tr>
+    <tr>
+      <th>1237667781238456442</th>
+      <td>219.577525</td>
+      <td>17.609425</td>
+      <td>18.30117</td>
+      <td>15.18190</td>
+      <td>14.29627</td>
+    </tr>
+    <tr>
+      <th>1237665532251013352</th>
+      <td>219.592920</td>
+      <td>23.428761</td>
+      <td>14.47842</td>
+      <td>15.66112</td>
+      <td>14.86994</td>
+    </tr>
+    <tr>
+      <th>1237667735059956026</th>
+      <td>219.614557</td>
+      <td>18.717180</td>
+      <td>11.17537</td>
+      <td>16.82319</td>
+      <td>16.02281</td>
+    </tr>
+    <tr>
+      <th>1237668332564513027</th>
+      <td>219.604100</td>
+      <td>14.967911</td>
+      <td>10.65178</td>
+      <td>16.44650</td>
+      <td>15.59398</td>
+    </tr>
+    <tr>
+      <th>1237662239091982527</th>
+      <td>219.606238</td>
+      <td>9.382254</td>
+      <td>11.72686</td>
+      <td>16.56822</td>
+      <td>16.07388</td>
+    </tr>
+    <tr>
+      <th>1237654879128453333</th>
+      <td>219.614435</td>
+      <td>3.274918</td>
+      <td>11.88382</td>
+      <td>16.46257</td>
+      <td>16.06645</td>
+    </tr>
+    <tr>
+      <th>1237665567145918782</th>
+      <td>219.603206</td>
+      <td>21.670006</td>
+      <td>11.70972</td>
+      <td>16.91023</td>
+      <td>15.91467</td>
+    </tr>
+    <tr>
+      <th>1237667782312132766</th>
+      <td>219.607141</td>
+      <td>18.572540</td>
+      <td>15.30089</td>
+      <td>16.94920</td>
+      <td>15.97377</td>
+    </tr>
+    <tr>
+      <th>1237661387606524108</th>
+      <td>219.646867</td>
+      <td>52.706440</td>
+      <td>12.95517</td>
+      <td>15.60632</td>
+      <td>15.14363</td>
+    </tr>
+    <tr>
+      <th>1237659325482008768</th>
+      <td>219.652172</td>
+      <td>54.923958</td>
+      <td>13.29521</td>
+      <td>16.18980</td>
+      <td>15.27536</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="visualizing-returned-data">
+<h2>Visualizing Returned Data<a class="headerlink" href="#visualizing-returned-data" title="Permalink to this headline">#</a></h2>
+<p>Now that we have run the query and stored the results, we can start analyzing the results.</p>
+<p>Let’s start by <strong>making a simple plot</strong> of the galaxy coordinates (RA vs. Dec) returned by our query:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">gals</span><span class="p">[</span><span class="s1">&#39;ra&#39;</span><span class="p">],</span> <span class="n">gals</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;RA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Dec&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sdss_tutorial_1_23_0.png" src="../_images/sdss_tutorial_1_23_0.png" />
+</div>
+</div>
+<p>The figure above visualizes your data in the simplets possible way: as a scatterplot of RA and Dec positions with default graphing parameters. But you could make many other possible graphs, and you can always add labels, change axis scales, or adjust many other features of graphs. You practiced making some of these display changes in the sections above. Full details on all the possible graph options are described in the online documentation for the pyplot module at <a class="reference external" href="https://matplotlib.org/stable/api/pyplot_summary.html">https://matplotlib.org/stable/api/pyplot_summary.html</a>.</p>
+<p>In addition to containing tables of cataloged measurements for millions of objects, the SDSS database also includes millions of spectra and color imaging covering the 14,000 square degree footprint of the survey. It is often helpful to be able to view the images of objects selected from the SDSS tables.</p>
+<p>The code below shows how to <strong>display image cutouts</strong> for the 16 galaxies we selected from the database in our last query:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set thumbnail parameters</span>
+<span class="n">width</span><span class="o">=</span><span class="mi">200</span>           <span class="c1"># image width</span>
+<span class="n">height</span><span class="o">=</span><span class="mi">200</span>          <span class="c1"># height</span>
+<span class="n">pixelsize</span><span class="o">=</span><span class="mf">0.396</span>     <span class="c1"># image scale</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>   <span class="c1"># display in a 4x4 grid</span>
+<span class="n">subPlotNum</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">nGalaxies</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gals</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">gal</span> <span class="ow">in</span> <span class="n">gals</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>           <span class="c1"># iterate through rows in the DataFrame</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">17</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Getting image &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; of &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">nGalaxies</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">nGalaxies</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Plotting images...&#39;</span><span class="p">)</span>
+        <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">gal</span><span class="p">[</span><span class="s1">&#39;petror90_r&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">pixelsize</span><span class="o">/</span><span class="n">width</span>
+        <span class="n">img</span><span class="o">=</span> <span class="n">SciServer</span><span class="o">.</span><span class="n">SkyServer</span><span class="o">.</span><span class="n">getJpegImgCutout</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">gal</span><span class="p">[</span><span class="s1">&#39;ra&#39;</span><span class="p">],</span> <span class="n">dec</span><span class="o">=</span><span class="n">gal</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span><span class="n">dataRelease</span><span class="o">=</span><span class="s1">&#39;DR13&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">subPlotNum</span><span class="p">)</span>
+        <span class="n">subPlotNum</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>                               <span class="c1"># show images in grid</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>                              <span class="c1"># show the object identifier (objId) above the image.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Getting image 1 of 16...
+Getting image 2 of 16...
+Getting image 3 of 16...
+Getting image 4 of 16...
+Getting image 5 of 16...
+Getting image 6 of 16...
+Getting image 7 of 16...
+Getting image 8 of 16...
+Getting image 9 of 16...
+Getting image 10 of 16...
+Getting image 11 of 16...
+Getting image 12 of 16...
+Getting image 13 of 16...
+Getting image 14 of 16...
+Getting image 15 of 16...
+Getting image 16 of 16...
+Plotting images...
+</pre></div>
+</div>
+<img alt="../_images/sdss_tutorial_1_26_1.png" src="../_images/sdss_tutorial_1_26_1.png" />
+</div>
+</div>
+<section id="your-turn-applying-what-youve-learned">
+<h3>YOUR TURN: Applying what you’ve learned<a class="headerlink" href="#your-turn-applying-what-youve-learned" title="Permalink to this headline">#</a></h3>
+<p><strong>Edit the example query (from a few cells earlier) to retrieve and display a set of small, red galaxies</strong>.  Recall that “color” can be defined as the difference between any two magnitudes measured in different filters (e.g., g-r, i-z, etc.,), and angular size can be approximated using the measured radius enclosing 90 percent of an object’s light (<strong>p.petror90_r</strong>).</p>
+<p><em>But what counts as “small”, and what counts as “red”?</em><br />
+(Hint: It may be helpful to start by making histograms of the distribution of color indices and the r90 sizes. It may also be helpful to review the descriptions of the <a class="reference external" href="http://classic.sdss.org/dr7/instruments/imager/#filters">five SDSS filters</a>, and <a class="reference external" href="https://en.wikipedia.org/wiki/Magnitude_(astronomy)">what magnitudes mean</a> in astronomy.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="producing-a-galaxy-color-magnitude-diagram">
+<h2>Producing a Galaxy Color-Magnitude Diagram<a class="headerlink" href="#producing-a-galaxy-color-magnitude-diagram" title="Permalink to this headline">#</a></h2>
+<p>Now let’s grab some different data and make a scientifically useful plot.</p>
+<p><strong>In the code block below, write a SQL query that returns magnitude information for 1,000 galaxies between redshifts 0.2 and 0.3.</strong></p>
+<p>Hints:</p>
+<p>#1: Recall that a galaxy’s <strong>redshift</strong> is deterimined by taking a spectrum and measuring the shift of identified emission and absorption lines.  So this is information that’s provided in the <a class="reference external" href="http://skyserver.sdss.org/dr15/en/help/browser/browser.aspx#&amp;&amp;history=description+SpecObj+V">SpecObj</a> table, not the “galaxy” table, which contains only photometric (i.e., imaging) information.</p>
+<p>#2: If your query times out, you may be asking for the impossible… are your magnitude, redshift, and size limits all compatible with a sample of real galaxies?  Keep modifying the query until you are able to retrieve 1000 galaxies in the redshift range 0.2&lt;z&lt;0.3</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Now, use your returned galaxy data to generate a color-magnitude diagram (e.g., g vs. g-r) in the cell below.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="interpreting-your-plot">
+<h3>Interpreting your plot:<a class="headerlink" href="#interpreting-your-plot" title="Permalink to this headline">#</a></h3>
+<p>As we will explore in more detail in future activities, galaxies in the modern universe (redshifts z&lt;0.5) generally group into two general areas of the color-magnitude diagram (<a class="reference external" href="https://en.wikipedia.org/wiki/Galaxy_color%E2%80%93magnitude_diagram">“the red sequence” and the “blue cloud”</a>).  Do you see two distinct populations in your plot?  If not, does anything change if you try refining the signal to noise of your data (i.e., requiring a minimum ratio of g / err_g)? What about if you require a narrower slice in redshift?</p>
+<p><strong>Try requiring higher signal to noise and narrowing the range in redshift in the code block below.</strong></p>
+<p>Reminder: as described in the <a class="reference external" href="http://cas.sdss.org/dr16/en/help/browser/browser.aspx#&amp;&amp;history=description+Galaxy+V">SDSS schema of the “galaxy” table</a>, the uncertainty on each magnitude is also available and can be fetched in the SQL query.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>By experimenting with different slices in redshift, and a requirement that the signal to noise in both the g and r magnitudes be greater than 10, it’s possible to see a fairly strong red sequence and blue cloud.  It helps to pull over even larger numbers of galaxies (&gt;2000).</p>
+<p>Your scatter plot is probably pretty crowded. If so, it can also be helpful to <strong>convert your scatter plot into a heatmap</strong>. See this <a class="reference external" href="https://matplotlib.org/3.1.1/gallery/statistics/hexbin_demo.html#sphx-glr-gallery-statistics-hexbin-demo-py">example</a> to get started.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comment on your observations in the cell below.</p>
+<ul class="simple">
+<li><p>Describe what you see in the plots you’ve made, and whether it agrees with what you were expecting.</p></li>
+<li><p>If the results are surprising, do you have an explanation why?</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ESCIP/escip.github.io",
+            ref: "jbook",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="modelfit_part1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Fitting Models to Data (Part 1)</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By ESCIP Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

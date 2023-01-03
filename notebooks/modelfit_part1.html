@@ -55,6 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SDSS Tutorial #1: Data Querying and Visualization" href="sdss_tutorial_1.html" />
     <link rel="prev" title="Dyanmics of particle in a box with a delta potential" href="pib_delta_potential_dynamics.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -192,6 +193,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Fitting Models to Data (Part 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sdss_tutorial_1.html">
+   SDSS Tutorial #1:  Data Querying and Visualization
   </a>
  </li>
 </ul>
@@ -769,11 +775,11 @@ title="Print to PDF"
 <p>We’ll need to use <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>, and the <code class="docutils literal notranslate"><span class="pre">ascii</span></code> package from <code class="docutils literal notranslate"><span class="pre">astropy.io</span></code>, so we will import those libraries below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Import necessary libraries
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import necessary libraries</span>
 
-import numpy as np
-import matplotlib.pyplot as plt
-from astropy.io import ascii
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">ascii</span>
 </pre></div>
 </div>
 </div>
@@ -793,8 +799,8 @@ from astropy.io import ascii
 <p>Now we need to download the file we will be using for this lab:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Download the file
-!wget --no-check-certificate &#39;https://drive.google.com/uc?export=download&amp;id=1UWYnyDIVAKmizNVT02HAj5E2Pe9o_MTm&#39; -O star-mass-lum.dat
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the file</span>
+<span class="o">!</span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span><span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1UWYnyDIVAKmizNVT02HAj5E2Pe9o_MTm&#39;</span><span class="w"> </span>-O<span class="w"> </span>star-mass-lum.dat
 </pre></div>
 </div>
 </div>
@@ -802,8 +808,8 @@ from astropy.io import ascii
 <p>Now we will read in the file we just downloaded (“star-mass-lum.dat”) using the <code class="docutils literal notranslate"><span class="pre">ascii.read</span></code> function and then print it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data=ascii.read(&#39;star-mass-lum.dat&#39;)
-print(data)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;star-mass-lum.dat&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -811,7 +817,7 @@ print(data)
 <p>You should have an Astropy <code class="docutils literal notranslate"><span class="pre">Table</span></code> object with column of masses (in units of solar masses) and a column of luminosities (in units of solar luminosities). We can access either column of the table using the name of the column(as a string):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(data[&#39;Mass_Msun&#39;])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Mass_Msun&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -886,7 +892,7 @@ ymodel = linear_func(?,?,?) # remember the syntax: linear_func(x values, a, b)
 <p>In the box below, copy and paste your code that you used to make your first plot above in order to plot your data again. This time, add a second plot command immediately after the first one that plots <code class="docutils literal notranslate"><span class="pre">ymodel</span></code> vs. <code class="docutils literal notranslate"><span class="pre">xmodel</span></code> using a magenta line (you may need to look again at the website that lists formatting options for <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># copy your code to make the plot from above with the additional line added
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy your code to make the plot from above with the additional line added</span>
 </pre></div>
 </div>
 </div>
@@ -918,8 +924,8 @@ ymodel = linear_func(?,?,?) # remember the syntax: linear_func(x values, a, b)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Replace the question mark with an expression to calculate the luminosities predicted by our model for each of the masses in our data
-predicted_lum = ?
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace the question mark with an expression to calculate the luminosities predicted by our model for each of the masses in our data</span>
+<span class="n">predicted_lum</span> <span class="o">=</span> <span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -941,7 +947,7 @@ predicted_lum = ?
 <p>As in the previous cell, try creating your residual array in a single line below using the arrays you’ve already defined:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>residuals = ?
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">residuals</span> <span class="o">=</span> <span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -959,7 +965,7 @@ predicted_lum = ?
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># copy your code to make the plot from above and then make your changes and additions to plot
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy your code to make the plot from above and then make your changes and additions to plot</span>
 </pre></div>
 </div>
 </div>
@@ -985,8 +991,8 @@ predicted_lum = ?
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>RSS = ?
-print(&quot;{:e}&quot;.format(RSS))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RSS</span> <span class="o">=</span> <span class="o">?</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:e}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">RSS</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1010,7 +1016,7 @@ print(&quot;{:e}&quot;.format(RSS))
 <p>For this, we’ll need to use the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> package, so we will import that function below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from scipy.optimize import curve_fit
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
 </pre></div>
 </div>
 </div>
@@ -1043,7 +1049,7 @@ print(a_best,b_best)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># copy your code to make the plot from above and then make your changes and additions to plot
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy your code to make the plot from above and then make your changes and additions to plot</span>
 </pre></div>
 </div>
 </div>
@@ -1052,7 +1058,7 @@ print(a_best,b_best)
 <p>Note that your new best-fit values of the slope and y intercept mean that the predicted values and residuals are different for the updated model! You can calculate the new RSS value step-by-step as we did before, or you can calculate the new RSS in a single line if you prefer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Calculate the residual sum of squares for the data and your best-fit linear model
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the residual sum of squares for the data and your best-fit linear model</span>
 </pre></div>
 </div>
 </div>
@@ -1088,8 +1094,8 @@ y=ax^2+bx+c
 <p>Now we can find the best-fit values of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> for this expression. Let’s not bother doing it by hand this time—in the cell below, use <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> to find the best-fit values of these parameters in a similar way as we found the best values for our best-fit linear parameters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>popt,pcov = ?
-a_quad,b_quad,c_quad = ?
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popt</span><span class="p">,</span><span class="n">pcov</span> <span class="o">=</span> <span class="o">?</span>
+<span class="n">a_quad</span><span class="p">,</span><span class="n">b_quad</span><span class="p">,</span><span class="n">c_quad</span> <span class="o">=</span> <span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -1097,7 +1103,7 @@ a_quad,b_quad,c_quad = ?
 <p>As before, let’s make a plot of our data and include our best-fit linear and quadratic curves. Again, use different colors and/or linestyles for the two lines.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># copy your code to make the plot from above and then make your changes and additions to plot
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy your code to make the plot from above and then make your changes and additions to plot</span>
 </pre></div>
 </div>
 </div>
@@ -1105,7 +1111,7 @@ a_quad,b_quad,c_quad = ?
 <p>Which curve appears to have a better fit? Let’s check quantitatively as well. <strong>Calculate the RSS for the quadratic fit</strong>, and compare the number you found to the sum of squared residuals from the best-fit linear relationship:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Calculate the sum of the squared residuals to the best-fit equation
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the sum of the squared residuals to the best-fit equation</span>
 </pre></div>
 </div>
 </div>
@@ -1139,7 +1145,7 @@ def powerlaw_func(?):
 <p>Now use <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> to calculate the best-fit values of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># your curve_fit code here
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your curve_fit code here</span>
 </pre></div>
 </div>
 </div>
@@ -1147,7 +1153,7 @@ def powerlaw_func(?):
 <p>Plot the data (again) along with <strong>all three lines</strong> using different colors and/or linestyles:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># your copied, pasted, and edited plotting code here
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your copied, pasted, and edited plotting code here</span>
 </pre></div>
 </div>
 </div>
@@ -1199,6 +1205,13 @@ def powerlaw_func(?):
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Dyanmics of particle in a box with a delta potential</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="sdss_tutorial_1.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SDSS Tutorial #1:  Data Querying and Visualization</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
