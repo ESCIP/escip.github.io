@@ -1,0 +1,1005 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Fitting Models to Data (Part 2) &#8212; ESCIP</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SDSS Tutorial #1: Data Querying and Visualization" href="sdss_tutorial_1.html" />
+    <link rel="prev" title="Fitting Models to Data (Part 1)" href="modelfit_part1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ESCIP</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../team.html">
+   Team
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../guidelines/intro.html">
+   Guidelines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../guidelines/guidelines.html">
+     Format of notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../guidelines/template.html">
+     Template notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../workshops/intro.html">
+   Workshops
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../workshops/workshop2023.html">
+     January 2023 In-Person Workshop
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../workshops/workshop2022.html">
+     Summer 2022 In-Person Workshop
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="fourier_transform.html">
+   Fourier Transforms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linear_variational_method.html">
+   Linear Variational Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gaussian_wavepacket.html">
+   Time evolution of a Gaussian wavepacket
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pib_delta_potential_dynamics.html">
+   Dyanmics of particle in a box with a delta potential
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modelfit_part1.html">
+   Fitting Models to Data (Part 1)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Fitting Models to Data (Part 2)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sdss_tutorial_1.html">
+   SDSS Tutorial #1:  Data Querying and Visualization
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/modelfit_part2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/modelfit_part2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ESCIP/escip.github.io"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/modelfit_part2.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/modelfit_part2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-outcomes">
+   Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dependencies">
+   Dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#review-plotting-the-data">
+   Review: Plotting the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#displaying-error-bars">
+   Displaying error bars
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-1">
+     CHECKPOINT 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-a-logarithmic-plot">
+   Using a logarithmic plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-2-values">
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-2-minimization">
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   minimization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-2">
+     CHECKPOINT 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uncertainties-in-the-model">
+   Uncertainties in the model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-checkpoint">
+     FINAL CHECKPOINT
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Fitting Models to Data (Part 2)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-outcomes">
+   Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dependencies">
+   Dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#review-plotting-the-data">
+   Review: Plotting the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#displaying-error-bars">
+   Displaying error bars
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-1">
+     CHECKPOINT 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-a-logarithmic-plot">
+   Using a logarithmic plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-2-values">
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-2-minimization">
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   minimization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-2">
+     CHECKPOINT 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uncertainties-in-the-model">
+   Uncertainties in the model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-checkpoint">
+     FINAL CHECKPOINT
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="fitting-models-to-data-part-2">
+<h1>Fitting Models to Data (Part 2)<a class="headerlink" href="#fitting-models-to-data-part-2" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://ryantrainor.github.io/">Prof. Ryan Trainor, Franklin &amp; Marshall College</a></p>
+<section id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>To introduce the role of measurement uncertainties in model evaluation</p></li>
+<li><p>To compare logarithmic and linear scaling for visualizing data</p></li>
+<li><p>To estimate the uncertainty on inferred model parameters</p></li>
+</ul>
+</section>
+<section id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">#</a></h2>
+<p>By the end of this workbook, students should be able to</p>
+<ul class="simple">
+<li><p>Include measurement uncertainties in the presentation of data and model fitting</p></li>
+<li><p>Compute the Chi-square value for a model and use it to evaluate the goodness of fit</p></li>
+<li><p>Use logarithmic scaling to recognize and evaluate powerlaw relationships</p></li>
+<li><p>Use comments to document their code and functions</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>This notebook assumes that the student has already completed Part 1 of this Model Fitting activity and is familiar with its prerequisites</p></li>
+</ul>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">#</a></h2>
+<p>This notebook requires the standard libraries for scientific Python (numpy, SciPy) as well as the Astropy library. Astropy is included in the full installation of the <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda Distribution</a> of Python, or it can be installed on its own by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">astropy</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">astropy</span></code>.</p>
+<p><em>Note for instructors: this notebook has been written as an activity to be completed by a group of students in a lab or classroom setting. A solution with filled-in answers is available upon <a class="reference external" href="mailto:ryan&#46;trainor&#37;&#52;&#48;fandm&#46;edu">email request</a>.</em></p>
+</section>
+<section id="review-plotting-the-data">
+<h2>Review: Plotting the data<a class="headerlink" href="#review-plotting-the-data" title="Permalink to this headline">#</a></h2>
+<p>Our first step is to <strong>create the same plot we made in the final step of Part 1 of the Model Fitting activity</strong>: i.e., to make a plot of luminosity vs. mass that includes the best-fit power-law function. <em>You do not need to include the linear or quadratic curves we considered in that activity in this plot.</em></p>
+<p><strong>NOTES:</strong></p>
+<ul class="simple">
+<li><p>Feel free to copy and paste code from Part 1, but try to leave out any unnecessary commands: this is a good exercise to see what is the minimal amount of code you need to make this plot!</p></li>
+<li><p>You will need the data file from Part 1 if you do not have it. You can download the data at this link or using the <code class="docutils literal notranslate"><span class="pre">wget</span></code> command in the cell below.</p></li>
+<li><p>As you write or copy your code, practice using <strong>comments</strong>. Remember that comments are sections of code that are not read by python—they only exist to help you (or other people) understand what your code is doing. A comment starts with a # sign, and everything after the # on the same line is ignored by python. <strong>For each line or section of 2-3 lines that you copy from your Fitting Models to Data (Part 1) code, add a comment to explain what your code is doing in that section and why you need it.</strong></p></li>
+<li><p>While you’re looking at your previous lab, make sure you refresh your memory about the Residual Sum of Squares (RSS) and how it relates to the best-fit line. You’ll need this information later for Checkpoint 1.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the file &#39;star-mass-lum-lumerr.dat&#39; using wget (use this if you are running on Google Colab)</span>
+<span class="o">!</span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span><span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG&#39;</span><span class="w"> </span>-O<span class="w"> </span>star-mass-lum-lumerr.dat
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2023-01-03 21:05:30--  https://drive.google.com/uc?export=download&amp;id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG
+Resolving drive.google.com (drive.google.com)... 142.251.161.138, 142.251.161.113, 142.251.161.101, ...
+Connecting to drive.google.com (drive.google.com)|142.251.161.138|:443... connected.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>303 See Other
+Location: https://doc-04-0k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/lne9thut6n5indfnv60a312a0udaf7vs/1672779900000/15670656991337387112/*/1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG?e=download&amp;uuid=07b622db-8f1c-498d-9cec-63cb79287199 [following]
+Warning: wildcards not supported in HTTP.
+--2023-01-03 21:05:31--  https://doc-04-0k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/lne9thut6n5indfnv60a312a0udaf7vs/1672779900000/15670656991337387112/*/1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG?e=download&amp;uuid=07b622db-8f1c-498d-9cec-63cb79287199
+Resolving doc-04-0k-docs.googleusercontent.com (doc-04-0k-docs.googleusercontent.com)... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>142.250.159.132, 2607:f8b0:4001:c10::84
+Connecting to doc-04-0k-docs.googleusercontent.com (doc-04-0k-docs.googleusercontent.com)|142.250.159.132|:443... connected.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
+Length: 7790 (7.6K) [application/octet-stream]
+Saving to: ‘star-mass-lum-lumerr.dat’
+
+
+star-mass-lum-lumer   0%[                    ]       0  --.-KB/s               
+star-mass-lum-lumer 100%[===================&gt;]   7.61K  --.-KB/s    in 0.004s  
+
+2023-01-03 21:05:31 (2.07 MB/s) - ‘star-mass-lum-lumerr.dat’ saved [7790/7790]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Re-create the final plot from Part 1, omitting unecessary steps</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="displaying-error-bars">
+<h2>Displaying error bars<a class="headerlink" href="#displaying-error-bars" title="Permalink to this headline">#</a></h2>
+<p>Once you have reproduced your plot from Part 1, look at the data compared to the best-fit line. You should see that the line does not perfectly go through all of the points. Does this mean our model is a bad model? Maybe, but maybe not—if there are measurement errors in our data, then it may be that our measurement errors are causing the data and model to disagree.</p>
+<p>Thankfully, our data include an estimate of our <em>uncertainty</em> on each of the luminosity measurements (which we have ignored in Part 1). These uncertainties are given in the 4th column of the Astropy Table that includes our data. This column is named ‘Lum_err_Lsun’, so we can print the contents of this column by using the name of the Table indexed by the column name. Test this below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Print the column named &#39;Lum_err_Lsun&#39; in your Astropy Table
+print(?)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  Cell In[3], line 2
+    print(?)
+          ^
+SyntaxError: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Given these uncertainties, we can now add <strong>error bars</strong> to the plot we created previously. You can do this by replacing the <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> command that you used to plot the measured masses and luminosities with the <code class="docutils literal notranslate"><span class="pre">plt.errorbar()</span></code> command. This command has the following syntax:</p>
+<p><code class="docutils literal notranslate"><span class="pre">plt.errorbar(x,y,yerr,marker=?,ls=?,color=?)</span></code></p>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">x</span></code> is your array of masses, <code class="docutils literal notranslate"><span class="pre">y</span></code> is your array of luminosities, and <code class="docutils literal notranslate"><span class="pre">yerr</span></code> is your array of luminosity uncertainties. <code class="docutils literal notranslate"><span class="pre">marker</span></code> allows you to specify a symbol to mark the points, <code class="docutils literal notranslate"><span class="pre">ls</span></code> allows you to set a linestyle that connects the points, and <code class="docutils literal notranslate"><span class="pre">color</span></code> allows you to specify the color. Let’s use <strong>orange squares</strong>, and let’s <strong>not use a line</strong> to connect them. Remember that you can find information on format options by googling “matplotlib plot formats” or going to the following link: <a class="reference external" href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.plot.html">https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.plot.html</a>. You may also find <code class="docutils literal notranslate"><span class="pre">ls='none'</span></code> useful).</p>
+<p>Also, <strong>continue adding comments to explain what you’re doing and changing with each step</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create your plot with errorbars here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Error bars are useful for determining whether the model is <em>statistically consistent</em> with the data. Note that we cannot know the actual <em>error</em> on each measurement: if we knew the the error on a given measurement, we would simply subtract the error to get the true value!</p>
+<p>Instead, our uncertainty (as shown by our error bars) represents the <em>magnitude of the typical error</em> we expect for a single measurement: i.e., it represents the the expected magnitude of the <em>residual</em> (the difference between the data and the model, introduced in Part 1) for a true model. For a good model, we expect that 68% of the points will have error bars that include the model line, and 95% of the points will be less than 2x the error bar away from the model line.</p>
+<section id="checkpoint-1">
+<h3>CHECKPOINT 1<a class="headerlink" href="#checkpoint-1" title="Permalink to this headline">#</a></h3>
+<p>If you are completing this activity in class, stop here and check your plot with your instructor or TA before you continue. You may want to think about the following questions in advance:</p>
+<ol class="simple">
+<li><p>What does the “residual sum of squares” (RSS) mean, and how does it relate to your best-fit line?</p></li>
+<li><p>Which stars in your plot have the the most precisely-determined luminosities? Which have the most uncertain luminosities?</p></li>
+<li><p>Does your best-fit line seem consistent with your data, given the uncertainties in your fit?</p></li>
+</ol>
+</section>
+</section>
+<section id="using-a-logarithmic-plot">
+<h2>Using a logarithmic plot<a class="headerlink" href="#using-a-logarithmic-plot" title="Permalink to this headline">#</a></h2>
+<p>One thing you might notice about your plot above is that most of the points are all clustered together at very small values in the bottom-left corner. This is a common issue in astronomy, where we often deal with numbers that cover many orders of magnitude in scale—if you make your plot big enough to accommodate the big numbers, then you can barely see the differences among the small numbers!</p>
+<p>One way to deal with this is to use a plot with <strong>logarithmic scaling</strong>: this will change our x and y axes to show powers of 10 instead of linear values. Python has an easy way to do this by adding a single command to the script for our plot.</p>
+<p>Sometimes we have data that is evenly distributed on either the x or y axes but heavily skewed on the other axis. In these situations, you can use <code class="docutils literal notranslate"><span class="pre">plt.semilogx()</span></code> to make the x axis logarithmic while leaving the y axis on a linear scale, while <code class="docutils literal notranslate"><span class="pre">plt.semilogy()</span></code> does the opposite. If both axes should be shown logarithmically, we can use <code class="docutils literal notranslate"><span class="pre">plt.loglog()</span></code>. Re-create your plot from above (with the errorbars) and try adding one of these commands. Test all three commands and decide as a group which one makes the data easiest to see.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create your plot with errorbars and logarithmic scaling here:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you have not already included your best-fit powerlaw relationship, make sure to display it as well. What shape does it make? Hopefully you find that it looks like a straight line (i.e., the power law looks <em>linear</em> when plotted logarithmically).</p>
+<p>One other thing you may find is that our power-law model that looked so good in linear space suddenly looks like a poor fit, especially for the low masses: it systematically misses all of the low-mass points! What’s going on here?</p>
+<p>Remember that we made our fit to <em>minimize the RSS</em>: we wanted a line that was “as close as possible” to <em>all</em> of the points, and each point was treated equally. This means that being off by 1 L<span class="math notranslate nohighlight">\(_\odot\)</span> from our <em>largest</em> luminosity was just as bad as being off by 1 L<span class="math notranslate nohighlight">\(_\odot\)</span> from our <em>smallest</em> luminosity. However, that doesn’t really make sense—1 L<span class="math notranslate nohighlight">\(_\odot\)</span> is a tiny fraction of the total luminosity of our bright stars, but it’s a huge fraction for our faint stars. Also, and more importantly, remember what we saw for our error bars: the largest luminosities are the most uncertain, whereas the small values are more precisely known in our data. With this in mind, we should focus on trying to <em>get a better fit to the points we know precisely</em>, even if it means we get a slightly worse fit to the other points. That is, we need to give the points with small uncertainties additional <strong>weight</strong>, so that they count more in the fit.</p>
+<p>In order to create a fit that weights points according to their uncertainties, we will need to discuss the <span class="math notranslate nohighlight">\(\chi^2\)</span> value (pronounced “<span class="math notranslate nohighlight">\(\chi\)</span>-squared”, where <span class="math notranslate nohighlight">\(\chi\)</span> is a Greek letter that physicists pronounce like “KAI”).</p>
+</section>
+<section id="chi-2-values">
+<h2><span class="math notranslate nohighlight">\(\chi^2\)</span> values<a class="headerlink" href="#chi-2-values" title="Permalink to this headline">#</a></h2>
+<p>The <span class="math notranslate nohighlight">\(\chi^2\)</span> value of a fit is very similar to the RSS. The only difference is that <em>each residual is weighted by the inverse of its uncertainty</em>, so that points with small uncertainties are given larger weight. It is defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+\chi^2=\sum_{i=1}^N \left(\frac{\Delta y_i}{\sigma_i}\right)^2=\sum_{i=1}^N \left(\frac{y_{i,\mathrm{obs}}-y_{i,\mathrm{pred}}}{\sigma_i}\right)^2
+\]</div>
+<p>As in Part 1, <span class="math notranslate nohighlight">\(\Delta y_i\)</span> is the residual of point i, which is the difference between the observed value at point i (<span class="math notranslate nohighlight">\(y_{i,\mathrm{obs}}\)</span>) and the value at point i predicted by the model (<span class="math notranslate nohighlight">\(y_{i,\mathrm{pred}}=f(x_i)\)</span>, where <span class="math notranslate nohighlight">\(f(x)\)</span> represents our model). <span class="math notranslate nohighlight">\(\sigma_i\)</span> is the uncertainty in the y value for that particular data point. Note that if don’t divide by <span class="math notranslate nohighlight">\(\sigma_i\)</span> (or if <span class="math notranslate nohighlight">\(\sigma=1\)</span> for every point) then the <span class="math notranslate nohighlight">\(\chi^2\)</span> value is equivalent to the RSS.</p>
+<p>In the box below, do the following three things:</p>
+<ol class="simple">
+<li><p><strong>Create a function</strong> that will calculate the <span class="math notranslate nohighlight">\(\chi^2\)</span> value for arbitrary arrays <code class="docutils literal notranslate"><span class="pre">yobs</span></code>, <code class="docutils literal notranslate"><span class="pre">ypred</span></code>, and <code class="docutils literal notranslate"><span class="pre">sigma</span></code>.</p></li>
+<li><p>Also <strong>create a second function</strong> that computes our old friend the RSS based on <code class="docutils literal notranslate"><span class="pre">yobs</span></code> and <code class="docutils literal notranslate"><span class="pre">ypred</span></code>.</p></li>
+<li><p>Finally, <strong>use your function</strong> to find the <span class="math notranslate nohighlight">\(\chi^2\)</span> value for the best-fit power-law model you found above.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Fill in the functions below
+
+def chi2(?,?,?):
+    return ?
+    
+def RSS(?,?):
+    return ?
+
+chi2_orig = ?
+print(chi2_orig)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If your calculation is working, you find a <span class="math notranslate nohighlight">\(\chi^2\)</span> value of approximately 5000. This is a lot! Remember: if our uncertainties and our model are both accurate, then on average our residuals will be equal in magnitude to our uncertainties: <span class="math notranslate nohighlight">\((\Delta y)^2=\sigma^2\)</span>, and thus for a true model:</p>
+<div class="math notranslate nohighlight">
+\[
+\chi^2=\sum_{i=1}^N \left(\frac{\Delta y_i}{\sigma_i}\right)^2\approx\sum_{i=1}^N \left(1\right)^2\approx N
+\]</div>
+<p>Since our table has 235 stars in it (you can check this with <code class="docutils literal notranslate"><span class="pre">print(len(data))</span></code> if you named your Table <code class="docutils literal notranslate"><span class="pre">data</span></code>), then we should have <span class="math notranslate nohighlight">\(\chi^2\approx 235\)</span>. The fact that the model above has a much larger <span class="math notranslate nohighlight">\(\chi^2\)</span> value means that our residuals are much larger than our uncertainties on average, and thus that there is a significant disagreement between our data and the model that cannot be explained by measurement errors alone.</p>
+</section>
+<section id="chi-2-minimization">
+<h2><span class="math notranslate nohighlight">\(\chi^2\)</span> minimization<a class="headerlink" href="#chi-2-minimization" title="Permalink to this headline">#</a></h2>
+<p>Now our goal is to create a new fit that takes our uncertainties into account. We can do this by passing an optional argument called <code class="docutils literal notranslate"><span class="pre">sigma</span></code> to <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>. In the cell below use <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> as you have previously, but this time set <code class="docutils literal notranslate"><span class="pre">sigma</span></code> equal to the array of luminosity uncertainties:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popt</span><span class="p">,</span><span class="n">pcov</span><span class="o">=?</span>
+<span class="n">A_new</span><span class="p">,</span><span class="n">alpha_new</span><span class="o">=</span><span class="n">popt</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_new</span><span class="p">,</span><span class="n">alpha_new</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell below, now create a plot showing the data (with errorbars) and two power-law curves: one with your original best-fit parameters, and one with your new best-fit parameters. You may want to look at your plot in the log-log view and the linear view as you consider the questions below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the luminosity vs. mass for the real data with errorbars</span>
+<span class="c1"># include the model lines from the original fit and the fit weighted by the uncertainties</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="checkpoint-2">
+<h3>CHECKPOINT 2<a class="headerlink" href="#checkpoint-2" title="Permalink to this headline">#</a></h3>
+<p>If you are completing this activity in class, stop here and check your plot with your instructor or TA before you continue. You may want to think about the following questions in advance:</p>
+<ol class="simple">
+<li><p>Which line seems to be consistent with more of your points (i.e., within the uncertainties)?</p></li>
+<li><p>Which line is more precise at predicting the value of the star with <span class="math notranslate nohighlight">\(M=40\)</span> M<span class="math notranslate nohighlight">\(_\odot\)</span>? Is this the best fit overall?</p></li>
+<li><p>Which line has a smaller <span class="math notranslate nohighlight">\(\chi^2\)</span> value? Which has a smaller sum of squared residuals? You can use the cell below to do some calculations to check. Is either <span class="math notranslate nohighlight">\(\chi^2\)</span> value consistent with a “good” fit?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check chi^2 and RSS of original model and new model</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="uncertainties-in-the-model">
+<h2>Uncertainties in the model<a class="headerlink" href="#uncertainties-in-the-model" title="Permalink to this headline">#</a></h2>
+<p>Because our data has some uncertainty on it, our model parameters have some uncertainty as well. What does this mean? Let’s imagine that we made <em>new measurements</em> of all of the luminosities of these stars. We might expect to find slightly different luminosities the second time, with the differences between the first and second measurements (i.e., the difference in measurement error) being similar in size to our uncertainties.</p>
+<p>If we then fit a best-fit line to our new measurements, we would expect that we might get a slightly different “best” set of parameters A and <span class="math notranslate nohighlight">\(\alpha\)</span> as well. <em>How different might we expect them to be?</em> This question is asking about the uncertainties on our best-fit parameter values. If we can calculate uncertainties on the parameters, then we can be reasonably sure that anyone else calculating a similar fit would get parameters that are consistent with our to within ~2x the uncertainty (technically, the values should be within 2x uncertainties 95% of the time).</p>
+<p>The uncertainties on our best-fit parameters are given by the <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance_matrix">covariance matrix</a>, which is the <code class="docutils literal notranslate"><span class="pre">pcov</span></code> variable we’ve been ignoring so far. A covariance matrix is an <span class="math notranslate nohighlight">\(N\times N\)</span> matrix, where <span class="math notranslate nohighlight">\(N\)</span> is the number of parameters in our model. In our case, our parameters are A and alpha, so <span class="math notranslate nohighlight">\(N=2\)</span> and the covariance matrix looks like this:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+\sigma_{AA} &amp; \sigma_{A\alpha} \\
+\sigma_{\alpha A} &amp; \sigma_{\alpha\alpha} 
+\end{bmatrix}
+\end{split}\]</div>
+<p>The diagonal elements of this matrix (<span class="math notranslate nohighlight">\(\sigma_{AA}\)</span> and <span class="math notranslate nohighlight">\(\sigma_{\alpha\alpha}\)</span>) represent the <em>variance</em> (i.e., the square of the uncertainty) on our estimated parameters, which is to say that the uncertainties on our parameters estimated by our <span class="math notranslate nohighlight">\(\chi^2\)</span> minimization are the square-roots of <code class="docutils literal notranslate"><span class="pre">pcov[0,0]</span></code> and <code class="docutils literal notranslate"><span class="pre">pcov[1,1]</span></code> for A and alpha, respectively.</p>
+<p>Given the above, complete the code block below to print the uncertainties:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_err</span> <span class="o">=</span> <span class="o">?</span>
+<span class="n">alpha_err</span> <span class="o">=</span> <span class="o">?</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The best-fit parameters are A=</span><span class="si">{:4.2f}</span><span class="s2">+/-</span><span class="si">{:4.2f}</span><span class="s2"> and alpha=</span><span class="si">{:4.2f}</span><span class="s2">+/-</span><span class="si">{:4.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">A_new</span><span class="p">,</span>
+                                                                                            <span class="n">A_err</span><span class="p">,</span>
+                                                                                            <span class="n">alpha_new</span><span class="p">,</span>
+                                                                                            <span class="n">alpha_err</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>One way to visualize the uncertainties on A and alpha is to plot many different variations of our power law model where we slightly change the values of A and alpha in a manner consistent with the uncertainties on those parameters. The function below generates 100 random pairs (A,alpha) that are consistent with the uncertainties on those parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rand_A_alpha</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">A_err</span><span class="p">,</span><span class="n">alpha_err</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Given input values of A and alpha and uncertainties on each value, generate</span>
+<span class="sd">    100 pairs (A,alpha) such that the generated parameters form a gaussian</span>
+<span class="sd">    distribution about the input values with a 1-sigma width given by the </span>
+<span class="sd">    uncertainty.&#39;&#39;&#39;</span>
+
+    <span class="n">n_rand</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">rand_A_array</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">A_err</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n_rand</span><span class="p">)</span>
+    <span class="n">rand_alpha_array</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">+</span> <span class="n">alpha_err</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n_rand</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">zip</span><span class="p">(</span><span class="n">rand_A_array</span><span class="p">,</span><span class="n">rand_alpha_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the cell below, create a new version of your plot with the logarithmic scaling, and use the <code class="docutils literal notranslate"><span class="pre">rand_A_alpha()</span></code> function above to generate 100 model lines that each use randomly-generated values of A and alpha.</p>
+<p><strong>NOTES:</strong></p>
+<ul class="simple">
+<li><p>You can use the function <code class="docutils literal notranslate"><span class="pre">rand_A_alpha()</span></code> to generate the fake values and store them as a series of pairs, after which you can plot a line for each pair of values by including a for loop in your plot. Try something like this:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">rand_A_alpha_pairs</span><span class="o">=</span><span class="n">rand_A_alpha</span><span class="p">(</span><span class="n">A_new</span><span class="p">,</span><span class="n">alpha_new</span><span class="p">,</span><span class="n">A_err</span><span class="p">,</span><span class="n">alpha_err</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">A_i</span><span class="p">,</span><span class="n">alpha_i</span><span class="p">)</span> <span class="ow">in</span> <span class="n">rand_A_alpha_pairs</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xmodel</span><span class="p">,</span><span class="n">powerlaw_func</span><span class="p">(</span><span class="n">xmodel</span><span class="p">,</span><span class="n">A_i</span><span class="p">,</span><span class="n">alpha_i</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">alpha=0.1</span></code> portion of the plotting command above sets the model lines to be partially transparent so that they don’t all cover each other (or your data). Note that “alpha” here is an old printing term, where <code class="docutils literal notranslate"><span class="pre">alpha=1</span></code> means fully opaque (the default) and <code class="docutils literal notranslate"><span class="pre">alpha=0</span></code> means fully transparent—<em>it is completely unrelated to the fact that one of our variables in this activity also happens to be named alpha!</em></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the luminosity vs. mass for the real data with errorbars</span>
+<span class="c1"># include 100 versions of the model line consistent with the parameter uncertainties</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="final-checkpoint">
+<h3>FINAL CHECKPOINT<a class="headerlink" href="#final-checkpoint" title="Permalink to this headline">#</a></h3>
+<p>Congratulations! You have completed this activity. Call at TA or your instructor to check you off. You may want to think about the following questions in advance:</p>
+<ol class="simple">
+<li><p>Where does the prediction of the fit appear to be most certain? Least certain? Does this make sense, given where the data are?</p></li>
+<li><p>Does the uncertainty in the fit curve seem to be as large as the uncertainty in the surrounding data? If not, why do you think this is?</p></li>
+<li><p>What are the differences and similarities between the RSS and <span class="math notranslate nohighlight">\(\chi^2\)</span> value for defining “goodness of fit”? When might it make sense to use one rather than the other?</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ESCIP/escip.github.io",
+            ref: "jbook",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="modelfit_part1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Fitting Models to Data (Part 1)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="sdss_tutorial_1.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SDSS Tutorial #1:  Data Querying and Visualization</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By ESCIP Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

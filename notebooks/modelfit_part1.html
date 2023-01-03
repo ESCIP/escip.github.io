@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SDSS Tutorial #1: Data Querying and Visualization" href="sdss_tutorial_1.html" />
+    <link rel="next" title="Fitting Models to Data (Part 2)" href="modelfit_part2.html" />
     <link rel="prev" title="Dyanmics of particle in a box with a delta potential" href="pib_delta_potential_dynamics.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -193,6 +193,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Fitting Models to Data (Part 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modelfit_part2.html">
+   Fitting Models to Data (Part 2)
   </a>
  </li>
  <li class="toctree-l1">
@@ -458,6 +463,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dependencies">
+   Dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#masses-and-luminosities-of-stars">
    Masses and Luminosities of Stars
   </a>
@@ -467,11 +477,6 @@ title="Print to PDF"
    Plotting the data
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notes">
-     Notes:
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#checkpoint-1">
      CHECKPOINT 1
@@ -497,33 +502,14 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Notes:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#calculating-residuals">
      Calculating residuals
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Notes:
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#residual-sum-of-squares">
      Residual Sum of Squares
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       Notes:
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#checkpoint-3">
@@ -538,11 +524,6 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Notes:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#checkpoint-4">
      CHECKPOINT 4
     </a>
@@ -556,7 +537,7 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#checkpoint-5">
-     CHECKPOINT 5:
+     CHECKPOINT 5
     </a>
    </li>
   </ul>
@@ -608,6 +589,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dependencies">
+   Dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#masses-and-luminosities-of-stars">
    Masses and Luminosities of Stars
   </a>
@@ -617,11 +603,6 @@ title="Print to PDF"
    Plotting the data
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notes">
-     Notes:
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#checkpoint-1">
      CHECKPOINT 1
@@ -647,33 +628,14 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Notes:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#calculating-residuals">
      Calculating residuals
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Notes:
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#residual-sum-of-squares">
      Residual Sum of Squares
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       Notes:
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#checkpoint-3">
@@ -688,11 +650,6 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id4">
-     Notes:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#checkpoint-4">
      CHECKPOINT 4
     </a>
@@ -706,7 +663,7 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#checkpoint-5">
-     CHECKPOINT 5:
+     CHECKPOINT 5
     </a>
    </li>
   </ul>
@@ -762,6 +719,10 @@ title="Print to PDF"
 <li><p>How to read in data from an ASCII file into an Astropy <code class="docutils literal notranslate"><span class="pre">Table</span></code> object</p></li>
 <li><p>How to make basic plots using the the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function from <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code></p></li>
 </ul>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">#</a></h2>
+<p>This notebook requires the standard libraries for scientific Python (numpy, SciPy) as well as the Astropy library. Astropy is included in the full installation of the <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda Distribution</a> of Python, or it can be installed on its own by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">astropy</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">astropy</span></code>.</p>
 <p><em>Note for instructors: this notebook has been written as an activity to be completed by a group of students in a lab or classroom setting. A solution with filled-in answers is available upon <a class="reference external" href="mailto:ryan&#46;trainor&#37;&#52;&#48;fandm&#46;edu">email request</a>.</em></p>
 </section>
 <section id="masses-and-luminosities-of-stars">
@@ -796,25 +757,38 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Now we need to download the file we will be using for this lab:</p>
+<p>Now we need to download the file of stellar masses and luminosities that we will be using for this activity. You can <a class="reference external" href="https://drive.google.com/uc?export=download&amp;id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG">download the data file at this link</a>, or you can run the cell below to download it to your working directory automatically using <code class="docutils literal notranslate"><span class="pre">wget</span></code>.</p>
+<p><em>Note that running the cell below is particularly useful if you are running this notebook on Google Colab, where any files in your working directory are intermittently deleted—it allows you to re-download the file automatically everytime you run the notebook. <code class="docutils literal notranslate"><span class="pre">wget</span></code> can be installed in an Anaconda environment by entering <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">anaconda</span> <span class="pre">wget</span></code> at the command line, or with Homebrew via <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">wget</span></code>.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the file</span>
-<span class="o">!</span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span><span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1UWYnyDIVAKmizNVT02HAj5E2Pe9o_MTm&#39;</span><span class="w"> </span>-O<span class="w"> </span>star-mass-lum.dat
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the file &#39;star-mass-lum-lumerr.dat&#39; using wget (use this if you are running on Google Colab)</span>
+<span class="o">!</span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span><span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG&#39;</span><span class="w"> </span>-O<span class="w"> </span>star-mass-lum-lumerr.dat
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now we will read in the file we just downloaded (“star-mass-lum.dat”) using the <code class="docutils literal notranslate"><span class="pre">ascii.read</span></code> function and then print it:</p>
+<p>Now we will read in the file we just downloaded (“star-mass-lum-lumerr.dat”) using the <code class="docutils literal notranslate"><span class="pre">ascii.read</span></code> function and then print it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;star-mass-lum.dat&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;star-mass-lum-lumerr.dat&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>You should have an Astropy <code class="docutils literal notranslate"><span class="pre">Table</span></code> object with column of masses (in units of solar masses) and a column of luminosities (in units of solar luminosities). We can access either column of the table using the name of the column(as a string):</p>
+<p>You should have an Astropy <code class="docutils literal notranslate"><span class="pre">Table</span></code> object with four columns that looks like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   ID   Mass_Msun Lum_Lsun Lum_err_Lsun
+------- --------- -------- ------------
+STAR000     0.524    0.046       0.0347
+STAR001     3.259    130.0         32.3
+STAR002     0.393    0.039       0.0111
+STAR003     0.533    0.062       0.0345
+...
+Length = 235 rows
+</pre></div>
+</div>
+<p>Each row of the table represents one star, and each column represents information about each star: an ID number for that star, the mass of that star (in units of solar masses, <span class="math notranslate nohighlight">\(M_\odot\)</span>), the luminosity of that star, and the measurement uncertainty on that luminosity (both in units of solar luminosities, <span class="math notranslate nohighlight">\(L_\odot\)</span>).</p>
+<p>For this activity, we will only use the ‘Mass_Msun’ and ‘Lum_Lsun’ columns, and we can access those individual columns of the table using the name of the column as a string:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Mass_Msun&#39;</span><span class="p">])</span>
@@ -822,10 +796,17 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>In the cell below, make a plot of the masses vs. the luminosities. <em>Note that when you plot “A vs. B”, quantity A should always go on the vertical axis, and quantity B should go on the horizontal axis.</em></p>
-<p>Fill in the question marks below to plot <strong>luminosity vs. mass</strong> using <strong>green pentagons</strong> as your markers and with appropriate axis labels.</p>
-<section id="notes">
-<h3>Notes:<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Lum_Lsun&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above syntax for isolating a single column of our Astropy table enables us to access just the masses or luminosities and treat it like an array: we can use <code class="docutils literal notranslate"><span class="pre">data['Mass_Msun'])</span></code> in most of the same ways you would use a numpy array, including for performing mathematical operations or for plotting.</p>
+<p>To get a better sense of our data, <strong>make a plot of the luminosities vs. the masses</strong> in the cell below. <em>Note that when you plot “A vs. B”, quantity A should always go on the vertical axis, and quantity B should go on the horizontal axis.</em></p>
+<p>Fill in the question marks below to plot the data, and see if you can use <strong>green pentagons</strong> as your markers. Note that appropriate axis labels have already been added for you.</p>
+<p><strong>NOTES:</strong></p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">plt.xlabel</span></code> and <code class="docutils literal notranslate"><span class="pre">plt.ylabel</span></code> commands produce the axis labels. The first argument of those functions should be a <strong>string</strong> containing the text you want plotted on that axis. Give them a descriptive name as well as the appropriate units in parentheses.</p></li>
 <li><p>Remember that the <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> command takes in two arrays for the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> parameters, and then the third argument of the function is a “format string” that specifies how the plotted points will look.</p></li>
@@ -839,8 +820,8 @@ plt.rcParams[&#39;figure.figsize&#39;] = (20.0, 10.0)
 
 plt.plot(?,?,?) # plot the mass on the x axis and luminosity on the y axis
 
-plt.xlabel(?,size=20)
-plt.ylabel(?,size=20)
+plt.xlabel(&quot;Mass ($M_\odot$)&quot;,size=20)
+plt.ylabel(&quot;Luminosity ($L_\odot$)&quot;,size=20)
 plt.xticks(size=18)
 plt.yticks(size=18)
 plt.show()
@@ -849,7 +830,6 @@ plt.show()
 </div>
 </div>
 <p>You should have a scatterplot that shows a positive correlation between mass and luminosity.</p>
-</section>
 <section id="checkpoint-1">
 <h3>CHECKPOINT 1<a class="headerlink" href="#checkpoint-1" title="Permalink to this headline">#</a></h3>
 <p>If you are completing this activity in class, stop here and check your plot with your instructor or TA before you continue. You may want to think about the following questions in advance:</p>
@@ -916,8 +896,7 @@ ymodel = linear_func(?,?,?) # remember the syntax: linear_func(x values, a, b)
 <p>The usual method of calculating a best-fit line is called <strong>least-squares fitting</strong>. This method of fitting chooses the line (or other equation) that <em>minimizes the square of the differences between the predictions of your equation and the real points</em>.</p>
 <p>Another way of saying this is that least-square fitting minimizes the sum of the square of the <strong>residuals</strong> to the fit. The residuals of a fit are the differences between the real values and the fit values (i.e., the real values and the values your equation predicts).</p>
 <p>Let’s calculate the residuals and the sum of the squared residuals by hand to start. In the cell below, use <code class="docutils literal notranslate"><span class="pre">linear_func</span></code> and your chosen values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> to generate an array containing the luminosity values that your equation would predict for each of the masses in your data set.(you should be able to do this in one line).</p>
-<section id="id1">
-<h3>Notes:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p><strong>NOTES:</strong></p>
 <ul class="simple">
 <li><p>You are calculating a predicted luminosity for each of the masses in our dataset—you could do this with a loop, but see if you can calculate all the predicted luminosities in a single line using the power of <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays!</p></li>
 <li><p>Remember how we generated y values (i.e., predicted luminosities, based on our linear model) for each of the “fake” masses in our <code class="docutils literal notranslate"><span class="pre">xmodel</span></code> array. How can we use <code class="docutils literal notranslate"><span class="pre">linear_func</span></code> to generate predicted luminosities for each of the “real” masses in our dataset?</p></li>
@@ -930,7 +909,6 @@ ymodel = linear_func(?,?,?) # remember the syntax: linear_func(x values, a, b)
 </div>
 </div>
 </div>
-</section>
 <section id="calculating-residuals">
 <h3>Calculating residuals<a class="headerlink" href="#calculating-residuals" title="Permalink to this headline">#</a></h3>
 <p>Now let’s calculate an array of residuals for each star in our dataset, recalling that the residual array is defined as:</p>
@@ -957,8 +935,7 @@ ymodel = linear_func(?,?,?) # remember the syntax: linear_func(x values, a, b)
 <li><p><strong>Make a plot</strong> similar to your luminosity vs. mass plot, but this time plot the <em>residuals of the luminosities</em> on the y axis instead of the luminosities themselves. You will want to change the y-axis label of your plot accordingly.</p></li>
 <li><p>On your plot, <strong>add a horizontal line at <span class="math notranslate nohighlight">\(y=0\)</span></strong> so that we can easily tell which residuals are positive and which are negative.</p></li>
 </ol>
-<section id="id2">
-<h4>Notes:<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<p><strong>NOTES:</strong></p>
 <ul class="simple">
 <li><p>You can use the command <code class="docutils literal notranslate"><span class="pre">plt.axhline(yval,ls=?,color=?)</span></code> to make a horizontal line at <span class="math notranslate nohighlight">\(y=\)</span> <code class="docutils literal notranslate"><span class="pre">yval</span></code> that spans the entire axis. There is an analogous command <code class="docutils literal notranslate"><span class="pre">plt.axvline(xval)</span></code> to make a vertical line at <span class="math notranslate nohighlight">\(x=\)</span> <code class="docutils literal notranslate"><span class="pre">xval</span></code>.</p></li>
 <li><p>Both <code class="docutils literal notranslate"><span class="pre">plt.axhline</span></code> and <code class="docutils literal notranslate"><span class="pre">plt.axvline</span></code> accept optional <em>keyword arguments</em> to let you change the properties of the line drawn. For example, you can <code class="docutils literal notranslate"><span class="pre">plt.axhline(yval,ls='--',color='brown')</span></code> to make the a dashed line (<code class="docutils literal notranslate"><span class="pre">ls</span></code> = “linestyle”) that is brown. Google “matplotlib colors” or “python linestyles” and then pick a color and linestyle you like.</p></li>
@@ -972,7 +949,6 @@ ymodel = linear_func(?,?,?) # remember the syntax: linear_func(x values, a, b)
 </div>
 <p>Look at your plot of residuals and compare it to your plot of luminosity vs. mass with the line for the model you calculated. Hopefully you can see that the residuals are positive when the observed luminosities were above the model line, and the residuals are negative when the observed luminosities were below the line.</p>
 </section>
-</section>
 <section id="residual-sum-of-squares">
 <h3>Residual Sum of Squares<a class="headerlink" href="#residual-sum-of-squares" title="Permalink to this headline">#</a></h3>
 <p>At the end of the day, it’s nice to have a single number we can use to evaluate how well our model describes the relationship in our data. The value we will use is the <strong>residual sum of squares (RSS)</strong>:</p>
@@ -982,8 +958,7 @@ ymodel = linear_func(?,?,?) # remember the syntax: linear_func(x values, a, b)
 \]</div>
 <p>where the variables above are the same as in our definition of the residuals.</p>
 <p>In the cell below, <strong>calculate the RSS value</strong> using the residual array you already have and some mathematical operations.</p>
-<section id="id3">
-<h4>Notes:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<p><strong>NOTES:</strong></p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">np.sum()</span></code> function will be useful, but be careful with your order of operations!</p></li>
 <li><p>The residual sum of squares should be <em>small</em> for a good fit.</p></li>
@@ -997,7 +972,6 @@ ymodel = linear_func(?,?,?) # remember the syntax: linear_func(x values, a, b)
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="checkpoint-3">
 <h3>CHECKPOINT 3<a class="headerlink" href="#checkpoint-3" title="Permalink to this headline">#</a></h3>
@@ -1041,8 +1015,7 @@ print(a_best,b_best)
 <li><p>the best-fit line we made already by adjusting the parameters by eye</p></li>
 <li><p>a new best-fit line that uses <code class="docutils literal notranslate"><span class="pre">a_best</span></code> and <code class="docutils literal notranslate"><span class="pre">b_best</span></code> as our slope and y-intercept</p></li>
 </ol>
-<section id="id4">
-<h3>Notes:<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p><strong>NOTES:</strong></p>
 <ul class="simple">
 <li><p>Make sure to make the lines different colors and/or linestyles so you know which is which.</p></li>
 <li><p>You will need to make a new version of <code class="docutils literal notranslate"><span class="pre">ymodel</span></code> to hold the y-values of your new best-fit line. Perhaps you can call this <code class="docutils literal notranslate"><span class="pre">ymodel_best</span></code> or something similar. Do you need to make a new version of <code class="docutils literal notranslate"><span class="pre">xmodel</span></code>?</p></li>
@@ -1063,7 +1036,6 @@ print(a_best,b_best)
 </div>
 </div>
 </div>
-</section>
 <section id="checkpoint-4">
 <h3>CHECKPOINT 4<a class="headerlink" href="#checkpoint-4" title="Permalink to this headline">#</a></h3>
 <p>Before going on, <em>check your new and old RSS value with your TA or instructor</em>. You may want to think about the following questions in advance:</p>
@@ -1117,7 +1089,7 @@ y=ax^2+bx+c
 </div>
 </div>
 <section id="checkpoint-5">
-<h3>CHECKPOINT 5:<a class="headerlink" href="#checkpoint-5" title="Permalink to this headline">#</a></h3>
+<h3>CHECKPOINT 5<a class="headerlink" href="#checkpoint-5" title="Permalink to this headline">#</a></h3>
 <p>Before going on, <em>check in with your TA or instructor</em>. You may want to think about the following questions in advance:</p>
 <ul class="simple">
 <li><p>Is the linear model or the quadratic model a better fit to your data? How do you know? Do you think that would always be the case when comparing a linear model to a quadratic model?</p></li>
@@ -1206,10 +1178,10 @@ def powerlaw_func(?):
             <p class="prev-next-title">Dyanmics of particle in a box with a delta potential</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="sdss_tutorial_1.html" title="next page">
+    <a class='right-next' id="next-link" href="modelfit_part2.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SDSS Tutorial #1:  Data Querying and Visualization</p>
+        <p class="prev-next-title">Fitting Models to Data (Part 2)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
