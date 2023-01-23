@@ -471,12 +471,42 @@ title="Print to PDF"
      Prerequisites
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#choosing-a-sample-of-galaxies">
-     Choosing a sample of galaxies
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-a-sample-of-galaxies">
+   Choosing a Sample of Galaxies
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dereddening-the-spectrum">
+   Dereddening the Spectrum
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#determining-the-star-formation-rate">
+   Determining the Star Formation Rate
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-star-forming-main-sequence">
+   The Star Forming Main Sequence
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-the-sample-with-image-cutouts">
+   Visualizing the Sample with Image Cutouts
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#understanding-the-ssfr-metric">
+   Understanding the sSFR Metric
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-link-to-sfhs">
+   Creating a Link to SFHs
+  </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#follow-up-questions">
@@ -522,12 +552,42 @@ title="Print to PDF"
      Prerequisites
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#choosing-a-sample-of-galaxies">
-     Choosing a sample of galaxies
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-a-sample-of-galaxies">
+   Choosing a Sample of Galaxies
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dereddening-the-spectrum">
+   Dereddening the Spectrum
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#determining-the-star-formation-rate">
+   Determining the Star Formation Rate
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-star-forming-main-sequence">
+   The Star Forming Main Sequence
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-the-sample-with-image-cutouts">
+   Visualizing the Sample with Image Cutouts
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#understanding-the-ssfr-metric">
+   Understanding the sSFR Metric
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-link-to-sfhs">
+   Creating a Link to SFHs
+  </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#follow-up-questions">
@@ -574,7 +634,7 @@ title="Print to PDF"
 <li><p>Computational</p>
 <ul>
 <li><p>Basic Python skills (e.g., for loops, conditional statements, defining functions)</p></li>
-<li><p>Basics of <code>matplotlib</code> visualization, SQL queries, and SciServer platform (e.g., see <a class="reference external" href="https://escip.io/notebooks/sdss_tutorial_1.html">Britt Lundgren’s</a> tutorial, which inspired the format for this one)</p></li>
+<li><p>Basics of <code>matplotlib</code> visualization, SQL queries, and SciServer platform (e.g., see <a class="reference external" href="https://escip.io/notebooks/sdss_tutorial_1.html">here</a>)</p></li>
 <li><p>Using the <code><a class="reference external" href="https://docs.astropy.org/en/stable/units/index.html">astropy</a></code> package for fundamental constants and unit conversion</p></li>
 </ul>
 </li>
@@ -629,8 +689,9 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="choosing-a-sample-of-galaxies">
-<h2>Choosing a sample of galaxies<a class="headerlink" href="#choosing-a-sample-of-galaxies" title="Permalink to this headline">#</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="choosing-a-sample-of-galaxies">
+<h1>Choosing a Sample of Galaxies<a class="headerlink" href="#choosing-a-sample-of-galaxies" title="Permalink to this headline">#</a></h1>
 <p>Several SDSS schema will be used in this tutorial, each with unique data products helpful to investigate star formation. The <a class="reference external" href="http://skyserver.sdss.org/dr16/en/help/browser/browser.aspx#&amp;&amp;history=description+galSpecLine+U"><code>SpecObj</code></a> schema contains basic information about the observation and the object, such as the redshift <span class="math notranslate nohighlight">\(z\)</span>. The <a class="reference external" href="http://skyserver.sdss.org/dr16/en/help/browser/browser.aspx#&amp;&amp;history=description+PhotoObjAll+U"><code>galaxy</code></a> schema provides useful photometric measurements for colors and images. The three <code>GalSpec</code> schema each give products derived from spectroscopy. As you should know, the H<span class="math notranslate nohighlight">\(\alpha\)</span> emission line is a convienient indicator of the star formation rate. We want galaxies with quality measurements of this line strength, so a S/N restriction is specified. We also want the H<span class="math notranslate nohighlight">\(\beta\)</span> emission line, because as we will see below, this will assist us in accounting for dust absorption along our line of sight.</p>
 <ul class="simple">
 <li><p>By using H<span class="math notranslate nohighlight">\(\alpha\)</span> as indicator of star formation, how does this limit your analysis?</p></li>
@@ -956,6 +1017,9 @@ title="Print to PDF"
 <p>10000 rows × 18 columns</p>
 </div></div></div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dereddening-the-spectrum">
+<h1>Dereddening the Spectrum<a class="headerlink" href="#dereddening-the-spectrum" title="Permalink to this headline">#</a></h1>
 <p>In order to determine the star formation rate (SFR) in each galaxy, we need to get the H<span class="math notranslate nohighlight">\(\alpha\)</span> luminosity <span class="math notranslate nohighlight">\(L\)</span>(H<span class="math notranslate nohighlight">\(\alpha\)</span>) emitted from each galaxy. The SQL query gives us the observed flux <span class="math notranslate nohighlight">\(F\)</span>(H<span class="math notranslate nohighlight">\(\alpha\)</span>), but this doesn’t account for <a class="reference external" href="https://en.wikipedia.org/wiki/Cosmic_dust">dust</a> absorbing some of this light as it travels from a galaxy to the point of observation. Fortunately, we can correct for this “extinction” by making use of the fact that dust preferentially absorbs shorter wavelength light to “deredden” the spectrum. In ideal conditions without dust, we can assume that <span class="math notranslate nohighlight">\(F\)</span>(H<span class="math notranslate nohighlight">\(\alpha\)</span>)/<span class="math notranslate nohighlight">\(F\)</span>(H<span class="math notranslate nohighlight">\(\beta\)</span>) = 2.86 in star forming regions. Let’s deredden the H<span class="math notranslate nohighlight">\(\alpha\)</span> flux.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -991,6 +1055,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="determining-the-star-formation-rate">
+<h1>Determining the Star Formation Rate<a class="headerlink" href="#determining-the-star-formation-rate" title="Permalink to this headline">#</a></h1>
 <p>According to the <a class="reference external" href="http://skyserver.sdss.org/dr16/en/help/browser/browser.aspx#&amp;&amp;history=description+galSpecLine+U"><code>GalSpecLine</code></a> schema, the line flux is returned as 10<span class="math notranslate nohighlight">\(^{-17}\)</span> <i>erg/s/cm<span class="math notranslate nohighlight">\(^2\)</span></i>, so we first need to multiply our dereddened <span class="math notranslate nohighlight">\(F\)</span>(H<span class="math notranslate nohighlight">\(\alpha\)</span>) by 10<span class="math notranslate nohighlight">\(^{-17}\)</span> to get actual flux value. Luminosity has units of energy / second, and an <i>erg</i> is a unit of energy, so we’re almost there. Use the space provided below to convert <span class="math notranslate nohighlight">\(F\)</span>(H<span class="math notranslate nohighlight">\(\alpha\)</span>) to <span class="math notranslate nohighlight">\(L\)</span>(H<span class="math notranslate nohighlight">\(\alpha\)</span>) and name that variable <code>Halpha_lum_dr</code>.</p>
 <ul class="simple">
 <li><p>How can you get the distance to the galaxy in <i>cm</i>?</p></li>
@@ -1037,6 +1104,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-star-forming-main-sequence">
+<h1>The Star Forming Main Sequence<a class="headerlink" href="#the-star-forming-main-sequence" title="Permalink to this headline">#</a></h1>
 <p>A common measure of galaxy mass is its stellar mass M<span class="math notranslate nohighlight">\(_*\)</span> in units of M<span class="math notranslate nohighlight">\(_{\odot}\)</span>, however a galaxy’s mass can be defined in many ways. We can roughly envision that M<span class="math notranslate nohighlight">\(_*\)</span> is proxy for galaxy size since larger galaxies typically contain more stars.</p>
 <ul class="simple">
 <li><p>Would you expect the number of star froming regions in a galaxy to increase or decrease as M<span class="math notranslate nohighlight">\(_*\)</span> increases?</p></li>
@@ -1080,7 +1150,7 @@ title="Print to PDF"
 <span class="ne">NameError</span>: name &#39;Mstar&#39; is not defined
 </pre></div>
 </div>
-<img alt="../_images/star_formation_v2_17_1.png" src="../_images/star_formation_v2_17_1.png" />
+<img alt="../_images/star_formation_v2_20_1.png" src="../_images/star_formation_v2_20_1.png" />
 </div>
 </div>
 <p>We can see that star forming galaxies lie on what is known as the star forming main sequence, which is a shout out to the stellar main sequence on the HR diagram. The SF main sequence is based on the correlation between SFR and M<span class="math notranslate nohighlight">\(_*\)</span> where “typical” star forming galaxies lie.</p>
@@ -1099,6 +1169,9 @@ title="Print to PDF"
 <br>
 <br>
 <br></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="visualizing-the-sample-with-image-cutouts">
+<h1>Visualizing the Sample with Image Cutouts<a class="headerlink" href="#visualizing-the-sample-with-image-cutouts" title="Permalink to this headline">#</a></h1>
 <p>Once you have provided your answer above, let’s actually have a look at the images of galaxies that have high SFR and low SFR. We can create function to gather up the images for us. The function takes in an filtered array of galaxies to isolate those of interest and description of the filtering procedure to display at run time. The first block of code will display the high SFR rate galaxies and then next block will display low SFR galaxies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1155,6 +1228,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="understanding-the-ssfr-metric">
+<h1>Understanding the sSFR Metric<a class="headerlink" href="#understanding-the-ssfr-metric" title="Permalink to this headline">#</a></h1>
 <p>It becomes evident from this plot that when we want to identify a highly star forming galaxy, the metric we’re usually after is the specific star formation rate sSFR. It is defined as</p>
 <p><span class="math notranslate nohighlight">\(\mathrm{sSFR}\equiv\frac{\mathrm{SFR}}{\mathrm{M}_*}\)</span></p>
 <p>and represents ratio of current star formation to past star formation, or the growth rate of stellar mass in a galaxy. We can add the sSFR to our dataframe to explore the metric in detail.</p>
@@ -1203,6 +1279,9 @@ title="Print to PDF"
 <br>
 <br>
 <br></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="creating-a-link-to-sfhs">
+<h1>Creating a Link to SFHs<a class="headerlink" href="#creating-a-link-to-sfhs" title="Permalink to this headline">#</a></h1>
 <p>We can use <span class="math notranslate nohighlight">\(\tau_d\)</span> to infer the star formation history (SFH) of a galaxy, but underlying blackbody curve in the continuum of galaxies also tells us about their SFH. The “break” at 400 nm (4000 Angstroms) is typically written as D4000 and serves as a measure for the discontinuity of the blackbody curve. It is typically defined as,</p>
 <p><span class="math notranslate nohighlight">\(D4000 = \frac{\int_{4000}^{4100}f_{\lambda} d\lambda}{\int_{3850}^{3950}f_{\lambda} d\lambda}\)</span></p>
 <p>where the integration over wavelength is shown in Angstroms. Under this definition, D4000 = 1.0 would represent a flat underlying spectrum, also known as the continuum. If D4000 &gt; 1.0 then there’s a discontinuity in the continuum. Let’s take a look at the spectrum around 4000 Angstroms for starburst galaxy and a quiescent galaxy.</p>
@@ -1264,7 +1343,6 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="follow-up-questions">
 <h1>Follow Up Questions<a class="headerlink" href="#follow-up-questions" title="Permalink to this headline">#</a></h1>
