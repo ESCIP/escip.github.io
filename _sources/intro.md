@@ -8,7 +8,7 @@ astronomy education. All content is open source but we still do highly apprecite
 - We provide trainings for instructors new to python and hold regular workshops at universities across the nation. 
 ```
 
-``{admonition} ESCIP Meetings.
+```{admonition} ESCIP Meetings.
 :class: tip, dropdown
 [New York University,    Apr 29-30, 2023](https://wp.nyu.edu/sccpc/event/escip-faculty-workshop) 
 [Santa Clara University, Jan. 19-21, 2023](https://escip.github.io/workshops/workshop2023.html) 
