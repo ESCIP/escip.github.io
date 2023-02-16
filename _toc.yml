@@ -24,4 +24,4 @@ parts:
   - file: notebooks/modelfit_part1
   - file: notebooks/modelfit_part2
   - file: notebooks/sdss_tutorial_1
-
+  - file: Carbonyl_Binary_Classification
