@@ -24,6 +24,5 @@ parts:
   - file: notebooks/modelfit_part1
   - file: notebooks/modelfit_part2
   - file: notebooks/sdss_tutorial_1
+  - file: notebooks/carbonyl_binary_classification
   - file: notebooks/star_formation_v2
-  - file: notebooks/emission_line_galaxy_classification_v1
-
