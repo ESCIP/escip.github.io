@@ -1,49 +1,57 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Fitting Models to Data (Part 2) &#8212; ESCIP</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -53,598 +61,767 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/modelfit_part2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="SDSS Tutorial #1: Data Querying and Visualization" href="sdss_tutorial_1.html" />
     <link rel="prev" title="Fitting Models to Data (Part 1)" href="modelfit_part1.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">ESCIP</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../team.html">
-   Team
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../guidelines/intro.html">
-   Guidelines
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../guidelines/guidelines.html">
-     Format of notebooks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../guidelines/template.html">
-     Template notebook
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../workshops/intro.html">
-   Workshops
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../workshops/workshop2023.html">
-     January 2023 In-Person Workshop
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../workshops/workshop2022.html">
-     Summer 2022 In-Person Workshop
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Notebooks
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="fourier_transform.html">
-   Fourier Transforms
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="linear_variational_method.html">
-   Linear Variational Method
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gaussian_wavepacket.html">
-   Time evolution of a Gaussian wavepacket
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pib_delta_potential_dynamics.html">
-   Dynamics of particle in a box with a delta potential
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="modelfit_part1.html">
-   Fitting Models to Data (Part 1)
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Fitting Models to Data (Part 2)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sdss_tutorial_1.html">
-   SDSS Tutorial #1:  Data Querying and Visualization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="carbonyl_binary_classification.html">
-   Carbonyl Binary Classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="star_formation_v2.html">
-   Star Formation in Galaxies
-  </a>
- </li>
-</ul>
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
 
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../team.html">
+                        Team
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../guidelines/intro.html">
+                        Guidelines
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../workshops/intro.html">
+                        Workshops
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="fourier_transform.html">
+                        Fourier Transforms
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="linear_variational_method.html">
+                        Linear Variational Method
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="gaussian_wavepacket.html">
+                        Time evolution of a Gaussian wavepacket
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="pib_delta_potential_dynamics.html">
+                        Dynamics of particle in a box with a delta potential
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="modelfit_part1.html">
+                        Fitting Models to Data (Part 1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Fitting Models to Data (Part 2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="sdss_tutorial_1.html">
+                        SDSS Tutorial #1:  Data Querying and Visualization
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="carbonyl_binary_classification.html">
+                        Carbonyl Binary Classification
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="star_formation_v2.html">
+                        Star Formation in Galaxies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="emission_line_galaxy_classification_v1.html">
+                        Emission Line Galaxy Classification
+                      </a>
+                    </li>
+                
+                </div>
             </div>
             
-        </div>
+    </ul>
+</nav>
+      </div>
+      
     </div>
-    <div id="rtd-footer-container"></div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
 </div>
+  </nav>
+  
 
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../team.html">
+                        Team
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../guidelines/intro.html">
+                        Guidelines
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../workshops/intro.html">
+                        Workshops
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="fourier_transform.html">
+                        Fourier Transforms
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="linear_variational_method.html">
+                        Linear Variational Method
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="gaussian_wavepacket.html">
+                        Time evolution of a Gaussian wavepacket
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="pib_delta_potential_dynamics.html">
+                        Dynamics of particle in a box with a delta potential
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="modelfit_part1.html">
+                        Fitting Models to Data (Part 1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Fitting Models to Data (Part 2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="sdss_tutorial_1.html">
+                        SDSS Tutorial #1:  Data Querying and Visualization
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="carbonyl_binary_classification.html">
+                        Carbonyl Binary Classification
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="star_formation_v2.html">
+                        Star Formation in Galaxies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="emission_line_galaxy_classification_v1.html">
+                        Emission Line Galaxy Classification
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../team.html">Team</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../guidelines/intro.html">Guidelines</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guidelines/guidelines.html">Format of notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guidelines/template.html">Template notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../workshops/intro.html">Workshops</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../workshops/workshop2023.html">January 2023 In-Person Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workshops/workshop2022.html">Summer 2022 In-Person Workshop</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fourier_transform.html">Fourier Transforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_variational_method.html">Linear Variational Method</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="gaussian_wavepacket.html">Time evolution of a Gaussian wavepacket</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="pib_delta_potential_dynamics.html">Dynamics of particle in a box with a delta potential</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="modelfit_part1.html">Fitting Models to Data (Part 1)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fitting Models to Data (Part 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdss_tutorial_1.html">SDSS Tutorial #1:  Data Querying and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carbonyl_binary_classification.html">Carbonyl Binary Classification</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="star_formation_v2.html">Star Formation in Galaxies</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="emission_line_galaxy_classification_v1.html">Emission Line Galaxy Classification</a></li>
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/modelfit_part2.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/modelfit_part2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Launch on Binder"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/modelfit_part2.ipynb"
-   class="headerbtn"
+      <li><a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/modelfit_part2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Launch on Colab"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Launch Thebe"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
+  class="btn btn-sm"
   data-toggle="tooltip"
 data-placement="bottom"
 title="Fullscreen mode"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/ESCIP/escip.github.io"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/ESCIP/escip.github.io" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Source repository"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+<span class="btn__text-container">repository</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/modelfit_part2.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
+      <li><a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/modelfit_part2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Open an issue"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
-<span class="headerbtn__text-container">open issue</span>
+<span class="btn__text-container">open issue</span>
 </a>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/notebooks/modelfit_part2.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="../_sources/notebooks/modelfit_part2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download source file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="printPdf(this)"
-  class="headerbtn"
+  class="btn btn-sm dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Print to PDF"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objectives">
-   Objectives
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-outcomes">
-   Learning Outcomes
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prerequisites">
-   Prerequisites
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dependencies">
-   Dependencies
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#review-plotting-the-data">
-   Review: Plotting the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#displaying-error-bars">
-   Displaying error bars
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#checkpoint-1">
-     CHECKPOINT 1
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-a-logarithmic-plot">
-   Using a logarithmic plot
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chi-2-values">
-   <span class="math notranslate nohighlight">
-    \(\chi^2\)
-   </span>
-   values
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chi-2-minimization">
-   <span class="math notranslate nohighlight">
-    \(\chi^2\)
-   </span>
-   minimization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#checkpoint-2">
-     CHECKPOINT 2
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uncertainties-in-the-model">
-   Uncertainties in the model
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#final-checkpoint">
-     FINAL CHECKPOINT
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Fitting Models to Data (Part 2)</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objectives">
-   Objectives
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-outcomes">
-   Learning Outcomes
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prerequisites">
-   Prerequisites
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dependencies">
-   Dependencies
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#review-plotting-the-data">
-   Review: Plotting the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#displaying-error-bars">
-   Displaying error bars
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#checkpoint-1">
-     CHECKPOINT 1
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-a-logarithmic-plot">
-   Using a logarithmic plot
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chi-2-values">
-   <span class="math notranslate nohighlight">
-    \(\chi^2\)
-   </span>
-   values
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chi-2-minimization">
-   <span class="math notranslate nohighlight">
-    \(\chi^2\)
-   </span>
-   minimization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#checkpoint-2">
-     CHECKPOINT 2
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#uncertainties-in-the-model">
-   Uncertainties in the model
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#final-checkpoint">
-     FINAL CHECKPOINT
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fitting Models to Data (Part 2)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-outcomes">
+   Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dependencies">
+   Dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#review-plotting-the-data">
+   Review: Plotting the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#displaying-error-bars">
+   Displaying error bars
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-1">
+     CHECKPOINT 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-a-logarithmic-plot">
+   Using a logarithmic plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-2-values">
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-2-minimization">
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   minimization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-2">
+     CHECKPOINT 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uncertainties-in-the-model">
+   Uncertainties in the model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-checkpoint">
+     FINAL CHECKPOINT
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <section class="tex2jax_ignore mathjax_ignore" id="fitting-models-to-data-part-2">
-<h1>Fitting Models to Data (Part 2)<a class="headerlink" href="#fitting-models-to-data-part-2" title="Permalink to this headline">#</a></h1>
+<h1>Fitting Models to Data (Part 2)<a class="headerlink" href="#fitting-models-to-data-part-2" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://ryantrainor.github.io/">Prof. Ryan Trainor, Franklin &amp; Marshall College</a></p>
 <section id="objectives">
-<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>To introduce the role of measurement uncertainties in model evaluation</p></li>
 <li><p>To compare logarithmic and linear scaling for visualizing data</p></li>
@@ -652,7 +829,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="learning-outcomes">
-<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">#</a></h2>
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
 <p>By the end of this workbook, students should be able to</p>
 <ul class="simple">
 <li><p>Include measurement uncertainties in the presentation of data and model fitting</p></li>
@@ -662,18 +839,18 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>This notebook assumes that the student has already completed Part 1 of this Model Fitting activity and is familiar with its prerequisites</p></li>
 </ul>
 </section>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">#</a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">#</a></h2>
 <p>This notebook requires the standard libraries for scientific Python (numpy, SciPy) as well as the Astropy library. Astropy is included in the full installation of the <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda Distribution</a> of Python, or it can be installed on its own by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">astropy</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">astropy</span></code>.</p>
 <p><em>Note for instructors: this notebook has been written as an activity to be completed by a group of students in a lab or classroom setting. A solution with filled-in answers is available upon <a class="reference external" href="mailto:ryan&#46;trainor&#37;&#52;&#48;fandm&#46;edu">email request</a>.</em></p>
 </section>
 <section id="review-plotting-the-data">
-<h2>Review: Plotting the data<a class="headerlink" href="#review-plotting-the-data" title="Permalink to this headline">#</a></h2>
+<h2>Review: Plotting the data<a class="headerlink" href="#review-plotting-the-data" title="Permalink to this heading">#</a></h2>
 <p>Our first step is to <strong>create the same plot we made in the final step of Part 1 of the Model Fitting activity</strong>: i.e., to make a plot of luminosity vs. mass that includes the best-fit power-law function. <em>You do not need to include the linear or quadratic curves we considered in that activity in this plot.</em></p>
 <p><strong>NOTES:</strong></p>
 <ul class="simple">
@@ -690,21 +867,23 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2023-02-28 19:57:16--  https://drive.google.com/uc?export=download&amp;id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG
-Resolving drive.google.com (drive.google.com)... 142.251.46.174, 2607:f8b0:4005:810::200e
-Connecting to drive.google.com (drive.google.com)|142.251.46.174|:443... connected.
-HTTP request sent, awaiting response... 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2023-03-01 03:56:07--  https://drive.google.com/uc?export=download&amp;id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG
+Resolving drive.google.com (drive.google.com)... 142.250.191.78, 2607:f8b0:4005:811::200e
+Connecting to drive.google.com (drive.google.com)|142.250.191.78|:443... connected.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>303 See Other
-Location: https://doc-04-0k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/i7fjabve6i0bjhitn8iijaml71fp386s/1677614175000/15670656991337387112/*/1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG?e=download&amp;uuid=dcb5cb17-e953-44ac-8f10-3172e44ae9b7 [following]
+Location: https://doc-04-0k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/o86apve1pqb2m91jbrlsnbs77k5d848j/1677642900000/15670656991337387112/*/1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG?e=download&amp;uuid=fa6c0aeb-6888-4286-af16-d72f19ab6240 [following]
 Warning: wildcards not supported in HTTP.
---2023-02-28 19:57:16--  https://doc-04-0k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/i7fjabve6i0bjhitn8iijaml71fp386s/1677614175000/15670656991337387112/*/1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG?e=download&amp;uuid=dcb5cb17-e953-44ac-8f10-3172e44ae9b7
+--2023-03-01 03:56:08--  https://doc-04-0k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/o86apve1pqb2m91jbrlsnbs77k5d848j/1677642900000/15670656991337387112/*/1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG?e=download&amp;uuid=fa6c0aeb-6888-4286-af16-d72f19ab6240
 Resolving doc-04-0k-docs.googleusercontent.com (doc-04-0k-docs.googleusercontent.com)... 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>142.250.189.193, 2607:f8b0:4005:814::2001
-Connecting to doc-04-0k-docs.googleusercontent.com (doc-04-0k-docs.googleusercontent.com)|142.250.189.193|:443... connected.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>142.251.46.225, 2607:f8b0:4005:811::2001
+Connecting to doc-04-0k-docs.googleusercontent.com (doc-04-0k-docs.googleusercontent.com)|142.251.46.225|:443... connected.
 HTTP request sent, awaiting response... 
 </pre></div>
 </div>
@@ -716,7 +895,7 @@ Saving to: ‘star-mass-lum-lumerr.dat’
 star-mass-lum-lumer   0%[                    ]       0  --.-KB/s               
 star-mass-lum-lumer 100%[===================&gt;]   7.61K  --.-KB/s    in 0s      
 
-2023-02-28 19:57:17 (132 MB/s) - ‘star-mass-lum-lumerr.dat’ saved [7790/7790]
+2023-03-01 03:56:08 (86.8 MB/s) - ‘star-mass-lum-lumerr.dat’ saved [7790/7790]
 </pre></div>
 </div>
 </div>
@@ -730,7 +909,7 @@ star-mass-lum-lumer 100%[===================&gt;]   7.61K  --.-KB/s    in 0s
 </div>
 </section>
 <section id="displaying-error-bars">
-<h2>Displaying error bars<a class="headerlink" href="#displaying-error-bars" title="Permalink to this headline">#</a></h2>
+<h2>Displaying error bars<a class="headerlink" href="#displaying-error-bars" title="Permalink to this heading">#</a></h2>
 <p>Once you have reproduced your plot from Part 1, look at the data compared to the best-fit line. You should see that the line does not perfectly go through all of the points. Does this mean our model is a bad model? Maybe, but maybe not—if there are measurement errors in our data, then it may be that our measurement errors are causing the data and model to disagree.</p>
 <p>Thankfully, our data include an estimate of our <em>uncertainty</em> on each of the luminosity measurements (which we have ignored in Part 1). These uncertainties are given in the 4th column of the Astropy Table that includes our data. This column is named ‘Lum_err_Lsun’, so we can print the contents of this column by using the name of the Table indexed by the column name. Test this below:</p>
 <div class="cell docutils container">
@@ -763,9 +942,9 @@ SyntaxError: invalid syntax
 <p>Error bars are useful for determining whether the model is <em>statistically consistent</em> with the data. Note that we cannot know the actual <em>error</em> on each measurement: if we knew the the error on a given measurement, we would simply subtract the error to get the true value!</p>
 <p>Instead, our uncertainty (as shown by our error bars) represents the <em>magnitude of the typical error</em> we expect for a single measurement: i.e., it represents the the expected magnitude of the <em>residual</em> (the difference between the data and the model, introduced in Part 1) for a true model. For a good model, we expect that 68% of the points will have error bars that include the model line, and 95% of the points will be less than 2x the error bar away from the model line.</p>
 <section id="checkpoint-1">
-<h3>CHECKPOINT 1<a class="headerlink" href="#checkpoint-1" title="Permalink to this headline">#</a></h3>
+<h3>CHECKPOINT 1<a class="headerlink" href="#checkpoint-1" title="Permalink to this heading">#</a></h3>
 <p>If you are completing this activity in class, stop here and check your plot with your instructor or TA before you continue. You may want to think about the following questions in advance:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>What does the “residual sum of squares” (RSS) mean, and how does it relate to your best-fit line?</p></li>
 <li><p>Which stars in your plot have the the most precisely-determined luminosities? Which have the most uncertain luminosities?</p></li>
 <li><p>Does your best-fit line seem consistent with your data, given the uncertainties in your fit?</p></li>
@@ -773,7 +952,7 @@ SyntaxError: invalid syntax
 </section>
 </section>
 <section id="using-a-logarithmic-plot">
-<h2>Using a logarithmic plot<a class="headerlink" href="#using-a-logarithmic-plot" title="Permalink to this headline">#</a></h2>
+<h2>Using a logarithmic plot<a class="headerlink" href="#using-a-logarithmic-plot" title="Permalink to this heading">#</a></h2>
 <p>One thing you might notice about your plot above is that most of the points are all clustered together at very small values in the bottom-left corner. This is a common issue in astronomy, where we often deal with numbers that cover many orders of magnitude in scale—if you make your plot big enough to accommodate the big numbers, then you can barely see the differences among the small numbers!</p>
 <p>One way to deal with this is to use a plot with <strong>logarithmic scaling</strong>: this will change our x and y axes to show powers of 10 instead of linear values. Python has an easy way to do this by adding a single command to the script for our plot.</p>
 <p>Sometimes we have data that is evenly distributed on either the x or y axes but heavily skewed on the other axis. In these situations, you can use <code class="docutils literal notranslate"><span class="pre">plt.semilogx()</span></code> to make the x axis logarithmic while leaving the y axis on a linear scale, while <code class="docutils literal notranslate"><span class="pre">plt.semilogy()</span></code> does the opposite. If both axes should be shown logarithmically, we can use <code class="docutils literal notranslate"><span class="pre">plt.loglog()</span></code>. Re-create your plot from above (with the errorbars) and try adding one of these commands. Test all three commands and decide as a group which one makes the data easiest to see.</p>
@@ -790,7 +969,7 @@ SyntaxError: invalid syntax
 <p>In order to create a fit that weights points according to their uncertainties, we will need to discuss the <span class="math notranslate nohighlight">\(\chi^2\)</span> value (pronounced “<span class="math notranslate nohighlight">\(\chi\)</span>-squared”, where <span class="math notranslate nohighlight">\(\chi\)</span> is a Greek letter that physicists pronounce like “KAI”).</p>
 </section>
 <section id="chi-2-values">
-<h2><span class="math notranslate nohighlight">\(\chi^2\)</span> values<a class="headerlink" href="#chi-2-values" title="Permalink to this headline">#</a></h2>
+<h2><span class="math notranslate nohighlight">\(\chi^2\)</span> values<a class="headerlink" href="#chi-2-values" title="Permalink to this heading">#</a></h2>
 <p>The <span class="math notranslate nohighlight">\(\chi^2\)</span> value of a fit is very similar to the RSS. The only difference is that <em>each residual is weighted by the inverse of its uncertainty</em>, so that points with small uncertainties are given larger weight. It is defined as follows:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -798,7 +977,7 @@ SyntaxError: invalid syntax
 \]</div>
 <p>As in Part 1, <span class="math notranslate nohighlight">\(\Delta y_i\)</span> is the residual of point i, which is the difference between the observed value at point i (<span class="math notranslate nohighlight">\(y_{i,\mathrm{obs}}\)</span>) and the value at point i predicted by the model (<span class="math notranslate nohighlight">\(y_{i,\mathrm{pred}}=f(x_i)\)</span>, where <span class="math notranslate nohighlight">\(f(x)\)</span> represents our model). <span class="math notranslate nohighlight">\(\sigma_i\)</span> is the uncertainty in the y value for that particular data point. Note that if don’t divide by <span class="math notranslate nohighlight">\(\sigma_i\)</span> (or if <span class="math notranslate nohighlight">\(\sigma=1\)</span> for every point) then the <span class="math notranslate nohighlight">\(\chi^2\)</span> value is equivalent to the RSS.</p>
 <p>In the box below, do the following three things:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><strong>Create a function</strong> that will calculate the <span class="math notranslate nohighlight">\(\chi^2\)</span> value for arbitrary arrays <code class="docutils literal notranslate"><span class="pre">yobs</span></code>, <code class="docutils literal notranslate"><span class="pre">ypred</span></code>, and <code class="docutils literal notranslate"><span class="pre">sigma</span></code>.</p></li>
 <li><p>Also <strong>create a second function</strong> that computes our old friend the RSS based on <code class="docutils literal notranslate"><span class="pre">yobs</span></code> and <code class="docutils literal notranslate"><span class="pre">ypred</span></code>.</p></li>
 <li><p>Finally, <strong>use your function</strong> to find the <span class="math notranslate nohighlight">\(\chi^2\)</span> value for the best-fit power-law model you found above.</p></li>
@@ -827,7 +1006,7 @@ print(chi2_orig)
 <p>Since our table has 235 stars in it (you can check this with <code class="docutils literal notranslate"><span class="pre">print(len(data))</span></code> if you named your Table <code class="docutils literal notranslate"><span class="pre">data</span></code>), then we should have <span class="math notranslate nohighlight">\(\chi^2\approx 235\)</span>. The fact that the model above has a much larger <span class="math notranslate nohighlight">\(\chi^2\)</span> value means that our residuals are much larger than our uncertainties on average, and thus that there is a significant disagreement between our data and the model that cannot be explained by measurement errors alone.</p>
 </section>
 <section id="chi-2-minimization">
-<h2><span class="math notranslate nohighlight">\(\chi^2\)</span> minimization<a class="headerlink" href="#chi-2-minimization" title="Permalink to this headline">#</a></h2>
+<h2><span class="math notranslate nohighlight">\(\chi^2\)</span> minimization<a class="headerlink" href="#chi-2-minimization" title="Permalink to this heading">#</a></h2>
 <p>Now our goal is to create a new fit that takes our uncertainties into account. We can do this by passing an optional argument called <code class="docutils literal notranslate"><span class="pre">sigma</span></code> to <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>. In the cell below use <code class="docutils literal notranslate"><span class="pre">curve_fit()</span></code> as you have previously, but this time set <code class="docutils literal notranslate"><span class="pre">sigma</span></code> equal to the array of luminosity uncertainties:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -848,9 +1027,9 @@ print(chi2_orig)
 </div>
 </div>
 <section id="checkpoint-2">
-<h3>CHECKPOINT 2<a class="headerlink" href="#checkpoint-2" title="Permalink to this headline">#</a></h3>
+<h3>CHECKPOINT 2<a class="headerlink" href="#checkpoint-2" title="Permalink to this heading">#</a></h3>
 <p>If you are completing this activity in class, stop here and check your plot with your instructor or TA before you continue. You may want to think about the following questions in advance:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Which line seems to be consistent with more of your points (i.e., within the uncertainties)?</p></li>
 <li><p>Which line is more precise at predicting the value of the star with <span class="math notranslate nohighlight">\(M=40\)</span> M<span class="math notranslate nohighlight">\(_\odot\)</span>? Is this the best fit overall?</p></li>
 <li><p>Which line has a smaller <span class="math notranslate nohighlight">\(\chi^2\)</span> value? Which has a smaller sum of squared residuals? You can use the cell below to do some calculations to check. Is either <span class="math notranslate nohighlight">\(\chi^2\)</span> value consistent with a “good” fit?</p></li>
@@ -865,7 +1044,7 @@ print(chi2_orig)
 </section>
 </section>
 <section id="uncertainties-in-the-model">
-<h2>Uncertainties in the model<a class="headerlink" href="#uncertainties-in-the-model" title="Permalink to this headline">#</a></h2>
+<h2>Uncertainties in the model<a class="headerlink" href="#uncertainties-in-the-model" title="Permalink to this heading">#</a></h2>
 <p>Because our data has some uncertainty on it, our model parameters have some uncertainty as well. What does this mean? Let’s imagine that we made <em>new measurements</em> of all of the luminosities of these stars. We might expect to find slightly different luminosities the second time, with the differences between the first and second measurements (i.e., the difference in measurement error) being similar in size to our uncertainties.</p>
 <p>If we then fit a best-fit line to our new measurements, we would expect that we might get a slightly different “best” set of parameters A and <span class="math notranslate nohighlight">\(\alpha\)</span> as well. <em>How different might we expect them to be?</em> This question is asking about the uncertainties on our best-fit parameter values. If we can calculate uncertainties on the parameters, then we can be reasonably sure that anyone else calculating a similar fit would get parameters that are consistent with our to within ~2x the uncertainty (technically, the values should be within 2x uncertainties 95% of the time).</p>
 <p>The uncertainties on our best-fit parameters are given by the <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance_matrix">covariance matrix</a>, which is the <code class="docutils literal notranslate"><span class="pre">pcov</span></code> variable we’ve been ignoring so far. A covariance matrix is an <span class="math notranslate nohighlight">\(N\times N\)</span> matrix, where <span class="math notranslate nohighlight">\(N\)</span> is the number of parameters in our model. In our case, our parameters are A and alpha, so <span class="math notranslate nohighlight">\(N=2\)</span> and the covariance matrix looks like this:</p>
@@ -931,9 +1110,9 @@ print(chi2_orig)
 </div>
 </div>
 <section id="final-checkpoint">
-<h3>FINAL CHECKPOINT<a class="headerlink" href="#final-checkpoint" title="Permalink to this headline">#</a></h3>
+<h3>FINAL CHECKPOINT<a class="headerlink" href="#final-checkpoint" title="Permalink to this heading">#</a></h3>
 <p>Congratulations! You have completed this activity. Call at TA or your instructor to check you off. You may want to think about the following questions in advance:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Where does the prediction of the fit appear to be most certain? Least certain? Does this make sense, given where the data are?</p></li>
 <li><p>Does the uncertainty in the fit curve seem to be as large as the uncertainty in the surrounding data? If not, why do you think this is?</p></li>
 <li><p>What are the differences and similarities between the RSS and <span class="math notranslate nohighlight">\(\chi^2\)</span> value for defining “goodness of fit”? When might it make sense to use one rather than the other?</p></li>
@@ -962,50 +1141,177 @@ print(chi2_orig)
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="modelfit_part1.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Fitting Models to Data (Part 1)</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="sdss_tutorial_1.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SDSS Tutorial #1:  Data Querying and Visualization</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="modelfit_part1.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Fitting Models to Data (Part 1)</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="sdss_tutorial_1.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">SDSS Tutorial #1:  Data Querying and Visualization</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
   
-    By ESCIP Community<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-outcomes">
+   Learning Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dependencies">
+   Dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#review-plotting-the-data">
+   Review: Plotting the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#displaying-error-bars">
+   Displaying error bars
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-1">
+     CHECKPOINT 1
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-a-logarithmic-plot">
+   Using a logarithmic plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-2-values">
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   values
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chi-2-minimization">
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   minimization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checkpoint-2">
+     CHECKPOINT 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uncertainties-in-the-model">
+   Uncertainties in the model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#final-checkpoint">
+     FINAL CHECKPOINT
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
 </div>
 
-
-      </div>
-    </div>
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By ESCIP Community
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   </body>
 </html>

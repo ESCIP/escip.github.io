@@ -1,49 +1,57 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Dynamics of particle in a box with a delta potential &#8212; ESCIP</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -53,569 +61,756 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/pib_delta_potential_dynamics';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Fitting Models to Data (Part 1)" href="modelfit_part1.html" />
     <link rel="prev" title="Time evolution of a Gaussian wavepacket" href="gaussian_wavepacket.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="light">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">ESCIP</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  About
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../team.html">
-   Team
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../guidelines/intro.html">
-   Guidelines
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../guidelines/guidelines.html">
-     Format of notebooks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../guidelines/template.html">
-     Template notebook
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../workshops/intro.html">
-   Workshops
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../workshops/workshop2023.html">
-     January 2023 In-Person Workshop
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../workshops/workshop2022.html">
-     Summer 2022 In-Person Workshop
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Notebooks
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="fourier_transform.html">
-   Fourier Transforms
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="linear_variational_method.html">
-   Linear Variational Method
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gaussian_wavepacket.html">
-   Time evolution of a Gaussian wavepacket
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Dynamics of particle in a box with a delta potential
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="modelfit_part1.html">
-   Fitting Models to Data (Part 1)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="modelfit_part2.html">
-   Fitting Models to Data (Part 2)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sdss_tutorial_1.html">
-   SDSS Tutorial #1:  Data Querying and Visualization
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="carbonyl_binary_classification.html">
-   Carbonyl Binary Classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="star_formation_v2.html">
-   Star Formation in Galaxies
-  </a>
- </li>
-</ul>
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
 
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../team.html">
+                        Team
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../guidelines/intro.html">
+                        Guidelines
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../workshops/intro.html">
+                        Workshops
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="fourier_transform.html">
+                        Fourier Transforms
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="linear_variational_method.html">
+                        Linear Variational Method
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="gaussian_wavepacket.html">
+                        Time evolution of a Gaussian wavepacket
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Dynamics of particle in a box with a delta potential
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="modelfit_part1.html">
+                        Fitting Models to Data (Part 1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="modelfit_part2.html">
+                        Fitting Models to Data (Part 2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="sdss_tutorial_1.html">
+                        SDSS Tutorial #1:  Data Querying and Visualization
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="carbonyl_binary_classification.html">
+                        Carbonyl Binary Classification
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="star_formation_v2.html">
+                        Star Formation in Galaxies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="emission_line_galaxy_classification_v1.html">
+                        Emission Line Galaxy Classification
+                      </a>
+                    </li>
+                
+                </div>
             </div>
             
-        </div>
+    </ul>
+</nav>
+      </div>
+      
     </div>
-    <div id="rtd-footer-container"></div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
 </div>
+  </nav>
+  
 
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../team.html">
+                        Team
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../guidelines/intro.html">
+                        Guidelines
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../workshops/intro.html">
+                        Workshops
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="fourier_transform.html">
+                        Fourier Transforms
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="linear_variational_method.html">
+                        Linear Variational Method
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="gaussian_wavepacket.html">
+                        Time evolution of a Gaussian wavepacket
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Dynamics of particle in a box with a delta potential
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="modelfit_part1.html">
+                        Fitting Models to Data (Part 1)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="modelfit_part2.html">
+                        Fitting Models to Data (Part 2)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="sdss_tutorial_1.html">
+                        SDSS Tutorial #1:  Data Querying and Visualization
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="carbonyl_binary_classification.html">
+                        Carbonyl Binary Classification
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="star_formation_v2.html">
+                        Star Formation in Galaxies
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="emission_line_galaxy_classification_v1.html">
+                        Emission Line Galaxy Classification
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="../intro.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../team.html">Team</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../guidelines/intro.html">Guidelines</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../guidelines/guidelines.html">Format of notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guidelines/template.html">Template notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../workshops/intro.html">Workshops</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../workshops/workshop2023.html">January 2023 In-Person Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workshops/workshop2022.html">Summer 2022 In-Person Workshop</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fourier_transform.html">Fourier Transforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_variational_method.html">Linear Variational Method</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="gaussian_wavepacket.html">Time evolution of a Gaussian wavepacket</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dynamics of particle in a box with a delta potential</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="modelfit_part1.html">Fitting Models to Data (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelfit_part2.html">Fitting Models to Data (Part 2)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdss_tutorial_1.html">SDSS Tutorial #1:  Data Querying and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carbonyl_binary_classification.html">Carbonyl Binary Classification</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="star_formation_v2.html">Star Formation in Galaxies</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="emission_line_galaxy_classification_v1.html">Emission Line Galaxy Classification</a></li>
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/pib_delta_potential_dynamics.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/pib_delta_potential_dynamics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Launch on Binder"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/pib_delta_potential_dynamics.ipynb"
-   class="headerbtn"
+      <li><a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/pib_delta_potential_dynamics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Launch on Colab"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Launch Thebe"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
+  class="btn btn-sm"
   data-toggle="tooltip"
 data-placement="bottom"
 title="Fullscreen mode"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/ESCIP/escip.github.io"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/ESCIP/escip.github.io" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Source repository"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+<span class="btn__text-container">repository</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pib_delta_potential_dynamics.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
+      <li><a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pib_delta_potential_dynamics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Open an issue"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
-<span class="headerbtn__text-container">open issue</span>
+<span class="btn__text-container">open issue</span>
 </a>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/notebooks/pib_delta_potential_dynamics.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="../_sources/notebooks/pib_delta_potential_dynamics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download source file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="printPdf(this)"
-  class="headerbtn"
+  class="btn btn-sm dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Print to PDF"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Dynamics of particle in a box with a delta potential
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#objectives">
-     Objectives
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#learning-outcomes">
-     Learning Outcomes
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary">
-     Summary
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-0-import-libraries-and-initialize-a-plot-object-for-the-animation">
-     Step 0:  Import libraries and initialize a plot object for the animation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#approach">
-   Approach
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numerically-solving-the-tdse-part-1-euler-method">
-     Numerically Solving the TDSE Part 1:  Euler Method
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numerically-solving-the-tdse-part-2-runge-kutta-method">
-     Numerically Solving the TDSE Part 2:  Runge-Kutta Method
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#questions-part-1">
-     Questions Part 1:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#test-for-rk4-update-function">
-   Test for rk4_update function
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#time-dependence-with-the-delta-potential">
-   Time-dependence with the delta potential
-  </a>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Dynamics of particle in a box with a delta potential</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Dynamics of particle in a box with a delta potential
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#objectives">
-     Objectives
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#learning-outcomes">
-     Learning Outcomes
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary">
-     Summary
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#step-0-import-libraries-and-initialize-a-plot-object-for-the-animation">
-     Step 0:  Import libraries and initialize a plot object for the animation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#approach">
-   Approach
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numerically-solving-the-tdse-part-1-euler-method">
-     Numerically Solving the TDSE Part 1:  Euler Method
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numerically-solving-the-tdse-part-2-runge-kutta-method">
-     Numerically Solving the TDSE Part 2:  Runge-Kutta Method
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#questions-part-1">
-     Questions Part 1:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#test-for-rk4-update-function">
-   Test for rk4_update function
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#time-dependence-with-the-delta-potential">
-   Time-dependence with the delta potential
-  </a>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dynamics of particle in a box with a delta potential</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Dynamics of particle in a box with a delta potential
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objectives">
+     Objectives
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-outcomes">
+     Learning Outcomes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary">
+     Summary
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-0-import-libraries-and-initialize-a-plot-object-for-the-animation">
+     Step 0:  Import libraries and initialize a plot object for the animation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approach">
+   Approach
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerically-solving-the-tdse-part-1-euler-method">
+     Numerically Solving the TDSE Part 1:  Euler Method
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerically-solving-the-tdse-part-2-runge-kutta-method">
+     Numerically Solving the TDSE Part 2:  Runge-Kutta Method
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questions-part-1">
+     Questions Part 1:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-for-rk4-update-function">
+   Test for rk4_update function
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-dependence-with-the-delta-potential">
+   Time-dependence with the delta potential
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <section class="tex2jax_ignore mathjax_ignore" id="dynamics-of-particle-in-a-box-with-a-delta-potential">
-<h1>Dynamics of particle in a box with a delta potential<a class="headerlink" href="#dynamics-of-particle-in-a-box-with-a-delta-potential" title="Permalink to this headline">#</a></h1>
+<h1>Dynamics of particle in a box with a delta potential<a class="headerlink" href="#dynamics-of-particle-in-a-box-with-a-delta-potential" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://foleylab.github.io/">Jay Foley and Lane Tolley, University of North Carolina Charlotte</a></p>
 <section id="objectives">
-<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h2>
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>To demonstrate the use of the numerical methods, including the Euler method and the Runge-Kutta method, to solve the time-dependent Schrodinger equation</p></li>
 <li><p>To illustrate the dynamics of a particle in a box with a delta potential</p></li>
 </ul>
 </section>
 <section id="learning-outcomes">
-<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">#</a></h2>
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
 <p>By the end of this workbook, students should be able to</p>
 <ul class="simple">
 <li><p>Express the time-dependent Schrodinger equation using matrices for the Hamiltonian operator and vectors for the wavefunction</p></li>
@@ -624,12 +819,12 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>We will investigate the particle in a box with a delta potential that was explored in the notebook on the <a class="reference external" href="https://escip.io/notebooks/linear_variational_method.html">Linear Variational Method</a>, but in the context of the time-dependence induced by the delta potential on an initial state, rather than through the application of the variational method to identify stationary states of this Hamiltonian.  We will choose an initial state to be the ground state of the ordinary particle in a box system, so again we will find it useful to build the Hamiltonian matrix in the basis of
 the particle in a box states, and to express the wavefunction in terms of the amplitudes of each of these basis states.</p>
 </section>
 <section id="step-0-import-libraries-and-initialize-a-plot-object-for-the-animation">
-<h2>Step 0:  Import libraries and initialize a plot object for the animation<a class="headerlink" href="#step-0-import-libraries-and-initialize-a-plot-object-for-the-animation" title="Permalink to this headline">#</a></h2>
+<h2>Step 0:  Import libraries and initialize a plot object for the animation<a class="headerlink" href="#step-0-import-libraries-and-initialize-a-plot-object-for-the-animation" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -670,7 +865,7 @@ the particle in a box states, and to express the wavefunction in terms of the am
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="approach">
-<h1>Approach<a class="headerlink" href="#approach" title="Permalink to this headline">#</a></h1>
+<h1>Approach<a class="headerlink" href="#approach" title="Permalink to this heading">#</a></h1>
 <p>In general, the dynamics of a quantum system are determined by the time-dependent Schrodinger equation (TDSE),
 $<span class="math notranslate nohighlight">\( i\hbar \frac{d}{dt}\Psi(x, t) = \hat{H} \Psi(x, t). \tag{1} \)</span>$</p>
 <p>Just as <a class="reference external" href="https://escip.io/notebooks/linear_variational_method.html">before</a> can write the Hamiltonian operator for this system between <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(x=10\)</span> as follows:</p>
@@ -681,8 +876,8 @@ energy eigenfunctions of the ordinary particle in a box as this basis, where the
 <div class="math notranslate nohighlight">
 \[ \psi_n(x) = \sqrt{ \frac{2}{10} } {\rm sin}\left( \frac{n \pi x}{10} \right), \tag{3} \]</div>
 <p>and the elements of <span class="math notranslate nohighlight">\( {\bf H}\)</span> will be given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c32b34c-98e6-4425-86f4-3a04069e8eaf">
-<span class="eqno">(19)<a class="headerlink" href="#equation-4c32b34c-98e6-4425-86f4-3a04069e8eaf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-acefde4e-5f6b-4435-adee-86f1bec52004">
+<span class="eqno">(19)<a class="headerlink" href="#equation-acefde4e-5f6b-4435-adee-86f1bec52004" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H_{nm} = \int_0^{10} \psi^*_n(x) \hat{H} \psi_m(x) dx. \tag{4} 
 \end{equation}\]</div>
 <p>Because the basis set comprised of all <span class="math notranslate nohighlight">\(\psi_n(x)\)</span> is complete, we can represent our wavefunction at any instant in time as a linear combination of these basis functions:</p>
@@ -693,7 +888,7 @@ the expansion coefficients <span class="math notranslate nohighlight">\(c_n(t)\)
 This suggests that the TDSE can be recast as
 $<span class="math notranslate nohighlight">\( i\hbar \frac{d}{dt} {\bf c}(t) = {\bf H} {\bf c}(t). \tag{6} \)</span>$</p>
 <section id="numerically-solving-the-tdse-part-1-euler-method">
-<h2>Numerically Solving the TDSE Part 1:  Euler Method<a class="headerlink" href="#numerically-solving-the-tdse-part-1-euler-method" title="Permalink to this headline">#</a></h2>
+<h2>Numerically Solving the TDSE Part 1:  Euler Method<a class="headerlink" href="#numerically-solving-the-tdse-part-1-euler-method" title="Permalink to this heading">#</a></h2>
 <p>The key idea for numerically solving the TDSE is that if we know the coefficients at one instant in time,
 <span class="math notranslate nohighlight">\({\bf c}(t_0)\)</span> and wish to find the coefficients at a later time <span class="math notranslate nohighlight">\(t_0 + \Delta t\)</span>, we can approximate
 <span class="math notranslate nohighlight">\({\bf c}(t_0 + \Delta t)\)</span> using information about the time derivative of the coefficients given by the TDSE.  The simplest approximation is known as the Euler update, and has the form</p>
@@ -704,14 +899,14 @@ $<span class="math notranslate nohighlight">\( i\hbar \frac{d}{dt} {\bf c}(t) = 
 \[ \frac{d}{dt} {\bf c}(t_0) = -\frac{i}{\hbar} {\bf H} {\bf c}(t_0). \tag{8} \]</div>
 </section>
 <section id="numerically-solving-the-tdse-part-2-runge-kutta-method">
-<h2>Numerically Solving the TDSE Part 2:  Runge-Kutta Method<a class="headerlink" href="#numerically-solving-the-tdse-part-2-runge-kutta-method" title="Permalink to this headline">#</a></h2>
+<h2>Numerically Solving the TDSE Part 2:  Runge-Kutta Method<a class="headerlink" href="#numerically-solving-the-tdse-part-2-runge-kutta-method" title="Permalink to this heading">#</a></h2>
 <p>A more numerically stable approach for updating the wavefunction can be obtained by applying the 4<span class="math notranslate nohighlight">\(^{\rm th}\)</span>-order
 Runge-Kutta Method.  In this approach, we approximate the <span class="math notranslate nohighlight">\({\bf c}\)</span> vector at a future time in the following way:</p>
 <div class="math notranslate nohighlight">
 \[ {\bf c}(t_0 + \Delta t) = {\bf c}(t_0) + \frac{1}{6}\left(k_1 + 2k_2 + 2k_3 + k_4 \right)\Delta t \tag{9} \]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6eb7ded7-2475-4af9-bf0f-243ed46bfc86">
-<span class="eqno">(20)<a class="headerlink" href="#equation-6eb7ded7-2475-4af9-bf0f-243ed46bfc86" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e8b2fd44-e522-4d4b-b276-2ac57f572683">
+<span class="eqno">(20)<a class="headerlink" href="#equation-e8b2fd44-e522-4d4b-b276-2ac57f572683" title="Permalink to this equation">#</a></span>\[\begin{align}
 k_1 &amp;= -\frac{i}{\hbar} {\bf H}(t_0) {\bf c}(t_0) \\
 k_2 &amp;= -\frac{i}{\hbar} {\bf H}\left(t_0 + \frac{\Delta t}{2}\right) \left( {\bf c}(t_0) + k_1 \frac{\Delta t}{2} \right) \\ \tag{10}
 k_3 &amp;= -\frac{i}{\hbar} {\bf H}\left(t_0 + \frac{\Delta t}{2}\right) \left( {\bf c}(t_0) + k_2 \frac{\Delta t}{2} \right) \\
@@ -725,8 +920,8 @@ In the case that <span class="math notranslate nohighlight">\({\bf H}\)</span> i
 <span class="math notranslate nohighlight">\({\bf c}\)</span> vector that has been updated by half an Euler step, i.e. equivalent to Eq. (7) with an update of <span class="math notranslate nohighlight">\(\frac{\Delta t}{2}\)</span>.  More can be read about the Runge-Kutta method <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">here</a>.</p>
 </section>
 <section id="questions-part-1">
-<h2>Questions Part 1:<a class="headerlink" href="#questions-part-1" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
+<h2>Questions Part 1:<a class="headerlink" href="#questions-part-1" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p>We will include the helper functions from before that will build the Hamiltonian matrix in the PIB basis. Add a function called <code class="docutils literal notranslate"><span class="pre">compute_c_dot(H,</span> <span class="pre">c)</span></code> that will take the Hamiltonian matrix and a given c vector and return the time-derivative of the c vector using the TDSE using Eq. (8).</p></li>
 <li><p>Write a function called <code class="docutils literal notranslate"><span class="pre">euler_update(H,</span> <span class="pre">c,</span> <span class="pre">dt)</span></code> that takes the Hamiltonian matrix <code class="docutils literal notranslate"><span class="pre">H</span></code>, a c vector <code class="docutils literal notranslate"><span class="pre">c</span></code> and a time increment <code class="docutils literal notranslate"><span class="pre">dt</span></code> and returns the c vector at a future time using Eq. (7).  It can call <code class="docutils literal notranslate"><span class="pre">compute_c_dot(H,</span> <span class="pre">c)</span></code> to get the time-derivative of <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p></li>
 <li><p>Write a function called <code class="docutils literal notranslate"><span class="pre">rk4_update(H,</span> <span class="pre">c,</span> <span class="pre">dt)</span></code> that takes <code class="docutils literal notranslate"><span class="pre">H</span></code>, a c vector <code class="docutils literal notranslate"><span class="pre">c</span></code> and a time increment <code class="docutils literal notranslate"><span class="pre">dt</span></code> and returns the c vector at a future time using Eq. (9).</p></li>
@@ -974,7 +1169,7 @@ In the case that <span class="math notranslate nohighlight">\({\bf H}\)</span> i
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="test-for-rk4-update-function">
-<h1>Test for rk4_update function<a class="headerlink" href="#test-for-rk4-update-function" title="Permalink to this headline">#</a></h1>
+<h1>Test for rk4_update function<a class="headerlink" href="#test-for-rk4-update-function" title="Permalink to this heading">#</a></h1>
 <p>Assume initial condition <span class="math notranslate nohighlight">\(\Psi(x,t_0) = \psi_1(x)e^{-iE_1 t_0/\hbar}\)</span> and <span class="math notranslate nohighlight">\(t_0 = 0\)</span>
 and update using RK4 to <span class="math notranslate nohighlight">\(t_f = 1\)</span> atomic units with a time-step of <span class="math notranslate nohighlight">\(\Delta t = 0.01\)</span>.  We will
 feed the kinetic energy matrix to the RK4 method so that the time evolution should correspond give us
@@ -1023,7 +1218,7 @@ feed the kinetic energy matrix to the RK4 method so that the time evolution shou
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="time-dependence-with-the-delta-potential">
-<h1>Time-dependence with the delta potential<a class="headerlink" href="#time-dependence-with-the-delta-potential" title="Permalink to this headline">#</a></h1>
+<h1>Time-dependence with the delta potential<a class="headerlink" href="#time-dependence-with-the-delta-potential" title="Permalink to this heading">#</a></h1>
 <p>Now we will propage the same initial state using the full Hamiltonian including the delta potential.  We will use a larger basis this time to capture the dynamics imparted by the potential.
 The following lines will build the Hamiltonian matrix, define an initial c-vector, and update it using the RK4 method for a number of time-steps storing the time-dependent c-vector in a n_basis x n_time numpy array of complex floats</p>
 <div class="cell docutils container">
@@ -1080,6 +1275,184 @@ in <code class="docutils literal notranslate"><span class="pre">c_vec</span></co
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">20</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1"># Note: below is the part which makes it work on Colab</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;animation&#39;</span><span class="p">,</span> <span class="n">html</span><span class="o">=</span><span class="s1">&#39;jshtml&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">20</span> <span class="n">anim</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/IPython/core/displayhook.py:268,</span> in <span class="ni">DisplayHook.__call__</span><span class="nt">(self, result)</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_displayhook</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_output_prompt</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">268</span> <span class="n">format_dict</span><span class="p">,</span> <span class="n">md_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_format_data</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_user_ns</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span> <span class="bp">self</span><span class="o">.</span><span class="n">fill_exec_result</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/IPython/core/displayhook.py:157,</span> in <span class="ni">DisplayHook.compute_format_data</span><span class="nt">(self, result)</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span> <span class="k">def</span> <span class="nf">compute_format_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Compute format data of the object to be displayed.</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span><span class="sd">     The format data is a generalization of the :func:`repr` of an object.</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">157</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">display_formatter</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/IPython/core/formatters.py:177,</span> in <span class="ni">DisplayFormatter.format</span><span class="nt">(self, obj, include, exclude)</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span> <span class="n">md</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">177</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">formatter</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">178</span> <span class="k">except</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span>     <span class="c1"># FIXME: log the exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span>     <span class="k">raise</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/decorator.py:232,</span> in <span class="ni">decorate.&lt;locals&gt;.fun</span><span class="nt">(*args, **kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">kwsyntax</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span>     <span class="n">args</span><span class="p">,</span> <span class="n">kw</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kw</span><span class="p">,</span> <span class="n">sig</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">232</span> <span class="k">return</span> <span class="n">caller</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">extras</span> <span class="o">+</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/IPython/core/formatters.py:221,</span> in <span class="ni">catch_format_error</span><span class="nt">(method, self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;show traceback on failed format call&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">221</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>     <span class="c1"># don&#39;t warn on NotImplementedErrors</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_return</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/IPython/core/formatters.py:342,</span> in <span class="ni">BaseFormatter.__call__</span><span class="nt">(self, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span>     <span class="n">method</span> <span class="o">=</span> <span class="n">get_real_method</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_method</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>     <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">342</span>         <span class="k">return</span> <span class="n">method</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/animation.py:1355,</span> in <span class="ni">Animation._repr_html_</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1353</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1354</span> <span class="k">elif</span> <span class="n">fmt</span> <span class="o">==</span> <span class="s1">&#39;jshtml&#39;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1355</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/animation.py:1344,</span> in <span class="ni">Animation.to_jshtml</span><span class="nt">(self, fps, embed_frames, default_mode)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1340</span>         <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">,</span> <span class="s2">&quot;temp.html&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1341</span>         <span class="n">writer</span> <span class="o">=</span> <span class="n">HTMLWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="n">fps</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1342</span>                             <span class="n">embed_frames</span><span class="o">=</span><span class="n">embed_frames</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1343</span>                             <span class="n">default_mode</span><span class="o">=</span><span class="n">default_mode</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1344</span>         <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">writer</span><span class="o">=</span><span class="n">writer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1345</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_html_representation</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1347</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_html_representation</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/animation.py:1095,</span> in <span class="ni">Animation.save</span><span class="nt">(self, filename, writer, fps, dpi, codec, bitrate, extra_args, metadata, extra_anim, savefig_kwargs, progress_callback)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1092</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">new_saved_frame_seq</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">all_anim</span><span class="p">]):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1093</span>     <span class="k">for</span> <span class="n">anim</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">all_anim</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1094</span>         <span class="c1"># TODO: See if turning off blit is really necessary</span>
+<span class="ne">-&gt; </span><span class="mi">1095</span>         <span class="n">anim</span><span class="o">.</span><span class="n">_draw_next_frame</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1096</span>         <span class="k">if</span> <span class="n">progress_callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1097</span>             <span class="n">progress_callback</span><span class="p">(</span><span class="n">frame_number</span><span class="p">,</span> <span class="n">total_frames</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/animation.py:1131,</span> in <span class="ni">Animation._draw_next_frame</span><span class="nt">(self, framedata, blit)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1129</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pre_draw</span><span class="p">(</span><span class="n">framedata</span><span class="p">,</span> <span class="n">blit</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1130</span> <span class="bp">self</span><span class="o">.</span><span class="n">_draw_frame</span><span class="p">(</span><span class="n">framedata</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1131</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post_draw</span><span class="p">(</span><span class="n">framedata</span><span class="p">,</span> <span class="n">blit</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/animation.py:1156,</span> in <span class="ni">Animation._post_draw</span><span class="nt">(self, framedata, blit)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1154</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_blit_draw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_drawn_artists</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1155</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1156</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/backend_bases.py:2078,</span> in <span class="ni">FigureCanvasBase.draw_idle</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2076</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_idle_drawing</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2077</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_idle_draw_cntx</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">2078</span>         <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:400,</span> in <span class="ni">FigureCanvasAgg.draw</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span> <span class="c1"># Acquire a lock on the shared font cache.</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span> <span class="k">with</span> <span class="n">RendererAgg</span><span class="o">.</span><span class="n">lock</span><span class="p">,</span> \
+<span class="g g-Whitespace">    </span><span class="mi">398</span>      <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span><span class="o">.</span><span class="n">_wait_cursor_for_draw_cm</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span>       <span class="k">else</span> <span class="n">nullcontext</span><span class="p">()):</span>
+<span class="ne">--&gt; </span><span class="mi">400</span>     <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span>     <span class="c1"># A GUI class may be need to update a window using this draw, so</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="c1"># don&#39;t forget to call the superclass.</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/artist.py:95,</span> in <span class="ni">_finalize_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer, *args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">draw</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="k">def</span> <span class="nf">draw_wrapper</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">95</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="k">if</span> <span class="n">renderer</span><span class="o">.</span><span class="n">_rasterizing</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">stop_rasterizing</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/artist.py:72,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">72</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/figure.py:3125,</span> in <span class="ni">Figure.draw</span><span class="nt">(self, renderer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3122</span>         <span class="c1"># ValueError can occur when resizing a window.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3124</span> <span class="bp">self</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3125</span> <span class="n">mimage</span><span class="o">.</span><span class="n">_draw_list_compositing_images</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3126</span>     <span class="n">renderer</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">artists</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">suppressComposite</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3128</span> <span class="k">for</span> <span class="n">sfig</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subfigs</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3129</span>     <span class="n">sfig</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/image.py:131,</span> in <span class="ni">_draw_list_compositing_images</span><span class="nt">(renderer, parent, artists, suppress_composite)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="k">if</span> <span class="n">not_composite</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">has_images</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artists</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">131</span>         <span class="n">a</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="c1"># Composite any adjacent images together</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="n">image_group</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/artist.py:72,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">72</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/axes/_base.py:3066,</span> in <span class="ni">_AxesBase.draw</span><span class="nt">(self, renderer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3063</span> <span class="k">if</span> <span class="n">artists_rasterized</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3064</span>     <span class="n">_draw_rasterized</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span> <span class="n">artists_rasterized</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3066</span> <span class="n">mimage</span><span class="o">.</span><span class="n">_draw_list_compositing_images</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3067</span>     <span class="n">renderer</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">artists</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">suppressComposite</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3069</span> <span class="n">renderer</span><span class="o">.</span><span class="n">close_group</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3070</span> <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/image.py:131,</span> in <span class="ni">_draw_list_compositing_images</span><span class="nt">(renderer, parent, artists, suppress_composite)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span> <span class="k">if</span> <span class="n">not_composite</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">has_images</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">artists</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">131</span>         <span class="n">a</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>     <span class="c1"># Composite any adjacent images together</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="n">image_group</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/artist.py:72,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">72</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/lines.py:798,</span> in <span class="ni">Line2D.draw</span><span class="nt">(self, renderer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>         <span class="n">gc</span><span class="o">.</span><span class="n">set_foreground</span><span class="p">(</span><span class="n">lc_rgba</span><span class="p">,</span> <span class="n">isRGBA</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span>         <span class="n">gc</span><span class="o">.</span><span class="n">set_dashes</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_dash_pattern</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">798</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">draw_path</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="n">tpath</span><span class="p">,</span> <span class="n">affine</span><span class="o">.</span><span class="n">frozen</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span>         <span class="n">gc</span><span class="o">.</span><span class="n">restore</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">801</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_marker</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_markersize</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/matplotlib/backends/backend_agg.py:146,</span> in <span class="ni">RendererAgg.draw_path</span><span class="nt">(self, gc, path, transform, rgbFace)</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">146</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="o">.</span><span class="n">draw_path</span><span class="p">(</span><span class="n">gc</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">rgbFace</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>     <span class="k">except</span> <span class="ne">OverflowError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>         <span class="n">cant_chunk</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -1103,50 +1476,159 @@ in <code class="docutils literal notranslate"><span class="pre">c_vec</span></co
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="gaussian_wavepacket.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Time evolution of a Gaussian wavepacket</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="modelfit_part1.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Fitting Models to Data (Part 1)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="gaussian_wavepacket.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Time evolution of a Gaussian wavepacket</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="modelfit_part1.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Fitting Models to Data (Part 1)</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
   
-    By ESCIP Community<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Dynamics of particle in a box with a delta potential
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objectives">
+     Objectives
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-outcomes">
+     Learning Outcomes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary">
+     Summary
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-0-import-libraries-and-initialize-a-plot-object-for-the-animation">
+     Step 0:  Import libraries and initialize a plot object for the animation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approach">
+   Approach
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerically-solving-the-tdse-part-1-euler-method">
+     Numerically Solving the TDSE Part 1:  Euler Method
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerically-solving-the-tdse-part-2-runge-kutta-method">
+     Numerically Solving the TDSE Part 2:  Runge-Kutta Method
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#questions-part-1">
+     Questions Part 1:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-for-rk4-update-function">
+   Test for rk4_update function
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-dependence-with-the-delta-potential">
+   Time-dependence with the delta potential
+  </a>
+ </li>
+</ul>
+
+</nav>
 </div>
 
-
-      </div>
-    </div>
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By ESCIP Community
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   </body>
 </html>
