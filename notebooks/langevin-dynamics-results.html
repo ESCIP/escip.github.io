@@ -199,10 +199,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Langevin Dynamics</a></li>
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="openmm_lj_chain.html">Simulating toy polymers using openMM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="emission_line_galaxy_classification_v1.html">Emission Line Galaxy Classification</a></li>
 
@@ -472,19 +468,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Langevin Dynamics</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-set-up-the-potential-and-plot-it">Part 1, set up the potential and plot it</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-code-langevin-dynamics">Part 2, code langevin dynamics</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-run-langevin-dynamics-simulation-of-a-harmonic-oscillator">Part 3, run  Langevin Dynamics simulation of a harmonic oscillator</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-histogram-position-and-velocity">Part 4, Histogram Position and Velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-set-up-the-potential-and-plot-it">Part 1, set up the potential and plot it</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-code-langevin-dynamics">Part 2, code langevin dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-run-langevin-dynamics-simulation-of-a-harmonic-oscillator">Part 3, run  Langevin Dynamics simulation of a harmonic oscillator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-histogram-position-and-velocity">Part 4, Histogram Position and Velocity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-a-double-well-potential">Simulate a double well potential</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-run-langevin-verlet-dynamics-on-the-double-well">Part 5, run langevin verlet dynamics on the double well</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-a-double-well-potential">Simulate a double well potential</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-run-langevin-verlet-dynamics-on-the-double-well">Part 5, run langevin verlet dynamics on the double well</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -495,9 +490,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="langevin-dynamics">
+  <section class="tex2jax_ignore mathjax_ignore" id="langevin-dynamics">
 <h1>Langevin Dynamics<a class="headerlink" href="#langevin-dynamics" title="Permalink to this heading">#</a></h1>
-<p>In this notebook you will use a Verlet scheme to simulate the dynamics of a 1D- Harmonic Oscillator and 1-D double well potential using Langevin Dynamics</p>
+<p><strong>Glen M. Hocky, New York University</strong></p>
+<p>Created Fall 2018, Last updated Spring 2023</p>
+<p>Original version of this notebook as an assignment, plus one for standard molecular dynamics can be found at <a class="reference external" href="https://github.com/hockyg/chem-ga-2600/tree/master/molecular-dynamics">this link</a></p>
+<section id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In this notebook you will learn to use a Verlet scheme to simulate the dynamics of a 1D- Harmonic Oscillator and 1-D double well potential using Langevin Dynamics</p></li>
+<li><p>You will observe the difference between underdamped and overdamped dynamics</p></li>
+<li><p>You will observe what it means for ‘sampling’ to not be ‘ergodic’</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#setup the notebook</span>
@@ -515,10 +519,9 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 </section>
 <section id="part-1-set-up-the-potential-and-plot-it">
-<h1>Part 1, set up the potential and plot it<a class="headerlink" href="#part-1-set-up-the-potential-and-plot-it" title="Permalink to this heading">#</a></h1>
-<p>This follows from the Molecular Dynamics Homework</p>
+<h2>Part 1, set up the potential and plot it<a class="headerlink" href="#part-1-set-up-the-potential-and-plot-it" title="Permalink to this heading">#</a></h2>
 <p>This function has to return the energy and force for a 1d harmonic potential. The potential is
-U(x) = 0.5 k (x - x0)^2 and F = -dU(x)/dx|</p>
+<span class="math notranslate nohighlight">\(U(x) = 0.5 k (x - x_0)^2\)</span> and <span class="math notranslate nohighlight">\(F = -\frac{dU(x)}{dx}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#this function returns the energy and force on a particle from a harmonic potential</span>
@@ -553,7 +556,7 @@ U(x) = 0.5 k (x - x0)^2 and F = -dU(x)/dx|</p>
 </div>
 </section>
 <section id="part-2-code-langevin-dynamics">
-<h1>Part 2, code langevin dynamics<a class="headerlink" href="#part-2-code-langevin-dynamics" title="Permalink to this heading">#</a></h1>
+<h2>Part 2, code langevin dynamics<a class="headerlink" href="#part-2-code-langevin-dynamics" title="Permalink to this heading">#</a></h2>
 <p>Now you will implement the BAOAB scheme of <a class="reference external" href="https://aip.scitation.org/doi/abs/10.1063/1.4802990">Leimkuhler and Matthews (JCP, 2013)</a></p>
 <p>The following equations are repeated (Do B,A,O,A,B then repeat) to move forward in time. The A and B steps represent increments by half a time step.</p>
 <p>B: <span class="math notranslate nohighlight">\(v(t) \leftarrow v(t) + \frac{F(t)}{m} (dt/2)\)</span></p>
@@ -564,7 +567,7 @@ U(x) = 0.5 k (x - x0)^2 and F = -dU(x)/dx|</p>
 <p>Solving this tells us the update rule:</p>
 <p>O: <span class="math notranslate nohighlight">\(v(t) \leftarrow e^{-\gamma dt} v(t) + R(t)\sqrt{k_B T/m} \sqrt{1-e^{-2\gamma dt}} \)</span></p>
 <p>where <span class="math notranslate nohighlight">\(R(t)\)</span> is a gaussian random number with mean zero and standard-deviation 1.</p>
-<p>** In the following, I’m setting the mass <span class="math notranslate nohighlight">\(m=1\)</span> **</p>
+<p><strong>In the following, I’m setting the mass <span class="math notranslate nohighlight">\(m=1\)</span></strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#this is step A</span>
@@ -633,10 +636,10 @@ U(x) = 0.5 k (x - x0)^2 and F = -dU(x)/dx|</p>
 </div>
 </section>
 <section id="part-3-run-langevin-dynamics-simulation-of-a-harmonic-oscillator">
-<h1>Part 3, run  Langevin Dynamics simulation of a harmonic oscillator<a class="headerlink" href="#part-3-run-langevin-dynamics-simulation-of-a-harmonic-oscillator" title="Permalink to this heading">#</a></h1>
+<h2>Part 3, run  Langevin Dynamics simulation of a harmonic oscillator<a class="headerlink" href="#part-3-run-langevin-dynamics-simulation-of-a-harmonic-oscillator" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Change <code class="docutils literal notranslate"><span class="pre">my_k</span></code> and see how it changes the frequency</p></li>
-<li><p>Set <code class="docutils literal notranslate"><span class="pre">my_k=1</span></code>, and change my_gamma. Try lower values like 0.0001, 0.001, and higher values like 0.1, 1, 10. Do you see how underdamped, low <span class="math notranslate nohighlight">\(\gamma\)</span>, looks more like standard harmonic oscillator, while overdamped, high <span class="math notranslate nohighlight">\(\gamma\)</span> looks more like a random walk?</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">my_k=1</span></code>, and change <code class="docutils literal notranslate"><span class="pre">my_gamma</span></code>. Try lower values like 0.0001, 0.001, and higher values like 0.1, 1, 10. Do you see how underdamped, low <span class="math notranslate nohighlight">\(\gamma\)</span>, looks more like standard harmonic oscillator, while overdamped, high <span class="math notranslate nohighlight">\(\gamma\)</span> looks more like a random walk?</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -669,21 +672,21 @@ U(x) = 0.5 k (x - x0)^2 and F = -dU(x)/dx|</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6f40bec490&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7bf686c4f0&gt;
 </pre></div>
 </div>
-<img alt="../_images/15eb9add2f1da5ad20e5cec82a10a3b033811a4270d0c4c2fce35d0919fa3d5f.png" src="../_images/15eb9add2f1da5ad20e5cec82a10a3b033811a4270d0c4c2fce35d0919fa3d5f.png" />
-<img alt="../_images/2ef7a2511e8301d48169830c858eea4d264c9f0f46e14bdfed8ceb447482aa4e.png" src="../_images/2ef7a2511e8301d48169830c858eea4d264c9f0f46e14bdfed8ceb447482aa4e.png" />
+<img alt="../_images/3b2133d54766b4a0120f1149898abdc13e45a6aa39b7b1c766a6a0060a650399.png" src="../_images/3b2133d54766b4a0120f1149898abdc13e45a6aa39b7b1c766a6a0060a650399.png" />
+<img alt="../_images/6ed596b98f6a865be81a65c0499b3fec5cd866490de81cca298e28f5ff1f41d0.png" src="../_images/6ed596b98f6a865be81a65c0499b3fec5cd866490de81cca298e28f5ff1f41d0.png" />
 </div>
 </div>
 <section id="part-4-histogram-position-and-velocity">
-<h2>Part 4, Histogram Position and Velocity<a class="headerlink" href="#part-4-histogram-position-and-velocity" title="Permalink to this heading">#</a></h2>
+<h3>Part 4, Histogram Position and Velocity<a class="headerlink" href="#part-4-histogram-position-and-velocity" title="Permalink to this heading">#</a></h3>
 <p>What is the probability of seeing a given position or velocity?</p>
 <p>Now we are supposedly sampling the canonical distribution, so we should have:</p>
 <p><span class="math notranslate nohighlight">\(P(x) = \frac{1}{\sqrt{2 \pi k_B T /k}} e^{-\frac{k (x-x_0)^2}{2 k_B T}}\)</span></p>
 <p><span class="math notranslate nohighlight">\(P(v) = \frac{1}{\sqrt{2 \pi k_B T /m}} e^{-\frac{ m v^2}{2 k_B T}}\)</span></p>
 <p><span class="math notranslate nohighlight">\(P(E) = e^{-E/k_B T}/\int e^{-E/k_B T} dE = \frac{1}{k_B T} e^{-E/k_B T}\)</span></p>
-<p>** Set gamma to overdamped above and run the following cell **</p>
+<p><strong>Set gamma to overdamped above and run the following cell</strong></p>
 <p>The histograms will be compared to the exact formulas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -739,14 +742,14 @@ U(x) = 0.5 k (x - x0)^2 and F = -dU(x)/dx|</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;P(E)&#39;)
 </pre></div>
 </div>
-<img alt="../_images/ad32ade14c5a6ec178188499cd50c753f4558a5275b8349c21d975bdadff57cd.png" src="../_images/ad32ade14c5a6ec178188499cd50c753f4558a5275b8349c21d975bdadff57cd.png" />
-<img alt="../_images/caea94de4127279c8240a4b091b68583d29f1cafc39245651adc75618e3a8468.png" src="../_images/caea94de4127279c8240a4b091b68583d29f1cafc39245651adc75618e3a8468.png" />
+<img alt="../_images/1725cacb84aa8b03876323f5ab480dee4e0503fd7e3560f3c561f946a0bf1dd2.png" src="../_images/1725cacb84aa8b03876323f5ab480dee4e0503fd7e3560f3c561f946a0bf1dd2.png" />
+<img alt="../_images/90aaf26f749ab6623ff3a02caedc2d1c1e90cb433f19b29ca6aa361b211074af.png" src="../_images/90aaf26f749ab6623ff3a02caedc2d1c1e90cb433f19b29ca6aa361b211074af.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="simulate-a-double-well-potential">
-<h1>Simulate a double well potential<a class="headerlink" href="#simulate-a-double-well-potential" title="Permalink to this heading">#</a></h1>
+<h2>Simulate a double well potential<a class="headerlink" href="#simulate-a-double-well-potential" title="Permalink to this heading">#</a></h2>
 <p>Let’s do a simulation in a double well also</p>
 <p><span class="math notranslate nohighlight">\(U(x) = \frac{k}{4} (x-a)^2 (x+a)^2\)</span></p>
 <p>This potential has a minimum at <span class="math notranslate nohighlight">\(x=a\)</span> and <span class="math notranslate nohighlight">\(x=-a\)</span>. It also has a barrier at <span class="math notranslate nohighlight">\(x=0\)</span>.</p>
@@ -774,14 +777,14 @@ U(x) = 0.5 k (x - x0)^2 and F = -dU(x)/dx|</p>
 </div>
 </div>
 <section id="part-5-run-langevin-verlet-dynamics-on-the-double-well">
-<h2>Part 5, run langevin verlet dynamics on the double well<a class="headerlink" href="#part-5-run-langevin-verlet-dynamics-on-the-double-well" title="Permalink to this heading">#</a></h2>
+<h3>Part 5, run langevin verlet dynamics on the double well<a class="headerlink" href="#part-5-run-langevin-verlet-dynamics-on-the-double-well" title="Permalink to this heading">#</a></h3>
 <p>We will see what happens when we change temperature <code class="docutils literal notranslate"><span class="pre">my_KBT</span></code> and barrier height <code class="docutils literal notranslate"><span class="pre">my_a</span></code>.</p>
 <ol class="arabic simple">
 <li><p>Run the simulation as is and see that the particle samples both the left and right sides of the well</p></li>
 <li><p>Lower the temperature to 0.1, what happens?</p></li>
 <li><p>Keep the temperature at 1.0, and raise <span class="math notranslate nohighlight">\(a\)</span> to 3, what happens?</p></li>
 </ol>
-<p><em>when is the sampling ergodic?</em></p>
+<p><strong>When is the sampling ergodic? This means that all configurations are accessible.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_k</span> <span class="o">=</span> <span class="mi">1</span>
@@ -849,15 +852,16 @@ U(x) = 0.5 k (x - x0)^2 and F = -dU(x)/dx|</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6f4807d3d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7bf6ce2250&gt;
 </pre></div>
 </div>
 <img alt="../_images/15362a3c5ffc0df6d0e198a8eca21ba9698719747b5753b4280ca765b2813f42.png" src="../_images/15362a3c5ffc0df6d0e198a8eca21ba9698719747b5753b4280ca765b2813f42.png" />
-<img alt="../_images/b43448d6679ae92ad51be83a90debba42d90a27718458d4250c2fa3a1f7cee52.png" src="../_images/b43448d6679ae92ad51be83a90debba42d90a27718458d4250c2fa3a1f7cee52.png" />
-<img alt="../_images/441d1e2577d63362742c90f13d969015308de324ed63e87d0aafe9f786c06fd0.png" src="../_images/441d1e2577d63362742c90f13d969015308de324ed63e87d0aafe9f786c06fd0.png" />
-<img alt="../_images/a1d0f7808a9b6985a0d817375b65a710d5b0036a42a561e45257e429f968a8d5.png" src="../_images/a1d0f7808a9b6985a0d817375b65a710d5b0036a42a561e45257e429f968a8d5.png" />
+<img alt="../_images/2ac01dbe3fef9297b57fc871d05a1992b148a978d11c75b032769b0da62d21fb.png" src="../_images/2ac01dbe3fef9297b57fc871d05a1992b148a978d11c75b032769b0da62d21fb.png" />
+<img alt="../_images/2ec460e498f2d8f2930e32a4827e1b3e9106452ab4338343cef12a24e80c9d09.png" src="../_images/2ec460e498f2d8f2930e32a4827e1b3e9106452ab4338343cef12a24e80c9d09.png" />
+<img alt="../_images/843a4ba75bce7fc5463c1ca771ce5ae118018eda2b89cfe308ce1497dfdb0455.png" src="../_images/843a4ba75bce7fc5463c1ca771ce5ae118018eda2b89cfe308ce1497dfdb0455.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -928,19 +932,18 @@ U(x) = 0.5 k (x - x0)^2 and F = -dU(x)/dx|</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Langevin Dynamics</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-set-up-the-potential-and-plot-it">Part 1, set up the potential and plot it</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-code-langevin-dynamics">Part 2, code langevin dynamics</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-run-langevin-dynamics-simulation-of-a-harmonic-oscillator">Part 3, run  Langevin Dynamics simulation of a harmonic oscillator</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-histogram-position-and-velocity">Part 4, Histogram Position and Velocity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-set-up-the-potential-and-plot-it">Part 1, set up the potential and plot it</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-code-langevin-dynamics">Part 2, code langevin dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-run-langevin-dynamics-simulation-of-a-harmonic-oscillator">Part 3, run  Langevin Dynamics simulation of a harmonic oscillator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-histogram-position-and-velocity">Part 4, Histogram Position and Velocity</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-a-double-well-potential">Simulate a double well potential</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-run-langevin-verlet-dynamics-on-the-double-well">Part 5, run langevin verlet dynamics on the double well</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-a-double-well-potential">Simulate a double well potential</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-run-langevin-verlet-dynamics-on-the-double-well">Part 5, run langevin verlet dynamics on the double well</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
