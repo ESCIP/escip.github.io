@@ -26,4 +26,5 @@ parts:
   - file: notebooks/sdss_tutorial_1
   - file: notebooks/carbonyl_binary_classification
   - file: notebooks/star_formation_v2
+  - file: notebooks/langevin-dynamics-results
   - file: notebooks/emission_line_galaxy_classification_v1
