@@ -29,3 +29,4 @@ parts:
   - file: notebooks/langevin-dynamics-results
   - file: notebooks/openmm_lj_chain
   - file: notebooks/emission_line_galaxy_classification_v1
+  - file: notebooks/CO_Fundamental
