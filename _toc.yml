@@ -10,6 +10,7 @@ parts:
   - file: guidelines/intro
     sections:
     - file: guidelines/guidelines
+    - file: guidelines/contribute
     - file: guidelines/template
   - file: workshops/intro
     sections:
