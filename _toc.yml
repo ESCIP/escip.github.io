@@ -10,6 +10,7 @@ parts:
   - file: guidelines/intro
     sections:
     - file: guidelines/guidelines
+    - file: guidelines/contribute
     - file: guidelines/template
   - file: workshops/intro
     sections:
@@ -25,5 +26,8 @@ parts:
   - file: notebooks/modelfit_part2
   - file: notebooks/sdss_tutorial_1
   - file: notebooks/carbonyl_binary_classification
-  - file: notebooks/star_formation_v3
-  - file: notebooks/emission_line_galaxy_classification_v2
+  - file: notebooks/star_formation_v2
+  - file: notebooks/langevin-dynamics-results
+  - file: notebooks/openmm_lj_chain
+  - file: notebooks/emission_line_galaxy_classification_v1
+  - file: notebooks/CO_Fundamental
