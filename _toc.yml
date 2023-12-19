@@ -31,3 +31,4 @@ parts:
   - file: notebooks/openmm_lj_chain
   - file: notebooks/emission_line_galaxy_classification_v2
   - file: notebooks/CO_Fundamental
+  - file: notebooks/Spin_one_half_solutions
