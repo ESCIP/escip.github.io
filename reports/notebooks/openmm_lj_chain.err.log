@@ -3,7 +3,7 @@ Traceback (most recent call last):
     executenb(
   File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 172, in wrapped
     return loop.run_until_complete(inner)
   File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
     return future.result()
@@ -23,7 +23,7 @@ condacolab.install()
 
 ----- stdout -----
 
-[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m A new release of pip is available: [0m[31;49m23.0.1[0m[39;49m -> [0m[32;49m23.3.1[0m
+[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m A new release of pip is available: [0m[31;49m23.0.1[0m[39;49m -> [0m[32;49m23.3.2[0m
 [1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m To update, run: [0m[32;49mpip install --upgrade pip[0m
 ------------------
 
