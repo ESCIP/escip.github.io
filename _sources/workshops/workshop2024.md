@@ -1,11 +1,14 @@
-# January 2024 In-Person Workshop
+# Spring 2024 In-Person ESCIP Workshop
 
-```{admonition} ESCIP worksop at Iowa State University
+![](isu.jpg)
+
+:::{admonition} **ESCIP worksop at Iowa State University**
+
 Please mark your calendars for an upcoming in-person **"Enhancing Science Courses by Integrating Python (ESCIP)"** workshop that will be held at Iowa State University (located 35 miles from DSM airport) on **May. 30-31, 2024.** This event will be a combination writing retreat (instructors work on course materials) plus training program (faculty learn new skills and discuss best practices for teaching Python in undergraduate science courses). 
 See below for the schedule. 
-```
+:::
 
-Research Corporation for Science Advancement and MolSSI will be co-sponsoring the workshop and providing meals for all attendees. Registration is free but you must RSVP to reserve a spot! Workshop organizers (listed below) may be able to help offset hotel lodging costs for faculty who will be coming from outside the Bay Area, but we need to know if you will need this scholarship. If these activities interest you and fit into your schedule, **please fill out the registration form by March 1, 2024** to receive more information: 
+Research Corporation for Science Advancement and MolSSI will be co-sponsoring the workshop and providing meals for all attendees. Registration is free but you must RSVP to reserve a spot! Workshop organizer may be able to help offset hotel lodging costs for faculty, but we need to know if you will need this scholarship. If these activities interest you and fit into your schedule, **please fill out the registration form by March 1, 2024** to receive more information: 
 
 
 ## Tentative schedule
