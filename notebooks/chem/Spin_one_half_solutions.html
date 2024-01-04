@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chem/Spin_one_half_solutions';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Physics" href="../../phys.html" />
+    <link rel="next" title="Physics" href="../phys/phys.html" />
     <link rel="prev" title="Computing Fundamental Transition of CO under different levels of approximation" href="CO_Fundamental.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -180,7 +180,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../chem.html">Chemistry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../astro/astro.html">Astronomy</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chem.html">Chemistry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="langevin-dynamics-results.html">Langevin Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openmm_lj_chain.html">Simulating toy polymers using openMM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_variational_method.html">Linear Variational Method</a></li>
@@ -207,13 +210,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction to Spin 1/2 Using NumPy</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../phys/fourier_transform.html">Fourier Transforms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part1.html">Fitting Models to Data (Part 1)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part2.html">Fitting Models to Data (Part 2)</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../astro.html">Astronomy</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -555,16 +555,16 @@ In this workbook, we will introduce matrix representations of each of these comp
 <p>Numpy arrays are special types of variables that can make use of different mathematical operation in the numpy library.  We will see that a lot of linear algebra operations can be performed with numpy arrays using very simple syntax.  Numpy arrays can have an arbitrary number of dimensions, but we will use 2-dimensional numpy arrays with
 a single column and multiple rows to denote a column vector.  We can take the transpose of these numpy arrays to represent a row vector.</p>
 <p>Here we will introduce the vector representation of special spin states that have precise value of z-spin, that is, they are the eigenstates of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6314430c-d7fa-4239-b7db-98b5cd3b07e6">
-<span class="eqno">(35)<a class="headerlink" href="#equation-6314430c-d7fa-4239-b7db-98b5cd3b07e6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-745fe0a8-c958-43b1-9aac-0e8fbb6ebbc3">
+<span class="eqno">(35)<a class="headerlink" href="#equation-745fe0a8-c958-43b1-9aac-0e8fbb6ebbc3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\alpha}^{(z)} \rangle=
 \begin{bmatrix}
   1 \\
   0 \\
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-5e22c454-f1f6-4afd-8980-d26241662e4f">
-<span class="eqno">(36)<a class="headerlink" href="#equation-5e22c454-f1f6-4afd-8980-d26241662e4f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d069e55e-2ec1-4681-aec1-1b499753d7e5">
+<span class="eqno">(36)<a class="headerlink" href="#equation-d069e55e-2ec1-4681-aec1-1b499753d7e5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\beta}^{(z)}\rangle =
 \begin{bmatrix}
   0 \\
@@ -696,8 +696,8 @@ Printing shape of &lt;alpha|
 <p>We will use 2-dimensional numpy arrays with
 a an equal number of rows and columns to denote square matrices.<br />
 Let’s use as an example matrix representation of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f9cdf3b-3199-4641-a44d-2c3adb474140">
-<span class="eqno">(37)<a class="headerlink" href="#equation-7f9cdf3b-3199-4641-a44d-2c3adb474140" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b950f294-f651-4328-8f0d-3148f13e4a9e">
+<span class="eqno">(37)<a class="headerlink" href="#equation-b950f294-f651-4328-8f0d-3148f13e4a9e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_z = \frac{\hbar}{2}
 \begin{bmatrix}
   1 &amp; 0 \\
@@ -816,8 +816,8 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 <section id="build-matrix-form-of-mathbb-s-x-and-mathbb-s-y">
 <h3>Build matrix form of <span class="math notranslate nohighlight">\(\mathbb{S}_x\)</span> and <span class="math notranslate nohighlight">\(\mathbb{S}_y\)</span><a class="headerlink" href="#build-matrix-form-of-mathbb-s-x-and-mathbb-s-y" title="Permalink to this heading">#</a></h3>
 <p>The operator <span class="math notranslate nohighlight">\(\hat{S}_x\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ed0ce7bf-3cfa-4175-a03b-c2f74154efc0">
-<span class="eqno">(38)<a class="headerlink" href="#equation-ed0ce7bf-3cfa-4175-a03b-c2f74154efc0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3f0dd531-f4f7-4ad5-84d9-82f484fc8bc0">
+<span class="eqno">(38)<a class="headerlink" href="#equation-3f0dd531-f4f7-4ad5-84d9-82f484fc8bc0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_x = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; 1 \\
@@ -825,8 +825,8 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 \end{bmatrix}
 \end{equation}\]</div>
 <p>and the operator <span class="math notranslate nohighlight">\(\hat{S}_y\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85489bb5-a042-4286-8b41-e26f8a7493b6">
-<span class="eqno">(39)<a class="headerlink" href="#equation-85489bb5-a042-4286-8b41-e26f8a7493b6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb62bd50-9d2f-45d1-93bf-8f1ce666d726">
+<span class="eqno">(39)<a class="headerlink" href="#equation-cb62bd50-9d2f-45d1-93bf-8f1ce666d726" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_y = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; -i \\
@@ -1129,7 +1129,7 @@ Printing difference between [Sz,Sx] and i\hbar Sy
       </div>
     </a>
     <a class="right-next"
-       href="../../phys.html"
+       href="../phys/phys.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
