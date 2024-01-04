@@ -2,10 +2,11 @@
 
 ```{admonition} What is ESCIP about?
 
-- ESCIP is a collaborative initiative dedicated to providing easy access to
+- ESCIP is a collaborative initiative dedicated to developing and disseminating 
 [Jupyter Notebooks](https://jupyter.org) for chemistry, physics and
-astronomy education. All content is open source but we still do highly apprecite any credit to ESCIP.
-- We provide trainings for instructors new to python and hold regular workshops at universities across the nation. 
+astronomy education. 
+- Most importantly ESCIP is a netowwork of educators passionate about lowering the barriers for students to adopt modern practices in scientific computing, data analysis and visualization. 
+- We provide trainings for instructors new to python and hold regular workshops at universities across the nation. Check out the upcoming and previous workshops held so far. 
 ```
 
 ```{admonition} Spring 2024 ESCIP workshop
