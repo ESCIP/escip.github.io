@@ -1,4 +1,4 @@
-# Spring 2024 In-Person ESCIP Workshop
+# Spring 2024 In-Person Workshop
 
 ![](isu.jpg)
 
