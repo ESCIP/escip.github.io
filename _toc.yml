@@ -14,6 +14,7 @@ parts:
     - file: guidelines/template
   - file: workshops/intro
     sections:
+    - file: workshops/workshop2024
     - file: workshops/workshop2023
     - file: workshops/workshop2022
 - caption: Notebooks
