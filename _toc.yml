@@ -19,7 +19,13 @@ parts:
     - file: workshops/workshop2022
 - caption: Notebooks
   chapters:
-  - file: chem
+  - file: notebooks/astro/astro
+    sections:
+    - file: notebooks/star_formation_v3
+    - file: notebooks/emission_line_galaxy_classification_v2
+    - file: notebooks/sdss_tutorial_1
+  
+  - file: notebooks/chem/chem
     sections:
     - file: notebooks/chem/langevin-dynamics-results
     - file: notebooks/chem/openmm_lj_chain
@@ -29,16 +35,14 @@ parts:
     - file: notebooks/chem/carbonyl_binary_classification
     - file: notebooks/chem/CO_Fundamental
     - file: notebooks/chem/Spin_one_half_solutions
-  - file: phys
+  
+  - file: notebooks/phys/phys
     sections:
     - file: notebooks/phys/fourier_transform
     - file: notebooks/phys/modelfit_part1
     - file: notebooks/phys/modelfit_part2
-  - file: astro
-    sections:
-    - file: notebooks/star_formation_v3
-    - file: notebooks/emission_line_galaxy_classification_v2
-    - file: notebooks/sdss_tutorial_1
+  
+
 
 
 
