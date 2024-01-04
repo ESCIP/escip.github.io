@@ -18,6 +18,10 @@ parts:
     - file: workshops/workshop2022
 - caption: Notebooks
   chapters:
+  - file: chem
+    sections:
+    - file: notebooks/langevin-dynamics-results
+    - file: notebooks/openmm_lj_chain
   - file: notebooks/fourier_transform
   - file: notebooks/linear_variational_method
   - file: notebooks/gaussian_wavepacket
@@ -27,8 +31,6 @@ parts:
   - file: notebooks/sdss_tutorial_1
   - file: notebooks/carbonyl_binary_classification
   - file: notebooks/star_formation_v3
-  - file: notebooks/langevin-dynamics-results
-  - file: notebooks/openmm_lj_chain
   - file: notebooks/emission_line_galaxy_classification_v2
   - file: notebooks/CO_Fundamental
   - file: notebooks/Spin_one_half_solutions
