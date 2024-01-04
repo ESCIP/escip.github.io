@@ -527,63 +527,63 @@ document.write(`
 <p>We will use the Morse potential as a model for the “exact” interatomic potential, and we will approximate this potential by different orders of a Taylor expansion: including up to quadratic (which is the harmonic oscillator approximation), cubic, and quartic terms.  The harmonic and Morse potentials are exactly solvable, and the eigenfunctions and eigenvalues of the vibrational Hamiltonian with cubic and quartic potentials can be approximated using perturbation theory.  Therefore, we will
 compare the fundamental  transition computed exactly for harmonic and Morse potentials, and approximately at 2nd order of perturbation theory for cubic and quartic potentials to see the impact of various levels of potential truncation and approximation.</p>
 <p>Within the Morse model, the vibrational Hamiltonian can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89d5b575-dcb9-46c1-9589-3433e3c49a25">
-<span class="eqno">(21)<a class="headerlink" href="#equation-89d5b575-dcb9-46c1-9589-3433e3c49a25" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5a318d93-f90f-4d08-ae59-f8f728273f71">
+<span class="eqno">(21)<a class="headerlink" href="#equation-5a318d93-f90f-4d08-ae59-f8f728273f71" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hat{H}_{vib} = -\frac{\hbar^2}{2\mu} \frac{d^2}{dr^2} + V_{Morse}(r), \tag{1}
 \end{equation}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1711af3e-4ebd-4203-8d72-1024e58ed47b">
-<span class="eqno">(22)<a class="headerlink" href="#equation-1711af3e-4ebd-4203-8d72-1024e58ed47b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-00d9f033-1bee-4c9d-8efe-2b734a4a9d25">
+<span class="eqno">(22)<a class="headerlink" href="#equation-00d9f033-1bee-4c9d-8efe-2b734a4a9d25" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_{Morse}(r) = D_e \left(1 - e^{-\beta(r-r_{eq})} \right)^2. \tag{2}
 \end{equation}\]</div>
 <p>The Morse parameters for <span class="math notranslate nohighlight">\({\rm CO}\)</span> are as follows: <span class="math notranslate nohighlight">\(D_e = 11.225 \: {\rm eV}\)</span>, <span class="math notranslate nohighlight">\(r_{eq} = 1.1283 \: {\rm Ang.}\)</span>, <span class="math notranslate nohighlight">\(\beta = 2.5944 \: {\rm Ang.}^{-1}\)</span>,
 and <span class="math notranslate nohighlight">\(\mu = 6.8606 \: {\rm amu}\)</span>.</p>
 <p>The exact energy eigenvalues for Equation (1) can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bafc8779-2c57-48eb-8823-622ccc1b634c">
-<span class="eqno">(23)<a class="headerlink" href="#equation-bafc8779-2c57-48eb-8823-622ccc1b634c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-030ec85d-dd85-48b4-adf8-965e2d85cba2">
+<span class="eqno">(23)<a class="headerlink" href="#equation-030ec85d-dd85-48b4-adf8-965e2d85cba2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E_n = \hbar \omega \left( \left(n+ \frac{1}{2} \right) - \chi_e \left(n+ \frac{1}{2} \right)^2 \right) \tag{3}
 \end{equation}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6dac5bc9-fa51-4939-a9b6-dc9a65fa30b1">
-<span class="eqno">(24)<a class="headerlink" href="#equation-6dac5bc9-fa51-4939-a9b6-dc9a65fa30b1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c5bad2b4-4174-41d3-9d6d-b3d45624f1a0">
+<span class="eqno">(24)<a class="headerlink" href="#equation-c5bad2b4-4174-41d3-9d6d-b3d45624f1a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \omega = \sqrt{\frac{2D_e \beta^2}{\mu}} \tag{4}
 \end{equation}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1429443f-09ff-4d3c-b03d-d524108364de">
-<span class="eqno">(25)<a class="headerlink" href="#equation-1429443f-09ff-4d3c-b03d-d524108364de" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cf3da92f-2c22-44e4-9eac-86d146a2f8cc">
+<span class="eqno">(25)<a class="headerlink" href="#equation-cf3da92f-2c22-44e4-9eac-86d146a2f8cc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \chi_e = \frac{\hbar \omega}{4 D_e}. \tag{5}
 \end{equation}\]</div>
 <p>The Morse potential can be approximated by a Taylor expansion as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9f411517-abee-4707-b845-83d61975dfb7">
-<span class="eqno">(26)<a class="headerlink" href="#equation-9f411517-abee-4707-b845-83d61975dfb7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e8cd2928-a6c1-4da9-884a-b669f1598eb6">
+<span class="eqno">(26)<a class="headerlink" href="#equation-e8cd2928-a6c1-4da9-884a-b669f1598eb6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_T(r) = \sum_{n=0}^{\infty} \frac{ f^{(n)}(r_{eq})}{n!} \left(r-r_{eq} \right)^n, \tag{6}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(f^{(n)}(r_{eq})\)</span> is the <span class="math notranslate nohighlight">\(n^{th}\)</span>-order derivative of the Morse potential evaluated at the equilibrium bondlength, e.g. <span class="math notranslate nohighlight">\(f^{(1)}(r_{eq}) = \frac{d}{dr}V_{Morse}(r_{eq}).\)</span></p>
 <p>We will define the Harmonic approximation to the potential as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9f7ec71-5948-4f1e-9ea3-08ad5bbcf6f2">
-<span class="eqno">(27)<a class="headerlink" href="#equation-a9f7ec71-5948-4f1e-9ea3-08ad5bbcf6f2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6e0de614-1430-4228-ae3a-ee6eb5d615a1">
+<span class="eqno">(27)<a class="headerlink" href="#equation-6e0de614-1430-4228-ae3a-ee6eb5d615a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_H(r) =  \frac{ f^{''}(r_{eq})}{2} \left(r-r_{eq} \right)^2 = \frac{1}{2} k \left(r-r_{eq} \right)^2 \tag{7}
 \end{equation}\]</div>
 <p>the cubic approximation to the potential as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4096ccf2-2486-4f19-ae3c-38c7e40ebcd2">
-<span class="eqno">(28)<a class="headerlink" href="#equation-4096ccf2-2486-4f19-ae3c-38c7e40ebcd2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-08b69c38-b2b7-4e93-92f7-0c4059bdc63b">
+<span class="eqno">(28)<a class="headerlink" href="#equation-08b69c38-b2b7-4e93-92f7-0c4059bdc63b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_C(r) =  V_H(r) + \frac{ f^{'''}(r_{eq})}{6} \left(r-r_{eq} \right)^3 = V_H(r) + \frac{1}{6} g \left(r-r_{eq} \right)^3,   \tag{8}
 \end{equation}\]</div>
 <p>and the quartic approximation as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-98c0eaf7-9713-4867-ab90-d71f2c24fbb2">
-<span class="eqno">(29)<a class="headerlink" href="#equation-98c0eaf7-9713-4867-ab90-d71f2c24fbb2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7ce345d3-903d-49bd-bc0a-6ead7d12aca6">
+<span class="eqno">(29)<a class="headerlink" href="#equation-7ce345d3-903d-49bd-bc0a-6ead7d12aca6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_Q(r) =  V_C(r) + \frac{ f^{''''}(r_{eq})}{24} \left(r-r_{eq} \right)^4 =  V_C(r) + \frac{1}{24}h(r-r_{eq})^4.  \tag{9}
 \end{equation}\]</div>
 <p>Because we are using the Morse model as the “exact” interatomic potential in this notebook, we can compute these derivatives at <span class="math notranslate nohighlight">\(r_{eq}\)</span> analytically:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-865a14d2-c9db-4050-86cd-21fa99d18b56">
-<span class="eqno">(30)<a class="headerlink" href="#equation-865a14d2-c9db-4050-86cd-21fa99d18b56" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2ab7c534-9fa1-45e6-9fde-01dfab61099f">
+<span class="eqno">(30)<a class="headerlink" href="#equation-2ab7c534-9fa1-45e6-9fde-01dfab61099f" title="Permalink to this equation">#</a></span>\[\begin{align}
 k = 2 D_e \beta^2 \\
 g = -6 D_e \beta^3 \tag{10} \\
 h = 14 D_e \beta^4.
 \end{align}\]</div>
 <p>However, in general we do not have an analytical form for the interatomic potential, so we must rely on numerical derivatives of the potential evaluated at the <span class="math notranslate nohighlight">\(r_{eq}\)</span>.  In the context of interatomic potentials computed by quantum chemistry methods (e.g. CCSD(T)), one must first identify the equilibrium geometry, and then compute derivatives by taking a number of single point calculations along all displacement coordinates to compute differences among.  We will write the explicit expression for the second derivative using centered finite differences along the one displacement coordinate relevant for our <span class="math notranslate nohighlight">\({\rm CO}\)</span> molecule:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d53ce252-537a-4af1-9bed-139cc717425a">
-<span class="eqno">(31)<a class="headerlink" href="#equation-d53ce252-537a-4af1-9bed-139cc717425a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-107a19e9-4fdc-46a3-901e-060ecd3f4c55">
+<span class="eqno">(31)<a class="headerlink" href="#equation-107a19e9-4fdc-46a3-901e-060ecd3f4c55" title="Permalink to this equation">#</a></span>\[\begin{equation}
 k=\frac{V_{Morse}(r_{eq}+\Delta r)-2V_{Morse}(r_{eq})+V_{Morse}(r_{eq}-\Delta r)}{\Delta r^2}+\mathcal O (\Delta r^2) \tag{11}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta r\)</span> represents a small displacement along the coordinate <span class="math notranslate nohighlight">\(r\)</span>.  Higher-order derivatives can also be computed, but will require larger numbers of displacements and therefore more energy evaluations by your quantum chemistry method.  Expressions for higher-order derivatives along a single coordinate can be found <a class="reference external" href="https://sameradeeb.srv.ualberta.ca/introduction-to-numerical-analysis/numerical-differentiation/#centred-finite-difference9">here</a>. Note that the number of displacement coordinates <span class="math notranslate nohighlight">\(N\)</span> grows linearly with the number of atoms, and that the number of displacements required to form the <span class="math notranslate nohighlight">\(n^{{\rm th}}\)</span>-order approximation to the potential grows as <span class="math notranslate nohighlight">\(N^n\)</span>.</p>
@@ -591,20 +591,20 @@ k=\frac{V_{Morse}(r_{eq}+\Delta r)-2V_{Morse}(r_{eq})+V_{Morse}(r_{eq}-\Delta r)
 <h2>Perturbation Theory<a class="headerlink" href="#perturbation-theory" title="Permalink to this heading">#</a></h2>
 <p>We can compute the exact vibrational transition energies for the Morse oscillator and the Harmonic oscillator using Equation (3), where the Harmonic oscillator transition energies come from Equation (3) with <span class="math notranslate nohighlight">\(\chi_e = 0\)</span>.  However, the transition energies when the potential is approximated as <span class="math notranslate nohighlight">\(V_C(r)\)</span> or <span class="math notranslate nohighlight">\(V_Q(r)\)</span> must be approximated.  We will illustrate the use of Perturbation Theory approximate these transition energies.</p>
 <p>Here we will consider the Hamiltonian</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2d494af1-b632-4108-ab1c-4600db31f9ea">
-<span class="eqno">(32)<a class="headerlink" href="#equation-2d494af1-b632-4108-ab1c-4600db31f9ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-79c5cf4f-6459-416e-b6ab-fe72e62f5cee">
+<span class="eqno">(32)<a class="headerlink" href="#equation-79c5cf4f-6459-416e-b6ab-fe72e62f5cee" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hat{H}_{vib} = -\frac{\hbar^2}{2\mu} \frac{d^2}{dr^2} + V_{H}(r) + V'(r) = \hat{H}_0 + V'(r) \tag{12},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\hat{H}_0\)</span> is exactly solved by the Harmonic oscillator energy eigenfunctions and eigenvalues (<span class="math notranslate nohighlight">\(\psi^{(0)}_n(r)\)</span>, <span class="math notranslate nohighlight">\(E^{(0)}_n\)</span>), and <span class="math notranslate nohighlight">\(V'(r)\)</span> is the perturbation which will take the form of either
 <span class="math notranslate nohighlight">\(V'(r) = \frac{1}{6}g(r-r_{eq})^3\)</span> or <span class="math notranslate nohighlight">\(V'(r) = \frac{1}{6}g(r-r_{eq})^3 + \frac{1}{24}h(r-r_{eq})^4\)</span> in the cubic and quartic approximations, respectively.</p>
 <p>We can calculate the energy of state <span class="math notranslate nohighlight">\(n\)</span> at 2nd order of perturbation theory as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d21dabf8-9d54-48ff-a912-fb9f3b9d951b">
-<span class="eqno">(33)<a class="headerlink" href="#equation-d21dabf8-9d54-48ff-a912-fb9f3b9d951b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5a049e4f-d189-450f-9609-f212e9295f91">
+<span class="eqno">(33)<a class="headerlink" href="#equation-5a049e4f-d189-450f-9609-f212e9295f91" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E_n = E_n^{(0)} +  \langle \psi_n^{(0)} | V'(r) | \psi_n^{(0)} \rangle + \sum_{k \neq n} \frac{|\langle \psi_k^{(0)} | V'(r) | \psi_n^{(0)}|^2}{E_n^{(0)}-E_k^{(0)}}. \tag{13}
 \end{equation}\]</div>
 <p>Recall that for the zeroth-order functions have the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-859a167e-2446-4582-852a-da67515adb5f">
-<span class="eqno">(34)<a class="headerlink" href="#equation-859a167e-2446-4582-852a-da67515adb5f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-29b4726c-4903-4d81-9666-38b5505ba8b9">
+<span class="eqno">(34)<a class="headerlink" href="#equation-29b4726c-4903-4d81-9666-38b5505ba8b9" title="Permalink to this equation">#</a></span>\[\begin{align}
 \psi_n^{(0)}(r) &amp;= \sqrt{\frac{1}{2^n n!}} \cdot \left(\frac{\alpha}{\pi} \right)^{1/4} \cdot H_n \left(\sqrt{\alpha} r \right) \cdot {\rm exp}\left(\frac{-\alpha }{2} r^2 \right) \\
 \alpha &amp;= \frac{\mu \omega}{\hbar} \\
 \omega &amp;= \sqrt{\frac{k}{\mu}}

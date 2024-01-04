@@ -8,8 +8,10 @@ astronomy education. All content is open source but we still do highly apprecite
 - We provide trainings for instructors new to python and hold regular workshops at universities across the nation. 
 ```
 
-```{admonition} [Spring 2024 ESCIP workshop](https://escip.github.io/workshops/workshop2024.html)
+```{admonition} Spring 2024 ESCIP workshop
 :class: important
+
+[ESCIP Workshop @ Iowa State, May 30-31](https://escip.github.io/workshops/workshop2024.html)
 ```
 
 
