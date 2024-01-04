@@ -68,8 +68,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/modelfit_part2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SDSS Tutorial #1: Data Querying and Visualization" href="sdss_tutorial_1.html" />
-    <link rel="prev" title="Fitting Models to Data (Part 1)" href="modelfit_part1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,55 +176,34 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chem.html">Chemistry</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="langevin-dynamics-results.html">Langevin Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openmm_lj_chain.html">Simulating toy polymers using openMM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_variational_method.html">Linear Variational Method</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="gaussian_wavepacket.html">Time evolution of a Gaussian wavepacket</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="pib_delta_potential_dynamics.html">Dynamics of particle in a box with a delta potential</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="carbonyl_binary_classification.html">Carbonyl Binary Classification</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="CO_Fundamental.html">Computing Fundamental Transition of CO under different levels of approximation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="Spin_one_half_solutions.html">Introduction to Spin 1/2 Using NumPy</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="fourier_transform.html">Fourier Transforms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linear_variational_method.html">Linear Variational Method</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="gaussian_wavepacket.html">Time evolution of a Gaussian wavepacket</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="pib_delta_potential_dynamics.html">Dynamics of particle in a box with a delta potential</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="modelfit_part1.html">Fitting Models to Data (Part 1)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fitting Models to Data (Part 2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sdss_tutorial_1.html">SDSS Tutorial #1:  Data Querying and Visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="carbonyl_binary_classification.html">Carbonyl Binary Classification</a></li>
-
-
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="star_formation_v3.html">Star Formation in Galaxies</a></li>
-
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="emission_line_galaxy_classification_v2.html">Emission Line Galaxy Classification</a></li>
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="CO_Fundamental.html">Computing Fundamental Transition of CO under different levels of approximation</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="Spin_one_half_solutions.html">Introduction to Spin 1/2 Using NumPy</a></li>
 </ul>
 
     </div>
@@ -569,21 +546,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2024-01-04 15:09:18--  https://drive.google.com/uc?export=download&amp;id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG
-Resolving drive.google.com (drive.google.com)... 142.251.32.46, 2607:f8b0:4005:806::200e
-Connecting to drive.google.com (drive.google.com)|142.251.32.46|:443... connected.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2024-01-04 15:15:00--  https://drive.google.com/uc?export=download&amp;id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG
+Resolving drive.google.com (drive.google.com)... 172.253.63.138, 172.253.63.100, 172.253.63.102, ...
+Connecting to drive.google.com (drive.google.com)|172.253.63.138|:443... connected.
 HTTP request sent, awaiting response... 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>303 See Other
-Location: https://doc-04-0k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/7r3imfd976d1vndt92lfb3tv4mj045rh/1704380925000/15670656991337387112/*/1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG?e=download&amp;uuid=c73c0e4d-1e36-4dca-8245-80e7cf8a7aae [following]
+Location: https://doc-04-0k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/5djtj4urrdekunb3djl9dad22ida3tuj/1704381300000/15670656991337387112/*/1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG?e=download&amp;uuid=03f073f6-31a6-48d8-b0e5-63f809f59a44 [following]
 Warning: wildcards not supported in HTTP.
---2024-01-04 15:09:18--  https://doc-04-0k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/7r3imfd976d1vndt92lfb3tv4mj045rh/1704380925000/15670656991337387112/*/1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG?e=download&amp;uuid=c73c0e4d-1e36-4dca-8245-80e7cf8a7aae
-Resolving doc-04-0k-docs.googleusercontent.com (doc-04-0k-docs.googleusercontent.com)... 142.250.189.225, 2607:f8b0:4005:802::2001
-Connecting to doc-04-0k-docs.googleusercontent.com (doc-04-0k-docs.googleusercontent.com)|142.250.189.225|:443... connected.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
+--2024-01-04 15:15:01--  https://doc-04-0k-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/5djtj4urrdekunb3djl9dad22ida3tuj/1704381300000/15670656991337387112/*/1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG?e=download&amp;uuid=03f073f6-31a6-48d8-b0e5-63f809f59a44
+Resolving doc-04-0k-docs.googleusercontent.com (doc-04-0k-docs.googleusercontent.com)... 142.251.167.132, 2607:f8b0:4004:c17::84
+Connecting to doc-04-0k-docs.googleusercontent.com (doc-04-0k-docs.googleusercontent.com)|142.251.167.132|:443... connected.
+HTTP request sent, awaiting response... 
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
@@ -592,9 +567,9 @@ Saving to: ‘star-mass-lum-lumerr.dat’
 
 
 star-mass-lum-lumer   0%[                    ]       0  --.-KB/s               
-star-mass-lum-lumer 100%[===================&gt;]   7.61K  --.-KB/s    in 0s      
+star-mass-lum-lumer 100%[===================&gt;]   7.61K  --.-KB/s    in 0.001s  
 
-2024-01-04 15:09:19 (100 MB/s) - ‘star-mass-lum-lumerr.dat’ saved [7790/7790]
+2024-01-04 15:15:01 (13.4 MB/s) - ‘star-mass-lum-lumerr.dat’ saved [7790/7790]
 </pre></div>
 </div>
 </div>
@@ -850,24 +825,6 @@ print(chi2_orig)
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="modelfit_part1.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Fitting Models to Data (Part 1)</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="sdss_tutorial_1.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SDSS Tutorial #1:  Data Querying and Visualization</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
