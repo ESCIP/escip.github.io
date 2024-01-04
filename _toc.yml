@@ -21,19 +21,19 @@ parts:
   chapters:
   - file: chem
     sections:
-    - file: notebooks/langevin-dynamics-results
-    - file: notebooks/openmm_lj_chain
-    - file: notebooks/linear_variational_method
-    - file: notebooks/gaussian_wavepacket
-    - file: notebooks/pib_delta_potential_dynamics
-    - file: notebooks/carbonyl_binary_classification
-    - file: notebooks/CO_Fundamental
-    - file: notebooks/Spin_one_half_solutions
+    - file: notebooks/chem/langevin-dynamics-results
+    - file: notebooks/chem/openmm_lj_chain
+    - file: notebooks/chem/linear_variational_method
+    - file: notebooks/chem/gaussian_wavepacket
+    - file: notebooks/chem/pib_delta_potential_dynamics
+    - file: notebooks/chem/carbonyl_binary_classification
+    - file: notebooks/chem/CO_Fundamental
+    - file: notebooks/chem/Spin_one_half_solutions
   - file: phys
     sections:
-    - file: notebooks/fourier_transform
-    - file: notebooks/modelfit_part1
-    - file: notebooks/modelfit_part2
+    - file: notebooks/phys/fourier_transform
+    - file: notebooks/phys/modelfit_part1
+    - file: notebooks/phys/modelfit_part2
   - file: astro
     sections:
     - file: notebooks/star_formation_v3
