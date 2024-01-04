@@ -1,15 +1,16 @@
 # Spring 2024 In-Person Workshop
 
+![](isu.jpg)
+
 :::{admonition} **ESCIP worksop at Iowa State University May 30-31, 2024**
 
 - Please mark your calendars for an upcoming in-person ESCIP workshop that will be held at Iowa State University in Ames IA (located 35 miles from DSM airport) on May. 30-31, 2024.
 - This event will be a combination writing retreat (instructors work on course materials) plus training program (faculty learn new skills and discuss best practices for teaching Python in undergraduate science courses). 
-See below for the schedule. 
-- Research Corporation for Science Advancement will be sponsoring the workshop and providing meals for all attendees. Registration is free but you must RSVP to reserve a spot! Workshop organizer may be able to help offset hotel lodging costs for faculty, but we need to know if you will need this scholarship. 
+- Research Corporation for Science Advancement (RCSA) will be sponsoring the workshop and providing meals for all attendees. Registration is free but you must RSVP to reserve a spot! Workshop organizer may be able to help offset hotel lodging costs for faculty, but we need to know if you will need this scholarship. 
 - If these activities interest you and fit into your schedule, **please fill out the registration form by March 1, 2024** to receive more information.
 :::
 
-![](isu.jpg)
+
 
 ## Tentative schedule
 
