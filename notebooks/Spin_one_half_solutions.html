@@ -171,6 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../workshops/intro.html">Workshops</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../workshops/workshop2024.html">January 2024 In-Person Workshop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../workshops/workshop2023.html">January 2023 In-Person Workshop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../workshops/workshop2022.html">Summer 2022 In-Person Workshop</a></li>
 </ul>
@@ -544,16 +545,16 @@ In this workbook, we will introduce matrix representations of each of these comp
 <p>Numpy arrays are special types of variables that can make use of different mathematical operation in the numpy library.  We will see that a lot of linear algebra operations can be performed with numpy arrays using very simple syntax.  Numpy arrays can have an arbitrary number of dimensions, but we will use 2-dimensional numpy arrays with
 a single column and multiple rows to denote a column vector.  We can take the transpose of these numpy arrays to represent a row vector.</p>
 <p>Here we will introduce the vector representation of special spin states that have precise value of z-spin, that is, they are the eigenstates of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1aac9321-d002-474b-8e14-36c843d32560">
-<span class="eqno">(35)<a class="headerlink" href="#equation-1aac9321-d002-474b-8e14-36c843d32560" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b1a5dd7f-7e50-421d-8253-4c2f284abf27">
+<span class="eqno">(35)<a class="headerlink" href="#equation-b1a5dd7f-7e50-421d-8253-4c2f284abf27" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\alpha}^{(z)} \rangle=
 \begin{bmatrix}
   1 \\
   0 \\
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-af09f0e0-626e-4b15-876e-b563b9542a49">
-<span class="eqno">(36)<a class="headerlink" href="#equation-af09f0e0-626e-4b15-876e-b563b9542a49" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a5a34d34-8710-44d1-af6d-1a8304297cd7">
+<span class="eqno">(36)<a class="headerlink" href="#equation-a5a34d34-8710-44d1-af6d-1a8304297cd7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\beta}^{(z)}\rangle =
 \begin{bmatrix}
   0 \\
@@ -685,8 +686,8 @@ Printing shape of &lt;alpha|
 <p>We will use 2-dimensional numpy arrays with
 a an equal number of rows and columns to denote square matrices.<br />
 Let’s use as an example matrix representation of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9166f9bf-7f37-4896-8379-3b937cce62c4">
-<span class="eqno">(37)<a class="headerlink" href="#equation-9166f9bf-7f37-4896-8379-3b937cce62c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c4453cec-0a8b-4dc8-8aac-28b350937fd1">
+<span class="eqno">(37)<a class="headerlink" href="#equation-c4453cec-0a8b-4dc8-8aac-28b350937fd1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_z = \frac{\hbar}{2}
 \begin{bmatrix}
   1 &amp; 0 \\
@@ -805,8 +806,8 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 <section id="build-matrix-form-of-mathbb-s-x-and-mathbb-s-y">
 <h3>Build matrix form of <span class="math notranslate nohighlight">\(\mathbb{S}_x\)</span> and <span class="math notranslate nohighlight">\(\mathbb{S}_y\)</span><a class="headerlink" href="#build-matrix-form-of-mathbb-s-x-and-mathbb-s-y" title="Permalink to this heading">#</a></h3>
 <p>The operator <span class="math notranslate nohighlight">\(\hat{S}_x\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ac00eab-cf9c-4030-84af-dfced98a26db">
-<span class="eqno">(38)<a class="headerlink" href="#equation-2ac00eab-cf9c-4030-84af-dfced98a26db" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-213fdb9c-6e95-4079-98b7-d415b504c079">
+<span class="eqno">(38)<a class="headerlink" href="#equation-213fdb9c-6e95-4079-98b7-d415b504c079" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_x = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; 1 \\
@@ -814,8 +815,8 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 \end{bmatrix}
 \end{equation}\]</div>
 <p>and the operator <span class="math notranslate nohighlight">\(\hat{S}_y\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-74f49944-9808-4192-ad39-a2c0f551241f">
-<span class="eqno">(39)<a class="headerlink" href="#equation-74f49944-9808-4192-ad39-a2c0f551241f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-265cb0d7-886a-41ce-9c48-754d963916fd">
+<span class="eqno">(39)<a class="headerlink" href="#equation-265cb0d7-886a-41ce-9c48-754d963916fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_y = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; -i \\
