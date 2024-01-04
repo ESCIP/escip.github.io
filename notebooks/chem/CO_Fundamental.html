@@ -1,0 +1,1309 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Computing Fundamental Transition of CO under different levels of approximation &#8212; ESCIP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chem/CO_Fundamental';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introduction to Spin 1/2 Using NumPy" href="Spin_one_half_solutions.html" />
+    <link rel="prev" title="Carbonyl Binary Classification" href="carbonyl_binary_classification.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="ESCIP - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="ESCIP - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../team.html">Team</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../guidelines/intro.html">Guidelines</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../guidelines/guidelines.html">Format of notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guidelines/template.html">Template notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workshops/intro.html">Workshops</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../workshops/workshop2024.html">January 2024 In-Person Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workshops/workshop2023.html">January 2023 In-Person Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workshops/workshop2022.html">Summer 2022 In-Person Workshop</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../chem.html">Chemistry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="langevin-dynamics-results.html">Langevin Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openmm_lj_chain.html">Simulating toy polymers using openMM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_variational_method.html">Linear Variational Method</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="gaussian_wavepacket.html">Time evolution of a Gaussian wavepacket</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="pib_delta_potential_dynamics.html">Dynamics of particle in a box with a delta potential</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="carbonyl_binary_classification.html">Carbonyl Binary Classification</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Computing Fundamental Transition of CO under different levels of approximation</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="Spin_one_half_solutions.html">Introduction to Spin 1/2 Using NumPy</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../phys/fourier_transform.html">Fourier Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part1.html">Fitting Models to Data (Part 1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part2.html">Fitting Models to Data (Part 2)</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../astro.html">Astronomy</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/chem/CO_Fundamental.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/chem/CO_Fundamental.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ESCIP/escip.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chem/CO_Fundamental.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/chem/CO_Fundamental.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Computing Fundamental Transition of CO under different levels of approximation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Computing Fundamental Transition of CO under different levels of approximation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perturbation-theory">Perturbation Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approach">Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-morse-oscillator-parameters">Setting up Morse Oscillator Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-conversion">Unit conversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-morse-potential-in-atomic-units">Evaluating the Morse potential in atomic units</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expanding-the-morse-potential-as-a-taylor-series">Expanding the Morse potential as a Taylor series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-e-1-and-e-2-using-perturbation-theory">Compute <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> using Perturbation Theory</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#test-out-the-eigenfunctions">Test out the eigenfunctions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-fundamental-transition-energies">Compute the fundamental transition energies</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="computing-fundamental-transition-of-co-under-different-levels-of-approximation">
+<h1>Computing Fundamental Transition of CO under different levels of approximation<a class="headerlink" href="#computing-fundamental-transition-of-co-under-different-levels-of-approximation" title="Permalink to this heading">#</a></h1>
+<p>We will illustrate approximations to the vibrational transition energies, specifically the fundamental (<span class="math notranslate nohighlight">\(n=0 \rightarrow n=1\)</span>) transition, using the diatomic molecule CO.</p>
+<p>We will use the Morse potential as a model for the “exact” interatomic potential, and we will approximate this potential by different orders of a Taylor expansion: including up to quadratic (which is the harmonic oscillator approximation), cubic, and quartic terms.  The harmonic and Morse potentials are exactly solvable, and the eigenfunctions and eigenvalues of the vibrational Hamiltonian with cubic and quartic potentials can be approximated using perturbation theory.  Therefore, we will
+compare the fundamental  transition computed exactly for harmonic and Morse potentials, and approximately at 2nd order of perturbation theory for cubic and quartic potentials to see the impact of various levels of potential truncation and approximation.</p>
+<p>Within the Morse model, the vibrational Hamiltonian can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-663ed95c-8f8e-4a88-9b39-858aff6e24ea">
+<span class="eqno">(21)<a class="headerlink" href="#equation-663ed95c-8f8e-4a88-9b39-858aff6e24ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\hat{H}_{vib} = -\frac{\hbar^2}{2\mu} \frac{d^2}{dr^2} + V_{Morse}(r), \tag{1}
+\end{equation}\]</div>
+<p>where</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b205943d-b88c-4ed3-92cb-f0d4d50d6755">
+<span class="eqno">(22)<a class="headerlink" href="#equation-b205943d-b88c-4ed3-92cb-f0d4d50d6755" title="Permalink to this equation">#</a></span>\[\begin{equation}
+V_{Morse}(r) = D_e \left(1 - e^{-\beta(r-r_{eq})} \right)^2. \tag{2}
+\end{equation}\]</div>
+<p>The Morse parameters for <span class="math notranslate nohighlight">\({\rm CO}\)</span> are as follows: <span class="math notranslate nohighlight">\(D_e = 11.225 \: {\rm eV}\)</span>, <span class="math notranslate nohighlight">\(r_{eq} = 1.1283 \: {\rm Ang.}\)</span>, <span class="math notranslate nohighlight">\(\beta = 2.5944 \: {\rm Ang.}^{-1}\)</span>,
+and <span class="math notranslate nohighlight">\(\mu = 6.8606 \: {\rm amu}\)</span>.</p>
+<p>The exact energy eigenvalues for Equation (1) can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-64421ab1-98fb-492d-a3b6-de9dd3052165">
+<span class="eqno">(23)<a class="headerlink" href="#equation-64421ab1-98fb-492d-a3b6-de9dd3052165" title="Permalink to this equation">#</a></span>\[\begin{equation}
+E_n = \hbar \omega \left( \left(n+ \frac{1}{2} \right) - \chi_e \left(n+ \frac{1}{2} \right)^2 \right) \tag{3}
+\end{equation}\]</div>
+<p>where</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dae988dc-e798-4cfd-83e6-3098f9ada429">
+<span class="eqno">(24)<a class="headerlink" href="#equation-dae988dc-e798-4cfd-83e6-3098f9ada429" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\omega = \sqrt{\frac{2D_e \beta^2}{\mu}} \tag{4}
+\end{equation}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight" id="equation-412b383c-94b6-45ea-a1d8-8c14922a3f88">
+<span class="eqno">(25)<a class="headerlink" href="#equation-412b383c-94b6-45ea-a1d8-8c14922a3f88" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\chi_e = \frac{\hbar \omega}{4 D_e}. \tag{5}
+\end{equation}\]</div>
+<p>The Morse potential can be approximated by a Taylor expansion as follows:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3322413e-4014-4f1d-b8bd-ba8d48b40921">
+<span class="eqno">(26)<a class="headerlink" href="#equation-3322413e-4014-4f1d-b8bd-ba8d48b40921" title="Permalink to this equation">#</a></span>\[\begin{equation}
+V_T(r) = \sum_{n=0}^{\infty} \frac{ f^{(n)}(r_{eq})}{n!} \left(r-r_{eq} \right)^n, \tag{6}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(f^{(n)}(r_{eq})\)</span> is the <span class="math notranslate nohighlight">\(n^{th}\)</span>-order derivative of the Morse potential evaluated at the equilibrium bondlength, e.g. <span class="math notranslate nohighlight">\(f^{(1)}(r_{eq}) = \frac{d}{dr}V_{Morse}(r_{eq}).\)</span></p>
+<p>We will define the Harmonic approximation to the potential as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9f7defa1-9e7e-4983-aebd-ca520745abe2">
+<span class="eqno">(27)<a class="headerlink" href="#equation-9f7defa1-9e7e-4983-aebd-ca520745abe2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+V_H(r) =  \frac{ f^{''}(r_{eq})}{2} \left(r-r_{eq} \right)^2 = \frac{1}{2} k \left(r-r_{eq} \right)^2 \tag{7}
+\end{equation}\]</div>
+<p>the cubic approximation to the potential as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6045a5fc-60ba-4050-9c17-30096c916fd0">
+<span class="eqno">(28)<a class="headerlink" href="#equation-6045a5fc-60ba-4050-9c17-30096c916fd0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+V_C(r) =  V_H(r) + \frac{ f^{'''}(r_{eq})}{6} \left(r-r_{eq} \right)^3 = V_H(r) + \frac{1}{6} g \left(r-r_{eq} \right)^3,   \tag{8}
+\end{equation}\]</div>
+<p>and the quartic approximation as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c646d359-6223-411a-ab2f-85b69c8dec03">
+<span class="eqno">(29)<a class="headerlink" href="#equation-c646d359-6223-411a-ab2f-85b69c8dec03" title="Permalink to this equation">#</a></span>\[\begin{equation}
+V_Q(r) =  V_C(r) + \frac{ f^{''''}(r_{eq})}{24} \left(r-r_{eq} \right)^4 =  V_C(r) + \frac{1}{24}h(r-r_{eq})^4.  \tag{9}
+\end{equation}\]</div>
+<p>Because we are using the Morse model as the “exact” interatomic potential in this notebook, we can compute these derivatives at <span class="math notranslate nohighlight">\(r_{eq}\)</span> analytically:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1f173b5e-658a-47ea-a11b-1a5bdf99643e">
+<span class="eqno">(30)<a class="headerlink" href="#equation-1f173b5e-658a-47ea-a11b-1a5bdf99643e" title="Permalink to this equation">#</a></span>\[\begin{align}
+k = 2 D_e \beta^2 \\
+g = -6 D_e \beta^3 \tag{10} \\
+h = 14 D_e \beta^4.
+\end{align}\]</div>
+<p>However, in general we do not have an analytical form for the interatomic potential, so we must rely on numerical derivatives of the potential evaluated at the <span class="math notranslate nohighlight">\(r_{eq}\)</span>.  In the context of interatomic potentials computed by quantum chemistry methods (e.g. CCSD(T)), one must first identify the equilibrium geometry, and then compute derivatives by taking a number of single point calculations along all displacement coordinates to compute differences among.  We will write the explicit expression for the second derivative using centered finite differences along the one displacement coordinate relevant for our <span class="math notranslate nohighlight">\({\rm CO}\)</span> molecule:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8568edf9-ac8f-4327-adca-db682f992527">
+<span class="eqno">(31)<a class="headerlink" href="#equation-8568edf9-ac8f-4327-adca-db682f992527" title="Permalink to this equation">#</a></span>\[\begin{equation}
+k=\frac{V_{Morse}(r_{eq}+\Delta r)-2V_{Morse}(r_{eq})+V_{Morse}(r_{eq}-\Delta r)}{\Delta r^2}+\mathcal O (\Delta r^2) \tag{11}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta r\)</span> represents a small displacement along the coordinate <span class="math notranslate nohighlight">\(r\)</span>.  Higher-order derivatives can also be computed, but will require larger numbers of displacements and therefore more energy evaluations by your quantum chemistry method.  Expressions for higher-order derivatives along a single coordinate can be found <a class="reference external" href="https://sameradeeb.srv.ualberta.ca/introduction-to-numerical-analysis/numerical-differentiation/#centred-finite-difference9">here</a>. Note that the number of displacement coordinates <span class="math notranslate nohighlight">\(N\)</span> grows linearly with the number of atoms, and that the number of displacements required to form the <span class="math notranslate nohighlight">\(n^{{\rm th}}\)</span>-order approximation to the potential grows as <span class="math notranslate nohighlight">\(N^n\)</span>.</p>
+<section id="perturbation-theory">
+<h2>Perturbation Theory<a class="headerlink" href="#perturbation-theory" title="Permalink to this heading">#</a></h2>
+<p>We can compute the exact vibrational transition energies for the Morse oscillator and the Harmonic oscillator using Equation (3), where the Harmonic oscillator transition energies come from Equation (3) with <span class="math notranslate nohighlight">\(\chi_e = 0\)</span>.  However, the transition energies when the potential is approximated as <span class="math notranslate nohighlight">\(V_C(r)\)</span> or <span class="math notranslate nohighlight">\(V_Q(r)\)</span> must be approximated.  We will illustrate the use of Perturbation Theory approximate these transition energies.</p>
+<p>Here we will consider the Hamiltonian</p>
+<div class="amsmath math notranslate nohighlight" id="equation-82790bc2-54e0-4784-b87d-d94e8a4ba61f">
+<span class="eqno">(32)<a class="headerlink" href="#equation-82790bc2-54e0-4784-b87d-d94e8a4ba61f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\hat{H}_{vib} = -\frac{\hbar^2}{2\mu} \frac{d^2}{dr^2} + V_{H}(r) + V'(r) = \hat{H}_0 + V'(r) \tag{12},
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{H}_0\)</span> is exactly solved by the Harmonic oscillator energy eigenfunctions and eigenvalues (<span class="math notranslate nohighlight">\(\psi^{(0)}_n(r)\)</span>, <span class="math notranslate nohighlight">\(E^{(0)}_n\)</span>), and <span class="math notranslate nohighlight">\(V'(r)\)</span> is the perturbation which will take the form of either
+<span class="math notranslate nohighlight">\(V'(r) = \frac{1}{6}g(r-r_{eq})^3\)</span> or <span class="math notranslate nohighlight">\(V'(r) = \frac{1}{6}g(r-r_{eq})^3 + \frac{1}{24}h(r-r_{eq})^4\)</span> in the cubic and quartic approximations, respectively.</p>
+<p>We can calculate the energy of state <span class="math notranslate nohighlight">\(n\)</span> at 2nd order of perturbation theory as follows:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9a519ce6-efac-4c48-8da5-eb80b7e19b9c">
+<span class="eqno">(33)<a class="headerlink" href="#equation-9a519ce6-efac-4c48-8da5-eb80b7e19b9c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+E_n = E_n^{(0)} +  \langle \psi_n^{(0)} | V'(r) | \psi_n^{(0)} \rangle + \sum_{k \neq n} \frac{|\langle \psi_k^{(0)} | V'(r) | \psi_n^{(0)}|^2}{E_n^{(0)}-E_k^{(0)}}. \tag{13}
+\end{equation}\]</div>
+<p>Recall that for the zeroth-order functions have the form</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2df6649a-0df6-47c8-9b3d-c8332c2ed8a9">
+<span class="eqno">(34)<a class="headerlink" href="#equation-2df6649a-0df6-47c8-9b3d-c8332c2ed8a9" title="Permalink to this equation">#</a></span>\[\begin{align}
+\psi_n^{(0)}(r) &amp;= \sqrt{\frac{1}{2^n n!}} \cdot \left(\frac{\alpha}{\pi} \right)^{1/4} \cdot H_n \left(\sqrt{\alpha} r \right) \cdot {\rm exp}\left(\frac{-\alpha }{2} r^2 \right) \\
+\alpha &amp;= \frac{\mu \omega}{\hbar} \\
+\omega &amp;= \sqrt{\frac{k}{\mu}}
+\end{align}\]</div>
+</section>
+<section id="approach">
+<h2>Approach<a class="headerlink" href="#approach" title="Permalink to this heading">#</a></h2>
+<p>We will compute the fundamental transition (<span class="math notranslate nohighlight">\(E_1 - E_0\)</span>) using the following approaches:</p>
+<ol class="arabic simple">
+<li><p>Harmonic approximation: <span class="math notranslate nohighlight">\(E_1 - E_0 = \hbar \omega\)</span></p></li>
+<li><p>Exact solution for Morse Hamiltonian: <span class="math notranslate nohighlight">\(E_1 - E_0 = \hbar \omega (1 - 2\chi_e)\)</span></p></li>
+<li><p>Evaluation of Eq. (13) for <span class="math notranslate nohighlight">\(n=0\)</span> and <span class="math notranslate nohighlight">\(n=1\)</span> utilizing the cubic contribution for <span class="math notranslate nohighlight">\(V'(r)\)</span></p></li>
+<li><p>Evaluation of Eq. (13) for <span class="math notranslate nohighlight">\(n=0\)</span> and <span class="math notranslate nohighlight">\(n=1\)</span> utilizing the cubic and quartic contribution for <span class="math notranslate nohighlight">\(V'(r)\)</span></p></li>
+</ol>
+</section>
+<section id="setting-up-morse-oscillator-parameters">
+<h2>Setting up Morse Oscillator Parameters<a class="headerlink" href="#setting-up-morse-oscillator-parameters" title="Permalink to this heading">#</a></h2>
+<p>The following block will establish the parameters for <span class="math notranslate nohighlight">\(\hat{H}_{vib}\)</span> with the Morse potential for the CO molecule.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># library imports for the entire notebook</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">trapz</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">hermite</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">factorial</span>
+
+<span class="c1"># dissociation energy in eV</span>
+<span class="n">De_eV</span> <span class="o">=</span> <span class="mf">11.225</span>
+
+<span class="c1"># equilibrium bondlength in Angstroms</span>
+<span class="n">r_eq_ang</span> <span class="o">=</span> <span class="mf">1.1283</span>
+
+<span class="c1"># reduced mass in amu</span>
+<span class="n">mu_amu</span> <span class="o">=</span> <span class="mf">6.8606</span>
+
+<span class="c1"># potential curvature in inverse angstromgs</span>
+<span class="n">beta_inv_ang</span> <span class="o">=</span> <span class="mf">2.5994</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="unit-conversion">
+<h2>Unit conversion<a class="headerlink" href="#unit-conversion" title="Permalink to this heading">#</a></h2>
+<p>We will use atomic units for our calculations and convert to spectroscopic units later.  In the following block, we will store different conversion factors as variables for later use.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># atomic mass units to kg</span>
+<span class="n">amu_to_kg</span> <span class="o">=</span> <span class="mf">1.66054e-27</span>
+
+<span class="c1"># angstroms to meters</span>
+<span class="n">ang_to_m</span> <span class="o">=</span> <span class="mf">1e-10</span>
+
+<span class="c1"># electron volts to Jouls</span>
+<span class="n">eV_to_J</span> <span class="o">=</span> <span class="mf">1.60218e-19</span>
+
+<span class="c1"># electron volts to atomic units of energy (Hartrees)</span>
+<span class="n">eV_to_au</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">27.211</span> <span class="c1">#0.0367493</span>
+
+<span class="c1"># angstroms to atomic units of length (Bohr radii)</span>
+<span class="n">au_to_ang</span> <span class="o">=</span> <span class="mf">0.52917721067121</span>
+
+<span class="c1"># atomic mass units to atomic units of mass </span>
+<span class="n">amu_to_au</span> <span class="o">=</span> <span class="mf">1822.89</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The fllowing block will use the conversion factors above to store the Morse oscillator parameters in atomic units.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dissociation energy in au</span>
+<span class="n">De_au</span> <span class="o">=</span> <span class="n">De_eV</span> <span class="o">*</span> <span class="n">eV_to_au</span>
+
+<span class="c1"># reduced mass in SI</span>
+<span class="n">mu_au</span> <span class="o">=</span> <span class="n">mu_amu</span> <span class="o">*</span> <span class="n">amu_to_au</span>
+
+<span class="c1"># equilibrium bondlength in SI</span>
+<span class="n">r_eq_au</span> <span class="o">=</span> <span class="n">r_eq_ang</span> <span class="o">/</span> <span class="n">au_to_ang</span>
+
+<span class="c1"># beta in SI</span>
+<span class="n">beta_au</span> <span class="o">=</span> <span class="n">beta_inv_ang</span> <span class="o">*</span> <span class="n">au_to_ang</span>
+
+<span class="c1"># hbar in SI</span>
+<span class="n">hbar_au</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># h in SI</span>
+<span class="n">h_SI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluating-the-morse-potential-in-atomic-units">
+<h2>Evaluating the Morse potential in atomic units<a class="headerlink" href="#evaluating-the-morse-potential-in-atomic-units" title="Permalink to this heading">#</a></h2>
+<p>Here we will create an numpy array of bondlength values between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(2.5 r_{eq}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluate_Morse</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">De</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">r_eq</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Helper function to evaluate the Morse potential at a given value of r</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    r : float</span>
+<span class="sd">        value(s) of r to evaluate potential at</span>
+<span class="sd">        </span>
+<span class="sd">    De : float</span>
+<span class="sd">        dissociation energy of the Morse oscillator</span>
+<span class="sd">        </span>
+<span class="sd">    beta : float</span>
+<span class="sd">        related to the curvature of the Morse oscillator</span>
+<span class="sd">        </span>
+<span class="sd">    r_eq : float</span>
+<span class="sd">        equilibrium bondlength of the Morse oscillator</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    V_m : float</span>
+<span class="sd">        value of the Morse potential at value(s) of r</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">De</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">r_eq</span><span class="p">)))</span> <span class="o">**</span> <span class="mi">2</span>
+
+
+<span class="c1"># array of bondlength values</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">r_eq_au</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># array of Morse potential values</span>
+<span class="n">V_Morse</span> <span class="o">=</span> <span class="n">evaluate_Morse</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">De_au</span><span class="p">,</span> <span class="n">beta_au</span><span class="p">,</span> <span class="n">r_eq_au</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="expanding-the-morse-potential-as-a-taylor-series">
+<h2>Expanding the Morse potential as a Taylor series<a class="headerlink" href="#expanding-the-morse-potential-as-a-taylor-series" title="Permalink to this heading">#</a></h2>
+<p>In the following block, we will compute the analytical <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(g\)</span>, and <span class="math notranslate nohighlight">\(h\)</span> terms defined in Equation 10.  We will compare the value of <span class="math notranslate nohighlight">\(k\)</span> computed analytically to the value computed numerically by Eq. (11), as well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># analytical evaluation of k</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">De_au</span> <span class="o">*</span> <span class="n">beta_au</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="c1"># analytical evaluation of g</span>
+<span class="n">g</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span> <span class="o">*</span> <span class="n">De_au</span> <span class="o">*</span> <span class="n">beta_au</span> <span class="o">**</span> <span class="mi">3</span>
+
+<span class="c1"># analytical evalution of h</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">14</span> <span class="o">*</span> <span class="n">De_au</span> <span class="o">*</span> <span class="n">beta_au</span> <span class="o">**</span> <span class="mi">4</span>
+
+<span class="c1"># numerical evaluation of k</span>
+
+<span class="c1"># small displacement along r</span>
+<span class="n">delta_r</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="o">*</span> <span class="n">r_eq_au</span>
+
+<span class="c1"># value of Morse potential at forward displacement</span>
+<span class="n">V_f</span> <span class="o">=</span> <span class="n">evaluate_Morse</span><span class="p">(</span><span class="n">r_eq_au</span> <span class="o">+</span> <span class="n">delta_r</span><span class="p">,</span> <span class="n">De_au</span><span class="p">,</span> <span class="n">beta_au</span><span class="p">,</span> <span class="n">r_eq_au</span><span class="p">)</span>
+
+<span class="c1"># value of Morse potential at equilibrium</span>
+<span class="n">V_eq</span> <span class="o">=</span> <span class="n">evaluate_Morse</span><span class="p">(</span><span class="n">r_eq_au</span><span class="p">,</span> <span class="n">De_au</span><span class="p">,</span> <span class="n">beta_au</span><span class="p">,</span> <span class="n">r_eq_au</span><span class="p">)</span>
+
+<span class="c1"># value of Morse potential at backward displacement</span>
+<span class="n">V_b</span> <span class="o">=</span> <span class="n">evaluate_Morse</span><span class="p">(</span><span class="n">r_eq_au</span> <span class="o">-</span> <span class="n">delta_r</span><span class="p">,</span> <span class="n">De_au</span><span class="p">,</span> <span class="n">beta_au</span><span class="p">,</span> <span class="n">r_eq_au</span><span class="p">)</span>
+
+<span class="c1"># CFD approximation to k</span>
+<span class="n">k_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">V_f</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">V_eq</span> <span class="o">+</span> <span class="n">V_b</span><span class="p">)</span> <span class="o">/</span> <span class="n">delta_r</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="c1"># compare the numerical and analytic evaluation of k</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k_num</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k_num</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; The numerical and analytical values for k agree to within +/- 0.0001 atomic units.&quot;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.5610705004791825 1.561062667389548
+ The numerical and analytical values for k agree to within +/- 0.0001 atomic units.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we will evaluate the Harmonic, cubic, and quartic models for the interatomic potential and plot all against the Morse potential.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Harmonic potential</span>
+<span class="n">V_H</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span><span class="n">r_eq_au</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="c1"># cubic</span>
+<span class="n">V_C</span> <span class="o">=</span> <span class="n">V_H</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span> <span class="o">*</span> <span class="n">g</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">r_eq_au</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span>
+
+<span class="c1"># quartic </span>
+<span class="n">V_Q</span> <span class="o">=</span> <span class="n">V_C</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">24</span> <span class="o">*</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">r_eq_au</span><span class="p">)</span> <span class="o">**</span> <span class="mi">4</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">V_Morse</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Morse Potential&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">V_H</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Harmonic Potential&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">V_C</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cubic Potential&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">V_Q</span><span class="p">,</span> <span class="s1">&#39;g--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Quartic Potential&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">r_eq_au</span><span class="p">,</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">r_eq_au</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Bondlength (Bohr radii)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Energy (Hartrees)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c8e29eabab7ba3e82d7208dc05823116e4c1c8f1f668b2532d570ce4074db2a0.png" src="../../_images/c8e29eabab7ba3e82d7208dc05823116e4c1c8f1f668b2532d570ce4074db2a0.png" />
+</div>
+</div>
+</section>
+<section id="compute-e-1-and-e-2-using-perturbation-theory">
+<h2>Compute <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> using Perturbation Theory<a class="headerlink" href="#compute-e-1-and-e-2-using-perturbation-theory" title="Permalink to this heading">#</a></h2>
+<p>We will need access to the zeroth-order states <span class="math notranslate nohighlight">\(\psi_n^{(0)}(r)\)</span> to compute the 1st and 2nd order energy corrections.
+The following helper functions will give us access to these states and will also perform the operations necessary to compute the perturbative corrections.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_alpha</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">hbar</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Helper function to compute \alpha = \sqrt{k * \omega / \hbar}</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    k : float</span>
+<span class="sd">        the Harmonic force constant</span>
+<span class="sd">        </span>
+<span class="sd">    mu : float</span>
+<span class="sd">        the reduced mass</span>
+<span class="sd">        </span>
+<span class="sd">    hbar : float</span>
+<span class="sd">        reduced planck&#39;s constant</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    alpha : float</span>
+<span class="sd">        \alpha = \sqrt{k * \omega / \hbar}</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># compute omega</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">k</span> <span class="o">/</span> <span class="n">mu</span> <span class="p">)</span>
+    
+    <span class="c1"># compute alpha</span>
+    <span class="n">alpha</span> <span class="o">=</span>  <span class="n">mu</span> <span class="o">*</span> <span class="n">omega</span> <span class="o">/</span> <span class="n">hbar</span>
+    
+    <span class="c1"># return alpha</span>
+    <span class="k">return</span> <span class="n">alpha</span>
+
+<span class="k">def</span> <span class="nf">N</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Helper function to take the quantum number n of the Harmonic Oscillator and return the normalization constant</span>
+<span class="sd">        </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    n : int</span>
+<span class="sd">        the quantum state of the harmonic oscillator</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    N_n : float</span>
+<span class="sd">        the normalization constant</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">return</span>  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">alpha</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span> 
+
+<span class="k">def</span> <span class="nf">psi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_eq</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Helper function to evaluate the Harmonic Oscillator energy eigenfunction for state n</span>
+<span class="sd">        </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    n : int</span>
+<span class="sd">        the quantum state of the harmonic oscillator</span>
+<span class="sd">        </span>
+<span class="sd">    alpha : float</span>
+<span class="sd">        alpha value</span>
+<span class="sd">        </span>
+<span class="sd">    </span>
+<span class="sd">    r : float</span>
+<span class="sd">        position at which psi_n will be evaluated</span>
+<span class="sd">        </span>
+<span class="sd">    r_eq : float</span>
+<span class="sd">        equilibrium bondlength</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    psi_n : float</span>
+<span class="sd">        value of the harmonic oscillator energy eigenfunction</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">Hr</span> <span class="o">=</span> <span class="n">hermite</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    
+    <span class="n">psi_n</span> <span class="o">=</span> <span class="n">N</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">Hr</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">r</span> <span class="o">-</span> <span class="n">r_eq</span> <span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">alpha</span>  <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">r_eq</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">psi_n</span>
+
+<span class="k">def</span> <span class="nf">harmonic_eigenvalue</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">hbar</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Helper function to evaluate the energy eigenvalue of the harmonic oscillator for state n&quot;&quot;&quot;</span>
+    
+    <span class="k">return</span> <span class="n">hbar</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">morse_eigenvalue</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">De</span><span class="p">,</span> <span class="n">hbar</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Helper function to evaluate the energy eigenvalue of the Morse oscillator for state n&quot;&quot;&quot;</span>
+    
+    <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">k</span> <span class="o">/</span> <span class="n">mu</span> <span class="p">)</span>
+    <span class="n">xi</span> <span class="o">=</span> <span class="n">hbar</span> <span class="o">*</span> <span class="n">omega</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">De</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">hbar</span> <span class="o">*</span> <span class="n">omega</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">xi</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">potential_matrix_element</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_eq</span><span class="p">,</span> <span class="n">V_p</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Helper function to compute &lt;n|V_p|m&gt; where V_p is the perturbing potential</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    n : int</span>
+<span class="sd">        quantum number of the bra state</span>
+<span class="sd">        </span>
+<span class="sd">    m : int</span>
+<span class="sd">        quantum number of the ket state</span>
+<span class="sd">        </span>
+<span class="sd">    alpha : float</span>
+<span class="sd">        alpha constant for bra/ket states</span>
+<span class="sd">        </span>
+<span class="sd">    r : float</span>
+<span class="sd">        position grid for bra/ket states</span>
+<span class="sd">        </span>
+<span class="sd">    r_eq : float</span>
+<span class="sd">        equilibrium bondlength for bra/ket states</span>
+<span class="sd">        </span>
+<span class="sd">    V_p : float</span>
+<span class="sd">        potential array</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    V_nm : float</span>
+<span class="sd">        &lt;n | V_p | m &gt; </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># bra </span>
+    <span class="n">psi_n</span> <span class="o">=</span> <span class="n">psi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_eq</span><span class="p">)</span>
+    
+    <span class="c1"># ket </span>
+    <span class="n">psi_m</span> <span class="o">=</span> <span class="n">psi</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_eq</span><span class="p">)</span>
+    
+    <span class="c1"># integrand</span>
+    <span class="n">integrand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">psi_n</span><span class="p">)</span> <span class="o">*</span> <span class="n">V_p</span> <span class="o">*</span> <span class="n">psi_m</span>
+    
+    <span class="c1"># integrate</span>
+    <span class="n">V_nm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">V_nm</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="test-out-the-eigenfunctions">
+<h1>Test out the eigenfunctions<a class="headerlink" href="#test-out-the-eigenfunctions" title="Permalink to this heading">#</a></h1>
+<p>Here we will plot <span class="math notranslate nohighlight">\(\psi_0^{(0)}\)</span> against the Harmonic potential and will also test to make sure it is properly normalized.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute alpha</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="n">compute_alpha</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">mu_au</span><span class="p">,</span> <span class="n">hbar_au</span><span class="p">)</span>
+
+<span class="c1"># compute psi_0 along the r grid</span>
+<span class="n">psi_0</span> <span class="o">=</span><span class="n">psi</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_eq_au</span><span class="p">)</span>
+
+<span class="c1"># is it normalized?</span>
+<span class="n">Integral</span> <span class="o">=</span> <span class="n">trapz</span><span class="p">(</span><span class="n">psi_0</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">Integral</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+
+<span class="c1"># Harmonic potential</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">psi_0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\psi_0$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">V_H</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Harmonic Potential&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">r_eq_au</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1a8fb655bee7712817170ff3fee6194e53a59acf298c431fa459a7c0f82597b0.png" src="../../_images/1a8fb655bee7712817170ff3fee6194e53a59acf298c431fa459a7c0f82597b0.png" />
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="compute-the-fundamental-transition-energies">
+<h1>Compute the fundamental transition energies<a class="headerlink" href="#compute-the-fundamental-transition-energies" title="Permalink to this heading">#</a></h1>
+<p>Now we will compute the fundamental transition energies at all levels of theory and plot the results in both atomic units and in wavenumbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fundamental transition energy at HO level</span>
+<span class="n">fundamental_HO</span> <span class="o">=</span> <span class="n">harmonic_eigenvalue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mu_au</span><span class="p">,</span> <span class="n">hbar_au</span><span class="p">)</span> <span class="o">-</span> <span class="n">harmonic_eigenvalue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mu_au</span><span class="p">,</span> <span class="n">hbar_au</span><span class="p">)</span>
+
+<span class="c1"># fundamental transition energy at Morse level</span>
+<span class="n">fundamental_Morse</span> <span class="o">=</span> <span class="n">morse_eigenvalue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mu_au</span><span class="p">,</span> <span class="n">De_au</span><span class="p">,</span> <span class="n">hbar_au</span><span class="p">)</span> <span class="o">-</span> <span class="n">morse_eigenvalue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mu_au</span><span class="p">,</span> <span class="n">De_au</span><span class="p">,</span> <span class="n">hbar_au</span><span class="p">)</span>
+
+<span class="c1"># 1st order correction using the cubic potential</span>
+<span class="n">pt1_cubic</span> <span class="o">=</span> <span class="n">potential_matrix_element</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_eq_au</span><span class="p">,</span> <span class="p">(</span><span class="n">V_C</span> <span class="o">-</span> <span class="n">V_H</span><span class="p">))</span>
+
+<span class="c1"># 1st order correction using the quartic potential</span>
+<span class="n">pt1_quartic</span> <span class="o">=</span> <span class="n">potential_matrix_element</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_eq_au</span><span class="p">,</span> <span class="p">(</span><span class="n">V_Q</span> <span class="o">-</span> <span class="n">V_H</span><span class="p">))</span>
+
+<span class="c1"># 2nd order corrections using cubic and quartic potentials</span>
+<span class="n">pt2_cubic</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">pt2_quartic</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># sum over |&lt;j|V&#39;|n&gt;|^2/(Ej-En)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">):</span>
+    <span class="n">E_j</span> <span class="o">=</span> <span class="n">harmonic_eigenvalue</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mu_au</span><span class="p">,</span> <span class="n">hbar_au</span><span class="p">)</span>
+    <span class="n">Vc_j0</span> <span class="o">=</span> <span class="n">potential_matrix_element</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_eq_au</span><span class="p">,</span> <span class="p">(</span><span class="n">V_C</span> <span class="o">-</span> <span class="n">V_H</span><span class="p">))</span>
+    <span class="n">pt2_cubic</span> <span class="o">+=</span> <span class="n">Vc_j0</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">fundamental_HO</span> <span class="o">-</span> <span class="n">E_j</span><span class="p">)</span>
+    <span class="n">Vq_j0</span> <span class="o">=</span> <span class="n">potential_matrix_element</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">r_eq_au</span><span class="p">,</span> <span class="p">(</span><span class="n">V_Q</span> <span class="o">-</span> <span class="n">V_H</span><span class="p">))</span>
+    <span class="n">pt2_quartic</span> <span class="o">+=</span> <span class="n">Vq_j0</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">fundamental_HO</span> <span class="o">-</span> <span class="n">E_j</span><span class="p">)</span>
+ 
+          
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">cubic_fo</span> <span class="o">=</span> <span class="n">fundamental_HO</span> <span class="o">+</span> <span class="n">pt1_cubic</span>
+<span class="n">quartic_fo</span> <span class="o">=</span> <span class="n">fundamental_HO</span> <span class="o">+</span> <span class="n">pt1_quartic</span>
+
+<span class="n">cubic_so</span> <span class="o">=</span> <span class="n">cubic_fo</span> <span class="o">+</span> <span class="n">pt2_cubic</span>
+<span class="n">quartic_so</span> <span class="o">=</span> <span class="n">quartic_fo</span> <span class="o">+</span> <span class="n">pt2_quartic</span>
+
+<span class="n">au_to_wn</span> <span class="o">=</span> <span class="mf">219474.63068</span>
+
+<span class="n">morse_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fundamental_Morse</span> <span class="o">*</span> <span class="n">au_to_wn</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">HO_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fundamental_HO</span> <span class="o">*</span> <span class="n">au_to_wn</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">cubic_so_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">cubic_so</span> <span class="o">*</span> <span class="n">au_to_wn</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">quartic_so_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">quartic_so</span> <span class="o">*</span> <span class="n">au_to_wn</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+
+
+
+
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">morse_plot</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">morse_plot</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Morse&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">HO_plot</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">HO_plot</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Harmonic&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">cubic_so_plot</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cubic_so_plot</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Cubic - PT2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">quartic_so_plot</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">quartic_so_plot</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Quartic - PT2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">2400</span><span class="p">,</span> <span class="mi">2500</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Transition Energy (cm$^{-1}$)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/566288bb79e439357b4a60ea944bba34eead669e6182db738b22f8e6974e4454.png" src="../../_images/566288bb79e439357b4a60ea944bba34eead669e6182db738b22f8e6974e4454.png" />
+</div>
+</div>
+<p>Create and fit Morse potential in atomic units</p>
+<p>Now plot the potential and compute some eigenvalues</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+
+<span class="c1"># first compute and plot Morse potential</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.75</span> <span class="o">*</span> <span class="n">r_eq_SI</span><span class="p">,</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">r_eq_SI</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">V_r</span> <span class="o">=</span> <span class="n">De_SI</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta_SI</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">r_eq_SI</span><span class="p">)))</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="n">V_r_spline</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">UnivariateSpline</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">V_r</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+
+<span class="c1"># now define the expansion coefficients to expand the Morse potential as a polynomial</span>
+<span class="c1"># harmonic</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">De_SI</span> <span class="o">*</span> <span class="n">beta_SI</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">f_spline</span> <span class="o">=</span> <span class="n">V_r_spline</span><span class="o">.</span><span class="n">derivative</span><span class="p">()</span>
+<span class="n">k_spline</span> <span class="o">=</span> <span class="n">f_spline</span><span class="o">.</span><span class="n">derivative</span><span class="p">()</span>
+<span class="c1">#g_spline = k_spline.derivative()</span>
+<span class="c1">#h_spline = g_spline.derivative()</span>
+
+<span class="n">k_num</span> <span class="o">=</span> <span class="n">k_spline</span><span class="p">(</span><span class="n">r_eq_SI</span><span class="p">)</span>
+<span class="c1">#g_num = g_spline(r_eq_SI)</span>
+<span class="c1">#h_num = h_spline(r_eq_SI)</span>
+
+<span class="n">V_H</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">k_num</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span><span class="n">r_eq_SI</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="c1"># cubic</span>
+<span class="c1">#g = -6 * De_SI * beta_SI ** 3</span>
+
+<span class="c1">#V_C = V_H + 1/6 * g_num * (r - r_eq_SI) ** 3</span>
+
+<span class="c1"># quartic </span>
+<span class="c1">#h = 14 * De_SI * beta_SI ** 4</span>
+
+<span class="c1">#V_Q = V_H + V_C + 1/24 * h_num * (r - r_eq_SI) ** 4</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">V_r</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">V_r_spline</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="c1">#plt.plot(r, V_C, &#39;green&#39;)</span>
+<span class="c1">#plt.plot(r, V_Q, &#39;purple&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.75</span> <span class="o">*</span> <span class="n">r_eq_SI</span><span class="p">,</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">r_eq_SI</span><span class="p">)</span>
+<span class="c1">#plt.ylim(0, 2e-18)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># first compute and plot Morse potential</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.75</span> <span class="o">*</span> <span class="n">r_eq_SI</span><span class="p">,</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">r_eq_SI</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">V_r</span> <span class="o">=</span> <span class="n">De_SI</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta_SI</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">r_eq_SI</span><span class="p">)))</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">V_r_spline</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">UnivariateSpline</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">V_r</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;r_eq_SI&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now compute fundamental and anharmonic correction</span>
+<span class="n">omega_SI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">De_SI</span> <span class="o">*</span> <span class="n">beta_SI</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">mu_SI</span><span class="p">)</span>
+<span class="n">xe_SI</span> <span class="o">=</span> <span class="n">hbar_SI</span> <span class="o">*</span> <span class="n">omega_SI</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">De_SI</span><span class="p">)</span>
+
+<span class="c1"># compute and print fundamental energy in SI</span>
+<span class="n">E0</span> <span class="o">=</span> <span class="n">hbar_SI</span> <span class="o">*</span> <span class="n">omega_SI</span> <span class="o">*</span> <span class="p">((</span><span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">xe_SI</span> <span class="o">*</span> <span class="p">(</span><span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span>
+<span class="n">E1</span> <span class="o">=</span> <span class="n">hbar_SI</span> <span class="o">*</span> <span class="n">omega_SI</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">xe_SI</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span>
+<span class="n">fundamental_SI</span> <span class="o">=</span> <span class="n">E1</span><span class="o">-</span><span class="n">E0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fundamental_SI</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fundamental_SI</span> <span class="o">*</span> <span class="n">J_to_wn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">h_SI</span> <span class="o">/</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">c_SI</span> <span class="o">*</span> <span class="n">mu_SI</span> <span class="o">*</span> <span class="n">r_eq_SI</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dissociation energy in SI</span>
+<span class="n">De_SI</span> <span class="o">=</span> <span class="n">De_eV</span> <span class="o">*</span> <span class="n">eV_to_J</span>
+
+<span class="c1"># reduced mass in SI</span>
+<span class="n">mu_SI</span> <span class="o">=</span> <span class="n">mu_amu</span> <span class="o">*</span> <span class="n">amu_to_kg</span>
+
+<span class="c1"># equilibrium bondlength in SI</span>
+<span class="n">r_eq_SI</span> <span class="o">=</span> <span class="n">r_eq_ang</span> <span class="o">*</span> <span class="n">ang_to_m</span>
+
+<span class="c1"># beta in SI</span>
+<span class="n">beta_SI</span> <span class="o">=</span> <span class="n">beta_inv_ang</span> <span class="o">/</span> <span class="n">ang_to_m</span>
+
+<span class="c1"># hbar in SI</span>
+<span class="n">hbar_SI</span> <span class="o">=</span> <span class="mf">1.05457182e-34</span>
+
+<span class="c1"># h in SI</span>
+<span class="n">h_SI</span> <span class="o">=</span> <span class="mf">6.626e-34</span>
+
+<span class="c1"># c in SI</span>
+<span class="n">c_SI</span> <span class="o">=</span> <span class="mf">2.99e8</span>
+
+<span class="c1"># conversion from J to cm^-1</span>
+<span class="n">J_to_wn</span> <span class="o">=</span> <span class="mf">5.03445e22</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mu_SI</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1392300724e-26
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ESCIP/escip.github.io",
+            ref: "jbook",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/chem"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="carbonyl_binary_classification.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Carbonyl Binary Classification</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Spin_one_half_solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Spin 1/2 Using NumPy</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Computing Fundamental Transition of CO under different levels of approximation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perturbation-theory">Perturbation Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#approach">Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-morse-oscillator-parameters">Setting up Morse Oscillator Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-conversion">Unit conversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-the-morse-potential-in-atomic-units">Evaluating the Morse potential in atomic units</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expanding-the-morse-potential-as-a-taylor-series">Expanding the Morse potential as a Taylor series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-e-1-and-e-2-using-perturbation-theory">Compute <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> using Perturbation Theory</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#test-out-the-eigenfunctions">Test out the eigenfunctions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-fundamental-transition-energies">Compute the fundamental transition energies</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ESCIP Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
