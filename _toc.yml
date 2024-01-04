@@ -21,9 +21,9 @@ parts:
   chapters:
   - file: notebooks/astro/astro
     sections:
-    - file: notebooks/star_formation_v3
-    - file: notebooks/emission_line_galaxy_classification_v2
-    - file: notebooks/sdss_tutorial_1
+    - file: notebooks/astro/star_formation_v3
+    - file: notebooks/astro/emission_line_galaxy_classification_v2
+    - file: notebooks/astro/sdss_tutorial_1
   
   - file: notebooks/chem/chem
     sections:
