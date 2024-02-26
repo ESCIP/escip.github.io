@@ -171,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../workshops/intro.html">Workshops</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../workshops/workshop2024.html">Spring 2024 In-Person Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workshops/workshop2024.html">Spring 2024 ESCIP Workshop: “teaching scientific computing at the dawn of AI”</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../workshops/workshop2023.html">January 2023 In-Person Workshop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../workshops/workshop2022.html">Summer 2022 In-Person Workshop</a></li>
 </ul>
@@ -647,33 +647,50 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading rdkit_pypi-2022.9.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.9 kB)
+Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages (from rdkit-pypi) (1.24.4)
+Requirement already satisfied: Pillow in /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages (from rdkit-pypi) (10.2.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages (from rdkit-pypi) (1.24.4)
-Requirement already satisfied: Pillow in /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages (from rdkit-pypi) (10.2.0)
-Downloading rdkit_pypi-2022.9.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (29.4 MB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading rdkit_pypi-2022.9.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (29.4 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/29.4 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.5/29.4 MB</span> <span class=" -Color -Color-Red">15.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:02</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.4/29.4 MB</span> <span class=" -Color -Color-Red">46.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.9/29.4 MB</span> <span class=" -Color -Color-Red">72.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">10.8/29.4 MB</span> <span class=" -Color -Color-Red">149.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.2/29.4 MB</span> <span class=" -Color -Color-Red">76.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.2/29.4 MB</span> <span class=" -Color -Color-Red">76.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">16.4/29.4 MB</span> <span class=" -Color -Color-Red">166.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.2/29.4 MB</span> <span class=" -Color -Color-Red">76.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━━ <span class=" -Color -Color-Green">22.3/29.4 MB</span> <span class=" -Color -Color-Red">167.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ <span class=" -Color -Color-Green">28.3/29.4 MB</span> <span class=" -Color -Color-Red">172.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.3/29.4 MB</span> <span class=" -Color -Color-Red">47.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.3/29.4 MB</span> <span class=" -Color -Color-Red">47.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">29.4/29.4 MB</span> <span class=" -Color -Color-Red">166.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">11.3/29.4 MB</span> <span class=" -Color -Color-Red">47.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">29.4/29.4 MB</span> <span class=" -Color -Color-Red">166.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">29.4/29.4 MB</span> <span class=" -Color -Color-Red">81.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.7/29.4 MB</span> <span class=" -Color -Color-Red">50.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">14.7/29.4 MB</span> <span class=" -Color -Color-Red">50.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">18.1/29.4 MB</span> <span class=" -Color -Color-Red">78.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━━━━ <span class=" -Color -Color-Green">23.1/29.4 MB</span> <span class=" -Color -Color-Red">79.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━━━━ <span class=" -Color -Color-Green">25.1/29.4 MB</span> <span class=" -Color -Color-Red">111.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">29.4/29.4 MB</span> <span class=" -Color -Color-Red">112.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">29.4/29.4 MB</span> <span class=" -Color -Color-Red">112.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">29.4/29.4 MB</span> <span class=" -Color -Color-Red">112.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">29.4/29.4 MB</span> <span class=" -Color -Color-Red">55.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -687,8 +704,8 @@ Downloading rdkit_pypi-2022.9.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x8
 <span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.29user 0.45system 0:02.88elapsed 95%CPU (0avgtext+0avgdata 78848maxresident)k
-176inputs+389744outputs (1major+53624minor)pagefaults 0swaps
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.33user 0.47system 0:04.11elapsed 68%CPU (0avgtext+0avgdata 78976maxresident)k
+13680inputs+389744outputs (84major+52909minor)pagefaults 0swaps
 </pre></div>
 </div>
 </div>
