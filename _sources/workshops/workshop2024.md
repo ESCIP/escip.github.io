@@ -13,7 +13,7 @@
 
 ## Tentative schedule
 
-### May 29, 2024:
+### Wednesday May 29, 2024:
 
 |    Time         |   Activity   |
 | :------------   | -------------: |
@@ -22,7 +22,7 @@
 | 6 pm - 7 pm     |  Welcome Social and Dinner        |
 | 7 pm - 8 pm     | Opening |
 
-### May 30, 2024:
+### Thursday May 30, 2024:
 
 |    Time         |   Activity   |
 | :------------   | -------------: |
@@ -36,7 +36,7 @@
 |6 pm - 7 pm | Education talk  |
 |7 pm –  | informal discussions |
 
-### Saturday May 31, 2024:
+### Friday May 31, 2024:
 
 |    Time         |   Activity   |
 | :------------   | -------------: |
