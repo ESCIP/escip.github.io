@@ -1,10 +1,11 @@
-# Spring 2024 In-Person Workshop
+# Spring 2024 ESCIP Workshop: "teaching scientific computing at the dawn of AI"
 
 ![](isu.jpg)
 
 :::{admonition} **ESCIP worksop at Iowa State University May 30-31, 2024**
 
 - Please mark your calendars for an upcoming in-person ESCIP workshop that will be held at Iowa State University in Ames IA (located 35 miles from DSM airport) on May. 30-31, 2024.
+- The central theme of workshop is about strategies of teaching scientific computing at the time where ChatGPT and similiar disruptive generative AI technologies are changing the way we do research and process information.  
 - This event will be a combination writing retreat (instructors work on course materials) plus training program (faculty learn new skills and discuss best practices for teaching Python in undergraduate science courses). 
 - Research Corporation for Science Advancement (RCSA) will be sponsoring the workshop and providing meals for all attendees. Registration is free but you must RSVP to reserve a spot! Workshop organizer may be able to help offset hotel lodging costs for faculty, but we need to know if you will need this scholarship. 
 - If these activities interest you and fit into your schedule, **please fill out the [registration form](https://forms.gle/HbCYMA9KCphwH9Jd8) by April 1, 2024** to receive more information.
