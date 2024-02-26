@@ -1,4 +1,4 @@
-# Spring 2024 ESCIP Workshop: "teaching scientific computing at the dawn of AI"
+# Spring 2024 ESCIP Workshop: "Teaching scientific computing at the dawn of AI"
 
 ![](isu.jpg)
 
