@@ -51,7 +51,7 @@
 | :------------   | -------------: |
 | 8:30 am - 9:00 am |  **Breakfast and Tour of ESCIP repository part 2, Prof. Davit Potoyan (escip.github.io)** |
 | 9:00-9:15 am|  **[Prof. Chris Richardson](https://facstaff.elon.edu/crichardson17/), Elon University** |
-| 9:00-10:00 pm | **[Prof. Mark Perri](https://chemistry.sonoma.edu/faculty-staff/mark-j-perri), Sonoma State University**|
+| 9:00-10:00 am | **[Prof. Mark Perri](https://chemistry.sonoma.edu/faculty-staff/mark-j-perri), Sonoma State University**|
 | 11:00 am - 12 am | Work on Python/ChatGPT materials in small groups  |
 | 12 pm - 1 pm | Lunch and informal discussions |
 | 1  pm - 2 pm | Concluding remarks by attendees |
