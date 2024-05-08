@@ -30,7 +30,7 @@
 | 9 am - 9:15 am  | **Welcome message by [Prof Theresa Windus](https://www.chem.iastate.edu/people/theresa-windus), chair of ISU Chemistry Department**|
 | 9:15 am - 9:30 pm | **Intorduction to ESCIP workshop by [Prof. Davit Potoyan](https://www.chem.iastate.edu/people/davit-potoyan)**|
 | 9:30 am - 10:15 pm | **[Prof. Tom Holme](https://www.chem.iastate.edu/people/tom-holme), Iowa State University** |
-| 10:15 am - 11:00 pm | **Tour of ESCIP repository part 1 (escip.github.io)** |
+| 10:15 am - 11:00 pm | "Tour of ESCIP repository part 1 (escip.github.io)" <br> **[Prof. Davit Potoyan](https://www.chem.iastate.edu/people/davit-potoyan)** |
 | 11 am - 11:45 pm | "Navigating ChatGPT: Empowering Education with the P.E.E.R.S. Approach" <br> **[Dr. Andrew Severin](https://www.bcb.iastate.edu/people/andrew-severin), Iowa State University**  |
 | 12 pm - 2 pm | Lunch and informal discussions|
 | 2:00 pm - 2:45 pm | **[Jason Pearson](https://islandscholar.ca/people/jpearson), University of Prince Edward Island** |
@@ -38,7 +38,8 @@
 | 3:45 pm - 4:00 pm | **Discussion**|
 | 4:00 pm - 4:45 pm | "ChatGPT as an ‘Agent to Think With" <br> **[Prof. Ted Clark ](https://chemistry.osu.edu/people/clark.789), Ohio State University**|
 | 4:45 pm - 5:00 pm | **Discussion**|
-| 5:00-5:45 pm | **[Dr. Ardith Bravenec](https://depts.washington.edu/astrobio/wordpress/profile/ardith-bravenec/), University of Washington**|
+| 5:00-5:45 pm | "Inspiring Individual Intelligence: Constructivist Learning with Python Notebooks and
+AI" <br> **[Dr. Ardith Bravenec](https://depts.washington.edu/astrobio/wordpress/profile/ardith-bravenec/), University of Washington**|
 | 5:00-6:00 pm | **Dinner and lightning talks**|
 | 5:00-5:15 pm|  "Implementing high-performance computing in undergraduate education" <br> **[Prof. Pavel Lukashev](https://chas.uni.edu/physics/directory/pavel-lukashev), University of Northern Iowa**|
 | 5:20:5:35 pm | "Exploring ChatGPT's Role in STEM Education: Benefits and Challenges in Liberal Arts Classrooms" <br> **[Prof. Shanshan Rodriguez](https://www.grinnell.edu/user/rodriguezs), Grinell College**|
