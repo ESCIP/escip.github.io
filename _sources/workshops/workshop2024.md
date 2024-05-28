@@ -19,7 +19,7 @@
 | :------------   | -------------: |
 | Step 1          |  Arrive at Des moines Airport, Reserve a [convenient shuttle](https://www.executiveexpress.biz/shuttle-service/) a week in advance or use Uber/Lyft to travel to Ames|
 | Step 2          |  Arrive at [Gateway Hotel of Ames](https://www.gatewayames.com/?gad_source=1&gclid=CjwKCAiAivGuBhBEEiwAWiFmYd_bDL2ZwiJL24UCD7-JF8ZD6-vSqDUP6vmgmWIXBR79M8Nu1fIwgBoCoKcQAvD_BwE&gclsrc=aw.ds) |
-| 6 pm - 8 pm     |  Welcome Social and Dinner at Gateway Hotel |
+| 6:30 pm -       |  Welcome Social and Dinner at Gateway Hotel |
 
 
 ### Thursday May 30, 2024
