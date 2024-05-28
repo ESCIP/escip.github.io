@@ -552,27 +552,27 @@ document.write(`
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>We will demonstrate the time-dependence of an electron initially described by a Gaussian wavepacket that is travelling between two infinitely tall potential walls located at <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(x = L\)</span>.  The initial state of this wavepacket will be given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32f74d15-900c-4074-b1ce-578758b70136">
-<span class="eqno">(15)<a class="headerlink" href="#equation-32f74d15-900c-4074-b1ce-578758b70136" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ecb91ece-bf91-45a7-bd3b-2bbe0f641859">
+<span class="eqno">(15)<a class="headerlink" href="#equation-ecb91ece-bf91-45a7-bd3b-2bbe0f641859" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Psi(x,t_0) = \frac{1}{\sigma \sqrt(2\pi)} {\rm exp}\left(\frac{-1}{2}\left(\frac{x-x_0}{\sigma}\right)^2\right) {\rm exp}(i k_0 x). \tag{1}
 \end{equation}\]</div>
 <p>Such a wavefunction describes a particle initially with a mean momentum and position of <span class="math notranslate nohighlight">\(\hbar k_0\)</span> and <span class="math notranslate nohighlight">\(x_0\)</span>, respectively, and <span class="math notranslate nohighlight">\(\sigma\)</span> relates to the spread (or position uncertainty)
 of the particle.  In the code that follows, we will have <span class="math notranslate nohighlight">\(x_0 = 200\)</span>, <span class="math notranslate nohighlight">\(k_0 = 0.4\)</span>, and <span class="math notranslate nohighlight">\(\sigma = 15\)</span> atomic units.  We will specify that the location of the left-most infinite potential is at <span class="math notranslate nohighlight">\(L = 500\)</span> atomic units.  We will use the fact that we can we can expand this wavefunction in any complete basis, and we will use the basis of the energy eigenfunctions of the particle in a box with <span class="math notranslate nohighlight">\(L = 500\)</span> atomic units.</p>
 <p>Hence, we will expand the wavefunction as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dc566249-b404-41f7-9342-39a710aec3f3">
-<span class="eqno">(16)<a class="headerlink" href="#equation-dc566249-b404-41f7-9342-39a710aec3f3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-04997e6a-bc20-4b53-b126-8e35cf4bd7ea">
+<span class="eqno">(16)<a class="headerlink" href="#equation-04997e6a-bc20-4b53-b126-8e35cf4bd7ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Psi(x,t) = \sum_{n=1}^N c_n \sqrt{\frac{2}{L}} {\rm sin}\left( \frac{n \pi x}{L} \right)
 {\rm exp}\left(-\frac{i E_n t}{\hbar}\right), \tag{2}
 \end{equation}\]</div>
 <p>where we have used the known time-dependence of each energy eigenstate.  The energy eigenvalues have the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4232b803-c388-44d1-ad2e-945964350c0d">
-<span class="eqno">(17)<a class="headerlink" href="#equation-4232b803-c388-44d1-ad2e-945964350c0d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d886c550-0162-46c9-a49b-00f32f2f6618">
+<span class="eqno">(17)<a class="headerlink" href="#equation-d886c550-0162-46c9-a49b-00f32f2f6618" title="Permalink to this equation">#</a></span>\[\begin{equation}
 E_n = \frac{n^2 \pi^2 \hbar^2}{2 m L^2}. \tag{3}
 \end{equation}\]</div>
 <p>Since we are working in atomic units, <span class="math notranslate nohighlight">\(\hbar\)</span> and <span class="math notranslate nohighlight">\(m\)</span> will have the value of 1.</p>
 <p>The coefficients for the above expansion can be determined simply by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-557247b3-705c-46f3-ac7d-ac7b929d1c22">
-<span class="eqno">(18)<a class="headerlink" href="#equation-557247b3-705c-46f3-ac7d-ac7b929d1c22" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ef45ae84-7635-4403-941a-8e3ff54bc727">
+<span class="eqno">(18)<a class="headerlink" href="#equation-ef45ae84-7635-4403-941a-8e3ff54bc727" title="Permalink to this equation">#</a></span>\[\begin{equation}
 c_n = \sqrt{\frac{2}{500}} \int_0^{500} {\rm sin}\left(\frac{n \pi x}{500}\right) \cdot \Psi(x,t_0) \: dx \tag{4}
 \end{equation}\]</div>
 <p>where we have set <span class="math notranslate nohighlight">\(L = 500\)</span>.  We will use the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> function <code class="docutils literal notranslate"><span class="pre">trapz(fx,</span> <span class="pre">x)</span></code> to perform a trapezoid rule approximation to
@@ -729,7 +729,7 @@ particle in a box given the quantum number <span class="math notranslate nohighl
   return np.asarray(x, float)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f6ee0e71a90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f7070036af0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/711bc72365ba3170f4fb3279bda7b1836a6b49ec6ac82f751805a1c15ff6c8cd.png" src="../../_images/711bc72365ba3170f4fb3279bda7b1836a6b49ec6ac82f751805a1c15ff6c8cd.png" />
@@ -973,42 +973,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img49366d10dcd447749ad85cb7a67c41e7">
+  <img id="_anim_imge31ef5e0697d4bebba8216cd359ae5e1">
   <div class="anim-controls">
-    <input id="_anim_slider49366d10dcd447749ad85cb7a67c41e7" type="range" class="anim-slider"
+    <input id="_anim_slidere31ef5e0697d4bebba8216cd359ae5e1" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim49366d10dcd447749ad85cb7a67c41e7.set_frame(parseInt(this.value));">
+           oninput="anime31ef5e0697d4bebba8216cd359ae5e1.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim49366d10dcd447749ad85cb7a67c41e7.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anime31ef5e0697d4bebba8216cd359ae5e1.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim49366d10dcd447749ad85cb7a67c41e7.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anime31ef5e0697d4bebba8216cd359ae5e1.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim49366d10dcd447749ad85cb7a67c41e7.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anime31ef5e0697d4bebba8216cd359ae5e1.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim49366d10dcd447749ad85cb7a67c41e7.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anime31ef5e0697d4bebba8216cd359ae5e1.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim49366d10dcd447749ad85cb7a67c41e7.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anime31ef5e0697d4bebba8216cd359ae5e1.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim49366d10dcd447749ad85cb7a67c41e7.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anime31ef5e0697d4bebba8216cd359ae5e1.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim49366d10dcd447749ad85cb7a67c41e7.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anime31ef5e0697d4bebba8216cd359ae5e1.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim49366d10dcd447749ad85cb7a67c41e7.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anime31ef5e0697d4bebba8216cd359ae5e1.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim49366d10dcd447749ad85cb7a67c41e7.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anime31ef5e0697d4bebba8216cd359ae5e1.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select49366d10dcd447749ad85cb7a67c41e7"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selecte31ef5e0697d4bebba8216cd359ae5e1"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_49366d10dcd447749ad85cb7a67c41e7"
+      <input type="radio" name="state" value="once" id="_anim_radio1_e31ef5e0697d4bebba8216cd359ae5e1"
              >
-      <label for="_anim_radio1_49366d10dcd447749ad85cb7a67c41e7">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_49366d10dcd447749ad85cb7a67c41e7"
+      <label for="_anim_radio1_e31ef5e0697d4bebba8216cd359ae5e1">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_e31ef5e0697d4bebba8216cd359ae5e1"
              checked>
-      <label for="_anim_radio2_49366d10dcd447749ad85cb7a67c41e7">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_49366d10dcd447749ad85cb7a67c41e7"
+      <label for="_anim_radio2_e31ef5e0697d4bebba8216cd359ae5e1">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_e31ef5e0697d4bebba8216cd359ae5e1"
              >
-      <label for="_anim_radio3_49366d10dcd447749ad85cb7a67c41e7">Reflect</label>
+      <label for="_anim_radio3_e31ef5e0697d4bebba8216cd359ae5e1">Reflect</label>
     </form>
   </div>
 </div>
@@ -1018,9 +1018,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img49366d10dcd447749ad85cb7a67c41e7";
-    var slider_id = "_anim_slider49366d10dcd447749ad85cb7a67c41e7";
-    var loop_select_id = "_anim_loop_select49366d10dcd447749ad85cb7a67c41e7";
+    var img_id = "_anim_imge31ef5e0697d4bebba8216cd359ae5e1";
+    var slider_id = "_anim_slidere31ef5e0697d4bebba8216cd359ae5e1";
+    var loop_select_id = "_anim_loop_selecte31ef5e0697d4bebba8216cd359ae5e1";
     var frames = new Array(300);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -167382,7 +167382,7 @@ GRSAhBBCCCE+4/8HYu3gcyGrBoQAAAAASUVORK5CYII=\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim49366d10dcd447749ad85cb7a67c41e7 = new Animation(frames, img_id, slider_id, 100.0,
+        anime31ef5e0697d4bebba8216cd359ae5e1 = new Animation(frames, img_id, slider_id, 100.0,
                                  loop_select_id);
     }, 0);
   })()

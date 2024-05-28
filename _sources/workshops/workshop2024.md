@@ -51,9 +51,8 @@ AI" <br> **[Dr. Ardith Bravenec](https://depts.washington.edu/astrobio/wordpress
 |    Time         |   Activity   |
 | :------------   | -------------: |
 | 8:30 am - 9:00 am |  **Breakfast and Tour of ESCIP repository part 2, Prof. Davit Potoyan (escip.github.io)** |
-| 9:00-9:15 am|  **[Prof. Chris Richardson](https://facstaff.elon.edu/crichardson17/), Elon University** |
 | 9:15-10:00 am | "Intro to ChemCompute" <br> **[Prof. Mark Perri](https://chemistry.sonoma.edu/faculty-staff/mark-j-perri), Sonoma State University**|
-| 11:00 am - 12 am | Work on Python/ChatGPT materials in small groups  |
+| 10:00 am - 12 am | Work on Python/ChatGPT materials in small groups  |
 | 12 pm - 1 pm | Lunch and informal discussions |
 | 1  pm - 2 pm | Concluding remarks by attendees |
 | 3 pm - 6 pm | Tour of Des Moines Capitol and East Village |
