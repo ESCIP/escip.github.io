@@ -11,7 +11,7 @@
 :::
 
 
-## Tentative Schedule of Events
+## Schedule
 
 ### Wednesday May 29, 2024
 
