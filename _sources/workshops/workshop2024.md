@@ -38,8 +38,7 @@
 | 3:45 pm - 4:00 pm | **Discussion**|
 | 4:00 pm - 4:45 pm | "ChatGPT as an ‘Agent to Think With" <br> **[Prof. Ted Clark ](https://chemistry.osu.edu/people/clark.789), Ohio State University**|
 | 4:45 pm - 5:00 pm | **Discussion**|
-| 5:00-5:45 pm | "Inspiring Individual Intelligence: Constructivist Learning with Python Notebooks and
-AI" <br> **[Dr. Ardith Bravenec](https://depts.washington.edu/astrobio/wordpress/profile/ardith-bravenec/), University of Washington**|
+| 5:00-5:45 pm | "Inspiring Individual Intelligence: Constructivist Learning with Python Notebooks and AI" <br> **[Dr. Ardith Bravenec](https://depts.washington.edu/astrobio/wordpress/profile/ardith-bravenec/), University of Washington**|
 | 5:00-6:00 pm | **Dinner and lightning talks**|
 | 5:00-5:15 pm|  "Implementing high-performance computing in undergraduate education" <br> **[Prof. Pavel Lukashev](https://chas.uni.edu/physics/directory/pavel-lukashev), University of Northern Iowa**|
 | 5:20:5:35 pm | "Exploring ChatGPT's Role in STEM Education: Benefits and Challenges in Liberal Arts Classrooms" <br> **[Prof. Shanshan Rodriguez](https://www.grinnell.edu/user/rodriguezs), Grinell College**|
