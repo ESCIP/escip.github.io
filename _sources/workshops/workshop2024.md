@@ -42,7 +42,7 @@
 | 5:00-6:00 pm | **Dinner and lightning talks**|
 | 5:00-5:15 pm|  "Implementing high-performance computing in undergraduate education" <br> **[Prof. Pavel Lukashev](https://chas.uni.edu/physics/directory/pavel-lukashev), University of Northern Iowa**|
 | 5:20:5:35 pm | "Exploring ChatGPT's Role in STEM Education: Benefits and Challenges in Liberal Arts Classrooms" <br> **[Prof. Shanshan Rodriguez](https://www.grinnell.edu/user/rodriguezs), Grinell College**|
-| 5:40:5:55 pm | **[Dr. Subhadip Biswas](linkedin.com/in/biswas-subhadip), Iowa State University**|
+| 5:40:5:55 pm | "Teaching Molecular Dynamics in the age of ChatGPT" **[Dr. Subhadip Biswas](linkedin.com/in/biswas-subhadip), Iowa State University**|
 | 6:00 pm – 8:00pm | Social and Informal discussions |
 
 ### Friday May 31, 2024
