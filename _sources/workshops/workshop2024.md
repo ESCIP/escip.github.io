@@ -48,7 +48,7 @@
 
 |    Time         |   Activity   |
 | :------------   | -------------: |
-| 8:30 am - 9:00 am |  **Breakfast and Tour of ESCIP repository part 2, Prof. Davit Potoyan (escip.github.io)** |
+| 8:30 am - 9:00 am |  **Breakfast and Tour of ESCIP repository, Prof. Davit Potoyan (escip.github.io)** |
 | 9:15-10:00 am | "Intro to ChemCompute" <br> **[Prof. Mark Perri](https://chemistry.sonoma.edu/faculty-staff/mark-j-perri), Sonoma State University**|
 | 10:00-10:45 pm | "Inspiring Individual Intelligence: Constructivist Learning with Python Notebooks and AI" <br> **[Dr. Ardith Bravenec](https://depts.washington.edu/astrobio/wordpress/profile/ardith-bravenec/), University of Washington**|
 | 11:00 am - 12 am | Work on Python/ChatGPT materials in small groups  |
