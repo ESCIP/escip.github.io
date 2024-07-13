@@ -574,16 +574,16 @@ In this workbook, we will introduce matrix representations of each of these comp
 <p>Numpy arrays are special types of variables that can make use of different mathematical operation in the numpy library.  We will see that a lot of linear algebra operations can be performed with numpy arrays using very simple syntax.  Numpy arrays can have an arbitrary number of dimensions, but we will use 2-dimensional numpy arrays with
 a single column and multiple rows to denote a column vector.  We can take the transpose of these numpy arrays to represent a row vector.</p>
 <p>Here we will introduce the vector representation of special spin states that have precise value of z-spin, that is, they are the eigenstates of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c28e5cdd-ce49-4946-a9c1-06ec7a29f609">
-<span class="eqno">(35)<a class="headerlink" href="#equation-c28e5cdd-ce49-4946-a9c1-06ec7a29f609" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c90fe247-c503-419d-95e2-832222936d35">
+<span class="eqno">(35)<a class="headerlink" href="#equation-c90fe247-c503-419d-95e2-832222936d35" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\alpha}^{(z)} \rangle=
 \begin{bmatrix}
   1 \\
   0 \\
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-2fa38d60-fed8-492f-9f99-dce831e724b3">
-<span class="eqno">(36)<a class="headerlink" href="#equation-2fa38d60-fed8-492f-9f99-dce831e724b3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ba27d9b3-c442-4141-bfb3-f04f196687ae">
+<span class="eqno">(36)<a class="headerlink" href="#equation-ba27d9b3-c442-4141-bfb3-f04f196687ae" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\beta}^{(z)}\rangle =
 \begin{bmatrix}
   0 \\
@@ -592,15 +592,15 @@ a single column and multiple rows to denote a column vector.  We can take the tr
 \end{equation}\]</div>
 <p>We refer to these column vector representations of states as kets.</p>
 <p><span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\rangle\)</span> can be formed using the following syntax:
-<code class="docutils literal notranslate"><span class="pre">ket_alpha</span> <span class="pre">=</span> <span class="pre">np.array([[1],[0]])</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">ket_alpha</span> <span class="pre">=</span> <span class="pre">np.matrix('1;</span> <span class="pre">0')</span></code></p>
 <p>We can get the number of rows and number of columns (the shape) of this vector using <code class="docutils literal notranslate"><span class="pre">np.shape(ket_alpha)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># insert code to assign ket chi_alpha</span>
-<span class="n">ket_alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">ket_alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="s1">&#39;1; 0&#39;</span><span class="p">)</span>
 
 <span class="c1"># insert code to assign ket chi_beta</span>
-<span class="n">ket_beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">ket_beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="s1">&#39;0 ; 1&#39;</span><span class="p">)</span>
 
 <span class="c1"># insert code to print both kets</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|Chi_alpha&gt;&quot;</span><span class="p">)</span>
@@ -715,8 +715,8 @@ Printing shape of &lt;alpha|
 <p>We will use 2-dimensional numpy arrays with
 a an equal number of rows and columns to denote square matrices.<br />
 Let’s use as an example matrix representation of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dca098b4-065b-4956-a8f7-c56ffd9588a0">
-<span class="eqno">(37)<a class="headerlink" href="#equation-dca098b4-065b-4956-a8f7-c56ffd9588a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a23a976d-b7c2-4b74-90ce-d0b6baea16f3">
+<span class="eqno">(37)<a class="headerlink" href="#equation-a23a976d-b7c2-4b74-90ce-d0b6baea16f3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_z = \frac{\hbar}{2}
 \begin{bmatrix}
   1 &amp; 0 \\
@@ -724,7 +724,7 @@ Let’s use as an example matrix representation of the <span class="math notrans
 \end{bmatrix}
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(\mathbb{S}_z\)</span> can be formed using the following syntax:
-<code class="docutils literal notranslate"><span class="pre">Sz</span> <span class="pre">=</span> <span class="pre">hbar</span> <span class="pre">/</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">np.array([[1,</span> <span class="pre">0],[0,</span> <span class="pre">-1]])</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">Sz</span> <span class="pre">=</span> <span class="pre">hbar</span> <span class="pre">/</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">np.matrix('</span> <span class="pre">1</span> <span class="pre">0</span> <span class="pre">;</span> <span class="pre">0</span> <span class="pre">-1')</span></code></p>
 <p>You can take the shape of the Sz matrix as before; take note of how its shape compares to the shape of the bras and kets.</p>
 <p><strong>Note</strong> The value of <span class="math notranslate nohighlight">\(\hbar\)</span> in atomic units is 1.</p>
 <div class="cell docutils container">
@@ -734,7 +734,7 @@ Let’s use as an example matrix representation of the <span class="math notrans
 
 <span class="c1"># insert code to define the Sz matrix</span>
 
-<span class="n">Sz</span> <span class="o">=</span> <span class="n">hbar</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">Sz</span> <span class="o">=</span> <span class="n">hbar</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="s1">&#39; 1 0 ; 0 -1&#39;</span><span class="p">)</span>
 <span class="c1"># insert code to print the matrix</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Printing matrix representationof the Sz operator&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Sz</span><span class="p">)</span>
@@ -829,14 +829,14 @@ True
 <p>These relationships are preserved when we use the matrix - vector representation of operators and eigenstates.  In general, an eigenvalue equation with matrices and vectors satisfies</p>
 <div class="math notranslate nohighlight">
 \[ \mathbb{M} \bf{x} = \lambda \bf{x} \]</div>
-<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is an eigenvalue (which is a number) and <span class="math notranslate nohighlight">\(\bf{x}\)</span> is an eigenvector.  One way of interpreting these equations is to say that the action of a matrix on its eigenvectors is simply to scale the magnitude of the vector by a number (specifically, scale it by its eigenvalue).  This is a very special situation, because typically speaking, when a vector is multiplied by a matrix, the result is a new vector that points along a new direction and has a different magnitude.  For a lovely explanation with graphical illustrations, please consult <a class="reference external" href="https://youtu.be/PFDu9oVAE-g">this vide</a>.  In fact, the entire 3b1b series on linear algebra is wonderful!</p>
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is an eigenvalue (which is a number) and <span class="math notranslate nohighlight">\(\bf{x}\)</span> is an eigenvector.  One way of interpreting these equations is to say that the action of a matrix on its eigenvectors is simply to scale the magnitude of the vector by a number (specifically, scale it by its eigenvalue).  This is a very special situation, because typically speaking, when a vector is multiplied by a matrix, the result is a new vector that points along a new direction and has a different magnitude.  For a lovely explanation with graphical illustrations, please consult <a class="reference external" href="https://youtu.be/PFDu9oVAE-g">this video</a>.  In fact, the entire 3b1b series on linear algebra is wonderful!</p>
 <p>We have already seen that vectors associated with the basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\rangle\)</span> and <span class="math notranslate nohighlight">\(|\chi_{\beta}^{(z)}\rangle\)</span> obey this relationship with <span class="math notranslate nohighlight">\(\mathbb{S}_z\)</span>.  What we will now do, is consider the matrices associated with the spin angular momentum components along <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.  We will first see that the
 basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\rangle\)</span> and <span class="math notranslate nohighlight">\(|\chi_{\beta}^{(z)}\rangle\)</span> are not eigenvectors of <span class="math notranslate nohighlight">\(\mathbb{S}_x\)</span> and <span class="math notranslate nohighlight">\(\mathbb{S}_y\)</span>.  We will then use numpy’s linear algebra sub-library to compute the eigenvalues and eigenvectors of these matrices, which will turn out to be linear combinations of <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\rangle\)</span> and <span class="math notranslate nohighlight">\(|\chi_{\beta}^{(z)}\rangle\)</span>.</p>
 <section id="build-matrix-form-of-mathbb-s-x-and-mathbb-s-y">
 <h3>Build matrix form of <span class="math notranslate nohighlight">\(\mathbb{S}_x\)</span> and <span class="math notranslate nohighlight">\(\mathbb{S}_y\)</span><a class="headerlink" href="#build-matrix-form-of-mathbb-s-x-and-mathbb-s-y" title="Permalink to this heading">#</a></h3>
 <p>The operator <span class="math notranslate nohighlight">\(\hat{S}_x\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0fa7c539-2708-451d-a95e-44a1da62fd85">
-<span class="eqno">(38)<a class="headerlink" href="#equation-0fa7c539-2708-451d-a95e-44a1da62fd85" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b76c1236-a1ad-4058-86ba-5fa498f551f9">
+<span class="eqno">(38)<a class="headerlink" href="#equation-b76c1236-a1ad-4058-86ba-5fa498f551f9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_x = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; 1 \\
@@ -844,8 +844,8 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 \end{bmatrix}
 \end{equation}\]</div>
 <p>and the operator <span class="math notranslate nohighlight">\(\hat{S}_y\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2b64e82b-fc04-4344-8ebc-fdb02aad65d1">
-<span class="eqno">(39)<a class="headerlink" href="#equation-2b64e82b-fc04-4344-8ebc-fdb02aad65d1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c9f68827-f8cf-4fa0-9089-c7af59cfd69f">
+<span class="eqno">(39)<a class="headerlink" href="#equation-c9f68827-f8cf-4fa0-9089-c7af59cfd69f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_y = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; -i \\
@@ -856,10 +856,10 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># insert code to build Sx</span>
-<span class="n">Sx</span> <span class="o">=</span> <span class="n">hbar</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">Sx</span> <span class="o">=</span> <span class="n">hbar</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="s1">&#39;0 1 ; 1 0&#39;</span><span class="p">)</span>
 
 <span class="c1"># insert code to build Sy</span>
-<span class="n">Sy</span> <span class="o">=</span> <span class="n">hbar</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">Sy</span> <span class="o">=</span> <span class="n">hbar</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="s1">&#39;0 -1j ; 1j 0&#39;</span><span class="p">)</span> 
 
 <span class="c1"># print Sx</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Printing the matrix representation of the Sx operator&quot;</span><span class="p">)</span>
@@ -1033,9 +1033,9 @@ Eigenvectors of Sy
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The expectation value of Sx using the state |alpha_x&gt;
-0.4999999999999999
+[[0.5]]
 The expectation value of Sz using the state |alpha_y&gt;
-0j
+[[0.+0.j]]
 </pre></div>
 </div>
 </div>
