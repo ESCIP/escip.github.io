@@ -579,16 +579,16 @@ In this workbook, we will introduce matrix representations of each of these comp
 we will use 2-dimensional numpy matrices with
 a single column and multiple rows to denote a column vector as a representation of a ket.  We can take the Hermitian conjugate of our kets to get bras, which are represented as row vectors.</p>
 <p>Here we will introduce the vector representation of special spin states (spinors) that have precise value of z-spin, that is, they are the eigenstates of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c084fe8d-2f07-4349-9f67-8c3e7d81e945">
-<span class="eqno">(35)<a class="headerlink" href="#equation-c084fe8d-2f07-4349-9f67-8c3e7d81e945" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b055c064-1d68-4a09-9137-fb60c09e8ce3">
+<span class="eqno">(35)<a class="headerlink" href="#equation-b055c064-1d68-4a09-9137-fb60c09e8ce3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\alpha}^{(z)} \rangle=
 \begin{bmatrix}
   1 \\
   0 \\
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-71d2e68e-a519-4fb3-a348-479fbfce2c16">
-<span class="eqno">(36)<a class="headerlink" href="#equation-71d2e68e-a519-4fb3-a348-479fbfce2c16" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a113a116-86d2-44d8-81c2-552ac80f7654">
+<span class="eqno">(36)<a class="headerlink" href="#equation-a113a116-86d2-44d8-81c2-552ac80f7654" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\beta}^{(z)}\rangle =
 \begin{bmatrix}
   0 \\
@@ -720,8 +720,8 @@ Printing shape of &lt;alpha|
 <p>We will use 2-dimensional numpy arrays with
 a an equal number of rows and columns to denote square matrices.<br />
 Let’s use as an example matrix representation of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd43c161-c2d9-49da-a586-435d907b8d47">
-<span class="eqno">(37)<a class="headerlink" href="#equation-bd43c161-c2d9-49da-a586-435d907b8d47" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6b8a7d2d-8180-452d-850e-4ea34c6e99bd">
+<span class="eqno">(37)<a class="headerlink" href="#equation-6b8a7d2d-8180-452d-850e-4ea34c6e99bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_z = \frac{\hbar}{2}
 \begin{bmatrix}
   1 &amp; 0 \\
@@ -841,8 +841,8 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 <section id="build-matrix-form-of-mathbb-s-x-and-mathbb-s-y">
 <h3>Build matrix form of <span class="math notranslate nohighlight">\(\mathbb{S}_x\)</span> and <span class="math notranslate nohighlight">\(\mathbb{S}_y\)</span><a class="headerlink" href="#build-matrix-form-of-mathbb-s-x-and-mathbb-s-y" title="Permalink to this heading">#</a></h3>
 <p>The operator <span class="math notranslate nohighlight">\(\hat{S}_x\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e147fd38-f076-4f35-82e5-b4f8f05a4941">
-<span class="eqno">(38)<a class="headerlink" href="#equation-e147fd38-f076-4f35-82e5-b4f8f05a4941" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-70e555bc-4cc5-486d-9dd7-1cff4533c08d">
+<span class="eqno">(38)<a class="headerlink" href="#equation-70e555bc-4cc5-486d-9dd7-1cff4533c08d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_x = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; 1 \\
@@ -850,8 +850,8 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 \end{bmatrix}
 \end{equation}\]</div>
 <p>and the operator <span class="math notranslate nohighlight">\(\hat{S}_y\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87890112-f890-4f69-baea-a1d1e9bc93cf">
-<span class="eqno">(39)<a class="headerlink" href="#equation-87890112-f890-4f69-baea-a1d1e9bc93cf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8f34f922-de88-4113-a816-2a2669c26672">
+<span class="eqno">(39)<a class="headerlink" href="#equation-8f34f922-de88-4113-a816-2a2669c26672" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_y = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; -i \\
@@ -1123,16 +1123,16 @@ Printing difference between [Sz,Sx] and i\hbar Sy
 </div>
 </div>
 <p>The spin matrices we have seen can be written in terms of the Pauli matrices as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-14ff53a7-3a0d-49e4-bfae-776380927d38">
-<span class="eqno">(40)<a class="headerlink" href="#equation-14ff53a7-3a0d-49e4-bfae-776380927d38" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9c9c143c-d8a2-481d-85d8-0793ce28ce71">
+<span class="eqno">(40)<a class="headerlink" href="#equation-9c9c143c-d8a2-481d-85d8-0793ce28ce71" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{S}_x = \frac{\hbar}{2}\mathbf{\sigma}_x \\
 \mathbb{S}_y = \frac{\hbar}{2}\mathbf{\sigma}_y \\
 \mathbb{S}_z = \frac{\hbar}{2}\mathbf{\sigma}_z.
 \end{align}\]</div>
 <p>Among other things, the Pauli matrices play an important role in quantum information, and specifically comprise important <a class="reference external" href="https://en.wikipedia.org/wiki/Quantum_logic_gate">quantum gates</a>.</p>
 <p>As one example, the so-called Hadamard gate can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-47eaf7b5-aaf1-42df-a63e-2573382170da">
-<span class="eqno">(41)<a class="headerlink" href="#equation-47eaf7b5-aaf1-42df-a63e-2573382170da" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4166cb7c-59a2-4652-a925-d45d726535be">
+<span class="eqno">(41)<a class="headerlink" href="#equation-4166cb7c-59a2-4652-a925-d45d726535be" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{H} = \frac{1}{\sqrt{2}} \left( \mathbf{\sigma}_x + \mathbf{\sigma}_z \right) \tag.
 \end{equation}\]</div>
 <p><strong>Question 9:</strong> Demonstrate numerically that <span class="math notranslate nohighlight">\(\mathbb{H} |\chi_{\alpha}^{z}\rangle = |\chi_{\alpha}^{x}\rangle \)</span>
