@@ -28,7 +28,7 @@ parts:
     - file: notebooks/astro/star_formation_v3
     - file: notebooks/astro/emission_line_galaxy_classification_v2
     - file: notebooks/astro/sdss_tutorial_1
-  
+    
   - file: notebooks/chem/chem
     sections:
     - file: notebooks/chem/langevin-dynamics-results
