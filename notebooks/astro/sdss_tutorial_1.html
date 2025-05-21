@@ -179,7 +179,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="astro.html">Astronomy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/python.html">Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/python-basics.html">What is Python?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="astro.html">Astronomy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="star_formation_v3.html">Star Formation in Galaxies</a></li>
 
 
@@ -200,7 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">SDSS Tutorial #1:  Data Querying and Visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chem/chem.html">Chemistry</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chem/chem.html">Chemistry</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chem/langevin-dynamics-results.html">Langevin Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chem/openmm_lj_chain.html">Simulating toy polymers using openMM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chem/linear_variational_method.html">Linear Variational Method</a></li>
@@ -227,7 +231,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../chem/Spin_one_half_solutions.html">Introduction to Spin 1/2 Using NumPy</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../phys/fourier_transform.html">Fourier Transforms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part1.html">Fitting Models to Data (Part 1)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part2.html">Fitting Models to Data (Part 2)</a></li>
@@ -574,9 +578,9 @@ document.write(`
 <p>We’ll start off by importing the <em>matplotlib</em> library and some of its modules:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
 <span class="o">%</span><span class="k">config</span> InlineBackend.rc = {}
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pylab</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pylab</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1"># If everything imports without a problem, the next line should print...</span>
@@ -597,7 +601,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll need to import the numerical Python (Numpy) library if we want to generate random data</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Here we&#39;ll use a function in the Numpy library to generate some random numbers between zero and one, in arrays 50 elements long...</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">50</span>
@@ -621,7 +625,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8839452b4052a19c545e27b7c31a0a6f88093c9f17806696f3a30ecd2ff50da7.png" src="../../_images/8839452b4052a19c545e27b7c31a0a6f88093c9f17806696f3a30ecd2ff50da7.png" />
+<img alt="../../_images/46d84797463f085c04230043744b23a8edc02173ac9cee35f8c0d4e972a4dc1c.png" src="../../_images/46d84797463f085c04230043744b23a8edc02173ac9cee35f8c0d4e972a4dc1c.png" />
 </div>
 </div>
 <p>In the case where you have two sets of data that you want to show on the same plot, you can also do that easily with the <strong>scatter</strong> function.  To help make it understandable, you’ll want to add a <strong>labels</strong> and a <strong>legend</strong>.  An example of how to do that is shown below.</p>
@@ -659,7 +663,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/de0e376b70dc2eedea0e31fa1f26afff5a91a8d3c458d80bebf6feb2635c3221.png" src="../../_images/de0e376b70dc2eedea0e31fa1f26afff5a91a8d3c458d80bebf6feb2635c3221.png" />
+<img alt="../../_images/9f6d50de08a1e3b5d7b2fda192c25ce0801381da2a9ed39f2c82ea4f1807a914.png" src="../../_images/9f6d50de08a1e3b5d7b2fda192c25ce0801381da2a9ed39f2c82ea4f1807a914.png" />
 </div>
 </div>
 <p>If you wanted to compare the distribution of cats and dogs along the x-axis, a <strong>histogram</strong> is probably the easiest way to do that…</p>
@@ -679,7 +683,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ec87198b85cfb855ad38ee7670a4720438ff8de5e74b0207a2d43291a092babc.png" src="../../_images/ec87198b85cfb855ad38ee7670a4720438ff8de5e74b0207a2d43291a092babc.png" />
+<img alt="../../_images/ef825e637966fe102f7c6bb4833874169f547deff9e89b64f95585faf804304e.png" src="../../_images/ef825e637966fe102f7c6bb4833874169f547deff9e89b64f95585faf804304e.png" />
 </div>
 </div>
 <p>If the overlap in the samples is too confusing, you can change the format of the histogram (<strong>histtype</strong>) so that it’s not filled in.  Different line styles (<strong>ls</strong>) will make sure the plot is readable even if it’s printed in black and white.</p>
@@ -698,7 +702,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ca4869d3dce748fd8d3244de9b3310f8c204d4249032530cff35b3b456e950f3.png" src="../../_images/ca4869d3dce748fd8d3244de9b3310f8c204d4249032530cff35b3b456e950f3.png" />
+<img alt="../../_images/0b318b9fe4241cbeea93a2e1d7de42db77c979c25ea1c1d8b5aa9675034aa984.png" src="../../_images/0b318b9fe4241cbeea93a2e1d7de42db77c979c25ea1c1d8b5aa9675034aa984.png" />
 </div>
 </div>
 <p>Normalizing the histograms (using the keyword: <strong>density=‘True’</strong>) makes it easier to compare the shapes of distributions even when one sample is much more numerous than the other.  This is calculated by dividing each bin by the total area of the histogram.</p>
@@ -717,7 +721,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e786c0fcf32def0de02d97b6d3d2be3f424c38d44d3c831e06bc1d5f17309fa5.png" src="../../_images/e786c0fcf32def0de02d97b6d3d2be3f424c38d44d3c831e06bc1d5f17309fa5.png" />
+<img alt="../../_images/76b252c4759979df6ba8aa3566b02841b7c7389808723bebd5b85c2ce0563bdb.png" src="../../_images/76b252c4759979df6ba8aa3566b02841b7c7389808723bebd5b85c2ce0563bdb.png" />
 </div>
 </div>
 <section id="your-turn-what-happens-if-you-change-the-style-of-the-plot">
@@ -744,12 +748,12 @@ You can find examples for inspiration <a class="reference external" href="http:/
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import Python libraries to work with SciServer (see http://www.sciserver.org/docs/sciscript-python/)</span>
 
-<span class="kn">import</span> <span class="nn">SciServer.CasJobs</span> <span class="k">as</span> <span class="nn">CasJobs</span> <span class="c1"># query with CasJobs, the primary database for the SDSS</span>
-<span class="kn">import</span> <span class="nn">SciServer.SkyServer</span> <span class="k">as</span> <span class="nn">SkyServer</span> <span class="c1"># show individual objects through SkyServer</span>
-<span class="kn">import</span> <span class="nn">SciServer.SciDrive</span>           <span class="c1"># read/write to/from SciDrive, cloud-based storage for your work</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                  <span class="c1"># standard Python library for math operations</span>
-<span class="kn">import</span> <span class="nn">pandas</span>                       <span class="c1"># package for structuring and visualizing data</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>     <span class="c1"># package for graphing and visualization </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">SciServer.CasJobs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">CasJobs</span> <span class="c1"># query with CasJobs, the primary database for the SDSS</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">SciServer.SkyServer</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">SkyServer</span> <span class="c1"># show individual objects through SkyServer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">SciServer.SciDrive</span>           <span class="c1"># read/write to/from SciDrive, cloud-based storage for your work</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>                  <span class="c1"># standard Python library for math operations</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span>                       <span class="c1"># package for structuring and visualizing data</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>     <span class="c1"># package for graphing and visualization </span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SciServer libraries imported&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -759,9 +763,9 @@ You can find examples for inspiration <a class="reference external" href="http:/
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Import Python libraries to work with SciServer (see http://www.sciserver.org/docs/sciscript-python/)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">SciServer.CasJobs</span> <span class="k">as</span> <span class="nn">CasJobs</span> <span class="c1"># query with CasJobs, the primary database for the SDSS</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">SciServer.SkyServer</span> <span class="k">as</span> <span class="nn">SkyServer</span> <span class="c1"># show individual objects through SkyServer</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">SciServer.SciDrive</span>           <span class="c1"># read/write to/from SciDrive, cloud-based storage for your work</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">SciServer.CasJobs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">CasJobs</span> <span class="c1"># query with CasJobs, the primary database for the SDSS</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">SciServer.SkyServer</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">SkyServer</span> <span class="c1"># show individual objects through SkyServer</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span><span class="w"> </span><span class="nn">SciServer.SciDrive</span>           <span class="c1"># read/write to/from SciDrive, cloud-based storage for your work</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;SciServer&#39;
 </pre></div>
@@ -775,7 +779,7 @@ You can find examples for inspiration <a class="reference external" href="http:/
 <span class="c1"># ensures columns get written completely in notebook</span>
 <span class="n">pandas</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># do *not* show python warnings </span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Settings applied&#39;</span><span class="p">)</span>
 </pre></div>

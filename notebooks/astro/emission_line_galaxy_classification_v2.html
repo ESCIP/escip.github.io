@@ -181,7 +181,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="astro.html">Astronomy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/python.html">Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/python-basics.html">What is Python?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="astro.html">Astronomy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="star_formation_v3.html">Star Formation in Galaxies</a></li>
 
 
@@ -202,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="sdss_tutorial_1.html">SDSS Tutorial #1:  Data Querying and Visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chem/chem.html">Chemistry</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chem/chem.html">Chemistry</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chem/langevin-dynamics-results.html">Langevin Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chem/openmm_lj_chain.html">Simulating toy polymers using openMM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chem/linear_variational_method.html">Linear Variational Method</a></li>
@@ -229,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../chem/Spin_one_half_solutions.html">Introduction to Spin 1/2 Using NumPy</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../phys/fourier_transform.html">Fourier Transforms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part1.html">Fitting Models to Data (Part 1)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part2.html">Fitting Models to Data (Part 2)</a></li>
@@ -567,11 +571,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import relevant libraries</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># data analysis </span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># more data analysis</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> <span class="c1"># plotting library</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># another plotting library</span>
-<span class="kn">from</span> <span class="nn">astroquery.sdss</span> <span class="kn">import</span> <span class="n">SDSS</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># data analysis </span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> <span class="c1"># more data analysis</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span> <span class="c1"># plotting library</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># another plotting library</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.sdss</span><span class="w"> </span><span class="kn">import</span> <span class="n">SDSS</span>
 </pre></div>
 </div>
 </div>
@@ -579,11 +583,11 @@ document.write(`
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># data analysis </span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># more data analysis</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span> <span class="c1"># plotting library</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># another plotting library</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">astroquery.sdss</span> <span class="kn">import</span> <span class="n">SDSS</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># data analysis </span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> <span class="c1"># more data analysis</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span> <span class="c1"># plotting library</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># another plotting library</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.sdss</span><span class="w"> </span><span class="kn">import</span> <span class="n">SDSS</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
 </pre></div>
@@ -595,7 +599,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make notebook have a clean appearance</span>
 
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1111,7 +1115,7 @@ document.write(`
 <p>The [O III]/[O I] vs. [O II]/[Ne III] diagram does a reasonable job in separating AGN and SF galaxies. We can make this separation more explicit by adding a demarcation line. Since we might want to generate this plot over and over, we can make define a function that will do it for us.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_diagram</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_diagram</span><span class="p">():</span>
 
     <span class="n">o2ne3_demarc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.19</span><span class="p">)</span>
     <span class="n">o3o1_demarc</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.055</span> <span class="o">/</span> <span class="p">(</span><span class="n">o2ne3_demarc</span> <span class="o">-</span> <span class="mf">1.19</span><span class="p">))</span> <span class="o">+</span> <span class="mf">1.35</span>
@@ -1158,7 +1162,7 @@ options: [0.0, 0.04, 0.08, 0.16, 0.32, 0.64, 1.0]</p>
 <span class="c1">#print (model_grid.columns) # useful to check out the column names in the file</span>
 
 <span class="c1"># function to restrict the model parameter space</span>
-<span class="k">def</span> <span class="nf">apply_limits</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="n">f_agn</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">Z</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_limits</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="n">f_agn</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">Z</span><span class="p">):</span>
     
     <span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[(</span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;AGNFRAC&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">f_agn</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;LOGZ&#39;</span><span class="p">],</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">Z</span><span class="p">),</span><span class="mi">5</span><span class="p">))</span> \
                 <span class="o">&amp;</span> <span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;MIXING&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39; coincident&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;LOGU&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">U</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;LOGU&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">U</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
@@ -1235,7 +1239,7 @@ options: [0.0, 0.04, 0.08, 0.16, 0.32, 0.64, 1.0]</p>
 <p>The BPT diagram remains a hot topic in academic literature today. In fact, the <code>GalSpecExtra</code> schema actually uses the BPT diagram to classify galaxies as AGN or star forming. If we use the standard demarcations from literature, it is no surprise in the plot the below that all of the AGN and star forming galaxies are perfectly separated. There is even an additional class of galaxies known as “composites” that are thought to represent a transition state between purly star forming galaxies and those excited purely by an AGN.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_bpt_plot</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_bpt_plot</span><span class="p">():</span>
     
     <span class="n">gals_comp</span> <span class="o">=</span> <span class="n">quality_gals</span><span class="p">[(</span><span class="n">quality_gals</span><span class="p">[</span><span class="s1">&#39;bptclass&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">3</span><span class="p">)]</span>
 

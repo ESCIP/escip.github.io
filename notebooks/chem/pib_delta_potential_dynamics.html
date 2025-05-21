@@ -181,7 +181,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../astro/astro.html">Astronomy</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/python.html">Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/python-basics.html">What is Python?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../astro/astro.html">Astronomy</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../astro/star_formation_v3.html">Star Formation in Galaxies</a></li>
 
 
@@ -202,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../astro/sdss_tutorial_1.html">SDSS Tutorial #1:  Data Querying and Visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="chem.html">Chemistry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chem.html">Chemistry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="langevin-dynamics-results.html">Langevin Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openmm_lj_chain.html">Simulating toy polymers using openMM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_variational_method.html">Linear Variational Method</a></li>
@@ -229,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Spin_one_half_solutions.html">Introduction to Spin 1/2 Using NumPy</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../phys/fourier_transform.html">Fourier Transforms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part1.html">Fitting Models to Data (Part 1)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part2.html">Fitting Models to Data (Part 2)</a></li>
@@ -552,12 +556,12 @@ the particle in a box states, and to express the wavefunction in terms of the am
 <h2>Step 0:  Import libraries and initialize a plot object for the animation<a class="headerlink" href="#step-0-import-libraries-and-initialize-a-plot-object-for-the-animation" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span><span class="p">,</span> <span class="n">rc</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">animation</span><span class="p">,</span> <span class="n">rc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
 
 
 <span class="c1"># First set up the figure, the axis, and the plot element we want to animate</span>
@@ -579,7 +583,7 @@ the particle in a box states, and to express the wavefunction in terms of the am
 <span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># initialization function: plot the background of each frame</span>
-<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">():</span>
     <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">,)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -601,8 +605,8 @@ energy eigenfunctions of the ordinary particle in a box as this basis, where the
 <div class="math notranslate nohighlight">
 \[ \psi_n(x) = \sqrt{ \frac{2}{10} } {\rm sin}\left( \frac{n \pi x}{10} \right), \tag{3} \]</div>
 <p>and the elements of <span class="math notranslate nohighlight">\( {\bf H}\)</span> will be given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c170a9e0-9788-40c2-a24f-aa6894b3a67e">
-<span class="eqno">(19)<a class="headerlink" href="#equation-c170a9e0-9788-40c2-a24f-aa6894b3a67e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b1001302-4c79-4f10-8cf7-b7e1a3222823">
+<span class="eqno">(19)<a class="headerlink" href="#equation-b1001302-4c79-4f10-8cf7-b7e1a3222823" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H_{nm} = \int_0^{10} \psi^*_n(x) \hat{H} \psi_m(x) dx. \tag{4} 
 \end{equation}\]</div>
 <p>Because the basis set comprised of all <span class="math notranslate nohighlight">\(\psi_n(x)\)</span> is complete, we can represent our wavefunction at any instant in time as a linear combination of these basis functions:</p>
@@ -630,8 +634,8 @@ Runge-Kutta Method.  In this approach, we approximate the <span class="math notr
 <div class="math notranslate nohighlight">
 \[ {\bf c}(t_0 + \Delta t) = {\bf c}(t_0) + \frac{1}{6}\left(k_1 + 2k_2 + 2k_3 + k_4 \right)\Delta t \tag{9} \]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32c22d5f-5f59-4be2-9fa4-79fa99bec0cf">
-<span class="eqno">(20)<a class="headerlink" href="#equation-32c22d5f-5f59-4be2-9fa4-79fa99bec0cf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9fb29fda-d414-43e7-a23e-059f410db024">
+<span class="eqno">(20)<a class="headerlink" href="#equation-9fb29fda-d414-43e7-a23e-059f410db024" title="Permalink to this equation">#</a></span>\[\begin{align}
 k_1 &amp;= -\frac{i}{\hbar} {\bf H}(t_0) {\bf c}(t_0) \\
 k_2 &amp;= -\frac{i}{\hbar} {\bf H}\left(t_0 + \frac{\Delta t}{2}\right) \left( {\bf c}(t_0) + k_1 \frac{\Delta t}{2} \right) \\ \tag{10}
 k_3 &amp;= -\frac{i}{\hbar} {\bf H}\left(t_0 + \frac{\Delta t}{2}\right) \left( {\bf c}(t_0) + k_2 \frac{\Delta t}{2} \right) \\
@@ -654,7 +658,7 @@ In the case that <span class="math notranslate nohighlight">\({\bf H}\)</span> i
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">energy_eigenvalue</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">energy_eigenvalue</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Helper function to take the quantum number n of the particle in a box, the length </span>
 <span class="sd">        of the box L, and the mass of the particle m and return the energy eigenvalue in atomic units.</span>
 <span class="sd">        Both the length and mass should be in atomic units.</span>
@@ -672,7 +676,7 @@ In the case that <span class="math notranslate nohighlight">\({\bf H}\)</span> i
         
     <span class="k">return</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">L</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">energy_eigenfunction</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">energy_eigenfunction</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Helper function to take the quantum number n of the particle in a box, the length </span>
 <span class="sd">        of the box L, and x-coordinate value(s) (single value or list) and return the corresponding</span>
 <span class="sd">        energy eigenstate value(s) of the ordinary particle in a box</span>
@@ -688,7 +692,7 @@ In the case that <span class="math notranslate nohighlight">\({\bf H}\)</span> i
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">Hamiltonian_matrix_element</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">Hamiltonian_matrix_element</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Helper function to take two indices (n, m) and return the Hamiltonian matrix element H_{n,m}, </span>
 <span class="sd">        which is &lt;n|H|m&gt; in Dirac&#39;s Bra-Ket notation.  This will call Kinetic_matrix_element(n, m) and</span>
 <span class="sd">        Potential_matrix_element(n, m).</span>
@@ -722,7 +726,7 @@ In the case that <span class="math notranslate nohighlight">\({\bf H}\)</span> i
     <span class="n">H_nm</span> <span class="o">=</span> <span class="n">Kinetic_matrix_element</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">Potential_matrix_element</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">H_nm</span>
 
-<span class="k">def</span> <span class="nf">Kinetic_matrix_element</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">Kinetic_matrix_element</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Function to take two indices (n, m) and return the Kinetic Energy matrix element T_{n,m}, </span>
 <span class="sd">        which is &lt;n|T|m&gt; in Dirac&#39;s Bra-Ket notation.  </span>
 <span class="sd">    </span>
@@ -747,7 +751,7 @@ In the case that <span class="math notranslate nohighlight">\({\bf H}\)</span> i
     <span class="n">T_nm</span> <span class="o">=</span> <span class="n">energy_eigenvalue</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="n">m</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">T_nm</span>
 
-<span class="k">def</span> <span class="nf">Potential_matrix_element</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">Potential_matrix_element</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Function to take two indices (n, m) and return the Hamiltonian matrix element V_{n,m}, </span>
 <span class="sd">        which is &lt;n|V|m&gt; in Dirac&#39;s Bra-Ket notation and V = \delta(x-5)</span>
 <span class="sd">    </span>
@@ -771,7 +775,7 @@ In the case that <span class="math notranslate nohighlight">\({\bf H}\)</span> i
     <span class="n">V_nm</span> <span class="o">=</span> <span class="n">energy_eigenfunction</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="n">energy_eigenfunction</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">V_nm</span>
 
-<span class="k">def</span> <span class="nf">build_matrices</span><span class="p">(</span><span class="n">n_basis</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">build_matrices</span><span class="p">(</span><span class="n">n_basis</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Function that will build and return the Hamiltonian, Kinetic, and Potential energy matrices</span>
 <span class="sd">    </span>
 <span class="sd">    Arguments</span>
@@ -807,7 +811,7 @@ In the case that <span class="math notranslate nohighlight">\({\bf H}\)</span> i
             <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">Potential_matrix_element</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">H</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">V</span>
 
-<span class="k">def</span> <span class="nf">compute_c_dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_c_dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Function that will compute d/dt c(t_0) using -i/hbar H * c </span>
 <span class="sd">    </span>
 <span class="sd">    Arguments</span>
@@ -830,7 +834,7 @@ In the case that <span class="math notranslate nohighlight">\({\bf H}\)</span> i
     <span class="n">c_dot</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">ci</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">c_dot</span>
 
-<span class="k">def</span> <span class="nf">euler_update</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">euler_update</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Function that will take c(t0) and H and return c(t0 + dt)</span>
 <span class="sd">    </span>
 <span class="sd">    Arguments</span>
@@ -857,7 +861,7 @@ In the case that <span class="math notranslate nohighlight">\({\bf H}\)</span> i
     <span class="n">c_new</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">c_dot</span> <span class="o">*</span> <span class="n">dt</span>
     <span class="k">return</span> <span class="n">c_new</span>
 
-<span class="k">def</span> <span class="nf">rk4_update</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rk4_update</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Function that will take c(t0) and H and return c(t0 + dt)</span>
 <span class="sd">    </span>
 <span class="sd">    Arguments</span>
@@ -981,7 +985,7 @@ in <code class="docutils literal notranslate"><span class="pre">c_vec</span></co
 
 
 <span class="c1"># animation function. This is called sequentially  </span>
-<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_basis</span><span class="p">):</span>
         <span class="n">fx</span> <span class="o">=</span> <span class="n">energy_eigenfunction</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -1186,42 +1190,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img20b46dbd8f174935b2e32260323345b8">
+  <img id="_anim_img6ed0ac9671ea47fca637792cf6d5dccb">
   <div class="anim-controls">
-    <input id="_anim_slider20b46dbd8f174935b2e32260323345b8" type="range" class="anim-slider"
+    <input id="_anim_slider6ed0ac9671ea47fca637792cf6d5dccb" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim20b46dbd8f174935b2e32260323345b8.set_frame(parseInt(this.value));">
+           oninput="anim6ed0ac9671ea47fca637792cf6d5dccb.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim20b46dbd8f174935b2e32260323345b8.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim6ed0ac9671ea47fca637792cf6d5dccb.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim20b46dbd8f174935b2e32260323345b8.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim6ed0ac9671ea47fca637792cf6d5dccb.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim20b46dbd8f174935b2e32260323345b8.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim6ed0ac9671ea47fca637792cf6d5dccb.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim20b46dbd8f174935b2e32260323345b8.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim6ed0ac9671ea47fca637792cf6d5dccb.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim20b46dbd8f174935b2e32260323345b8.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim6ed0ac9671ea47fca637792cf6d5dccb.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim20b46dbd8f174935b2e32260323345b8.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim6ed0ac9671ea47fca637792cf6d5dccb.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim20b46dbd8f174935b2e32260323345b8.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim6ed0ac9671ea47fca637792cf6d5dccb.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim20b46dbd8f174935b2e32260323345b8.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim6ed0ac9671ea47fca637792cf6d5dccb.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim20b46dbd8f174935b2e32260323345b8.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim6ed0ac9671ea47fca637792cf6d5dccb.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select20b46dbd8f174935b2e32260323345b8"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select6ed0ac9671ea47fca637792cf6d5dccb"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_20b46dbd8f174935b2e32260323345b8"
+      <input type="radio" name="state" value="once" id="_anim_radio1_6ed0ac9671ea47fca637792cf6d5dccb"
              >
-      <label for="_anim_radio1_20b46dbd8f174935b2e32260323345b8">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_20b46dbd8f174935b2e32260323345b8"
+      <label for="_anim_radio1_6ed0ac9671ea47fca637792cf6d5dccb">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_6ed0ac9671ea47fca637792cf6d5dccb"
              checked>
-      <label for="_anim_radio2_20b46dbd8f174935b2e32260323345b8">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_20b46dbd8f174935b2e32260323345b8"
+      <label for="_anim_radio2_6ed0ac9671ea47fca637792cf6d5dccb">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_6ed0ac9671ea47fca637792cf6d5dccb"
              >
-      <label for="_anim_radio3_20b46dbd8f174935b2e32260323345b8">Reflect</label>
+      <label for="_anim_radio3_6ed0ac9671ea47fca637792cf6d5dccb">Reflect</label>
     </form>
   </div>
 </div>
@@ -1231,9 +1235,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img20b46dbd8f174935b2e32260323345b8";
-    var slider_id = "_anim_slider20b46dbd8f174935b2e32260323345b8";
-    var loop_select_id = "_anim_loop_select20b46dbd8f174935b2e32260323345b8";
+    var img_id = "_anim_img6ed0ac9671ea47fca637792cf6d5dccb";
+    var slider_id = "_anim_slider6ed0ac9671ea47fca637792cf6d5dccb";
+    var loop_select_id = "_anim_loop_select6ed0ac9671ea47fca637792cf6d5dccb";
     var frames = new Array(500);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -162508,7 +162512,7 @@ RK5CYII=\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim20b46dbd8f174935b2e32260323345b8 = new Animation(frames, img_id, slider_id, 100.0,
+        anim6ed0ac9671ea47fca637792cf6d5dccb = new Animation(frames, img_id, slider_id, 100.0,
                                  loop_select_id);
     }, 0);
   })()

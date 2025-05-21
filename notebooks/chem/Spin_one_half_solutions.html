@@ -181,7 +181,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../astro/astro.html">Astronomy</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/python.html">Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/python-basics.html">What is Python?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../astro/astro.html">Astronomy</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../astro/star_formation_v3.html">Star Formation in Galaxies</a></li>
 
 
@@ -202,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../astro/sdss_tutorial_1.html">SDSS Tutorial #1:  Data Querying and Visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="chem.html">Chemistry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chem.html">Chemistry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="langevin-dynamics-results.html">Langevin Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="openmm_lj_chain.html">Simulating toy polymers using openMM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear_variational_method.html">Linear Variational Method</a></li>
@@ -229,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction to Spin 1/2 Using NumPy</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../phys/fourier_transform.html">Fourier Transforms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part1.html">Fitting Models to Data (Part 1)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part2.html">Fitting Models to Data (Part 2)</a></li>
@@ -562,8 +566,8 @@ In this workbook, we will introduce matrix representations of each of these comp
 <p>We will import the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library and it’s linear algebra module for working with the spin matrices and vectors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">la</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">la</span>
 </pre></div>
 </div>
 </div>
@@ -575,16 +579,16 @@ In this workbook, we will introduce matrix representations of each of these comp
 we will use 2-dimensional numpy matrices with
 a single column and multiple rows to denote a column vector as a representation of a ket.  We can take the Hermitian conjugate of our kets to get bras, which are represented as row vectors.</p>
 <p>Here we will introduce the vector representation of special spin states (spinors) that have precise value of z-spin, that is, they are the eigenstates of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-514f75fc-ec82-44a4-8a33-6cbaa6dab330">
-<span class="eqno">(35)<a class="headerlink" href="#equation-514f75fc-ec82-44a4-8a33-6cbaa6dab330" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-39f02355-b757-42b8-a51e-e0b48ed546df">
+<span class="eqno">(35)<a class="headerlink" href="#equation-39f02355-b757-42b8-a51e-e0b48ed546df" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\alpha}^{(z)} \rangle=
 \begin{bmatrix}
   1 \\
   0 \\
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-68e91a6f-558d-4ce5-9317-363aea73253b">
-<span class="eqno">(36)<a class="headerlink" href="#equation-68e91a6f-558d-4ce5-9317-363aea73253b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-12d88f0c-d403-43ac-abfc-890bd07d97fb">
+<span class="eqno">(36)<a class="headerlink" href="#equation-12d88f0c-d403-43ac-abfc-890bd07d97fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\beta}^{(z)}\rangle =
 \begin{bmatrix}
   0 \\
@@ -716,8 +720,8 @@ Printing shape of &lt;alpha|
 <p>We will use 2-dimensional numpy arrays with
 a an equal number of rows and columns to denote square matrices.<br />
 Let’s use as an example matrix representation of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8a077186-ac12-4cdf-ba0d-40f188f0b24f">
-<span class="eqno">(37)<a class="headerlink" href="#equation-8a077186-ac12-4cdf-ba0d-40f188f0b24f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dc927fe2-d5d4-4016-9c1e-7a38c78c3997">
+<span class="eqno">(37)<a class="headerlink" href="#equation-dc927fe2-d5d4-4016-9c1e-7a38c78c3997" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_z = \frac{\hbar}{2}
 \begin{bmatrix}
   1 &amp; 0 \\
@@ -837,8 +841,8 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 <section id="build-matrix-form-of-mathbb-s-x-and-mathbb-s-y">
 <h3>Build matrix form of <span class="math notranslate nohighlight">\(\mathbb{S}_x\)</span> and <span class="math notranslate nohighlight">\(\mathbb{S}_y\)</span><a class="headerlink" href="#build-matrix-form-of-mathbb-s-x-and-mathbb-s-y" title="Permalink to this heading">#</a></h3>
 <p>The operator <span class="math notranslate nohighlight">\(\hat{S}_x\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd23ee8a-ec43-4dbf-ac71-8366c80fb3af">
-<span class="eqno">(38)<a class="headerlink" href="#equation-bd23ee8a-ec43-4dbf-ac71-8366c80fb3af" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-90630be9-7bb7-4d17-974a-0e93563cd568">
+<span class="eqno">(38)<a class="headerlink" href="#equation-90630be9-7bb7-4d17-974a-0e93563cd568" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_x = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; 1 \\
@@ -846,8 +850,8 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 \end{bmatrix}
 \end{equation}\]</div>
 <p>and the operator <span class="math notranslate nohighlight">\(\hat{S}_y\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-70e01a80-3f0b-4dbd-a37a-34011d3e3734">
-<span class="eqno">(39)<a class="headerlink" href="#equation-70e01a80-3f0b-4dbd-a37a-34011d3e3734" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-160556a7-9f61-46b1-bc61-471622a2264a">
+<span class="eqno">(39)<a class="headerlink" href="#equation-160556a7-9f61-46b1-bc61-471622a2264a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_y = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; -i \\
@@ -1119,16 +1123,16 @@ Printing difference between [Sz,Sx] and i\hbar Sy
 </div>
 </div>
 <p>The spin matrices we have seen can be written in terms of the Pauli matrices as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b63073f5-1007-4f26-8163-48cc6396703d">
-<span class="eqno">(40)<a class="headerlink" href="#equation-b63073f5-1007-4f26-8163-48cc6396703d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3a3bc8d7-e33c-4f97-8ea8-f8ae81c321a6">
+<span class="eqno">(40)<a class="headerlink" href="#equation-3a3bc8d7-e33c-4f97-8ea8-f8ae81c321a6" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{S}_x = \frac{\hbar}{2}\mathbf{\sigma}_x \\
 \mathbb{S}_y = \frac{\hbar}{2}\mathbf{\sigma}_y \\
 \mathbb{S}_z = \frac{\hbar}{2}\mathbf{\sigma}_z.
 \end{align}\]</div>
 <p>Among other things, the Pauli matrices play an important role in quantum information, and specifically comprise important <a class="reference external" href="https://en.wikipedia.org/wiki/Quantum_logic_gate">quantum gates</a>.</p>
 <p>As one example, the so-called Hadamard gate can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9d6b103f-33e3-44d2-bed1-d2d459a7b065">
-<span class="eqno">(41)<a class="headerlink" href="#equation-9d6b103f-33e3-44d2-bed1-d2d459a7b065" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3b66f6e6-3699-4fcc-855f-71c9c525bfbc">
+<span class="eqno">(41)<a class="headerlink" href="#equation-3b66f6e6-3699-4fcc-855f-71c9c525bfbc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{H} = \frac{1}{\sqrt{2}} \left( \mathbf{\sigma}_x + \mathbf{\sigma}_z \right) \tag.
 \end{equation}\]</div>
 <p><strong>Question 9:</strong> Demonstrate numerically that <span class="math notranslate nohighlight">\(\mathbb{H} |\chi_{\alpha}^{z}\rangle = |\chi_{\alpha}^{x}\rangle \)</span>

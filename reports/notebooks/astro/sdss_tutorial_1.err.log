@@ -31,9 +31,9 @@ print('SciServer libraries imported')
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
 Cell [0;32mIn[8], line 3[0m
 [1;32m      1[0m [38;5;66;03m# Import Python libraries to work with SciServer (see http://www.sciserver.org/docs/sciscript-python/)[39;00m
-[0;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01mSciServer[39;00m[38;5;21;01m.[39;00m[38;5;21;01mCasJobs[39;00m [38;5;28;01mas[39;00m [38;5;21;01mCasJobs[39;00m [38;5;66;03m# query with CasJobs, the primary database for the SDSS[39;00m
-[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mSciServer[39;00m[38;5;21;01m.[39;00m[38;5;21;01mSkyServer[39;00m [38;5;28;01mas[39;00m [38;5;21;01mSkyServer[39;00m [38;5;66;03m# show individual objects through SkyServer[39;00m
-[1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mSciServer[39;00m[38;5;21;01m.[39;00m[38;5;21;01mSciDrive[39;00m           [38;5;66;03m# read/write to/from SciDrive, cloud-based storage for your work[39;00m
+[0;32m----> 3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mSciServer[39;00m[38;5;21;01m.[39;00m[38;5;21;01mCasJobs[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mCasJobs[39;00m [38;5;66;03m# query with CasJobs, the primary database for the SDSS[39;00m
+[1;32m      4[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mSciServer[39;00m[38;5;21;01m.[39;00m[38;5;21;01mSkyServer[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mSkyServer[39;00m [38;5;66;03m# show individual objects through SkyServer[39;00m
+[1;32m      5[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mSciServer[39;00m[38;5;21;01m.[39;00m[38;5;21;01mSciDrive[39;00m           [38;5;66;03m# read/write to/from SciDrive, cloud-based storage for your work[39;00m
 
 [0;31mModuleNotFoundError[0m: No module named 'SciServer'
 

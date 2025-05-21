@@ -180,7 +180,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../astro/astro.html">Astronomy</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/python.html">Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/python-basics.html">What is Python?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../astro/astro.html">Astronomy</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../astro/star_formation_v3.html">Star Formation in Galaxies</a></li>
 
 
@@ -201,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../astro/sdss_tutorial_1.html">SDSS Tutorial #1:  Data Querying and Visualization</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chem/chem.html">Chemistry</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chem/chem.html">Chemistry</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chem/langevin-dynamics-results.html">Langevin Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chem/openmm_lj_chain.html">Simulating toy polymers using openMM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chem/linear_variational_method.html">Linear Variational Method</a></li>
@@ -228,7 +232,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../chem/Spin_one_half_solutions.html">Introduction to Spin 1/2 Using NumPy</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="phys.html">Physics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="phys.html">Physics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="fourier_transform.html">Fourier Transforms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modelfit_part1.html">Fitting Models to Data (Part 1)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Fitting Models to Data (Part 2)</a></li>
@@ -576,23 +580,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2024-07-14 00:16:13--  https://drive.google.com/uc?export=download&amp;id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG
-Resolving drive.google.com (drive.google.com)... 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2025-05-21 21:13:02--  https://drive.google.com/uc?export=download&amp;id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>142.250.189.238, 2607:f8b0:4005:814::200e
-Connecting to drive.google.com (drive.google.com)|142.250.189.238|:443... connected.
-HTTP request sent, awaiting response... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>303 See Other
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Resolving drive.google.com (drive.google.com)... 142.251.111.101, 142.251.111.113, 142.251.111.100, ...
+Connecting to drive.google.com (drive.google.com)|142.251.111.101|:443... connected.
+HTTP request sent, awaiting response... 303 See Other
 Location: https://drive.usercontent.google.com/download?id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG&amp;export=download [following]
---2024-07-14 00:16:14--  https://drive.usercontent.google.com/download?id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG&amp;export=download
+--2025-05-21 21:13:02--  https://drive.usercontent.google.com/download?id=1BWet8_t2gyNGtFNMP_1opqcYBHDinEfG&amp;export=download
 Resolving drive.usercontent.google.com (drive.usercontent.google.com)... 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>142.250.189.161, 2607:f8b0:4005:80c::2001
-Connecting to drive.usercontent.google.com (drive.usercontent.google.com)|142.250.189.161|:443... connected.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>142.251.179.132, 2607:f8b0:4004:c17::84
+Connecting to drive.usercontent.google.com (drive.usercontent.google.com)|142.251.179.132|:443... connected.
 HTTP request sent, awaiting response... 
 </pre></div>
 </div>
@@ -604,7 +604,7 @@ Saving to: ‘star-mass-lum-lumerr.dat’
 star-mass-lum-lumer   0%[                    ]       0  --.-KB/s               
 star-mass-lum-lumer 100%[===================&gt;]   7.61K  --.-KB/s    in 0s      
 
-2024-07-14 00:16:16 (85.6 MB/s) - ‘star-mass-lum-lumerr.dat’ saved [7790/7790]
+2025-05-21 21:13:04 (89.0 MB/s) - ‘star-mass-lum-lumerr.dat’ saved [7790/7790]
 </pre></div>
 </div>
 </div>
@@ -782,7 +782,7 @@ print(chi2_orig)
 <p>One way to visualize the uncertainties on A and alpha is to plot many different variations of our power law model where we slightly change the values of A and alpha in a manner consistent with the uncertainties on those parameters. The function below generates 100 random pairs (A,alpha) that are consistent with the uncertainties on those parameters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rand_A_alpha</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">A_err</span><span class="p">,</span><span class="n">alpha_err</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rand_A_alpha</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">A_err</span><span class="p">,</span><span class="n">alpha_err</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;Given input values of A and alpha and uncertainties on each value, generate</span>
 <span class="sd">    100 pairs (A,alpha) such that the generated parameters form a gaussian</span>
 <span class="sd">    distribution about the input values with a 1-sigma width given by the </span>
