@@ -19,6 +19,10 @@ parts:
     - file: workshops/workshop2022
 - caption: Notebooks
   chapters:
+  - file: notebooks/python/python
+    sections:
+    - file: notebooks/python/python-basics
+    
   - file: notebooks/astro/astro
     sections:
     - file: notebooks/astro/star_formation_v3
