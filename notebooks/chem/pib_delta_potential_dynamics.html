@@ -182,7 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../python/python.html">Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../python/python-basics.html">What is Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python/python-basics-fixed.html">What is Python?</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../astro/astro.html">Astronomy</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -605,8 +605,8 @@ energy eigenfunctions of the ordinary particle in a box as this basis, where the
 <div class="math notranslate nohighlight">
 \[ \psi_n(x) = \sqrt{ \frac{2}{10} } {\rm sin}\left( \frac{n \pi x}{10} \right), \tag{3} \]</div>
 <p>and the elements of <span class="math notranslate nohighlight">\( {\bf H}\)</span> will be given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a0339217-036f-4e18-baf7-b83919f25fdf">
-<span class="eqno">(19)<a class="headerlink" href="#equation-a0339217-036f-4e18-baf7-b83919f25fdf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b584a5cf-49a0-44f7-875b-a3d427f94b20">
+<span class="eqno">(19)<a class="headerlink" href="#equation-b584a5cf-49a0-44f7-875b-a3d427f94b20" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H_{nm} = \int_0^{10} \psi^*_n(x) \hat{H} \psi_m(x) dx. \tag{4} 
 \end{equation}\]</div>
 <p>Because the basis set comprised of all <span class="math notranslate nohighlight">\(\psi_n(x)\)</span> is complete, we can represent our wavefunction at any instant in time as a linear combination of these basis functions:</p>
@@ -634,8 +634,8 @@ Runge-Kutta Method.  In this approach, we approximate the <span class="math notr
 <div class="math notranslate nohighlight">
 \[ {\bf c}(t_0 + \Delta t) = {\bf c}(t_0) + \frac{1}{6}\left(k_1 + 2k_2 + 2k_3 + k_4 \right)\Delta t \tag{9} \]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-259dc498-f126-4c04-b259-5146096e1041">
-<span class="eqno">(20)<a class="headerlink" href="#equation-259dc498-f126-4c04-b259-5146096e1041" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1e1f8ea6-e78e-4e29-97ee-80163216958a">
+<span class="eqno">(20)<a class="headerlink" href="#equation-1e1f8ea6-e78e-4e29-97ee-80163216958a" title="Permalink to this equation">#</a></span>\[\begin{align}
 k_1 &amp;= -\frac{i}{\hbar} {\bf H}(t_0) {\bf c}(t_0) \\
 k_2 &amp;= -\frac{i}{\hbar} {\bf H}\left(t_0 + \frac{\Delta t}{2}\right) \left( {\bf c}(t_0) + k_1 \frac{\Delta t}{2} \right) \\ \tag{10}
 k_3 &amp;= -\frac{i}{\hbar} {\bf H}\left(t_0 + \frac{\Delta t}{2}\right) \left( {\bf c}(t_0) + k_2 \frac{\Delta t}{2} \right) \\
@@ -1190,42 +1190,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_img610d39b66def43adb88dba98a7aaf553">
+  <img id="_anim_img4b3776b9920c4a03b9132fad1e29d764">
   <div class="anim-controls">
-    <input id="_anim_slider610d39b66def43adb88dba98a7aaf553" type="range" class="anim-slider"
+    <input id="_anim_slider4b3776b9920c4a03b9132fad1e29d764" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="anim610d39b66def43adb88dba98a7aaf553.set_frame(parseInt(this.value));">
+           oninput="anim4b3776b9920c4a03b9132fad1e29d764.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim610d39b66def43adb88dba98a7aaf553.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim4b3776b9920c4a03b9132fad1e29d764.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="anim610d39b66def43adb88dba98a7aaf553.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim4b3776b9920c4a03b9132fad1e29d764.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="anim610d39b66def43adb88dba98a7aaf553.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim4b3776b9920c4a03b9132fad1e29d764.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="anim610d39b66def43adb88dba98a7aaf553.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim4b3776b9920c4a03b9132fad1e29d764.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="anim610d39b66def43adb88dba98a7aaf553.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim4b3776b9920c4a03b9132fad1e29d764.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="anim610d39b66def43adb88dba98a7aaf553.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim4b3776b9920c4a03b9132fad1e29d764.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="anim610d39b66def43adb88dba98a7aaf553.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim4b3776b9920c4a03b9132fad1e29d764.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="anim610d39b66def43adb88dba98a7aaf553.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim4b3776b9920c4a03b9132fad1e29d764.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="anim610d39b66def43adb88dba98a7aaf553.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim4b3776b9920c4a03b9132fad1e29d764.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select610d39b66def43adb88dba98a7aaf553"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select4b3776b9920c4a03b9132fad1e29d764"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_610d39b66def43adb88dba98a7aaf553"
+      <input type="radio" name="state" value="once" id="_anim_radio1_4b3776b9920c4a03b9132fad1e29d764"
              >
-      <label for="_anim_radio1_610d39b66def43adb88dba98a7aaf553">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_610d39b66def43adb88dba98a7aaf553"
+      <label for="_anim_radio1_4b3776b9920c4a03b9132fad1e29d764">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_4b3776b9920c4a03b9132fad1e29d764"
              checked>
-      <label for="_anim_radio2_610d39b66def43adb88dba98a7aaf553">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_610d39b66def43adb88dba98a7aaf553"
+      <label for="_anim_radio2_4b3776b9920c4a03b9132fad1e29d764">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_4b3776b9920c4a03b9132fad1e29d764"
              >
-      <label for="_anim_radio3_610d39b66def43adb88dba98a7aaf553">Reflect</label>
+      <label for="_anim_radio3_4b3776b9920c4a03b9132fad1e29d764">Reflect</label>
     </form>
   </div>
 </div>
@@ -1235,9 +1235,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_img610d39b66def43adb88dba98a7aaf553";
-    var slider_id = "_anim_slider610d39b66def43adb88dba98a7aaf553";
-    var loop_select_id = "_anim_loop_select610d39b66def43adb88dba98a7aaf553";
+    var img_id = "_anim_img4b3776b9920c4a03b9132fad1e29d764";
+    var slider_id = "_anim_slider4b3776b9920c4a03b9132fad1e29d764";
+    var loop_select_id = "_anim_loop_select4b3776b9920c4a03b9132fad1e29d764";
     var frames = new Array(500);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -162512,7 +162512,7 @@ RK5CYII=\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        anim610d39b66def43adb88dba98a7aaf553 = new Animation(frames, img_id, slider_id, 100.0,
+        anim4b3776b9920c4a03b9132fad1e29d764 = new Animation(frames, img_id, slider_id, 100.0,
                                  loop_select_id);
     }, 0);
   })()

@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/python/python-basics';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/python/python-basics-fixed';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Astronomy" href="../astro/astro.html" />
@@ -293,7 +293,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/python/python-basics.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/python/python-basics-fixed.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -311,7 +311,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/python/python-basics.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/python/python-basics-fixed.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +377,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/python/python-basics.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/python/python-basics-fixed.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -407,7 +407,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/notebooks/python/python-basics.ipynb" target="_blank"
+      <li><a href="../../_sources/notebooks/python/python-basics-fixed.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -527,34 +527,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div style="text-align:center;">
-  <img src="./images/act-cms-banner-light.png" style="display: block; margin: 0 auto; max-height:250px;">
-</div>
-<div>
-<center>
-<a href="https://act-cms.molssi.org/">act-cms.molssi.org</a>
-</center>
-</div>
-<div style="text-align:center;">
+  <p align="center">
+  <img src="./images/act-cms-banner-light.png" width="400">
+</p>
+<p><a class="reference external" href="https://act-cms.molssi.org/">act-cms.molssi.org</a></p>
 <p><strong>This notebook is also available on Google Colab. Click the badge below to open in Colab.</strong></p>
 <a target="_blank" href="https://colab.research.google.com/drive/1oNhFvNEuxpSC5ESWwt5t78qbq39iqm5r">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
-</div>
 <section class="tex2jax_ignore mathjax_ignore" id="what-is-python">
 <h1>What is Python?<a class="headerlink" href="#what-is-python" title="Permalink to this heading">#</a></h1>
-<div class="alert alert-block alert-info">
-    <strong>Questions:</strong>
-    <ul>
-        <li>What is the Python programming language, and what is it used for?</li>
-        <li>What are the advantages and disadvantages of using Python?</li>
-        <li>What is a Jupyter notebook?</li>
-    </ul>
-<p><strong>Objectives:</strong></p>
-  <ul>
-      <li>Describe the Python programming language and its uses.</li>
-      <li>Learn the basics of the Jupyter notebook.</li>
-  </ul>
+<div class="info admonition">
+<p class="admonition-title">Questions:</p>
+<p>What is the Python programming language, and what is it used for?
+What are the advantages and disadvantages of using Python?
+What is a Jupyter notebook?</p>
+<p>Objectives:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Describe the Python programming language and its uses.
+  Learn the basics of the Jupyter notebook.
+</pre></div>
+</div>
 </div>
 <section id="what-is-python-and-why-use-it">
 <h2>What is Python and why use it?<a class="headerlink" href="#what-is-python-and-why-use-it" title="Permalink to this heading">#</a></h2>
@@ -707,15 +699,11 @@ Comments are also often used to explain what the code is doing or leave informat
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-warning">
-<strong>Check Your Understanding</strong>
-<p>
-Write some code below to calculate the pressure of an ideal gas using the ideal gas law.
-The ideal gas law is given by: PV = nRT, where P is the pressure, V is the volume, n is the number of moles, R is the ideal gas constant, and T is the temperature in Kelvin.
-</p>
-<p>
-Define Python variable for each term in the ideal gas law and calculate the pressure of an ideal gas at 300 K, 1 L, 1 mol, and R = 0.0821 L atm / (mol K).
-</p>
+<div class="warning admonition">
+<p class="admonition-title">Check Your Understanding</p>
+<p>Write some code below to calculate the pressure of an ideal gas using the ideal gas law.
+The ideal gas law is given by: PV = nRT, where P is the pressure, V is the volume, n is the number of moles, R is the ideal gas constant, and T is the temperature in Kelvin.</p>
+<p>Define Python variable for each term in the ideal gas law and calculate the pressure of an ideal gas at 300 K, 1 L, 1 mol, and R = 0.0821 L atm / (mol K).</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -812,15 +800,12 @@ Notice that in Python, just calling a function or performing a calculation with 
 <p>Now, you can see that we have changed the value of <code class="docutils literal notranslate"><span class="pre">pressure</span></code> to the rounded value of <code class="docutils literal notranslate"><span class="pre">pressure</span></code>.<br />
 Is this really what we wanted to do?
 There are situations where it is reasonable to overwrite a variable with a new value, but you should always think carefully about this. Usually it is a better practice to give the variable a new name and leave the existing variable as is.</p>
-<div class="alert alert-block alert-warning">
-<p><strong>Check Your Understanding</strong></p>
-<p>
-Round your deltaG calculation to 2 decimal places and print it out.
-</p>
-<p>
-Should you save your rounded value to a new variable or overwrite the existing variable?
-</p>
-</div></section>
+<div class="warning admonition">
+<p class="admonition-title">Check Your Understanding</p>
+<p>Round your deltaG calculation to 2 decimal places and print it out.</p>
+<p>Should you save your rounded value to a new variable or overwrite the existing variable?</p>
+</div>
+</section>
 <section id="data-types">
 <h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading">#</a></h2>
 <p>When working with computers and programming languages, the concept of a data type is very important.
@@ -965,7 +950,6 @@ The maximum of the energy values is 42.1
 </div>
 </div>
 <p>If you do not include a start index, the slice automatically starts at list_name[0]. If you do not include an end index, the slice automatically goes to the end of the list.</p>
-<div class="alert alert-block alert-warning">
 </section>
 <section id="check-your-understanding">
 <h3>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this heading">#</a></h3>
@@ -977,7 +961,6 @@ The maximum of the energy values is 42.1
 </pre></div>
 </div>
 <p>See if you can predict the output, then check yourself in the cells below.</p>
-</div>
 </section>
 </section>
 <section id="repeating-an-operation-many-times-for-loops">
@@ -1097,22 +1080,16 @@ Conditional statements are also called “if statements”, and allow your progr
 <p>In Python, you can use words like <code class="docutils literal notranslate"><span class="pre">not</span></code> in your conditional statement.
 You can also use <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> to check more than one condition.
 To define what happens if the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is not met, you can use the <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword.</p>
-<div class="alert alert-block alert-warning">
-<p><strong>Final Challenge</strong></p>
-<p>
-Calculate ∆G for a reation with ∆H=1.52 kJ/mol and ∆S=5.1 J/K mol for 100 K, 150 K, 200 K, 250 K, 300 K, 350 K, and 400 K.
+<div class="warning admonition">
+<p class="admonition-title">Final Challenge</p>
+<p>Calculate ∆G for a reation with ∆H=1.52 kJ/mol and ∆S=5.1 J/K mol for 100 K, 150 K, 200 K, 250 K, 300 K, 350 K, and 400 K.
 You should create two lists: one with ∆G values and one with temperatures for which the reaction is spontaneous.
-Save the ∆G values in a list called `deltaG_list` and the temperatures for which the reaction is spontaneous in a list called `spontaneous_temp_list`.
-</p>
+Save the ∆G values in a list called <code class="docutils literal notranslate"><span class="pre">deltaG_list</span></code> and the temperatures for which the reaction is spontaneous in a list called <code class="docutils literal notranslate"><span class="pre">spontaneous_temp_list</span></code>.</p>
 <p>Steps:</p>
-<ul>
-  <li>Define a list of temperatures
-  <li> Create empty lists called `spontaneous_temp_list` and `deltaG_list`
-  <li> Use a for loop to calculate ∆G for each temperature.
-</ul>
-<p>
-  <strong>Make sure you pay attention to units.</strong>
-</p>
+<p>Define a list of temperatures
+Create empty lists called <code class="docutils literal notranslate"><span class="pre">spontaneous_temp_list</span></code> and <code class="docutils literal notranslate"><span class="pre">deltaG_list</span></code>
+Use a for loop to calculate ∆G for each temperature.</p>
+<p>Make sure you pay attention to units.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1121,17 +1098,15 @@ Save the ∆G values in a list called `deltaG_list` and the temperatures for whi
 </div>
 </div>
 </div>
-<div class="alert alert-block alert-success">
-    <strong>Key Points:</strong>
-    <ul>
-        <li>Python is a popular programming language.</li>
-        <li>You can show text on the screen with the <code>print()</code> function.</li>
-        <li>Variables are like boxes that store information, such as numbers or words.</li>
-        <li>Variables have a data type like decimal numbers, integers, or words ("strings").</li>
-        <li>You can do math in Python, like adding (<code>+</code>) or dividing (<code>/</code>) numbers.</li>
-        <li>Use <code>#</code> to write comments, which are notes in your code for people to read.</li>
-        <li>Indentation (spaces at the start of a line) is very important in Python to group your code.</li>
-    </ul>
+<div class="success admonition">
+<p class="admonition-title">Key Points:</p>
+<p>Python is a popular programming language.
+You can show text on the screen with the print() function.
+Variables are like boxes that store information, such as numbers or words.
+Variables have a data type like decimal numbers, integers, or words (“strings”).
+You can do math in Python, like adding (+) or dividing (/) numbers.
+Use # to write comments, which are notes in your code for people to read.
+Indentation (spaces at the start of a line) is very important in Python to group your code.</p>
 </div>
 </section>
 </section>
