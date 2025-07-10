@@ -37,10 +37,10 @@ parts:
     - file: notebooks/chem/gaussian_wavepacket
     - file: notebooks/chem/pib_delta_potential_dynamics
     - file: notebooks/chem/carbonyl_binary_classification
-    - file: notebooks/chem/CO_Fundamental
     - file: notebooks/chem/Spin_one_half_solutions
+    - file: notebooks/chem/CO_Fundamental
+    - file: notebooks/chem/Spin_one_half_DR
     - file: notebooks/chem/CO_Fundamental_DR
-    - file: notebooks/chem/Spin_one_half_DR 
  
   - file: notebooks/phys/phys
     sections:
