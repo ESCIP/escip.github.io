@@ -567,13 +567,28 @@ document.write(`
 <p><a class="reference external" href="https://foleylab.github.io/">Jay Foley, University of North Carolina Charlotte</a></p>
 <section id="overview-and-motivation-for-using-the-design-recipe">
 <h2>Overview and Motivation for Using the Design Recipe<a class="headerlink" href="#overview-and-motivation-for-using-the-design-recipe" title="Permalink to this heading">#</a></h2>
-<p>This notebook introduces a structured pedagogical approach to function design known as the <a class="reference external" href="https://course.ccs.neu.edu/cs2500f18/design_recipe.html">Design Recipe</a>. The Design Recipe provides a systematic framework for helping students design, implement, and test functions in a clear, repeatable way.</p>
-<p>The motivation for adopting this approach is supported by findings from a recent study by <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.jchemed.4c00219">Fuchs, McDonald, Gautam, and Kzerouni (2024)</a>, which explored barriers students face when learning programming in the disciplinary context of Physical Chemistry. Key challenges identified include:</p>
+<p>This notebook introduces a structured pedagogical approach to function design known as the <a class="reference external" href="https://course.ccs.neu.edu/cs2500f18/design_recipe.html">Design Recipe</a>. The Design Recipe offers a systematic, step-by-step framework to help students design, implement, and test functions in a repeatable and transparent way.</p>
+<p>There are two primary motivations for incorporating this approach into instruction:</p>
+<hr class="docutils" />
+<p><strong>1. Research-Based Support for Teaching Programming Skills in Disciplinary Contexts</strong></p>
+<p>A recent study by <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.jchemed.4c00219">Fuchs, McDonald, Gautam, and Kzerouni (2024)</a> highlights the challenges students face when learning to program in domains like Physical Chemistry. The study identifies several persistent barriers:</p>
 <ul class="simple">
-<li><p>Difficulty transferring programming knowledge to new problems and representations</p></li>
-<li><p>Lack of structured strategies for approaching programming tasks</p></li>
+<li><p>Difficulty transferring programming skills to new contexts and representations</p></li>
+<li><p>Absence of reliable, structured strategies for solving programming problems</p></li>
 </ul>
-<p>The authors recommend that instructors explicitly teach the skills of <strong>abstraction</strong>, <strong>decomposition</strong>, and <strong>metacognitive awareness</strong> to help students overcome these challenges. The Design Recipe offers a concrete instructional tool to implement this recommendation. By breaking down the process of function creation into clear steps, it encourages students to think critically and systematically—skills that are essential across disciplines.</p>
+<p>To address these challenges, the authors recommend that instructors explicitly teach three core cognitive skills:<br />
+<strong>abstraction</strong>, <strong>decomposition</strong>, and <strong>metacognitive awareness</strong>.</p>
+<p>The Design Recipe directly supports this recommendation. By requiring students to articulate function goals, design examples, and incrementally refine their code, it makes the process of problem-solving visible and teachable. Instructors can use it to scaffold not just coding, but computational thinking more broadly.</p>
+<hr class="docutils" />
+<p><strong>2. Enhancing Student Engagement When Using AI-Based Coding Tools</strong></p>
+<p>A second motivation is the hypothesis that structured approaches like the Design Recipe may improve how students interact with AI-based coding agents. With tools such as ChatGPT increasingly integrated into programming workflows, students often lack the skills to guide these tools effectively or interpret their outputs critically.</p>
+<p>By giving students a clear framework for specifying and testing their intentions, the Design Recipe can promote:</p>
+<ul class="simple">
+<li><p><strong>Greater agency</strong> in directing code generation</p></li>
+<li><p><strong>Improved precision</strong> when communicating with AI tools</p></li>
+<li><p><strong>Better judgment</strong> when reviewing and debugging AI-generated code</p></li>
+</ul>
+<p>This notebook explores how the Design Recipe can be used to support both disciplinary learning and productive human–AI collaboration in code development.</p>
 <hr class="docutils" />
 </section>
 <section id="the-design-recipe-step-by-step">
@@ -725,16 +740,16 @@ PChem
 we will use 2-dimensional numpy matrices with
 a single column and multiple rows to denote a column vector as a representation of a ket.  We can take the Hermitian conjugate of our kets to get bras, which are represented as row vectors.</p>
 <p>Here we will introduce the vector representation of special spin states (spinors) that have precise value of z-spin, that is, they are the eigenstates of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dfe69a4f-561a-4801-8986-0c462556f4d8">
-<span class="eqno">(42)<a class="headerlink" href="#equation-dfe69a4f-561a-4801-8986-0c462556f4d8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1715b9fe-e811-4019-92ee-3eb85aefad50">
+<span class="eqno">(42)<a class="headerlink" href="#equation-1715b9fe-e811-4019-92ee-3eb85aefad50" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\alpha \rangle=
 \begin{bmatrix}
   1 \\
   0 \\
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-fc86583f-cf49-45d7-8359-919729009749">
-<span class="eqno">(43)<a class="headerlink" href="#equation-fc86583f-cf49-45d7-8359-919729009749" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8ce702a0-0753-48ae-925c-a98e50b31588">
+<span class="eqno">(43)<a class="headerlink" href="#equation-8ce702a0-0753-48ae-925c-a98e50b31588" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\beta \rangle =
 \begin{bmatrix}
   0 \\
@@ -928,8 +943,8 @@ we are using <span class="math notranslate nohighlight">\(\chi_n\)</span> and <s
 <section id="define-the-sz-operator">
 <h3>🧩 Define the Sz Operator<a class="headerlink" href="#define-the-sz-operator" title="Permalink to this heading">#</a></h3>
 <p>The spin operator <span class="math notranslate nohighlight">\(S_z\)</span> for a spin-½ particle is defined as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-67cccebb-0c7a-4c9c-8d3a-d586da96294e">
-<span class="eqno">(44)<a class="headerlink" href="#equation-67cccebb-0c7a-4c9c-8d3a-d586da96294e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5a0e6299-e09e-4def-a306-43d164430459">
+<span class="eqno">(44)<a class="headerlink" href="#equation-5a0e6299-e09e-4def-a306-43d164430459" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_z = \frac{\hbar}{2}
 \begin{bmatrix}
 1 &amp; 0 \\
@@ -961,8 +976,8 @@ we are using <span class="math notranslate nohighlight">\(\chi_n\)</span> and <s
 <section id="matrix-vector-products-operator-action-on-states">
 <h2>🧮 Matrix-Vector Products: Operator Action on States<a class="headerlink" href="#matrix-vector-products-operator-action-on-states" title="Permalink to this heading">#</a></h2>
 <p>An important property of the basis kets <span class="math notranslate nohighlight">\(|\alpha \rangle\)</span> and <span class="math notranslate nohighlight">\(|\beta \rangle\)</span> is that they are <strong>eigenstates</strong> of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5fb35cf2-e0a7-43e6-899a-9d6357c65c05">
-<span class="eqno">(45)<a class="headerlink" href="#equation-5fb35cf2-e0a7-43e6-899a-9d6357c65c05" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-83f38643-9fc8-4e3c-88d0-1f0b1f872b25">
+<span class="eqno">(45)<a class="headerlink" href="#equation-83f38643-9fc8-4e3c-88d0-1f0b1f872b25" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hat{S}_z |\alpha \rangle = +\frac{\hbar}{2}|\alpha \rangle
 \quad\text{and}\quad
 \hat{S}_z |\beta \rangle = -\frac{\hbar}{2}|\beta \rangle
@@ -1006,8 +1021,8 @@ Let’s build a function to apply any matrix operator to a ket state.</p>
 <section id="test-your-operator-function">
 <h3>🧪 Test Your Operator Function<a class="headerlink" href="#test-your-operator-function" title="Permalink to this heading">#</a></h3>
 <p>Let’s test your <code class="docutils literal notranslate"><span class="pre">compute_operator_on_state</span></code> function by applying the spin operator <span class="math notranslate nohighlight">\(S_z\)</span> to each basis state:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b86dd392-23d8-4ee2-90b2-304f23b0a880">
-<span class="eqno">(46)<a class="headerlink" href="#equation-b86dd392-23d8-4ee2-90b2-304f23b0a880" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9468be7e-c97e-4d99-8686-617441e43829">
+<span class="eqno">(46)<a class="headerlink" href="#equation-9468be7e-c97e-4d99-8686-617441e43829" title="Permalink to this equation">#</a></span>\[\begin{equation}
 S_z |\alpha\rangle = \frac{\hbar}{2} |\alpha\rangle, \quad
 S_z |\beta\rangle = -\frac{\hbar}{2} |\beta\rangle
 \end{equation}\]</div>
@@ -1058,8 +1073,8 @@ S_z |\beta\rangle = -\frac{\hbar}{2} |\beta\rangle
 <section id="hermitian-matrices">
 <h2>🔁 Hermitian Matrices<a class="headerlink" href="#hermitian-matrices" title="Permalink to this heading">#</a></h2>
 <p>In quantum mechanics, operators are represented by <strong>Hermitian matrices</strong>. These matrices have a special property:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dd76d5e1-89c1-489f-a998-8866d8fb2f49">
-<span class="eqno">(47)<a class="headerlink" href="#equation-dd76d5e1-89c1-489f-a998-8866d8fb2f49" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bbd37d6b-f835-4be0-84af-46fe2a8e07e0">
+<span class="eqno">(47)<a class="headerlink" href="#equation-bbd37d6b-f835-4be0-84af-46fe2a8e07e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A^\dagger = A
 \end{equation}\]</div>
 <p>That is, a Hermitian matrix is <strong>equal to its own adjoint</strong> (or Hermitian transpose), which is defined as the <strong>complex conjugate transpose</strong>.</p>
