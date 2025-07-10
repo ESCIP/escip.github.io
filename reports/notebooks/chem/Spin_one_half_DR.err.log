@@ -22,28 +22,35 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# change the index values below to pick molecules with and without a carbonyl
-idx_hasCarbonyl=1
-idx_notCarbonyl=0
-# get the data for the two molecules
-hasCarbonyl=train.set_index('name').iloc[idx_hasCarbonyl,3:]
-notCarbonyl=train.set_index('name').iloc[idx_notCarbonyl,3:] 
-# plot the spectra
-fig = go.Figure()
-fig.add_trace(go.Scatter(x=hasCarbonyl.index, y=hasCarbonyl, name=hasCarbonyl.name,mode='markers'))
-fig.add_trace(go.Scatter(x=notCarbonyl.index, y=notCarbonyl,name=notCarbonyl.name,mode='markers'))
-fig.update_layout(title='Intensities over frequency',title_x=0.5)
+# TODO: Assign ket_alpha as a column vector using np.array
+# Example: np.array([[...], [...]])
+ket_alpha = ...
+
+# TODO: Assign ket_beta as a column vector using np.array
+ket_beta = ...
+
+# Print both kets (already provided for you)
+print("|alpha>")
+print(ket_alpha)
+print(ket_alpha.shape)
+
+print("|beta>")
+print(ket_beta)
 ------------------
 
+----- stdout -----
+|alpha>
+Ellipsis
+------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[9], line 8[0m
-[1;32m      6[0m notCarbonyl[38;5;241m=[39mtrain[38;5;241m.[39mset_index([38;5;124m'[39m[38;5;124mname[39m[38;5;124m'[39m)[38;5;241m.[39miloc[idx_notCarbonyl,[38;5;241m3[39m:] 
-[1;32m      7[0m [38;5;66;03m# plot the spectra[39;00m
-[0;32m----> 8[0m fig [38;5;241m=[39m [43mgo[49m[38;5;241m.[39mFigure()
-[1;32m      9[0m fig[38;5;241m.[39madd_trace(go[38;5;241m.[39mScatter(x[38;5;241m=[39mhasCarbonyl[38;5;241m.[39mindex, y[38;5;241m=[39mhasCarbonyl, name[38;5;241m=[39mhasCarbonyl[38;5;241m.[39mname,mode[38;5;241m=[39m[38;5;124m'[39m[38;5;124mmarkers[39m[38;5;124m'[39m))
-[1;32m     10[0m fig[38;5;241m.[39madd_trace(go[38;5;241m.[39mScatter(x[38;5;241m=[39mnotCarbonyl[38;5;241m.[39mindex, y[38;5;241m=[39mnotCarbonyl,name[38;5;241m=[39mnotCarbonyl[38;5;241m.[39mname,mode[38;5;241m=[39m[38;5;124m'[39m[38;5;124mmarkers[39m[38;5;124m'[39m))
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[3], line 11[0m
+[1;32m      9[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124m|alpha>[39m[38;5;124m"[39m)
+[1;32m     10[0m [38;5;28mprint[39m(ket_alpha)
+[0;32m---> 11[0m [38;5;28mprint[39m([43mket_alpha[49m[38;5;241;43m.[39;49m[43mshape[49m)
+[1;32m     13[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124m|beta>[39m[38;5;124m"[39m)
+[1;32m     14[0m [38;5;28mprint[39m(ket_beta)
 
-[0;31mNameError[0m: name 'go' is not defined
+[0;31mAttributeError[0m: 'ellipsis' object has no attribute 'shape'
 

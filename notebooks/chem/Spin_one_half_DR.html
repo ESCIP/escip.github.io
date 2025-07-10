@@ -1,0 +1,1658 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Spin 1/2 with Design Recipe &#8212; ESCIP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chem/Spin_one_half_DR';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Physics" href="../phys/phys.html" />
+    <link rel="prev" title="CO Fundamental Transition with Design Recipe" href="CO_Fundamental_DR.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="ESCIP - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="ESCIP - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../team.html">Team</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../guidelines/intro.html">Guidelines</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../guidelines/guidelines.html">Format of notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guidelines/contribute.html">Contributing to ESCIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guidelines/template.html">Template notebook</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../workshops/intro.html">Workshops</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../workshops/workshop2024.html">ESCIP2024 Workshop: “Teaching scientific computing at the dawn of AI”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workshops/workshop2023.html">January 2023 In-Person Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workshops/workshop2022.html">Summer 2022 In-Person Workshop</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/python.html">Python Programming</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/python-basics-fixed.html">What is Python?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../astro/astro.html">Astronomy</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../astro/star_formation_v3.html">Star Formation in Galaxies</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../astro/emission_line_galaxy_classification_v2.html">Emission Line Galaxy Classification</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../astro/sdss_tutorial_1.html">SDSS Tutorial #1:  Data Querying and Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chem.html">Chemistry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="langevin-dynamics-results.html">Langevin Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openmm_lj_chain.html">Simulating toy polymers using openMM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_variational_method.html">Linear Variational Method</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="gaussian_wavepacket.html">Time evolution of a Gaussian wavepacket</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="pib_delta_potential_dynamics.html">Dynamics of particle in a box with a delta potential</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="carbonyl_binary_classification.html">Carbonyl Binary Classification</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="CO_Fundamental.html">CO Fundamental Transition</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="Spin_one_half_solutions.html">Spin 1/2 Using NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CO_Fundamental_DR.html">CO Fundamental Transition with Design Recipe</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Spin 1/2 with Design Recipe</a></li>
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../phys/fourier_transform.html">Fourier Transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part1.html">Fitting Models to Data (Part 1)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../phys/modelfit_part2.html">Fitting Models to Data (Part 2)</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/ESCIP/escip.github.io/jbook?urlpath=lab/tree/notebooks/chem/Spin_one_half_DR.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/ESCIP/escip.github.io/blob/jbook/notebooks/chem/Spin_one_half_DR.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ESCIP/escip.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ESCIP/escip.github.io/issues/new?title=Issue%20on%20page%20%2Fnotebooks/chem/Spin_one_half_DR.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/chem/Spin_one_half_DR.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Spin 1/2 with Design Recipe</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Spin 1/2 with Design Recipe</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-statements">Import statements</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-matrices-spinors-and-spin-matrices">Numpy matrices: Spinors and spin matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-bra-ket">Computing the bra-ket</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-task">🚧 Your Task</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bra-ket-inner-product-practice">🧪 Bra-Ket Inner Product Practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-sz-operator">🧩 Define the Sz Operator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-vector-products-operator-action-on-states">🧮 Matrix-Vector Products: Operator Action on States</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-your-operator-function">🧪 Test Your Operator Function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hermitian-matrices">🔁 Hermitian Matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalues-and-eigenvectors">🎯 Eigenvalues and Eigenvectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-eigenvectors">📐 What Are Eigenvectors?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">📌 Next Steps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-matrices-for-mathbb-s-x-and-mathbb-s-y">🏗️ Define Matrices for <span class="math notranslate nohighlight">\(\mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-vector-products-are-alpha-rangle-and-beta-rangle-eigenvectors-of-mathbb-s-x-and-mathbb-s-y">🎯 Matrix-Vector Products: Are <span class="math notranslate nohighlight">\( |\alpha\rangle \)</span> and <span class="math notranslate nohighlight">\( |\beta\rangle \)</span> Eigenvectors of <span class="math notranslate nohighlight">\(\mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span>?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-to-consider">Questions to consider</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-eigh-to-compute-eigenvalues-and-eigenvectors-of-mathbb-s-x-and-mathbb-s-y">🧮 Use <code class="docutils literal notranslate"><span class="pre">eigh()</span></code> to Compute Eigenvalues and Eigenvectors of <span class="math notranslate nohighlight">\( \mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expressing-new-eigenvectors-in-terms-of-alpha-rangle-and-beta-rangle">🔄 Expressing New Eigenvectors in Terms of <span class="math notranslate nohighlight">\( |\alpha\rangle \)</span> and <span class="math notranslate nohighlight">\( |\beta\rangle \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-we-test-this">🧪 How Can We Test This?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-values">📈 Expectation Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Expectation values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-to-compute-expectation-value">🧪 Function to Compute Expectation Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#follow-these-design-recipe-steps">✅ Follow These Design Recipe Steps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commutators-and-compatibility">🔁 Commutators and Compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-commutator">🧮 What Is a Commutator?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-facts-about-commutators">🧠 Key Facts About Commutators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commutation-relations-of-spin-operators">📐 Commutation Relations of Spin Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">🧠 Conceptual Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="spin-1-2-with-design-recipe">
+<h1>Spin 1/2 with Design Recipe<a class="headerlink" href="#spin-1-2-with-design-recipe" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://foleylab.github.io/">Jay Foley, University of North Carolina Charlotte</a></p>
+<section id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
+<p>By the end of this workbook, students should be able to</p>
+<ul class="simple">
+<li><p>Identify the eigenstates of z-spin</p></li>
+<li><p>Use the eigenstates of z-spin as a basis for computing expectation values of x-spin and y-spin</p></li>
+<li><p>Explain the concept of matrix representations of operators</p></li>
+<li><p>Utilize NumPy to build matrix representations of operators</p></li>
+<li><p>Utilize NumPy to identify eigenstates of x-spin and y-spin</p></li>
+<li><p>Utilize NumPy to confirm the commutation relations for the matrix representations of operators</p></li>
+<li><p>Use the Design Recipe to compose functions</p></li>
+</ul>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>We will use Python and NumPy to illustrate basic formalism of spin 1/2 in quantum mechanics.  We assume familiarity with this formalism; for background on this topic, we recommend you read <span class="xref myst">more on spin</span>.</p>
+<p>Spin angular momentum is an observable in quantum mechanics and has
+associated operators with eigenstates.  Traditionally, the components of angular momentum are represented along the <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> axes, and we have
+Hermitian operators associated with each component (<span class="math notranslate nohighlight">\(\hat{S}_x, \hat{S}_y, \hat{S}_z\)</span>), along with the square magnitude <span class="math notranslate nohighlight">\(\hat{S}^2\)</span>.  For particles like electrons, protons, and neutrons, these component operators
+all have exactly two eigenstates with eigenvalues <span class="math notranslate nohighlight">\(\pm \frac{1}{2}\hbar\)</span>; hence we talk about the formalism of spin for these systems as the formalism of spin 1/2.
+In this workbook, we will introduce matrix representations of each of these component operators, and the eigenstates will then have vector representations.  We will specifically introduce the eigenvectors of the matrix associated with <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> as the basis vectors for any state of spin 1/2.  We will then be able to write the matrices associated with
+<span class="math notranslate nohighlight">\(\hat{S}_x\)</span> and <span class="math notranslate nohighlight">\(\hat{S}_y\)</span> in this basis, and perform useful computations with them, including finding their eigenstates and verifying so-called commutation relations between these operators.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="import-statements">
+<h1>Import statements<a class="headerlink" href="#import-statements" title="Permalink to this heading">#</a></h1>
+<p>Python has intrinsic functionality as a programming language, but there are also many special-purpose libraries that are helpful.  Here we will use the library <code class="docutils literal notranslate"><span class="pre">numpy</span></code> for numerical computing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">la</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
+<p>In Python, functions are reusable blocks of code designed to perform specific tasks. They help organize code, making it more modular and easier to maintain. A function is defined using the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, followed by a name, parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>, and a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>. Inside the function, you can include any number of statements that define what the function does. Functions can take inputs, called parameters, and can return a value after processing. By calling a function by its name, you can execute the code within it whenever needed, making your programs more efficient and easier to understand.</p>
+<p>Here’s an example function that multipies an input number by 3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multiply_by_three</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multiplies the input by three.</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    x: A number to be multiplied by three.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result: The input multiplied by three.</span>
+<span class="sd">    </span>
+<span class="sd">    Example:</span>
+<span class="sd">    multiply_by_three(5) == 15</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p><strong>Important</strong> Your function must be indented relative to the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement.</p>
+<p>We will use a practice called <a class="reference external" href="https://www.cs.toronto.edu/~ahchinaei/teaching/20165/csc148/function_design_recipe.pdf">Design Recipe</a> to design our functions.<br />
+The Design Recipe can be implemented in the following steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Header:</strong> Define the function’s name, input parameters, and their data types. Specify the data type of the return value.</p></li>
+<li><p><strong>Purpose:</strong> Write a concise one-line description explaining the function’s purpose.</p></li>
+<li><p><strong>Examples:</strong> Provide examples of how to call the function with different inputs and the expected outputs. These examples will be used to test the function.</p></li>
+<li><p><strong>Body:</strong> Write the actual code that implements the function’s logic, based on the header, purpose, and examples.</p></li>
+<li><p><strong>Test</strong> Test your function aon all your example cases; try to identify additional tricky cases.</p></li>
+<li><p><strong>Debug/Iterate</strong> If your tests fail, re-read your code, check your logic, check your syntax, and fix any mistakes that you catch.  If you cannot catch mistakes, think about additional test cases that can help reveal flaws in your logic.  Continue until your function passes tests.</p></li>
+</ol>
+<p>We will illustrate this process by examining a function that will print a message some specified number of times, and also return the repeated message.  We want the repeated message to be printed all on a single line, and we do not want any spaces between the sub-messages.</p>
+<p>Let’s go through this step-by-step:</p>
+<ol class="arabic simple">
+<li><p><strong>Header</strong> Doest the function name make sense?  Are the input parameters adequate for what we will need to pass to the function?  Is the return statement adequate for what we want the function to return?</p></li>
+<li><p><strong>Purpose</strong> Does the purpose string adequatly capture the functions behavior?</p></li>
+<li><p><strong>Examples</strong> One example is given; add a second example!</p></li>
+<li><p><strong>Body</strong> Read the body of the function and track what is happening in each line.</p></li>
+<li><p><strong>Test</strong> Test your code against your two examples!</p></li>
+<li><p><strong>Debug/Iterate</strong> Did your tests pass?  If yes, great!  If not, you know what to do!</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_message_multiple_times</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">times</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prints a given string a specified number of times and returns the concatenated result.</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">        message : the message you want to print</span>
+
+<span class="sd">        times   : The number of times the message should be repeated.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        repeated_message : The concatenated message repeated &#39;times&#39; times.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        print_message_multiple_times(&quot;Hello&quot;, 3)</span>
+<span class="sd">        Output:</span>
+<span class="sd">        HelloHelloHello</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Concatenate the message &#39;times&#39; times</span>
+    <span class="n">repeated_message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">*</span> <span class="n">times</span>
+
+    <span class="c1"># print the repeated message</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">repeated_message</span><span class="p">)</span>
+
+    <span class="c1"># return it</span>
+    <span class="k">return</span> <span class="n">repeated_message</span>
+
+<span class="c1"># test against first example</span>
+<span class="k">assert</span> <span class="n">print_message_multiple_times</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;HelloHelloHello&quot;</span>
+
+<span class="k">assert</span> <span class="n">print_message_multiple_times</span><span class="p">(</span><span class="s2">&quot;bye&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;byebye&quot;</span>
+
+<span class="k">assert</span> <span class="n">print_message_multiple_times</span><span class="p">(</span><span class="s2">&quot;PChem&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;PChem&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HelloHelloHello
+byebye
+PChem
+</pre></div>
+</div>
+</div>
+</div>
+<p>We used an <a class="reference external" href="https://www.programiz.com/python-programming/assert-statement">assert</a> statement to test our functions execution.  Simply put, if an assert statement is followed by something that is True, nothing happens, but if it is followed by something that is False, it gives an error.  Assert statements are used widely in testing, where you set up a test to give a False if the test fails and a True if it passes.  This way when the assert meets a passing tests, the program moves on smoothly, and if it meets a failing test, it stops immediately.</p>
+<p><strong>What statement evaluated to True in our first test?</strong></p>
+<p><strong>Some Questions</strong>. Think back to our function <code class="docutils literal notranslate"><span class="pre">print_repeated_message(message,</span> <span class="pre">times)</span></code>.</p>
+<ul class="simple">
+<li><p>What type of variable was <code class="docutils literal notranslate"><span class="pre">message</span></code>?</p></li>
+<li><p>What type of variable was <code class="docutils literal notranslate"><span class="pre">times</span></code>?</p></li>
+<li><p>What would happen if we only included the <code class="docutils literal notranslate"><span class="pre">print(repeated_message)</span></code> statement and not the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement?</p></li>
+<li><p>What would happen if we only included the <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">repeated_message</span></code> statment and not the <code class="docutils literal notranslate"><span class="pre">print</span></code> statement?</p></li>
+</ul>
+<section id="numpy-matrices-spinors-and-spin-matrices">
+<h2>Numpy matrices: Spinors and spin matrices<a class="headerlink" href="#numpy-matrices-spinors-and-spin-matrices" title="Permalink to this heading">#</a></h2>
+<p>Numpy matrices are special types of variables that can make use of different mathematical operation in the numpy library.  We will see that a lot of linear algebra operations can be performed with numpy matrices using very simple syntax.  Numpy matrices are always 2-dimensional (unlike numpy arrays which can have arbitrary dimension),
+we will use 2-dimensional numpy matrices with
+a single column and multiple rows to denote a column vector as a representation of a ket.  We can take the Hermitian conjugate of our kets to get bras, which are represented as row vectors.</p>
+<p>Here we will introduce the vector representation of special spin states (spinors) that have precise value of z-spin, that is, they are the eigenstates of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ddf37b81-027d-4993-9948-7b295f34c8e3">
+<span class="eqno">(49)<a class="headerlink" href="#equation-ddf37b81-027d-4993-9948-7b295f34c8e3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+|\alpha \rangle=
+\begin{bmatrix}
+  1 \\
+  0 \\
+\end{bmatrix}
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-28f77064-06d0-4219-b1b4-bd945b3642a2">
+<span class="eqno">(50)<a class="headerlink" href="#equation-28f77064-06d0-4219-b1b4-bd945b3642a2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+|\beta \rangle =
+\begin{bmatrix}
+  0 \\
+  1 \\
+\end{bmatrix}
+\end{equation}\]</div>
+<p>We refer to these column vector representations of states as kets.</p>
+<p><span class="math notranslate nohighlight">\(|\alpha\rangle\)</span> can be formed using the following syntax:
+<code class="docutils literal notranslate"><span class="pre">ket_alpha</span> <span class="pre">=</span> <span class="pre">np.array([[1],</span> <span class="pre">[0]])</span></code></p>
+<p>We can get the number of rows and number of columns (the shape) of this vector using <code class="docutils literal notranslate"><span class="pre">np.shape(ket_alpha)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Assign ket_alpha as a column vector using np.array</span>
+<span class="c1"># Example: np.array([[...], [...]])</span>
+<span class="n">ket_alpha</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Assign ket_beta as a column vector using np.array</span>
+<span class="n">ket_beta</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># Print both kets (already provided for you)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|alpha&gt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ket_alpha</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ket_alpha</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|beta&gt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ket_beta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|alpha&gt;
+Ellipsis
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|alpha&gt;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="n">ket_alpha</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="n">ket_alpha</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|beta&gt;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="nb">print</span><span class="p">(</span><span class="n">ket_beta</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;ellipsis&#39; object has no attribute &#39;shape&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can form the bras corresponding to these kets by taking the complex conjugate and transpose of the column vectors we have just formed.  The result will be row vectors, keeping the correspondence to the “bra” - “ket” convention.</p>
+<div class="math notranslate nohighlight">
+\[ \langle \alpha | = |\alpha \rangle ^{\dagger} = [1^* \: 0^*] \]</div>
+<div class="math notranslate nohighlight">
+\[ \langle \beta| = |\beta \rangle ^{\dagger} = [0^* \: 1^*]\]</div>
+<p>This operation can be computed using the following syntax:
+<code class="docutils literal notranslate"><span class="pre">bra_alpha</span> <span class="pre">=</span> <span class="pre">ket_alpha.conj().T</span></code></p>
+<p>You can compute the shape of the bras in the same way as you used for the kets; take note of how the shape changes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Assign bra_alpha as the Hermitian (conjugate transpose) of ket_alpha</span>
+<span class="n">bra_alpha</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Assign bra_beta as the Hermitian (conjugate transpose) of ket_beta</span>
+<span class="n">bra_beta</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># Print both bras (already provided for you)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;alpha|&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bra_alpha</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&lt;beta|&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bra_beta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="computing-the-bra-ket">
+<h2>Computing the bra-ket<a class="headerlink" href="#computing-the-bra-ket" title="Permalink to this heading">#</a></h2>
+<p>We can view the bra-ket (also called the inner product between the bra and the ket) as a test of how much the state in the bra projects on to the state in the ket.  The answer can be anywhere between 0 (the states do not project onto each other at all, they are orthogonal states, they do not overlap at all) to 1 (these states perfectly project onto one another, they have perfect overlap, they are identical states).  We know (or will soon learn) that the spin states are orthonormal states: they have perfect overlap with themselves and zero overlap with each other.  This is codified with the following mathematical statements</p>
+<div class="math notranslate nohighlight">
+\[\langle \chi_n | \chi_m\rangle = \delta_{nm} \]</div>
+<p>where where have used the Kronecker delta function <span class="math notranslate nohighlight">\(\delta_{nm} = 0\)</span> if <span class="math notranslate nohighlight">\(n\neq m\)</span> and <span class="math notranslate nohighlight">\(\delta_{nm} = 1\)</span> if <span class="math notranslate nohighlight">\(n=m\)</span> and
+we are using <span class="math notranslate nohighlight">\(\chi_n\)</span> and <span class="math notranslate nohighlight">\(\chi_m\)</span> to represent arbitrary spin states.</p>
+<p>With their vector representations, we can compute the bra-ket using the dot product as follows:
+<code class="docutils literal notranslate"><span class="pre">bra_ket_aa</span> <span class="pre">=</span> <span class="pre">np.dot(bra_alpha</span> <span class="pre">,</span> <span class="pre">ket_alpha)</span></code></p>
+<section id="your-task">
+<h3>🚧 Your Task<a class="headerlink" href="#your-task" title="Permalink to this heading">#</a></h3>
+<p>Complete the function <code class="docutils literal notranslate"><span class="pre">compute_bra_ket</span></code> so that it returns the inner product of a given bra and ket.</p>
+<ul class="simple">
+<li><p>Remember: the bra is a row vector and the ket is a column vector.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator to compute the product.</p></li>
+<li><p>Add two more examples to the docstring to test your understanding!</p></li>
+</ul>
+<p>Think through the steps of the Design Recipe again.  Steps 1 and 2 are totally complete, but think through them anyway.  Step 3 is partially complete, and you must complete Steps 4 and 5 on your own.</p>
+<ol class="arabic simple">
+<li><p><strong>Header</strong> What should we name the function?  What input parameters should the function accept?  What should their data types be?  What will the function return?  What data type will it be?</p></li>
+<li><p><strong>Purpose</strong> What is a single sentence that describes the purpose of the function?</p></li>
+<li><p><strong>Examples</strong> Come up with 2 examples where different messages are printed different numbers of times.</p></li>
+<li><p><strong>Body</strong> Now attempt to write the body of your function.</p></li>
+<li><p><strong>Test</strong> Test your code against your examples.</p></li>
+<li><p><strong>Debug/Iterate</strong> Did your tests pass?  If yes, great!  If not, you know what to do!</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_bra_ket</span><span class="p">(</span><span class="n">my_bra</span><span class="p">,</span> <span class="n">my_ket</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    A function to compute the bra-ket ⟨bra|ket⟩ and return the value</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    my_bra : a row vector representing ⟨bra|</span>
+<span class="sd">    my_ket : a column vector representing |ket⟩</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bra_ket : a number representing the inner product ⟨bra|ket⟩</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    compute_bra_ket(np.array([[1, 0]]), np.array([[1], [0]])) == 1</span>
+<span class="sd">    compute_bra_ket(np.array([[0, 1]]), np.array([[1], [0]])) == 0</span>
+<span class="sd">    # TODO: Add two additional examples of bra-kets with expected outcomes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># TODO: Compute the inner product and store in bra_ket</span>
+    <span class="n">bra_ket</span> <span class="o">=</span> <span class="o">...</span>
+
+    <span class="k">return</span> <span class="n">bra_ket</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bra-ket-inner-product-practice">
+<h3>🧪 Bra-Ket Inner Product Practice<a class="headerlink" href="#bra-ket-inner-product-practice" title="Permalink to this heading">#</a></h3>
+<p>Now that you’ve defined <code class="docutils literal notranslate"><span class="pre">compute_bra_ket</span></code>, use it to evaluate the following quantum inner products:</p>
+<ol class="arabic simple">
+<li><p>⟨α | α⟩</p></li>
+<li><p>⟨α | β⟩</p></li>
+<li><p>⟨β | α⟩</p></li>
+<li><p>⟨β | β⟩</p></li>
+</ol>
+<p>Then write down what you <strong>expect</strong> each result to be (just numbers!), based on what you know about orthonormal quantum states. After that, run the tests to confirm you’re correct.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 🚧 TODO: Use compute_bra_ket to evaluate inner products between bras and kets</span>
+<span class="c1"># Example:</span>
+<span class="c1"># bra_ket_aa = compute_bra_ket(bra_alpha, ket_alpha)</span>
+
+<span class="c1"># TODO: Compute &lt;alpha|alpha&gt;</span>
+<span class="n">bra_ket_aa</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Compute &lt;alpha|beta&gt;</span>
+<span class="n">bra_ket_ab</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Compute &lt;beta|alpha&gt;</span>
+<span class="n">bra_ket_ba</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Compute &lt;beta|beta&gt;</span>
+<span class="n">bra_ket_bb</span> <span class="o">=</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 🚧 TODO: Write what you *expect* each inner product to be based on your understanding</span>
+<span class="c1"># Use integers like 0 or 1 where appropriate.</span>
+
+<span class="n">_expected_bra_ket_aa</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">_expected_bra_ket_ab</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">_expected_bra_ket_ba</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">_expected_bra_ket_bb</span> <span class="o">=</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅ Tests — will only pass if your values and expectations are correct!</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">bra_ket_aa</span><span class="p">,</span> <span class="n">_expected_bra_ket_aa</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">bra_ket_ab</span><span class="p">,</span> <span class="n">_expected_bra_ket_ab</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">bra_ket_ba</span><span class="p">,</span> <span class="n">_expected_bra_ket_ba</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">bra_ket_bb</span><span class="p">,</span> <span class="n">_expected_bra_ket_bb</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ All bra-ket tests passed!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-the-sz-operator">
+<h3>🧩 Define the Sz Operator<a class="headerlink" href="#define-the-sz-operator" title="Permalink to this heading">#</a></h3>
+<p>The spin operator <span class="math notranslate nohighlight">\(S_z\)</span> for a spin-½ particle is defined as:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-864d4e4c-d85b-428f-8b66-ba7d05a92f21">
+<span class="eqno">(51)<a class="headerlink" href="#equation-864d4e4c-d85b-428f-8b66-ba7d05a92f21" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\mathbb{S}_z = \frac{\hbar}{2}
+\begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; -1
+\end{bmatrix}
+\end{equation}\]</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">np.array</span></code>, define this matrix in Python using <code class="docutils literal notranslate"><span class="pre">hbar</span> <span class="pre">=</span> <span class="pre">1</span></code> (already provided). Then run the cell to check the printed result and confirm the shape is <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">2)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define hbar in atomic units (already done for you)</span>
+<span class="n">hbar</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># TODO: Define the Sz matrix using np.array</span>
+<span class="c1"># Hint: Use hbar / 2 * np.array([[...], [...]])</span>
+<span class="n">Sz</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># Print the matrix to check your result</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sz matrix:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Sz</span><span class="p">)</span>
+
+<span class="c1"># Print the shape to verify it is a 2x2 matrix</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of Sz:&quot;</span><span class="p">,</span> <span class="n">Sz</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="matrix-vector-products-operator-action-on-states">
+<h2>🧮 Matrix-Vector Products: Operator Action on States<a class="headerlink" href="#matrix-vector-products-operator-action-on-states" title="Permalink to this heading">#</a></h2>
+<p>An important property of the basis kets <span class="math notranslate nohighlight">\(|\alpha \rangle\)</span> and <span class="math notranslate nohighlight">\(|\beta \rangle\)</span> is that they are <strong>eigenstates</strong> of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-42ce91a1-3fae-41e7-af46-2672d6a37f1f">
+<span class="eqno">(52)<a class="headerlink" href="#equation-42ce91a1-3fae-41e7-af46-2672d6a37f1f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\hat{S}_z |\alpha \rangle = +\frac{\hbar}{2}|\alpha \rangle
+\quad\text{and}\quad
+\hat{S}_z |\beta \rangle = -\frac{\hbar}{2}|\beta \rangle
+\end{equation}\]</div>
+<p>In NumPy, we represent this using a <strong>matrix-vector product</strong> like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Sz_ket_alpha</span> <span class="o">=</span> <span class="n">Sz</span> <span class="o">@</span> <span class="n">ket_alpha</span>
+</pre></div>
+</div>
+<p>🧪 Design Recipe: Compute Operator on State
+Let’s build a function to apply any matrix operator to a ket state.</p>
+<p>Follow the steps below:</p>
+<ol class="arabic simple">
+<li><p><strong>Header</strong> What should we name the function? What arguments should it take? What types?</p></li>
+<li><p><strong>Purpose</strong> One sentence: what does this function do?</p></li>
+<li><p><strong>Examples</strong> Add 2 examples of input/output to show the function in action.</p></li>
+<li><p><strong>Body</strong> Write the function code.</p></li>
+<li><p><strong>Test</strong> Try your examples!</p></li>
+<li><p><strong>Debug/Iterate</strong> If something doesn’t work, fix it and try again!</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Write a function to compute the action of an operator on a ket state</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_operator_on_state</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>  <span class="c1"># &lt;-- fill in the header</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    TODO: Write a docstring that includes:</span>
+<span class="sd">    - Purpose (what does this function do?)</span>
+<span class="sd">    - Parameters (what are the types and meanings?)</span>
+<span class="sd">    - Returns (what does it return?)</span>
+<span class="sd">    - 2 example calls with expected outputs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># TODO: Compute the resulting ket after applying the operator</span>
+    <span class="n">result_ket</span> <span class="o">=</span> <span class="o">...</span>
+    
+    <span class="k">return</span> <span class="n">result_ket</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="test-your-operator-function">
+<h3>🧪 Test Your Operator Function<a class="headerlink" href="#test-your-operator-function" title="Permalink to this heading">#</a></h3>
+<p>Let’s test your <code class="docutils literal notranslate"><span class="pre">compute_operator_on_state</span></code> function by applying the spin operator <span class="math notranslate nohighlight">\(S_z\)</span> to each basis state:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4928778a-7a5c-4b53-a8d6-92ad34710a5b">
+<span class="eqno">(53)<a class="headerlink" href="#equation-4928778a-7a5c-4b53-a8d6-92ad34710a5b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+S_z |\alpha\rangle = \frac{\hbar}{2} |\alpha\rangle, \quad
+S_z |\beta\rangle = -\frac{\hbar}{2} |\beta\rangle
+\end{equation}\]</div>
+<ol class="arabic simple">
+<li><p>Use your function to compute <code class="docutils literal notranslate"><span class="pre">Sz</span> <span class="pre">&#64;</span> <span class="pre">ket_alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">Sz</span> <span class="pre">&#64;</span> <span class="pre">ket_beta</span></code></p></li>
+<li><p>Manually define what the <strong>expected results</strong> should be</p></li>
+<li><p>Run the tests and confirm they pass!</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 🚧 TODO: Use your operator_state function to apply Sz to the alpha and beta kets</span>
+
+<span class="c1"># Compute the result of Sz acting on ket_alpha</span>
+<span class="n">Sz_ket_alpha</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># Compute the result of Sz acting on ket_beta</span>
+<span class="n">Sz_ket_beta</span> <span class="o">=</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 🚧 TODO: Define what you EXPECT these results to be</span>
+<span class="c1"># Remember: |alpha⟩ is an eigenvector of Sz with eigenvalue +½ hbar</span>
+<span class="c1">#           |beta⟩ is an eigenvector of Sz with eigenvalue -½ hbar</span>
+
+<span class="n">expected_Sz_ket_alpha</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">expected_Sz_ket_beta</span> <span class="o">=</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅ Tests — if your function and expected values are correct, these will pass!</span>
+
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">Sz_ket_alpha</span><span class="p">,</span> <span class="n">expected_Sz_ket_alpha</span><span class="p">),</span> <span class="s2">&quot;Sz|alpha⟩ test failed&quot;</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">Sz_ket_beta</span><span class="p">,</span> <span class="n">expected_Sz_ket_beta</span><span class="p">),</span> <span class="s2">&quot;Sz|beta⟩ test failed&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Both operator-state tests passed!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="hermitian-matrices">
+<h2>🔁 Hermitian Matrices<a class="headerlink" href="#hermitian-matrices" title="Permalink to this heading">#</a></h2>
+<p>In quantum mechanics, operators are represented by <strong>Hermitian matrices</strong>. These matrices have a special property:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-37b15b48-e6d3-45a0-923e-b65b86ece0b1">
+<span class="eqno">(54)<a class="headerlink" href="#equation-37b15b48-e6d3-45a0-923e-b65b86ece0b1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+A^\dagger = A
+\end{equation}\]</div>
+<p>That is, a Hermitian matrix is <strong>equal to its own adjoint</strong> (or Hermitian transpose), which is defined as the <strong>complex conjugate transpose</strong>.</p>
+<p>For example, to verify that the spin operator <span class="math notranslate nohighlight">\(S_z\)</span> is Hermitian:</p>
+<ol class="arabic simple">
+<li><p>Compute the Hermitian adjoint of the matrix using <code class="docutils literal notranslate"><span class="pre">.conj().T</span></code></p></li>
+<li><p>Compare it to the original using <code class="docutils literal notranslate"><span class="pre">np.allclose()</span></code> (which checks equality with tolerance for rounding errors)</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Sz_adjoint</span> <span class="o">=</span> <span class="n">Sz</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">Sz_adjoint</span><span class="p">,</span> <span class="n">Sz</span><span class="p">))</span>  <span class="c1"># Should return True</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Compute the Hermitian adjoint of Sz using .conj().T</span>
+<span class="n">Sz_adjoint</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Check whether Sz is Hermitian by comparing to its adjoint</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">Sz_adjoint</span><span class="p">,</span> <span class="n">Sz</span><span class="p">))</span>  <span class="c1"># Expect: True</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eigenvalues-and-eigenvectors">
+<h2>🎯 Eigenvalues and Eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Permalink to this heading">#</a></h2>
+<p>An important property of <strong>Hermitian matrices</strong> is that all their <strong>eigenvalues are real</strong>.</p>
+<p>In quantum mechanics, the eigenvalues of Hermitian operators represent the <strong>possible outcomes of measurements</strong>. In this notebook, we’ve been exploring the <strong>spin angular momentum observable</strong>, especially its <strong>z-component</strong> represented by the operator <span class="math notranslate nohighlight">\( \hat{S}_z \)</span>.</p>
+<p>We’ve already seen that <span class="math notranslate nohighlight">\(\hat{S}_z \)</span> has two eigenstates:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( |\alpha\rangle \)</span> with eigenvalue <span class="math notranslate nohighlight">\( +\frac{\hbar}{2} \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( |\beta\rangle \)</span> with eigenvalue <span class="math notranslate nohighlight">\( -\frac{\hbar}{2} \)</span></p></li>
+</ul>
+<p>These relationships are preserved in our <strong>matrix-vector</strong> representation.</p>
+<hr class="docutils" />
+<section id="what-are-eigenvectors">
+<h3>📐 What Are Eigenvectors?<a class="headerlink" href="#what-are-eigenvectors" title="Permalink to this heading">#</a></h3>
+<p>For a matrix <span class="math notranslate nohighlight">\( \mathbb{M} \)</span>, a <strong>vector</strong> <span class="math notranslate nohighlight">\( \mathbf{x}\)</span> is an <strong>eigenvector</strong> if:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{M} \mathbf{x} = \lambda \mathbf{x}
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \lambda \)</span> is the <strong>eigenvalue</strong> (a number),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{x} \)</span> is a <strong>non-zero vector</strong> that only gets <strong>scaled</strong> by the matrix—not rotated.</p></li>
+</ul>
+<p>This is rare and special! Normally, matrices change both the <strong>magnitude and direction</strong> of vectors.</p>
+<p>👉 For an intuitive and visual explanation, check out this wonderful <a class="reference external" href="https://youtu.be/PFDu9oVAE-g">3Blue1Brown video on eigenvectors</a>.</p>
+</section>
+<hr class="docutils" />
+<section id="next-steps">
+<h3>📌 Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">#</a></h3>
+<p>So far, we’ve confirmed that the <strong>basis kets</strong> <span class="math notranslate nohighlight">\( |\alpha\rangle \)</span>, <span class="math notranslate nohighlight">\( |\beta\rangle \)</span> are eigenvectors of <span class="math notranslate nohighlight">\(\mathbb{S}_z \)</span>.</p>
+<p>We will now:</p>
+<ol class="arabic simple">
+<li><p>Define the matrix forms of <span class="math notranslate nohighlight">\( \mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span>,</p></li>
+<li><p>Show that the z-basis kets are <strong>not</strong> eigenvectors of <span class="math notranslate nohighlight">\( \mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span>,</p></li>
+<li><p>Use NumPy’s linear algebra tools to find <strong>true eigenvectors</strong> of <span class="math notranslate nohighlight">\( \mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span>,</p></li>
+<li><p>Interpret those new eigenvectors as <strong>linear combinations</strong> of the z-basis kets.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="define-matrices-for-mathbb-s-x-and-mathbb-s-y">
+<h3>🏗️ Define Matrices for <span class="math notranslate nohighlight">\(\mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span><a class="headerlink" href="#define-matrices-for-mathbb-s-x-and-mathbb-s-y" title="Permalink to this heading">#</a></h3>
+<p>The spin operators are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbb{S}_x = \frac{\hbar}{2}
+\begin{bmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{bmatrix}
+\quad\text{and}\quad
+\mathbb{S}_y = \frac{\hbar}{2}
+\begin{bmatrix}
+0 &amp; -i \\
+i &amp; 0
+\end{bmatrix}
+\end{split}\]</div>
+<blockquote>
+<div><p>🧠 In Python, the imaginary unit ( i ) is written as <code class="docutils literal notranslate"><span class="pre">1j</span></code>.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Define the Sx operator using np.array</span>
+<span class="c1"># Hint: 2x2 matrix with real values</span>
+<span class="n">Sx</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Define the Sy operator using np.array</span>
+<span class="c1"># Hint: 2x2 matrix with imaginary numbers; use 1j for sqrt(-1)</span>
+<span class="n">Sy</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># Print both to verify</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sx matrix:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Sx</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sy matrix:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Sy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="matrix-vector-products-are-alpha-rangle-and-beta-rangle-eigenvectors-of-mathbb-s-x-and-mathbb-s-y">
+<h3>🎯 Matrix-Vector Products: Are <span class="math notranslate nohighlight">\( |\alpha\rangle \)</span> and <span class="math notranslate nohighlight">\( |\beta\rangle \)</span> Eigenvectors of <span class="math notranslate nohighlight">\(\mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span>?<a class="headerlink" href="#matrix-vector-products-are-alpha-rangle-and-beta-rangle-eigenvectors-of-mathbb-s-x-and-mathbb-s-y" title="Permalink to this heading">#</a></h3>
+<p>Now that you’ve defined the matrix forms of <span class="math notranslate nohighlight">\( \mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span>, let’s apply these operators to the <strong>z-basis kets</strong> $ |\alpha\rangle <span class="math notranslate nohighlight">\( and \)</span> |\beta\rangle $.</p>
+<p>Specifically, compute the following matrix-vector products:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{S}_x |\alpha\rangle \qquad
+\mathbb{S}_x |\beta\rangle \qquad
+\mathbb{S}_y |\alpha\rangle \qquad
+\mathbb{S}_y |\beta\rangle
+\]</div>
+<p>Use Python syntax like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Sx_ket_alpha</span> <span class="o">=</span> <span class="n">Sx</span> <span class="o">@</span> <span class="n">ket_alpha</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Apply Sx and Sy to both basis states</span>
+
+<span class="n">Sx_ket_alpha</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">Sx_ket_beta</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="n">Sy_ket_alpha</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">Sy_ket_beta</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># Print the results to inspect</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sx |alpha⟩ =&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Sx_ket_alpha</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sx |beta⟩ =&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Sx_ket_beta</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sy |alpha⟩ =&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Sy_ket_alpha</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sy |beta⟩ =&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Sy_ket_beta</span><span class="p">)</span>
+
+<span class="c1"># Optionally, print their shapes</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of result:&quot;</span><span class="p">,</span> <span class="n">Sx_ket_alpha</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="questions-to-consider">
+<h3>Questions to consider<a class="headerlink" href="#questions-to-consider" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>After inspecting the output of each matrix-vector product, do you think <span class="math notranslate nohighlight">\(|\alpha\rangle\)</span> and <span class="math notranslate nohighlight">\(|\beta\rangle\)</span> are eigenvectors of <span class="math notranslate nohighlight">\(\mathbb{S}_x\)</span> and <span class="math notranslate nohighlight">\(\mathbb{S}_y\)</span>?  <em>Hint: What would the results look like if they were eigenvectors?</em></p></li>
+<li><p>What is the shape of the result of each matrix-vector product?  Does the dimensionality change?  Why is that important?</p></li>
+</ol>
+</section>
+<section id="use-eigh-to-compute-eigenvalues-and-eigenvectors-of-mathbb-s-x-and-mathbb-s-y">
+<h3>🧮 Use <code class="docutils literal notranslate"><span class="pre">eigh()</span></code> to Compute Eigenvalues and Eigenvectors of <span class="math notranslate nohighlight">\( \mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span><a class="headerlink" href="#use-eigh-to-compute-eigenvalues-and-eigenvectors-of-mathbb-s-x-and-mathbb-s-y" title="Permalink to this heading">#</a></h3>
+<p>NumPy’s linear algebra library (<code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code>) provides a convenient function for computing <strong>eigenvalues and eigenvectors of Hermitian matrices</strong>: <code class="docutils literal notranslate"><span class="pre">eigh()</span></code>.</p>
+<p>Here’s the syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">eigenvalues</span><span class="p">,</span> <span class="n">eigenvectors</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">eigenvalues</span></code> will store all of the eigenvectors and <code class="docutils literal notranslate"><span class="pre">eigenvectors</span></code> will store all the eigenvectors.<br />
+Use this method to compute the eigenvalues and eigenvectors of <span class="math notranslate nohighlight">\(\mathbb{S}_x\)</span> and <span class="math notranslate nohighlight">\(\mathbb{S}_y\)</span>.</p>
+<p><strong>Note</strong> <code class="docutils literal notranslate"><span class="pre">eigenvectors</span></code> is a 2D array where each column <code class="docutils literal notranslate"><span class="pre">eigenvectors[:,</span> <span class="pre">i]</span></code> is the normalized eigenvector corresponding to eigenvalues[i].</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Compute eigenvalues and eigenvectors of Sx</span>
+<span class="n">vals_x</span><span class="p">,</span> <span class="n">vecs_x</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Compute eigenvalues and eigenvectors of Sy</span>
+<span class="n">vals_y</span><span class="p">,</span> <span class="n">vecs_y</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Print the shapes of the result arrays</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of vals_x:&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of vecs_x:&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Print out the eigenvalues and eigenvectors</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvalues of Sx:&quot;</span><span class="p">,</span> <span class="n">vals_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvectors of Sx:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">vecs_x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvalues of Sy:&quot;</span><span class="p">,</span> <span class="n">vals_y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eigenvectors of Sy:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">vecs_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 3:</strong> What is the shape of the vals_x?  What is the shape of vecs_x?</p>
+<p><strong>Question 4:</strong> Do these matrices have the same eigenvalues as <span class="math notranslate nohighlight">\(\mathbb{S}_z\)</span>?  Do they have the same eigenvectors as <span class="math notranslate nohighlight">\(\mathbb{S}_z\)</span>?</p>
+</section>
+<section id="expressing-new-eigenvectors-in-terms-of-alpha-rangle-and-beta-rangle">
+<h3>🔄 Expressing New Eigenvectors in Terms of <span class="math notranslate nohighlight">\( |\alpha\rangle \)</span> and <span class="math notranslate nohighlight">\( |\beta\rangle \)</span><a class="headerlink" href="#expressing-new-eigenvectors-in-terms-of-alpha-rangle-and-beta-rangle" title="Permalink to this heading">#</a></h3>
+<p>The eigenvectors of $ \mathbb{S}_x <span class="math notranslate nohighlight">\( and \)</span> \mathbb{S}_y <span class="math notranslate nohighlight">\( are **not** \)</span> |\alpha\rangle <span class="math notranslate nohighlight">\( and \)</span> |\beta\rangle $.<br />
+But that doesn’t mean they’re unrelated!</p>
+<p>In fact, the new eigenvectors are <strong>linear combinations</strong> (i.e., superpositions) of the basis states <span class="math notranslate nohighlight">\( |\alpha\rangle \)</span> and <span class="math notranslate nohighlight">\( |\beta\rangle \)</span>.<br />
+This reflects the idea that the spin eigenstates along the x- and y-axes can be written in terms of the z-basis.</p>
+</section>
+<hr class="docutils" />
+<section id="how-can-we-test-this">
+<h3>🧪 How Can We Test This?<a class="headerlink" href="#how-can-we-test-this" title="Permalink to this heading">#</a></h3>
+<p>Each eigenvector from <code class="docutils literal notranslate"><span class="pre">vecs_x</span></code> or <code class="docutils literal notranslate"><span class="pre">vecs_y</span></code> should be expressible as:</p>
+<div class="math notranslate nohighlight">
+\[
+|\chi\rangle = c_1 |\alpha\rangle + c_2 |\beta\rangle
+\]</div>
+<p>This means we can <strong>project</strong> each eigenvector onto the z-basis to extract <span class="math notranslate nohighlight">\( c_1 \)</span> and $ c_2 $.<br />
+Mathematically, this looks like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="n">bra_alpha</span> <span class="o">@</span> <span class="n">eigvec</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">bra_beta</span> <span class="o">@</span> <span class="n">eigvec</span>
+</pre></div>
+</div>
+<p>You can then reconstruct the eigenvector using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reconstructed</span> <span class="o">=</span> <span class="n">c1</span> <span class="o">*</span> <span class="n">ket_alpha</span> <span class="o">+</span> <span class="n">c2</span> <span class="o">*</span> <span class="n">ket_beta</span>
+</pre></div>
+</div>
+<p>If your reconstruction is numerically close to the original eigenvector, then your basis decomposition is correct!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Choose one of the eigenvectors from Sx </span>
+<span class="n">eigvec</span> <span class="o">=</span> <span class="n">vecs_x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># for example</span>
+
+<span class="c1"># TODO: Compute components (projections onto alpha and beta)</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># TODO: Reconstruct the eigenvector from the z-basis</span>
+<span class="n">reconstructed</span> <span class="o">=</span> <span class="n">c1</span> <span class="o">*</span> <span class="n">ket_alpha</span> <span class="o">+</span> <span class="n">c2</span> <span class="o">*</span> <span class="n">ket_beta</span>
+
+<span class="c1"># Print and compare</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original eigenvector:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eigvec</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reconstructed eigenvector:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reconstructed</span><span class="p">)</span>
+
+<span class="c1"># Are they close?</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Are they equal?&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">eigvec</span><span class="p">,</span> <span class="n">reconstructed</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="expectation-values">
+<h2>📈 Expectation Values<a class="headerlink" href="#expectation-values" title="Permalink to this heading">#</a></h2>
+<p>In quantum mechanics, an <strong>expectation value</strong> is the average result you’d expect to obtain if you repeatedly measured a quantum observable on a system in a given state.</p>
+<p>It is written as a <strong>bra-ket sandwich</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle n | \hat{O} | m \rangle
+\]</div>
+<p>If the bra and ket are the <strong>same</strong> state (i.e. <span class="math notranslate nohighlight">\( |n\rangle = |m\rangle \)</span>), this gives the expectation value of operator <span class="math notranslate nohighlight">\( \hat{O} \)</span> in that state.</p>
+<hr class="docutils" />
+<p>In Python, using NumPy arrays, this looks like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">expectation_value</span> <span class="o">=</span> <span class="n">bra</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Operator</span> <span class="o">@</span> <span class="n">ket</span>
+</pre></div>
+</div>
+<section id="id1">
+<h3>Expectation values<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Another important operation in quantum mechanics is the computation of an expectation value, which can be written as a bra-ket sandwiching an operator:</p>
+<div class="math notranslate nohighlight">
+\[ \langle n | \hat{O}| m \rangle. \]</div>
+<p>The result will depend on what <span class="math notranslate nohighlight">\(\hat{O}\)</span> does to <span class="math notranslate nohighlight">\(|m\rangle\)</span>, and how the resulting ket projects upon <span class="math notranslate nohighlight">\(\langle n|\)</span>.</p>
+<p>We can use the different eigenvectors from our last block as kets, and their adjoints as bras, along with the matrix form of the operators to compute these operations.</p>
+<p><code class="docutils literal notranslate"><span class="pre">expectation_value</span> <span class="pre">=</span> <span class="pre">bra</span> <span class="pre">&#64;</span> <span class="pre">Operator</span> <span class="pre">&#64;</span> <span class="pre">ket</span></code></p>
+</section>
+<section id="function-to-compute-expectation-value">
+<h3>🧪 Function to Compute Expectation Value<a class="headerlink" href="#function-to-compute-expectation-value" title="Permalink to this heading">#</a></h3>
+<p>Let’s write a function that computes an <strong>expectation value</strong> of the form:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle \psi | \hat{O} | \psi \rangle
+\]</div>
+<p>This function will take:</p>
+<ul class="simple">
+<li><p>a <strong>bra</strong> (row vector),</p></li>
+<li><p>an <strong>operator</strong> (2×2 matrix),</p></li>
+<li><p>a <strong>ket</strong> (column vector),</p></li>
+</ul>
+<p>and return the resulting <strong>scalar expectation value</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="follow-these-design-recipe-steps">
+<h3>✅ Follow These Design Recipe Steps<a class="headerlink" href="#follow-these-design-recipe-steps" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Header</strong></p>
+<ul class="simple">
+<li><p>What should we name the function?</p></li>
+<li><p>What arguments should it take, and what types should they be?</p></li>
+</ul>
+</li>
+<li><p><strong>Purpose</strong></p>
+<ul class="simple">
+<li><p>Write one sentence describing what this function does.</p></li>
+</ul>
+</li>
+<li><p><strong>Examples</strong></p>
+<ul class="simple">
+<li><p>Add at least 2 examples that show different inputs and expected outputs.</p></li>
+</ul>
+</li>
+<li><p><strong>Body</strong></p>
+<ul class="simple">
+<li><p>Implement the formula for the expectation value:<br />
+$<span class="math notranslate nohighlight">\(
+\langle \text{bra} | \hat{O} | \text{ket} \rangle
+\)</span>$</p></li>
+</ul>
+</li>
+<li><p><strong>Test</strong></p>
+<ul class="simple">
+<li><p>Run your examples to check if the function returns the correct values.</p></li>
+</ul>
+</li>
+<li><p><strong>Debug / Iterate</strong></p>
+<ul class="simple">
+<li><p>Did your function pass your tests?</p></li>
+<li><p>If not, revise it and try again until it works!</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Write a function to compute expectation value &lt;bra|Op|ket&gt;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_expectation</span><span class="p">(</span><span class="n">bra</span><span class="p">,</span> <span class="n">Operator</span><span class="p">,</span> <span class="n">ket</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the quantum mechanical expectation value ⟨bra|Operator|ket⟩.</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    bra : 1D or 2D numpy array (row vector)</span>
+<span class="sd">    Operator : 2D numpy array</span>
+<span class="sd">    ket : 1D or 2D numpy array (column vector)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    expectation : complex or float scalar</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">expectation</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="k">return</span> <span class="n">expectation</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Question 5:</strong> If we associate <span class="math notranslate nohighlight">\(|\alpha^{x}\rangle\)</span> with <code class="docutils literal notranslate"><span class="pre">vec_x[:,1]</span></code>, what is the expectation value corresponding to <span class="math notranslate nohighlight">\(\langle \alpha^{x} | \hat{S}_x | \alpha^{x} \rangle \)</span>?</p>
+<p><strong>Question 6:</strong> If we associate <span class="math notranslate nohighlight">\(|\alpha^{y}\rangle\)</span> with <code class="docutils literal notranslate"><span class="pre">vec_y[:,1]</span></code>, what is the expectation value corresponding to <span class="math notranslate nohighlight">\(\langle \alpha^{y} | \hat{S}_z | \alpha^{y}\rangle \)</span>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Assign specific eigenvectors</span>
+<span class="n">ket_x_alpha</span> <span class="o">=</span> <span class="n">vecs_x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">bra_x_alpha</span> <span class="o">=</span> <span class="n">ket_x_alpha</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">ket_y_alpha</span> <span class="o">=</span> <span class="n">vecs_y</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">bra_y_alpha</span> <span class="o">=</span> <span class="n">ket_y_alpha</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+
+<span class="c1"># TODO: Compute expectation values</span>
+<span class="n">expect_x</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">expect_z</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⟨x_alpha| Sx |x_alpha⟩ =&quot;</span><span class="p">,</span> <span class="n">expect_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⟨y_alpha| Sz |y_alpha⟩ =&quot;</span><span class="p">,</span> <span class="n">expect_z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="commutators-and-compatibility">
+<h3>🔁 Commutators and Compatibility<a class="headerlink" href="#commutators-and-compatibility" title="Permalink to this heading">#</a></h3>
+<p>Later in PHYS 3141, we’ll explore the <strong>generalized uncertainty principle</strong>. One of the most important mathematical tools in that formulation is the <strong>commutator</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="what-is-a-commutator">
+<h3>🧮 What Is a Commutator?<a class="headerlink" href="#what-is-a-commutator" title="Permalink to this heading">#</a></h3>
+<p>For two operators <span class="math notranslate nohighlight">\( \hat{A} \)</span> and <span class="math notranslate nohighlight">\( \hat{B} \)</span>, the <strong>commutator</strong> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+[\hat{A}, \hat{B}] = \hat{A} \hat{B} - \hat{B} \hat{A}
+\]</div>
+<p>This same formula applies directly to <strong>matrices</strong> representing those operators.</p>
+</section>
+<hr class="docutils" />
+<section id="key-facts-about-commutators">
+<h3>🧠 Key Facts About Commutators<a class="headerlink" href="#key-facts-about-commutators" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>If <span class="math notranslate nohighlight">\([\hat{A}, \hat{B}] = 0 \)</span>, we say that <strong><span class="math notranslate nohighlight">\( \hat{A} \)</span> and <span class="math notranslate nohighlight">\( \hat{B} \)</span> commute</strong>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\( [\hat{A}, \hat{B}] \ne 0 \)</span>, the operators <strong>do not commute</strong>.</p></li>
+<li><p><strong>Commuting operators share the same set of eigenstates</strong> (their matrices share the same eigenvectors).</p></li>
+<li><p><strong>Commuting observables</strong> are called <strong>compatible observables</strong>: you can simultaneously know their values with <strong>unlimited precision</strong>.</p></li>
+<li><p><strong>Non-commuting operators</strong> correspond to <strong>incompatible observables</strong>: there is a strict limit on how precisely you can know both values at the same time.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="commutation-relations-of-spin-operators">
+<h3>📐 Commutation Relations of Spin Operators<a class="headerlink" href="#commutation-relations-of-spin-operators" title="Permalink to this heading">#</a></h3>
+<p>The spin operators obey the following famous commutation relations:</p>
+<div class="math notranslate nohighlight">
+\[
+[\hat{S}_x, \hat{S}_y] = i\hbar \hat{S}_z
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+[\hat{S}_y, \hat{S}_z] = i\hbar \hat{S}_x
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+[\hat{S}_z, \hat{S}_x] = i\hbar \hat{S}_y
+\]</div>
+<p>These relations tell us that <strong>no pair of spin components is compatible</strong> — there’s inherent uncertainty in knowing any two simultaneously.</p>
+</section>
+<hr class="docutils" />
+<section id="conceptual-questions">
+<h3>🧠 Conceptual Questions<a class="headerlink" href="#conceptual-questions" title="Permalink to this heading">#</a></h3>
+<p><strong>Q7:</strong> Are the observables corresponding to <span class="math notranslate nohighlight">\(\hat{S}_x \)</span> compatible with those corresponding to <span class="math notranslate nohighlight">\( \hat{S}_y \)</span>?<br />
+<em>Explain your reasoning using the commutator.</em></p>
+<p><strong>Q8:</strong> Verify numerically that the <strong>matrix versions</strong> of <span class="math notranslate nohighlight">\( \hat{S}_x, \hat{S}_y, \hat{S}_z \)</span> obey the same commutation relations.<br />
+You can compute matrix products using either of the following equivalent syntaxes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SxSy</span> <span class="o">=</span> <span class="n">Sx</span> <span class="o">@</span> <span class="n">Sy</span>      <span class="c1"># recommended</span>
+<span class="c1"># or</span>
+<span class="n">SxSy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Sx</span><span class="p">,</span> <span class="n">Sy</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 🚧 TODO: Compute the commutators for the spin matrices</span>
+
+<span class="c1"># [Sx, Sy] = Sx Sy - Sy Sx</span>
+<span class="n">comm_Sx_Sy</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">expected_Sx_Sy</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">hbar</span> <span class="o">*</span> <span class="n">Sz</span>
+
+<span class="c1"># [Sy, Sz] = Sy Sz - Sz Sy</span>
+<span class="n">comm_Sy_Sz</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">expected_Sy_Sz</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">hbar</span> <span class="o">*</span> <span class="n">Sx</span>
+
+<span class="c1"># [Sz, Sx] = Sz Sx - Sx Sz</span>
+<span class="n">comm_Sz_Sx</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">expected_Sz_Sx</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">hbar</span> <span class="o">*</span> <span class="n">Sy</span>
+
+<span class="c1"># 🚧 TODO: Compare results using np.allclose</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Does [Sx, Sy] = iħ Sz?&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">comm_Sx_Sy</span><span class="p">,</span> <span class="n">expected_Sx_Sy</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Does [Sy, Sz] = iħ Sx?&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">comm_Sy_Sz</span><span class="p">,</span> <span class="n">expected_Sy_Sz</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Does [Sz, Sx] = iħ Sy?&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">comm_Sz_Sx</span><span class="p">,</span> <span class="n">expected_Sz_Sx</span><span class="p">))</span>
+
+<span class="c1"># Optional: Print the raw commutators to inspect</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[Sx, Sy] =</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">comm_Sx_Sy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expected:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">expected_Sx_Sy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ESCIP/escip.github.io",
+            ref: "jbook",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/chem"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="CO_Fundamental_DR.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">CO Fundamental Transition with Design Recipe</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../phys/phys.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Physics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Spin 1/2 with Design Recipe</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-statements">Import statements</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-matrices-spinors-and-spin-matrices">Numpy matrices: Spinors and spin matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-the-bra-ket">Computing the bra-ket</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-task">🚧 Your Task</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bra-ket-inner-product-practice">🧪 Bra-Ket Inner Product Practice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-sz-operator">🧩 Define the Sz Operator</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-vector-products-operator-action-on-states">🧮 Matrix-Vector Products: Operator Action on States</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-your-operator-function">🧪 Test Your Operator Function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hermitian-matrices">🔁 Hermitian Matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalues-and-eigenvectors">🎯 Eigenvalues and Eigenvectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-eigenvectors">📐 What Are Eigenvectors?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">📌 Next Steps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-matrices-for-mathbb-s-x-and-mathbb-s-y">🏗️ Define Matrices for <span class="math notranslate nohighlight">\(\mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-vector-products-are-alpha-rangle-and-beta-rangle-eigenvectors-of-mathbb-s-x-and-mathbb-s-y">🎯 Matrix-Vector Products: Are <span class="math notranslate nohighlight">\( |\alpha\rangle \)</span> and <span class="math notranslate nohighlight">\( |\beta\rangle \)</span> Eigenvectors of <span class="math notranslate nohighlight">\(\mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span>?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-to-consider">Questions to consider</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-eigh-to-compute-eigenvalues-and-eigenvectors-of-mathbb-s-x-and-mathbb-s-y">🧮 Use <code class="docutils literal notranslate"><span class="pre">eigh()</span></code> to Compute Eigenvalues and Eigenvectors of <span class="math notranslate nohighlight">\( \mathbb{S}_x \)</span> and <span class="math notranslate nohighlight">\( \mathbb{S}_y \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expressing-new-eigenvectors-in-terms-of-alpha-rangle-and-beta-rangle">🔄 Expressing New Eigenvectors in Terms of <span class="math notranslate nohighlight">\( |\alpha\rangle \)</span> and <span class="math notranslate nohighlight">\( |\beta\rangle \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-we-test-this">🧪 How Can We Test This?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expectation-values">📈 Expectation Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Expectation values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-to-compute-expectation-value">🧪 Function to Compute Expectation Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#follow-these-design-recipe-steps">✅ Follow These Design Recipe Steps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commutators-and-compatibility">🔁 Commutators and Compatibility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-commutator">🧮 What Is a Commutator?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-facts-about-commutators">🧠 Key Facts About Commutators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commutation-relations-of-spin-operators">📐 Commutation Relations of Spin Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-questions">🧠 Conceptual Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ESCIP Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

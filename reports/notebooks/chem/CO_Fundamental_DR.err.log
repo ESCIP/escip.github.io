@@ -22,28 +22,35 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# change the index values below to pick molecules with and without a carbonyl
-idx_hasCarbonyl=1
-idx_notCarbonyl=0
-# get the data for the two molecules
-hasCarbonyl=train.set_index('name').iloc[idx_hasCarbonyl,3:]
-notCarbonyl=train.set_index('name').iloc[idx_notCarbonyl,3:] 
-# plot the spectra
-fig = go.Figure()
-fig.add_trace(go.Scatter(x=hasCarbonyl.index, y=hasCarbonyl, name=hasCarbonyl.name,mode='markers'))
-fig.add_trace(go.Scatter(x=notCarbonyl.index, y=notCarbonyl,name=notCarbonyl.name,mode='markers'))
-fig.update_layout(title='Intensities over frequency',title_x=0.5)
+import numpy as np
+import matplotlib.pyplot as plt
+
+r_values = np.linspace(0.2 * r_eq_au, 2.5 * r_eq_au, 500)
+V_values = evaluate_Morse(r_values, De_au, beta_au, r_eq_au)
+
+plt.plot(r_values, V_values, label="Morse Potential")
+plt.axhline(0, color='gray', linestyle='--')
+plt.axhline(0.4127, color='red', linestyle='--', label=r"$D_e$ (Dissociation Energy)")
+plt.axvline(2.132, color='green', linestyle='--', label=r"$r_{eq}$ (Equilibrium Bond Length)")
+
+plt.xlabel("Bond Length (au)")
+plt.ylabel("Potential Energy (au)")
+plt.title("Morse Potential for CO Molecule")
+plt.tight_layout()
+plt.legend()
+plt.ylim(-0.05, 0.45)
+plt.show()
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[9], line 8[0m
-[1;32m      6[0m notCarbonyl[38;5;241m=[39mtrain[38;5;241m.[39mset_index([38;5;124m'[39m[38;5;124mname[39m[38;5;124m'[39m)[38;5;241m.[39miloc[idx_notCarbonyl,[38;5;241m3[39m:] 
-[1;32m      7[0m [38;5;66;03m# plot the spectra[39;00m
-[0;32m----> 8[0m fig [38;5;241m=[39m [43mgo[49m[38;5;241m.[39mFigure()
-[1;32m      9[0m fig[38;5;241m.[39madd_trace(go[38;5;241m.[39mScatter(x[38;5;241m=[39mhasCarbonyl[38;5;241m.[39mindex, y[38;5;241m=[39mhasCarbonyl, name[38;5;241m=[39mhasCarbonyl[38;5;241m.[39mname,mode[38;5;241m=[39m[38;5;124m'[39m[38;5;124mmarkers[39m[38;5;124m'[39m))
-[1;32m     10[0m fig[38;5;241m.[39madd_trace(go[38;5;241m.[39mScatter(x[38;5;241m=[39mnotCarbonyl[38;5;241m.[39mindex, y[38;5;241m=[39mnotCarbonyl,name[38;5;241m=[39mnotCarbonyl[38;5;241m.[39mname,mode[38;5;241m=[39m[38;5;124m'[39m[38;5;124mmarkers[39m[38;5;124m'[39m))
+Cell [0;32mIn[3], line 4[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mplt[39;00m
+[0;32m----> 4[0m r_values [38;5;241m=[39m np[38;5;241m.[39mlinspace([38;5;241m0.2[39m [38;5;241m*[39m [43mr_eq_au[49m, [38;5;241m2.5[39m [38;5;241m*[39m r_eq_au, [38;5;241m500[39m)
+[1;32m      5[0m V_values [38;5;241m=[39m evaluate_Morse(r_values, De_au, beta_au, r_eq_au)
+[1;32m      7[0m plt[38;5;241m.[39mplot(r_values, V_values, label[38;5;241m=[39m[38;5;124m"[39m[38;5;124mMorse Potential[39m[38;5;124m"[39m)
 
-[0;31mNameError[0m: name 'go' is not defined
+[0;31mNameError[0m: name 'r_eq_au' is not defined
 
