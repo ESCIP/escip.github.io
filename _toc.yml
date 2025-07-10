@@ -39,7 +39,9 @@ parts:
     - file: notebooks/chem/carbonyl_binary_classification
     - file: notebooks/chem/CO_Fundamental
     - file: notebooks/chem/Spin_one_half_solutions
-  
+    - file: notebooks/chem/CO_Fundamental_DR
+    - file: notebooks/chem/Spin_one_half_DR 
+ 
   - file: notebooks/phys/phys
     sections:
     - file: notebooks/phys/fourier_transform
