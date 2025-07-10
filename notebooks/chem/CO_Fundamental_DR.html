@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chem/CO_Fundamental_DR';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Spin 1/2 with Design Recipe" href="Spin_one_half_DR.html" />
-    <link rel="prev" title="Spin 1/2 Using NumPy" href="Spin_one_half_solutions.html" />
+    <link rel="next" title="Physics" href="../phys/phys.html" />
+    <link rel="prev" title="Spin 1/2 with Design Recipe" href="Spin_one_half_DR.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -227,14 +227,14 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="Spin_one_half_solutions.html">Spin 1/2 Using NumPy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CO_Fundamental.html">CO Fundamental Transition</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="Spin_one_half_solutions.html">Spin 1/2 Using NumPy</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">CO Fundamental Transition with Design Recipe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Spin_one_half_DR.html">Spin 1/2 with Design Recipe</a></li>
 
 
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">CO Fundamental Transition with Design Recipe</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -505,6 +505,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-and-motivation-for-using-the-design-recipe">Overview and Motivation for Using the Design Recipe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-design-recipe-step-by-step">The Design Recipe: Step-by-Step</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-and-theory">Background and Theory</a></li>
@@ -542,6 +544,36 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="co-fundamental-transition-with-design-recipe">
 <h1>CO Fundamental Transition with Design Recipe<a class="headerlink" href="#co-fundamental-transition-with-design-recipe" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://foleylab.github.io/">Jay Foley, University of North Carolina Charlotte</a></p>
+<section id="overview-and-motivation-for-using-the-design-recipe">
+<h2>Overview and Motivation for Using the Design Recipe<a class="headerlink" href="#overview-and-motivation-for-using-the-design-recipe" title="Permalink to this heading">#</a></h2>
+<p>This notebook introduces a structured pedagogical approach to function design known as the <a class="reference external" href="https://course.ccs.neu.edu/cs2500f18/design_recipe.html">Design Recipe</a>. The Design Recipe provides a systematic framework for helping students design, implement, and test functions in a clear, repeatable way.</p>
+<p>The motivation for adopting this approach is supported by findings from a recent study by <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.jchemed.4c00219">Fuchs, McDonald, Gautam, and Kzerouni (2024)</a>, which explored barriers students face when learning programming in the disciplinary context of Physical Chemistry. Key challenges identified include:</p>
+<ul class="simple">
+<li><p>Difficulty transferring programming knowledge to new problems and representations</p></li>
+<li><p>Lack of structured strategies for approaching programming tasks</p></li>
+</ul>
+<p>The authors recommend that instructors explicitly teach the skills of <strong>abstraction</strong>, <strong>decomposition</strong>, and <strong>metacognitive awareness</strong> to help students overcome these challenges. The Design Recipe offers a concrete instructional tool to implement this recommendation. By breaking down the process of function creation into clear steps, it encourages students to think critically and systematically—skills that are essential across disciplines.</p>
+<hr class="docutils" />
+</section>
+<section id="the-design-recipe-step-by-step">
+<h2>The Design Recipe: Step-by-Step<a class="headerlink" href="#the-design-recipe-step-by-step" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Header</strong><br />
+Define the function’s name, input parameters, and their data types. Also specify the data type of the return value.</p></li>
+<li><p><strong>Purpose</strong><br />
+Provide a concise, one-sentence description of what the function is intended to do.</p></li>
+<li><p><strong>Examples</strong><br />
+Supply one or more examples showing how the function should be called and what it should return. These serve both as documentation and as test cases.</p></li>
+<li><p><strong>Body</strong><br />
+Write the function logic, using the header, purpose, and examples as your guide.</p></li>
+<li><p><strong>Test</strong><br />
+Execute your example cases to verify correctness. Think critically about edge cases and incorporate additional tests as needed.</p></li>
+<li><p><strong>Debug/Iterate</strong><br />
+If the function fails a test, revisit your logic and syntax. Add more targeted test cases to isolate and resolve errors. Iterate until the function performs as expected.</p></li>
+</ol>
+<hr class="docutils" />
+<p>We will illustrate this process with functions relevant to modeling the vibrational spectroscopy of the carbon monoxide molecule!</p>
+</section>
 <section id="learning-outcomes">
 <h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
 <p>By the end of this workbook, students should be able to:</p>
@@ -563,13 +595,13 @@ document.write(`
 <section id="background-and-theory">
 <h2>Background and Theory<a class="headerlink" href="#background-and-theory" title="Permalink to this heading">#</a></h2>
 <p>We model the vibrational Hamiltonian as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e00ec5c5-36a9-41b0-bf50-2b5e8a438bb4">
-<span class="eqno">(42)<a class="headerlink" href="#equation-e00ec5c5-36a9-41b0-bf50-2b5e8a438bb4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5982f334-e019-4a9f-825c-154bbb8ac7e9">
+<span class="eqno">(48)<a class="headerlink" href="#equation-5982f334-e019-4a9f-825c-154bbb8ac7e9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hat{H}_{vib} = -\frac{\hbar^2}{2\mu} \frac{d^2}{dr^2} + V_{Morse}(r),
 \end{equation}\]</div>
 <p>where the Morse potential is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e9987aaf-7a8b-42fd-ae48-bc5f94c1911d">
-<span class="eqno">(43)<a class="headerlink" href="#equation-e9987aaf-7a8b-42fd-ae48-bc5f94c1911d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-818b5584-871c-4c28-9977-2d44d7b375aa">
+<span class="eqno">(49)<a class="headerlink" href="#equation-818b5584-871c-4c28-9977-2d44d7b375aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_{Morse}(r) = D_e \left( 1 - e^{-\beta (r - r_{eq})} \right)^2.
 \end{equation}\]</div>
 <p>The parameters for CO are:</p>
@@ -593,18 +625,18 @@ V_T(r) = \sum_{n=0}^\infty \frac{f^{(n)}(r_{eq})}{n!} (r - r_{eq})^n,
 \)</span>$</p>
 <p>where <span class="math notranslate nohighlight">\(f^{(n)}(r_{eq})\)</span> is the <span class="math notranslate nohighlight">\(n^{th}\)</span>-order derivative of the Morse potential evaluated at the equilibrium bondlength, e.g. <span class="math notranslate nohighlight">\(f^{(1)}(r_{eq}) = \frac{d}{dr}V_{Morse}(r_{eq}).\)</span></p>
 <p>We can define the harmonic oscillator model by truncating this Taylor series at the quadratic term,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-05d88abd-a401-4ec0-8408-dcb2e835df24">
-<span class="eqno">(44)<a class="headerlink" href="#equation-05d88abd-a401-4ec0-8408-dcb2e835df24" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d79d6ddc-9f50-417e-b552-30f5502cfc43">
+<span class="eqno">(50)<a class="headerlink" href="#equation-d79d6ddc-9f50-417e-b552-30f5502cfc43" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_H(r) =  \frac{ f^{''}(r_{eq})}{2} \left(r-r_{eq} \right)^2 = \frac{1}{2} k \left(r-r_{eq} \right)^2 
 \end{equation}\]</div>
 <p>the cubic approximation to the potential as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-58b5afd8-d46f-42c8-97ce-e78235f43368">
-<span class="eqno">(45)<a class="headerlink" href="#equation-58b5afd8-d46f-42c8-97ce-e78235f43368" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c45d8713-5a9e-416c-a825-5ca81ae4242f">
+<span class="eqno">(51)<a class="headerlink" href="#equation-c45d8713-5a9e-416c-a825-5ca81ae4242f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_C(r) =  V_H(r) + \frac{ f^{'''}(r_{eq})}{6} \left(r-r_{eq} \right)^3 = V_H(r) + \frac{1}{6} g \left(r-r_{eq} \right)^3,   
 \end{equation}\]</div>
 <p>and the quartic approximation as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f5fbbad0-b333-413c-bf11-e45d7b320524">
-<span class="eqno">(46)<a class="headerlink" href="#equation-f5fbbad0-b333-413c-bf11-e45d7b320524" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7e95731f-eef9-406c-b68f-8b8c1d83b425">
+<span class="eqno">(52)<a class="headerlink" href="#equation-7e95731f-eef9-406c-b68f-8b8c1d83b425" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_Q(r) =  V_C(r) + \frac{ f^{''''}(r_{eq})}{24} \left(r-r_{eq} \right)^4 =  V_C(r) + \frac{1}{24}h(r-r_{eq})^4.  
 \end{equation}\]</div>
 <p>As we have already seen, the harmonic oscillator has an exact solution, as does the Morse potential.  The quartic and qubit oscillators do not have exact solutions, but they can be approximated using perturbation theory, as we will see later!</p>
@@ -914,8 +946,8 @@ Implement the formula for the Morse potential:
 <h3>Expanding the Morse Potential as a Taylor Series<a class="headerlink" href="#expanding-the-morse-potential-as-a-taylor-series" title="Permalink to this heading">#</a></h3>
 <p>In the following block, we will compute the analytical <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(g\)</span>, and <span class="math notranslate nohighlight">\(h\)</span> terms defined in the Taylor series expansion of the Morse potential. We will also compare the value of <span class="math notranslate nohighlight">\(k\)</span> computed analytically to the value computed numerically.</p>
 <p>Recall that <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(g\)</span>, and <span class="math notranslate nohighlight">\(h\)</span> are the second, third, and fourth derivatives of the Morse potential with respect to <span class="math notranslate nohighlight">\(r\)</span> evaluated at <span class="math notranslate nohighlight">\(r_{eq}\)</span>. These derivatives can be expressed in terms of the Morse parameters as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6a8659c7-f3f6-4cd4-a7ce-323d54b786e2">
-<span class="eqno">(47)<a class="headerlink" href="#equation-6a8659c7-f3f6-4cd4-a7ce-323d54b786e2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ced13af2-7b63-4f27-992a-102ff65b335a">
+<span class="eqno">(53)<a class="headerlink" href="#equation-ced13af2-7b63-4f27-992a-102ff65b335a" title="Permalink to this equation">#</a></span>\[\begin{align}
 k &amp;= 2 D_e \beta^2 \\
 g &amp;= -6 D_e \beta^3 \\
 h &amp;= 14 D_e \beta^4
@@ -949,8 +981,8 @@ h &amp;= 14 D_e \beta^4
 <p>Therefore, numerical differentiation techniques, such as finite difference methods, are invaluable tools to estimate these derivatives directly from computed potential energy values.</p>
 <p>In this exercise, we will use a centered finite difference approach with a 5-point stencil to numerically approximate the second, third, and fourth derivatives of the Morse potential at the equilibrium bond length, <span class="math notranslate nohighlight">\(r_{eq}\)</span>.</p>
 <p>The formulas for these derivatives at <span class="math notranslate nohighlight">\(r_{eq}\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0dd12f2-0709-4e88-94e8-e661dcac42f2">
-<span class="eqno">(48)<a class="headerlink" href="#equation-b0dd12f2-0709-4e88-94e8-e661dcac42f2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f6a1f4ed-84b7-44e6-87a3-fe54b5821f6b">
+<span class="eqno">(54)<a class="headerlink" href="#equation-f6a1f4ed-84b7-44e6-87a3-fe54b5821f6b" title="Permalink to this equation">#</a></span>\[\begin{align}
 k_{\text{num}} &amp;= \frac{-f_{i-2} + 16 f_{i-1} - 30 f_i + 16 f_{i+1} - f_{i+2}}{12 h^2} \\
 g_{\text{num}} &amp;= \frac{-f_{i-2} + 2 f_{i-1} - 2 f_{i+1} + f_{i+2}}{2 h^3} \\
 h_{\text{num}} &amp;= \frac{f_{i-2} - 4 f_{i-1} + 6 f_i - 4 f_{i+1} + f_{i+2}}{h^4}
@@ -1273,20 +1305,20 @@ E_n = \hbar \omega \left( n + \frac{1}{2} \right).
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Spin_one_half_solutions.html"
+       href="Spin_one_half_DR.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Spin 1/2 Using NumPy</p>
+        <p class="prev-next-title">Spin 1/2 with Design Recipe</p>
       </div>
     </a>
     <a class="right-next"
-       href="Spin_one_half_DR.html"
+       href="../phys/phys.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Spin 1/2 with Design Recipe</p>
+        <p class="prev-next-title">Physics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1305,6 +1337,8 @@ E_n = \hbar \omega \left( n + \frac{1}{2} \right).
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-and-motivation-for-using-the-design-recipe">Overview and Motivation for Using the Design Recipe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-design-recipe-step-by-step">The Design Recipe: Step-by-Step</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-and-theory">Background and Theory</a></li>

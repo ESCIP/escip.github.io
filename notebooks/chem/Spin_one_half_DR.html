@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chem/Spin_one_half_DR';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Physics" href="../phys/phys.html" />
-    <link rel="prev" title="CO Fundamental Transition with Design Recipe" href="CO_Fundamental_DR.html" />
+    <link rel="next" title="CO Fundamental Transition with Design Recipe" href="CO_Fundamental_DR.html" />
+    <link rel="prev" title="CO Fundamental Transition" href="CO_Fundamental.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -227,14 +227,14 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="Spin_one_half_solutions.html">Spin 1/2 Using NumPy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CO_Fundamental.html">CO Fundamental Transition</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="Spin_one_half_solutions.html">Spin 1/2 Using NumPy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CO_Fundamental_DR.html">CO Fundamental Transition with Design Recipe</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Spin 1/2 with Design Recipe</a></li>
 
 
+<li class="toctree-l2"><a class="reference internal" href="CO_Fundamental_DR.html">CO Fundamental Transition with Design Recipe</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -506,6 +506,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Spin 1/2 with Design Recipe</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-and-motivation-for-using-the-design-recipe">Overview and Motivation for Using the Design Recipe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-design-recipe-step-by-step">The Design Recipe: Step-by-Step</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
@@ -563,6 +565,36 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="spin-1-2-with-design-recipe">
 <h1>Spin 1/2 with Design Recipe<a class="headerlink" href="#spin-1-2-with-design-recipe" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://foleylab.github.io/">Jay Foley, University of North Carolina Charlotte</a></p>
+<section id="overview-and-motivation-for-using-the-design-recipe">
+<h2>Overview and Motivation for Using the Design Recipe<a class="headerlink" href="#overview-and-motivation-for-using-the-design-recipe" title="Permalink to this heading">#</a></h2>
+<p>This notebook introduces a structured pedagogical approach to function design known as the <a class="reference external" href="https://course.ccs.neu.edu/cs2500f18/design_recipe.html">Design Recipe</a>. The Design Recipe provides a systematic framework for helping students design, implement, and test functions in a clear, repeatable way.</p>
+<p>The motivation for adopting this approach is supported by findings from a recent study by <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.jchemed.4c00219">Fuchs, McDonald, Gautam, and Kzerouni (2024)</a>, which explored barriers students face when learning programming in the disciplinary context of Physical Chemistry. Key challenges identified include:</p>
+<ul class="simple">
+<li><p>Difficulty transferring programming knowledge to new problems and representations</p></li>
+<li><p>Lack of structured strategies for approaching programming tasks</p></li>
+</ul>
+<p>The authors recommend that instructors explicitly teach the skills of <strong>abstraction</strong>, <strong>decomposition</strong>, and <strong>metacognitive awareness</strong> to help students overcome these challenges. The Design Recipe offers a concrete instructional tool to implement this recommendation. By breaking down the process of function creation into clear steps, it encourages students to think critically and systematically—skills that are essential across disciplines.</p>
+<hr class="docutils" />
+</section>
+<section id="the-design-recipe-step-by-step">
+<h2>The Design Recipe: Step-by-Step<a class="headerlink" href="#the-design-recipe-step-by-step" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Header</strong><br />
+Define the function’s name, input parameters, and their data types. Also specify the data type of the return value.</p></li>
+<li><p><strong>Purpose</strong><br />
+Provide a concise, one-sentence description of what the function is intended to do.</p></li>
+<li><p><strong>Examples</strong><br />
+Supply one or more examples showing how the function should be called and what it should return. These serve both as documentation and as test cases.</p></li>
+<li><p><strong>Body</strong><br />
+Write the function logic, using the header, purpose, and examples as your guide.</p></li>
+<li><p><strong>Test</strong><br />
+Execute your example cases to verify correctness. Think critically about edge cases and incorporate additional tests as needed.</p></li>
+<li><p><strong>Debug/Iterate</strong><br />
+If the function fails a test, revisit your logic and syntax. Add more targeted test cases to isolate and resolve errors. Iterate until the function performs as expected.</p></li>
+</ol>
+<hr class="docutils" />
+<p>We will illustrate this process first with a few simple examples first, and then will utilize it throughout the notebook in the context of standard quantum computations on spin 1/2 systems.</p>
+</section>
 <section id="learning-outcomes">
 <h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
 <p>By the end of this workbook, students should be able to</p>
@@ -623,17 +655,6 @@ In this workbook, we will introduce matrix representations of each of these comp
 </pre></div>
 </div>
 <p><strong>Important</strong> Your function must be indented relative to the <code class="docutils literal notranslate"><span class="pre">def</span></code> statement.</p>
-<p>We will use a practice called <a class="reference external" href="https://www.cs.toronto.edu/~ahchinaei/teaching/20165/csc148/function_design_recipe.pdf">Design Recipe</a> to design our functions.<br />
-The Design Recipe can be implemented in the following steps:</p>
-<ol class="arabic simple">
-<li><p><strong>Header:</strong> Define the function’s name, input parameters, and their data types. Specify the data type of the return value.</p></li>
-<li><p><strong>Purpose:</strong> Write a concise one-line description explaining the function’s purpose.</p></li>
-<li><p><strong>Examples:</strong> Provide examples of how to call the function with different inputs and the expected outputs. These examples will be used to test the function.</p></li>
-<li><p><strong>Body:</strong> Write the actual code that implements the function’s logic, based on the header, purpose, and examples.</p></li>
-<li><p><strong>Test</strong> Test your function aon all your example cases; try to identify additional tricky cases.</p></li>
-<li><p><strong>Debug/Iterate</strong> If your tests fail, re-read your code, check your logic, check your syntax, and fix any mistakes that you catch.  If you cannot catch mistakes, think about additional test cases that can help reveal flaws in your logic.  Continue until your function passes tests.</p></li>
-</ol>
-<p>We will illustrate this process by examining a function that will print a message some specified number of times, and also return the repeated message.  We want the repeated message to be printed all on a single line, and we do not want any spaces between the sub-messages.</p>
 <p>Let’s go through this step-by-step:</p>
 <ol class="arabic simple">
 <li><p><strong>Header</strong> Doest the function name make sense?  Are the input parameters adequate for what we will need to pass to the function?  Is the return statement adequate for what we want the function to return?</p></li>
@@ -704,16 +725,16 @@ PChem
 we will use 2-dimensional numpy matrices with
 a single column and multiple rows to denote a column vector as a representation of a ket.  We can take the Hermitian conjugate of our kets to get bras, which are represented as row vectors.</p>
 <p>Here we will introduce the vector representation of special spin states (spinors) that have precise value of z-spin, that is, they are the eigenstates of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ddf37b81-027d-4993-9948-7b295f34c8e3">
-<span class="eqno">(49)<a class="headerlink" href="#equation-ddf37b81-027d-4993-9948-7b295f34c8e3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dfe69a4f-561a-4801-8986-0c462556f4d8">
+<span class="eqno">(42)<a class="headerlink" href="#equation-dfe69a4f-561a-4801-8986-0c462556f4d8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\alpha \rangle=
 \begin{bmatrix}
   1 \\
   0 \\
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-28f77064-06d0-4219-b1b4-bd945b3642a2">
-<span class="eqno">(50)<a class="headerlink" href="#equation-28f77064-06d0-4219-b1b4-bd945b3642a2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fc86583f-cf49-45d7-8359-919729009749">
+<span class="eqno">(43)<a class="headerlink" href="#equation-fc86583f-cf49-45d7-8359-919729009749" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\beta \rangle =
 \begin{bmatrix}
   0 \\
@@ -907,8 +928,8 @@ we are using <span class="math notranslate nohighlight">\(\chi_n\)</span> and <s
 <section id="define-the-sz-operator">
 <h3>🧩 Define the Sz Operator<a class="headerlink" href="#define-the-sz-operator" title="Permalink to this heading">#</a></h3>
 <p>The spin operator <span class="math notranslate nohighlight">\(S_z\)</span> for a spin-½ particle is defined as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-864d4e4c-d85b-428f-8b66-ba7d05a92f21">
-<span class="eqno">(51)<a class="headerlink" href="#equation-864d4e4c-d85b-428f-8b66-ba7d05a92f21" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-67cccebb-0c7a-4c9c-8d3a-d586da96294e">
+<span class="eqno">(44)<a class="headerlink" href="#equation-67cccebb-0c7a-4c9c-8d3a-d586da96294e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_z = \frac{\hbar}{2}
 \begin{bmatrix}
 1 &amp; 0 \\
@@ -940,8 +961,8 @@ we are using <span class="math notranslate nohighlight">\(\chi_n\)</span> and <s
 <section id="matrix-vector-products-operator-action-on-states">
 <h2>🧮 Matrix-Vector Products: Operator Action on States<a class="headerlink" href="#matrix-vector-products-operator-action-on-states" title="Permalink to this heading">#</a></h2>
 <p>An important property of the basis kets <span class="math notranslate nohighlight">\(|\alpha \rangle\)</span> and <span class="math notranslate nohighlight">\(|\beta \rangle\)</span> is that they are <strong>eigenstates</strong> of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-42ce91a1-3fae-41e7-af46-2672d6a37f1f">
-<span class="eqno">(52)<a class="headerlink" href="#equation-42ce91a1-3fae-41e7-af46-2672d6a37f1f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5fb35cf2-e0a7-43e6-899a-9d6357c65c05">
+<span class="eqno">(45)<a class="headerlink" href="#equation-5fb35cf2-e0a7-43e6-899a-9d6357c65c05" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hat{S}_z |\alpha \rangle = +\frac{\hbar}{2}|\alpha \rangle
 \quad\text{and}\quad
 \hat{S}_z |\beta \rangle = -\frac{\hbar}{2}|\beta \rangle
@@ -985,8 +1006,8 @@ Let’s build a function to apply any matrix operator to a ket state.</p>
 <section id="test-your-operator-function">
 <h3>🧪 Test Your Operator Function<a class="headerlink" href="#test-your-operator-function" title="Permalink to this heading">#</a></h3>
 <p>Let’s test your <code class="docutils literal notranslate"><span class="pre">compute_operator_on_state</span></code> function by applying the spin operator <span class="math notranslate nohighlight">\(S_z\)</span> to each basis state:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4928778a-7a5c-4b53-a8d6-92ad34710a5b">
-<span class="eqno">(53)<a class="headerlink" href="#equation-4928778a-7a5c-4b53-a8d6-92ad34710a5b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b86dd392-23d8-4ee2-90b2-304f23b0a880">
+<span class="eqno">(46)<a class="headerlink" href="#equation-b86dd392-23d8-4ee2-90b2-304f23b0a880" title="Permalink to this equation">#</a></span>\[\begin{equation}
 S_z |\alpha\rangle = \frac{\hbar}{2} |\alpha\rangle, \quad
 S_z |\beta\rangle = -\frac{\hbar}{2} |\beta\rangle
 \end{equation}\]</div>
@@ -1037,8 +1058,8 @@ S_z |\beta\rangle = -\frac{\hbar}{2} |\beta\rangle
 <section id="hermitian-matrices">
 <h2>🔁 Hermitian Matrices<a class="headerlink" href="#hermitian-matrices" title="Permalink to this heading">#</a></h2>
 <p>In quantum mechanics, operators are represented by <strong>Hermitian matrices</strong>. These matrices have a special property:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37b15b48-e6d3-45a0-923e-b65b86ece0b1">
-<span class="eqno">(54)<a class="headerlink" href="#equation-37b15b48-e6d3-45a0-923e-b65b86ece0b1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dd76d5e1-89c1-489f-a998-8866d8fb2f49">
+<span class="eqno">(47)<a class="headerlink" href="#equation-dd76d5e1-89c1-489f-a998-8866d8fb2f49" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A^\dagger = A
 \end{equation}\]</div>
 <p>That is, a Hermitian matrix is <strong>equal to its own adjoint</strong> (or Hermitian transpose), which is defined as the <strong>complex conjugate transpose</strong>.</p>
@@ -1525,20 +1546,20 @@ You can compute matrix products using either of the following equivalent syntaxe
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="CO_Fundamental_DR.html"
+       href="CO_Fundamental.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">CO Fundamental Transition with Design Recipe</p>
+        <p class="prev-next-title">CO Fundamental Transition</p>
       </div>
     </a>
     <a class="right-next"
-       href="../phys/phys.html"
+       href="CO_Fundamental_DR.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Physics</p>
+        <p class="prev-next-title">CO Fundamental Transition with Design Recipe</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1558,6 +1579,8 @@ You can compute matrix products using either of the following equivalent syntaxe
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Spin 1/2 with Design Recipe</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-and-motivation-for-using-the-design-recipe">Overview and Motivation for Using the Design Recipe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-design-recipe-step-by-step">The Design Recipe: Step-by-Step</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>

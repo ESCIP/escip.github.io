@@ -68,8 +68,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/chem/Spin_one_half_solutions';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="CO Fundamental Transition with Design Recipe" href="CO_Fundamental_DR.html" />
-    <link rel="prev" title="CO Fundamental Transition" href="CO_Fundamental.html" />
+    <link rel="next" title="CO Fundamental Transition" href="CO_Fundamental.html" />
+    <link rel="prev" title="Carbonyl Binary Classification" href="carbonyl_binary_classification.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -227,14 +227,14 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Spin 1/2 Using NumPy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CO_Fundamental.html">CO Fundamental Transition</a></li>
 
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Spin 1/2 Using NumPy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CO_Fundamental_DR.html">CO Fundamental Transition with Design Recipe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Spin_one_half_DR.html">Spin 1/2 with Design Recipe</a></li>
 
 
+<li class="toctree-l2"><a class="reference internal" href="CO_Fundamental_DR.html">CO Fundamental Transition with Design Recipe</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../phys/phys.html">Physics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -583,16 +583,16 @@ In this workbook, we will introduce matrix representations of each of these comp
 we will use 2-dimensional numpy matrices with
 a single column and multiple rows to denote a column vector as a representation of a ket.  We can take the Hermitian conjugate of our kets to get bras, which are represented as row vectors.</p>
 <p>Here we will introduce the vector representation of special spin states (spinors) that have precise value of z-spin, that is, they are the eigenstates of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c84ac350-43e3-4917-ad5a-3e5239ec6f8d">
-<span class="eqno">(35)<a class="headerlink" href="#equation-c84ac350-43e3-4917-ad5a-3e5239ec6f8d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3c4e26ca-a00e-46a5-bab4-f95f8851dff5">
+<span class="eqno">(21)<a class="headerlink" href="#equation-3c4e26ca-a00e-46a5-bab4-f95f8851dff5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\alpha}^{(z)} \rangle=
 \begin{bmatrix}
   1 \\
   0 \\
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-96261327-6042-4299-a1cc-fe63972bcf74">
-<span class="eqno">(36)<a class="headerlink" href="#equation-96261327-6042-4299-a1cc-fe63972bcf74" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6f6321a4-d5dd-4442-b0f3-5b1dbbe233df">
+<span class="eqno">(22)<a class="headerlink" href="#equation-6f6321a4-d5dd-4442-b0f3-5b1dbbe233df" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\chi_{\beta}^{(z)}\rangle =
 \begin{bmatrix}
   0 \\
@@ -724,8 +724,8 @@ Printing shape of &lt;alpha|
 <p>We will use 2-dimensional numpy arrays with
 a an equal number of rows and columns to denote square matrices.<br />
 Let’s use as an example matrix representation of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4869c1b9-4c1a-4188-a33b-50841abb9b68">
-<span class="eqno">(37)<a class="headerlink" href="#equation-4869c1b9-4c1a-4188-a33b-50841abb9b68" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8fa96c71-0f6b-4c53-bb9b-2bbd974c0443">
+<span class="eqno">(23)<a class="headerlink" href="#equation-8fa96c71-0f6b-4c53-bb9b-2bbd974c0443" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_z = \frac{\hbar}{2}
 \begin{bmatrix}
   1 &amp; 0 \\
@@ -845,8 +845,8 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 <section id="build-matrix-form-of-mathbb-s-x-and-mathbb-s-y">
 <h3>Build matrix form of <span class="math notranslate nohighlight">\(\mathbb{S}_x\)</span> and <span class="math notranslate nohighlight">\(\mathbb{S}_y\)</span><a class="headerlink" href="#build-matrix-form-of-mathbb-s-x-and-mathbb-s-y" title="Permalink to this heading">#</a></h3>
 <p>The operator <span class="math notranslate nohighlight">\(\hat{S}_x\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a6488235-2aac-415c-8d4a-9907c2359220">
-<span class="eqno">(38)<a class="headerlink" href="#equation-a6488235-2aac-415c-8d4a-9907c2359220" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-069d0200-1b0f-43fb-99f0-b98f060384e7">
+<span class="eqno">(24)<a class="headerlink" href="#equation-069d0200-1b0f-43fb-99f0-b98f060384e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_x = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; 1 \\
@@ -854,8 +854,8 @@ basis kets <span class="math notranslate nohighlight">\(|\chi_{\alpha}^{(z)}\ran
 \end{bmatrix}
 \end{equation}\]</div>
 <p>and the operator <span class="math notranslate nohighlight">\(\hat{S}_y\)</span> has the matrix form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3f9d619d-3821-4a69-b438-dd1e44d32940">
-<span class="eqno">(39)<a class="headerlink" href="#equation-3f9d619d-3821-4a69-b438-dd1e44d32940" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4527b97f-fd2c-44ea-8849-0a2fccaeee3c">
+<span class="eqno">(25)<a class="headerlink" href="#equation-4527b97f-fd2c-44ea-8849-0a2fccaeee3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_y = \frac{\hbar}{2}
 \begin{bmatrix}
   0 &amp; -i \\
@@ -1127,16 +1127,16 @@ Printing difference between [Sz,Sx] and i\hbar Sy
 </div>
 </div>
 <p>The spin matrices we have seen can be written in terms of the Pauli matrices as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37833d8b-aaba-4b41-8778-f9483ca58a3a">
-<span class="eqno">(40)<a class="headerlink" href="#equation-37833d8b-aaba-4b41-8778-f9483ca58a3a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1dba0fba-11f4-469a-a657-410ecd657ea7">
+<span class="eqno">(26)<a class="headerlink" href="#equation-1dba0fba-11f4-469a-a657-410ecd657ea7" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{S}_x = \frac{\hbar}{2}\mathbf{\sigma}_x \\
 \mathbb{S}_y = \frac{\hbar}{2}\mathbf{\sigma}_y \\
 \mathbb{S}_z = \frac{\hbar}{2}\mathbf{\sigma}_z.
 \end{align}\]</div>
 <p>Among other things, the Pauli matrices play an important role in quantum information, and specifically comprise important <a class="reference external" href="https://en.wikipedia.org/wiki/Quantum_logic_gate">quantum gates</a>.</p>
 <p>As one example, the so-called Hadamard gate can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f333a0ee-f667-4e93-a76d-d9930b123b03">
-<span class="eqno">(41)<a class="headerlink" href="#equation-f333a0ee-f667-4e93-a76d-d9930b123b03" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3533d441-2770-4e5b-abff-f0c8cd60b9bf">
+<span class="eqno">(27)<a class="headerlink" href="#equation-3533d441-2770-4e5b-abff-f0c8cd60b9bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{H} = \frac{1}{\sqrt{2}} \left( \mathbf{\sigma}_x + \mathbf{\sigma}_z \right) \tag.
 \end{equation}\]</div>
 <p><strong>Question 9:</strong> Demonstrate numerically that <span class="math notranslate nohighlight">\(\mathbb{H} |\chi_{\alpha}^{z}\rangle = |\chi_{\alpha}^{x}\rangle \)</span>
@@ -1177,20 +1177,20 @@ and that <span class="math notranslate nohighlight">\(\mathbb{H} |\chi_{\beta}^{
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="CO_Fundamental.html"
+       href="carbonyl_binary_classification.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">CO Fundamental Transition</p>
+        <p class="prev-next-title">Carbonyl Binary Classification</p>
       </div>
     </a>
     <a class="right-next"
-       href="CO_Fundamental_DR.html"
+       href="CO_Fundamental.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">CO Fundamental Transition with Design Recipe</p>
+        <p class="prev-next-title">CO Fundamental Transition</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
