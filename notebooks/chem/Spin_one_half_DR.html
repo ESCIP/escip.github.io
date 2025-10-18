@@ -740,16 +740,16 @@ PChem
 we will use 2-dimensional numpy matrices with
 a single column and multiple rows to denote a column vector as a representation of a ket.  We can take the Hermitian conjugate of our kets to get bras, which are represented as row vectors.</p>
 <p>Here we will introduce the vector representation of special spin states (spinors) that have precise value of z-spin, that is, they are the eigenstates of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1715b9fe-e811-4019-92ee-3eb85aefad50">
-<span class="eqno">(42)<a class="headerlink" href="#equation-1715b9fe-e811-4019-92ee-3eb85aefad50" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7fcb9074-9656-4504-86c9-12e58e6dcfdc">
+<span class="eqno">(42)<a class="headerlink" href="#equation-7fcb9074-9656-4504-86c9-12e58e6dcfdc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\alpha \rangle=
 \begin{bmatrix}
   1 \\
   0 \\
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-8ce702a0-0753-48ae-925c-a98e50b31588">
-<span class="eqno">(43)<a class="headerlink" href="#equation-8ce702a0-0753-48ae-925c-a98e50b31588" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6a3f605e-32b5-48b2-844d-ca0bbf89f9b0">
+<span class="eqno">(43)<a class="headerlink" href="#equation-6a3f605e-32b5-48b2-844d-ca0bbf89f9b0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 |\beta \rangle =
 \begin{bmatrix}
   0 \\
@@ -943,8 +943,8 @@ we are using <span class="math notranslate nohighlight">\(\chi_n\)</span> and <s
 <section id="define-the-sz-operator">
 <h3>🧩 Define the Sz Operator<a class="headerlink" href="#define-the-sz-operator" title="Permalink to this heading">#</a></h3>
 <p>The spin operator <span class="math notranslate nohighlight">\(S_z\)</span> for a spin-½ particle is defined as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5a0e6299-e09e-4def-a306-43d164430459">
-<span class="eqno">(44)<a class="headerlink" href="#equation-5a0e6299-e09e-4def-a306-43d164430459" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5d6ef7af-cdca-4d73-9cf1-3cc9dfca09f5">
+<span class="eqno">(44)<a class="headerlink" href="#equation-5d6ef7af-cdca-4d73-9cf1-3cc9dfca09f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbb{S}_z = \frac{\hbar}{2}
 \begin{bmatrix}
 1 &amp; 0 \\
@@ -976,8 +976,8 @@ we are using <span class="math notranslate nohighlight">\(\chi_n\)</span> and <s
 <section id="matrix-vector-products-operator-action-on-states">
 <h2>🧮 Matrix-Vector Products: Operator Action on States<a class="headerlink" href="#matrix-vector-products-operator-action-on-states" title="Permalink to this heading">#</a></h2>
 <p>An important property of the basis kets <span class="math notranslate nohighlight">\(|\alpha \rangle\)</span> and <span class="math notranslate nohighlight">\(|\beta \rangle\)</span> is that they are <strong>eigenstates</strong> of the <span class="math notranslate nohighlight">\(\hat{S}_z\)</span> operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-83f38643-9fc8-4e3c-88d0-1f0b1f872b25">
-<span class="eqno">(45)<a class="headerlink" href="#equation-83f38643-9fc8-4e3c-88d0-1f0b1f872b25" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-50f669c2-e38c-40c7-8b1e-4cdeffc55fa8">
+<span class="eqno">(45)<a class="headerlink" href="#equation-50f669c2-e38c-40c7-8b1e-4cdeffc55fa8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hat{S}_z |\alpha \rangle = +\frac{\hbar}{2}|\alpha \rangle
 \quad\text{and}\quad
 \hat{S}_z |\beta \rangle = -\frac{\hbar}{2}|\beta \rangle
@@ -1021,8 +1021,8 @@ Let’s build a function to apply any matrix operator to a ket state.</p>
 <section id="test-your-operator-function">
 <h3>🧪 Test Your Operator Function<a class="headerlink" href="#test-your-operator-function" title="Permalink to this heading">#</a></h3>
 <p>Let’s test your <code class="docutils literal notranslate"><span class="pre">compute_operator_on_state</span></code> function by applying the spin operator <span class="math notranslate nohighlight">\(S_z\)</span> to each basis state:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9468be7e-c97e-4d99-8686-617441e43829">
-<span class="eqno">(46)<a class="headerlink" href="#equation-9468be7e-c97e-4d99-8686-617441e43829" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a9541b67-c083-4655-814f-9f1f9d32705f">
+<span class="eqno">(46)<a class="headerlink" href="#equation-a9541b67-c083-4655-814f-9f1f9d32705f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 S_z |\alpha\rangle = \frac{\hbar}{2} |\alpha\rangle, \quad
 S_z |\beta\rangle = -\frac{\hbar}{2} |\beta\rangle
 \end{equation}\]</div>
@@ -1073,8 +1073,8 @@ S_z |\beta\rangle = -\frac{\hbar}{2} |\beta\rangle
 <section id="hermitian-matrices">
 <h2>🔁 Hermitian Matrices<a class="headerlink" href="#hermitian-matrices" title="Permalink to this heading">#</a></h2>
 <p>In quantum mechanics, operators are represented by <strong>Hermitian matrices</strong>. These matrices have a special property:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bbd37d6b-f835-4be0-84af-46fe2a8e07e0">
-<span class="eqno">(47)<a class="headerlink" href="#equation-bbd37d6b-f835-4be0-84af-46fe2a8e07e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-33473a5b-8c34-4973-a0c1-e8173ee32148">
+<span class="eqno">(47)<a class="headerlink" href="#equation-33473a5b-8c34-4973-a0c1-e8173ee32148" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A^\dagger = A
 \end{equation}\]</div>
 <p>That is, a Hermitian matrix is <strong>equal to its own adjoint</strong> (or Hermitian transpose), which is defined as the <strong>complex conjugate transpose</strong>.</p>

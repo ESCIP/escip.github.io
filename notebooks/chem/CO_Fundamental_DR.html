@@ -610,20 +610,20 @@ If the function fails a test, revisit your logic and syntax. Add more targeted t
 <section id="background-and-theory">
 <h2>Background and Theory<a class="headerlink" href="#background-and-theory" title="Permalink to this heading">#</a></h2>
 <p>We model the vibrational Hamiltonian as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-04ab3553-ebd4-4df2-8bdc-a2858b1da39e">
-<span class="eqno">(48)<a class="headerlink" href="#equation-04ab3553-ebd4-4df2-8bdc-a2858b1da39e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a4f78f16-7218-40db-ac9e-0b790d4f524d">
+<span class="eqno">(48)<a class="headerlink" href="#equation-a4f78f16-7218-40db-ac9e-0b790d4f524d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hat{H}_{vib} = -\frac{\hbar^2}{2\mu} \frac{d^2}{dr^2} + V_{Morse}(r),
 \end{equation}\]</div>
 <p>where the Morse potential is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-838cf8fe-aec4-418b-a689-c1a70ea83794">
-<span class="eqno">(49)<a class="headerlink" href="#equation-838cf8fe-aec4-418b-a689-c1a70ea83794" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aafc21aa-afe0-4423-a88f-a32003864f26">
+<span class="eqno">(49)<a class="headerlink" href="#equation-aafc21aa-afe0-4423-a88f-a32003864f26" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_{Morse}(r) = D_e \left( 1 - e^{-\beta (r - r_{eq})} \right)^2.
 \end{equation}\]</div>
 <p>The parameters for CO are:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(D_e = 11.225 \text{ eV}\)</span> (dissociation energy)</p></li>
 <li><p><span class="math notranslate nohighlight">\(r_{eq} = 1.1283 \text{ Å}\)</span> (equilibrium bond length)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\beta = 2.5944 \text{ Å}^{-1}\)</span> (potential curvature)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta = 2.3000 \text{ Å}^{-1}\)</span> (potential curvature)</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mu = 6.8606 \text{ amu}\)</span> (reduced mass)</p></li>
 </ul>
 <p>The exact energy levels are given by:<br />
@@ -640,18 +640,18 @@ V_T(r) = \sum_{n=0}^\infty \frac{f^{(n)}(r_{eq})}{n!} (r - r_{eq})^n,
 \)</span>$</p>
 <p>where <span class="math notranslate nohighlight">\(f^{(n)}(r_{eq})\)</span> is the <span class="math notranslate nohighlight">\(n^{th}\)</span>-order derivative of the Morse potential evaluated at the equilibrium bondlength, e.g. <span class="math notranslate nohighlight">\(f^{(1)}(r_{eq}) = \frac{d}{dr}V_{Morse}(r_{eq}).\)</span></p>
 <p>We can define the harmonic oscillator model by truncating this Taylor series at the quadratic term,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b51bf1d5-ea51-4e33-9de6-fc7ff86350b5">
-<span class="eqno">(50)<a class="headerlink" href="#equation-b51bf1d5-ea51-4e33-9de6-fc7ff86350b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ff4df0cf-8f20-4b01-b3a3-4f578f019679">
+<span class="eqno">(50)<a class="headerlink" href="#equation-ff4df0cf-8f20-4b01-b3a3-4f578f019679" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_H(r) =  \frac{ f^{''}(r_{eq})}{2} \left(r-r_{eq} \right)^2 = \frac{1}{2} k \left(r-r_{eq} \right)^2 
 \end{equation}\]</div>
 <p>the cubic approximation to the potential as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cd84f669-80a5-4eb4-acdb-dd54b2924cad">
-<span class="eqno">(51)<a class="headerlink" href="#equation-cd84f669-80a5-4eb4-acdb-dd54b2924cad" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5f874d72-b2fb-4775-a643-9a839e644125">
+<span class="eqno">(51)<a class="headerlink" href="#equation-5f874d72-b2fb-4775-a643-9a839e644125" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_C(r) =  V_H(r) + \frac{ f^{'''}(r_{eq})}{6} \left(r-r_{eq} \right)^3 = V_H(r) + \frac{1}{6} g \left(r-r_{eq} \right)^3,   
 \end{equation}\]</div>
 <p>and the quartic approximation as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fb1ff50b-f4f7-41b0-a8d0-b02b97accaa2">
-<span class="eqno">(52)<a class="headerlink" href="#equation-fb1ff50b-f4f7-41b0-a8d0-b02b97accaa2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-92a767d4-7d8b-415b-8c4b-2489a97bd7b5">
+<span class="eqno">(52)<a class="headerlink" href="#equation-92a767d4-7d8b-415b-8c4b-2489a97bd7b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 V_Q(r) =  V_C(r) + \frac{ f^{''''}(r_{eq})}{24} \left(r-r_{eq} \right)^4 =  V_C(r) + \frac{1}{24}h(r-r_{eq})^4.  
 \end{equation}\]</div>
 <p>As we have already seen, the harmonic oscillator has an exact solution, as does the Morse potential.  The quartic and qubit oscillators do not have exact solutions, but they can be approximated using perturbation theory, as we will see later!</p>
@@ -680,7 +680,7 @@ V_Q(r) =  V_C(r) + \frac{ f^{''''}(r_{eq})}{24} \left(r-r_{eq} \right)^4 =  V_C(
 </tr>
 <tr class="row-even"><td><p>Potential Curvature</p></td>
 <td><p><span class="math notranslate nohighlight">\(\beta\)</span></p></td>
-<td><p>2.5944</p></td>
+<td><p>2.3000</p></td>
 <td><p>inverse angstroms (<span class="math notranslate nohighlight">\(\text{Å}^{-1}\)</span>)</p></td>
 </tr>
 <tr class="row-odd"><td><p>Reduced Mass</p></td>
@@ -791,7 +791,7 @@ r_{eq} (\text{au}) = \frac{1.1283}{0.529177} \approx 2.132
 <span class="c1"># Given parameters in common units:</span>
 <span class="n">De_eV</span> <span class="o">=</span> <span class="mf">11.225</span>
 <span class="n">r_eq_ang</span> <span class="o">=</span> <span class="mf">1.1283</span>
-<span class="n">beta_inv_ang</span> <span class="o">=</span> <span class="mf">2.5944</span>
+<span class="n">beta_inv_ang</span> <span class="o">=</span> <span class="mf">2.3000</span>
 <span class="n">mu_amu</span> <span class="o">=</span> <span class="mf">6.8606</span>
 
 <span class="c1"># Conversion factors:</span>
@@ -961,8 +961,8 @@ Implement the formula for the Morse potential:
 <h3>Expanding the Morse Potential as a Taylor Series<a class="headerlink" href="#expanding-the-morse-potential-as-a-taylor-series" title="Permalink to this heading">#</a></h3>
 <p>In the following block, we will compute the analytical <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(g\)</span>, and <span class="math notranslate nohighlight">\(h\)</span> terms defined in the Taylor series expansion of the Morse potential. We will also compare the value of <span class="math notranslate nohighlight">\(k\)</span> computed analytically to the value computed numerically.</p>
 <p>Recall that <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(g\)</span>, and <span class="math notranslate nohighlight">\(h\)</span> are the second, third, and fourth derivatives of the Morse potential with respect to <span class="math notranslate nohighlight">\(r\)</span> evaluated at <span class="math notranslate nohighlight">\(r_{eq}\)</span>. These derivatives can be expressed in terms of the Morse parameters as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-377e44e0-8f23-4a08-baaa-4a67fed8f26f">
-<span class="eqno">(53)<a class="headerlink" href="#equation-377e44e0-8f23-4a08-baaa-4a67fed8f26f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-64505de2-0beb-4e64-be50-1b881eefeb8c">
+<span class="eqno">(53)<a class="headerlink" href="#equation-64505de2-0beb-4e64-be50-1b881eefeb8c" title="Permalink to this equation">#</a></span>\[\begin{align}
 k &amp;= 2 D_e \beta^2 \\
 g &amp;= -6 D_e \beta^3 \\
 h &amp;= 14 D_e \beta^4
@@ -996,8 +996,8 @@ h &amp;= 14 D_e \beta^4
 <p>Therefore, numerical differentiation techniques, such as finite difference methods, are invaluable tools to estimate these derivatives directly from computed potential energy values.</p>
 <p>In this exercise, we will use a centered finite difference approach with a 5-point stencil to numerically approximate the second, third, and fourth derivatives of the Morse potential at the equilibrium bond length, <span class="math notranslate nohighlight">\(r_{eq}\)</span>.</p>
 <p>The formulas for these derivatives at <span class="math notranslate nohighlight">\(r_{eq}\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1b1ef089-c024-4aae-862e-218611fb9f17">
-<span class="eqno">(54)<a class="headerlink" href="#equation-1b1ef089-c024-4aae-862e-218611fb9f17" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-69fac9b8-dafa-481a-aab1-d0c08be20fb6">
+<span class="eqno">(54)<a class="headerlink" href="#equation-69fac9b8-dafa-481a-aab1-d0c08be20fb6" title="Permalink to this equation">#</a></span>\[\begin{align}
 k_{\text{num}} &amp;= \frac{-f_{i-2} + 16 f_{i-1} - 30 f_i + 16 f_{i+1} - f_{i+2}}{12 h^2} \\
 g_{\text{num}} &amp;= \frac{-f_{i-2} + 2 f_{i-1} - 2 f_{i+1} + f_{i+2}}{2 h^3} \\
 h_{\text{num}} &amp;= \frac{f_{i-2} - 4 f_{i-1} + 6 f_i - 4 f_{i+1} + f_{i+2}}{h^4}
