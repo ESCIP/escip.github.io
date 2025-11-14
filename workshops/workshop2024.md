@@ -5,7 +5,7 @@
 :::{admonition} **ESCIP2024 will be held at Iowa State University from May 30-31, 2024**
 
 - The central theme of ESCIP2024 workshop is devising new strategies for teaching scientific computing at the time where ChatGPT and similiar disruptive generative AI technologies are changing the way we learn and solve problems.  
-- The workshop will be a combination of keynote and lightning talks, work in small groups, brainstorming sessions and also a training program for anyone interested in learning the best practices for using python based computaation in undergraduate STEM courses. 
+- The workshop will be a combination of keynote and lightning talks, work in small groups, brainstorming sessions and also a training program for anyone interested in learning the best practices for using python based computation in undergraduate STEM courses. 
 - Research Corporation for Science Advancement (RCSA) is sponsoring the event. Funding will be used to cover the travel and meals during the event. 
 - Registration to attend is free but you must RSVP to reserve a spot! **please fill out the [registration form](https://forms.gle/HbCYMA9KCphwH9Jd8) by April 25, 2024** 
 :::
